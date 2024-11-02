@@ -51,7 +51,14 @@ class DanhMucController
             }
         }
     }
-    public function edit() {}
+    public function edit()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $id = $_GET['id'];
+            $danhmuc = $this->modelDanhMuc->getDanhMucById($id);
+            require_once "./views/danhmuc/edit_danh_muc.php";
+        }
+    }
 
     public function update() {}
 
