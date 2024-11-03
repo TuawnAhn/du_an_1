@@ -94,6 +94,7 @@ class DanhMucController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_POST['danh_muc_id'];
+            var_dump($id);
 
             $this->modelDanhMuc->deleteDanhMuc($id);
 
