@@ -7,11 +7,8 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
-<<<<<<< HEAD
 require_once 'controllers/BannerController.php';
-=======
 require_once 'controllers/ContactController.php';
->>>>>>> 524c3ae967d66f66c4b545b8ecb86c0f4c819d37
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
@@ -32,11 +29,7 @@ match ($act) {
     'form-sua-danh-muc' => (new DanhMucController())->edit(),
     'sua-danh-muc'      => (new DanhMucController())->update(),
     'xoa-danh-muc'      => (new DanhMucController())->destroy(),
-<<<<<<< HEAD
     'banner'            => (new BannerController())->index(),
-   
-};
-=======
     'lien-he' => (new ContactController())->index(),
 }; 
->>>>>>> 524c3ae967d66f66c4b545b8ecb86c0f4c819d37
+
