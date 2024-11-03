@@ -58,6 +58,42 @@ class DanhMuc
         }
     }
 
+    public function getDetailData($id)
+    {
+        try {
+            $sql = "SELECT * FROM tbl_danhmuc WHERE id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':id', $id);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        } catch (PDOException $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
+    }
+    public function updateData($id, $ten_danh_muc, $trang_thai)
+    {
+        try {
+            $sql = "UPDATE tbl_danhmuc SET ten_danh_muc = :ten_danh_muc, trang_thai = :trang_thai WHERE id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':ten_danh_muc', $ten_danh_muc);
+            $stmt->bindParam(':trang_thai', $trang_thai);
+
+            $stmt->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
+    }
+
+
     public function __destroy()
     {
         $this->conn = null;

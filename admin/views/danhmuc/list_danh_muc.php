@@ -102,7 +102,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="javascript:void(0);"
+                                                                        <a href="?act=form-sua-danh-muc&id=<?= $danhmuc['id'] ?>"
                                                                             class="link-success fs-15"><i
                                                                                 class="ri-edit-2-line"></i></a>
 
