@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Danh mục sản phẩm | Sliver Ring</title>
+    <title>Banner | Sliver Ring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -48,7 +48,7 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Banner</h4>
+                                <h4 class="mb-sm-0">Quản lý banner</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
@@ -61,74 +61,164 @@
                         </div>
                     </div>
 
-                   <div>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Quản Lý Banner</title>
-</head>
-<body>
-    <h1>Quản Lý Banner</h1>
-    
-    <h2>Thêm Banner Mới</h2>
-    <form action="add_banner.php" method="POST" enctype="multipart/form-data">
-        <label for="title">Tiêu đề:</label><br>
-        <input type="text" id="title" name="title" required><br>
-        
-        <label for="image_url">Hình ảnh:</label><br>
-        <input type="file" id="image_url" name="image_url" accept="image/*" required><br>
-        
-        <label for="link">Liên kết:</label><br>
-        <input type="url" id="link" name="link"><br>
-        
-        <input type="submit" value="Thêm Banner">
-    </form>
-
-    <h2>Danh Sách Banner</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Tiêu đề</th>
-            <th>Hình ảnh</th>
-            <th>Liên kết</th>
-            <th>Hành động</th>
-        </tr>
-      
-        
-        
-    </table>
-</body>
-</html>
-
-<?php
-
-?>
-</div>
-
-                </div>
-                <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Velzon.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
-                            </div>
+                        <div class="col">
+
+                            <div class="h-100">
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Thêm banner</h4>
+                                    </div><!-- end card header -->
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="live-preview">
+                                                        <div class="row g-3">
+                                                            <div class="col-xxl-4 col-md-5">
+                                                                <div>
+                                                                    <label for="title" class="form-label">Tiêu đề</label>
+                                                                    <input type="text" class="form-control" id="title" placeholder="Hãy nhập thêm tiêu đề">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-xxl-4 col-md-5">
+                                                                <div>
+                                                                    <div>
+                                                                        <label for="formFile" class="form-label">Hình ảnh</label>
+                                                                        <input type="file" class="form-control" type="file" id="formFile">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-xxl-4 col-md-5">
+                                                                <div>
+                                                                    <label for="link" class="form-label">Liên kết</label>
+                                                                    <input type="text" class="form-control" id="link" placeholder="liên kết">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-12" style="text-align: center">
+                                                                <button class="btn btn-primary" type="submit" onsubmit="alert('Thêm banner thành công')">Thêm banner</button>
+                                                            </div>
+                                                            <!--end col-->
+                                                        </div>
+                                                        <!--end row-->
+                                                    </div>
+                                                    <div class="d-none code-view">
+                                                        <pre class="language-markup" style="height: 450px;"><code>&lt;!-- Basic Input --&gt;
+&lt;div&gt;
+    &lt;label for=&quot;basiInput&quot; class=&quot;form-label&quot;&gt;Basic Input&lt;/label&gt;
+    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;basiInput&quot;&gt;
+&lt;/div&gt;</code>
+
+<code>&lt;!-- Input with Label --&gt;
+&lt;div&gt;
+    &lt;label for=&quot;labelInput&quot; class=&quot;form-label&quot;&gt;Input with Label&lt;/label&gt;
+    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;labelInput&quot;&gt;
+&lt;/div&gt;</code>
+
+<code>&lt;!-- Input with Placeholder --&gt;
+&lt;div&gt;
+    &lt;label for=&quot;placeholderInput&quot; class=&quot;form-label&quot;&gt;Input with Placeholder&lt;/label&gt;
+    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;placeholderInput&quot; placeholder=&quot;Placeholder&quot;&gt;
+&lt;/div&gt;</code>
+
+<code>&lt;!-- Input with Value --&gt;
+&lt;div&gt;
+    &lt;label for=&quot;valueInput&quot; class=&quot;form-label&quot;&gt;Input with Value&lt;/label&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;valueInput&quot; value=&quot;Input value&quot;&gt;
+&lt;/div&gt;</code>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                    </div>
+                                    <div class="row">
+                                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách banner</h4>
+
+                                    <div class="flex-shrink-0">
+                                        <div class="form-check form-switch form-switch-right form-switch-md">
+                                            <label for="card-tables-showcode" class="form-label text-muted">Show Code</label>
+                                            <input class="form-check-input code-switcher" type="checkbox" id="card-tables-showcode">
+                                        </div>
+                                    </div>
+                                </div><!-- end card header -->
+
+                                <div class="card-body">
+                                    <div class="live-preview">
+                                        <div class="table-responsive table-card">
+                                            <table class="table align-middle table-nowrap table-striped-columns mb-0">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th scope="col" style="width: 46px;">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value="" id="cardtableCheck">
+                                                                <label class="form-check-label" for="cardtableCheck"></label>
+                                                            </div>
+                                                        </th>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Tiêu đề</th>
+                                                        <th scope="col">Hình ảnh </th>
+                                                        <th scope="col">Liên kết</th>
+                                                        <th scope="col">Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><a href="#" class="fw-medium"></a></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><span class="badge bg-success"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                                </div><!-- end card-body -->
+                                            </div><!-- end card -->
+                                        </div><!-- end col -->
+                                    </div><!-- end row -->
+                                    <!-- end col -->
+                                </div>
+                            </div><!-- end card -->
+
+                        </div> <!-- end .h-100-->
+
+                    </div> <!-- end col -->
+                </div>
+
+            </div>
+            <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> © Velzon.
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end d-none d-sm-block">
+                            Design & Develop by Themesbrand
                         </div>
                     </div>
                 </div>
-            </footer>
-        </div>
-        <!-- end main content-->
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
 
     </div>
     <!-- END layout-wrapper -->
