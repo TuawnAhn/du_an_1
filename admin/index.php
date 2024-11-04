@@ -7,10 +7,12 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
+require_once 'controllers/BannerController.php';
 require_once 'controllers/ContactController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
+require_once 'models/Banners.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -27,5 +29,7 @@ match ($act) {
     'form-sua-danh-muc' => (new DanhMucController())->edit(),
     'sua-danh-muc'      => (new DanhMucController())->update(),
     'xoa-danh-muc'      => (new DanhMucController())->destroy(),
+    'banner'            => (new BannerController())->index(),
     'lien-he' => (new ContactController())->index(),
 }; 
+
