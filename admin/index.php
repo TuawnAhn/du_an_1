@@ -9,10 +9,14 @@ require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
 require_once 'controllers/BannerController.php';
 require_once 'controllers/ContactController.php';
+require_once 'controllers/TinTucController.php';
+
+
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/Banners.php';
+require_once 'models/TinTuc.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -21,7 +25,7 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
-    // '/'                 => (new DashboardController())->index(),
+    //'/'                 => (new DashboardController())->index(),
 
     'danh-mucs'         => (new DanhMucController())->index(),
     'form-them-danh-muc' => (new DanhMucController())->create(),
@@ -31,5 +35,11 @@ match ($act) {
     'xoa-danh-muc'      => (new DanhMucController())->destroy(),
     'banner'            => (new BannerController())->index(),
     'lien-he' => (new ContactController())->index(),
+    'tin-tucs'                  => (new TinTucController())->index(),
+    'form-them-tin-tuc'         => (new TinTucController())->create(),
+    'them-tin-tuc'              => (new TinTucController())->store(),
+    'form-sua-tin-tuc'          => (new TinTucController())->edit(),
+    'sua-tin-tuc'               => (new TinTucController())->update(),
+    'xoa-tin-tuc'               => (new TinTucController())->destroy(),
 }; 
 
