@@ -69,3 +69,39 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE `tin_tucs` (
+  `id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `img` text NOT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tin_tucs`
+--
+
+INSERT INTO `tin_tucs` (`id`, `title`, `content`, `img`, `date`) VALUES
+(2, '11 Cách Chọn Mua Trang Sức Làm Quà Tặng Phù Hợp Và Ý Nghĩa Cho Nữ', 'Sự lựa chọn món quà trang sức đúng đắn có thể mang đến nhiều ý nghĩa tuyệt ạn yêu quý.sss', 'jjj.img', '2024-11-08'),
+(5, 'Nhà giả kim 1aaaaa', 'hjjhhjjhj', 'aaaaaaa.img', '2024-11-17');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tin_tucs`
+--
+ALTER TABLE `tin_tucs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tin_tucs`
+--
+ALTER TABLE `tin_tucs`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;

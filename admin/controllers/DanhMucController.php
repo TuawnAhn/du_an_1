@@ -13,7 +13,7 @@ class DanhMucController
     public function index()
     {
         $danhmucs = $this->modelDanhMuc->getAll();
-        var_dump($danhmucs);
+       
 
         require_once "./views/danhmuc/list_danh_muc.php";
     }
