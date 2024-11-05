@@ -49,7 +49,6 @@
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
                                 <h4 class="mb-sm-0">Quản lý banner</h4>
-
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
@@ -65,21 +64,23 @@
                         <div class="col">
 
                             <div class="h-100">
-                                <div class="card">
-                                    <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Thêm banner</h4>
-                                    </div><!-- end card header -->
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Thêm banner</h4>
+                                </div><!-- end card header -->
 
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="live-preview">
-                                                        <div class="row g-3">
+                                <div class="card-body">
+                                    <div class="live-preview">
+                                        <form action="?act=them-banner" method="POST">
+                                            <div class="row">
+                                            <div class="row g-3">
                                                             <div class="col-xxl-4 col-md-5">
                                                                 <div>
                                                                     <label for="title" class="form-label">Tiêu đề</label>
-                                                                    <input type="text" class="form-control" id="title" placeholder="Hãy nhập thêm tiêu đề">
+                                                                    <input type="text" class="form-control" placeholder="Hãy nhập thêm tiêu đề" name="title">
+                                                                    <span class="text-danger">
+                                                                        <?= !empty($_SESSION['errors']['title']) ? $_SESSION['errors']['title'] : ''  ?>
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
@@ -91,98 +92,42 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <!--end col-->
                                                             <div class="col-xxl-4 col-md-5">
                                                                 <div>
                                                                     <label for="link" class="form-label">Liên kết</label>
                                                                     <input type="text" class="form-control" id="link" placeholder="liên kết">
                                                                 </div>
                                                             </div>
+                                                            
                                                             <!--end col-->
+                                                            <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                            <select class="form-select" name="trang_thai">
+                                                                <option selected disabled>Chọn trạng thái</option>
+                                                                <option value="1">Hiển thị</option>
+                                                                <option value="2">Ẩn</option>
+                                                            </select>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
                                                             <div class="col-12" style="text-align: center">
                                                                 <button class="btn btn-primary" type="submit" onsubmit="alert('Thêm banner thành công')">Thêm banner</button>
                                                             </div>
                                                             <!--end col-->
-                                                        </div>
-                                                        <!--end row-->
-                                                    </div>
-                                                    <div class="d-none code-view">
-                                                        <pre class="language-markup" style="height: 450px;"><code>&lt;!-- Basic Input --&gt;
-&lt;div&gt;
-    &lt;label for=&quot;basiInput&quot; class=&quot;form-label&quot;&gt;Basic Input&lt;/label&gt;
-    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;basiInput&quot;&gt;
-&lt;/div&gt;</code>
 
-<code>&lt;!-- Input with Label --&gt;
-&lt;div&gt;
-    &lt;label for=&quot;labelInput&quot; class=&quot;form-label&quot;&gt;Input with Label&lt;/label&gt;
-    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;labelInput&quot;&gt;
-&lt;/div&gt;</code>
-
-<code>&lt;!-- Input with Placeholder --&gt;
-&lt;div&gt;
-    &lt;label for=&quot;placeholderInput&quot; class=&quot;form-label&quot;&gt;Input with Placeholder&lt;/label&gt;
-    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;placeholderInput&quot; placeholder=&quot;Placeholder&quot;&gt;
-&lt;/div&gt;</code>
-
-<code>&lt;!-- Input with Value --&gt;
-&lt;div&gt;
-    &lt;label for=&quot;valueInput&quot; class=&quot;form-label&quot;&gt;Input with Value&lt;/label&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;valueInput&quot; value=&quot;Input value&quot;&gt;
-&lt;/div&gt;</code>
-
-                                                    </div>
-                                                </div>
                                             </div>
-                                        </div>
-                                        <!--end col-->
+                                            
+                                            <!--end row-->
+                                            </form>
                                     </div>
-                                    <div class="row">
-                                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách banner</h4>
-
-                                    <div class="flex-shrink-0">
-                                        <div class="form-check form-switch form-switch-right form-switch-md">
-                                            <label for="card-tables-showcode" class="form-label text-muted">Show Code</label>
-                                            <input class="form-check-input code-switcher" type="checkbox" id="card-tables-showcode">
-                                        </div>
-                                    </div>
-                                </div><!-- end card header -->
-
-                                <div class="card-body">
-                                    <div class="live-preview">
-                                        <div class="table-responsive table-card">
-                                            <table class="table align-middle table-nowrap table-striped-columns mb-0">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th scope="col" style="width: 46px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="cardtableCheck">
-                                                                <label class="form-check-label" for="cardtableCheck"></label>
-                                                            </div>
-                                                        </th>
-                                                        <th scope="col">ID</th>
-                                                        <th scope="col">Tiêu đề</th>
-                                                        <th scope="col">Hình ảnh </th>
-                                                        <th scope="col">Liên kết</th>
-                                                        <th scope="col">Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><a href="#" class="fw-medium"></a></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td><span class="badge bg-success"></span></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                </div>
+                                
+                            </div>
+                                    
                                                 </div><!-- end card-body -->
                                             </div><!-- end card -->
                                         </div><!-- end col -->

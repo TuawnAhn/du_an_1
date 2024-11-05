@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="?act=banner">
+                    <a class="nav-link menu-link" href="?act=banners">
                         <i class="ri-stack-line"></i> <span data-key="t-dashboards">Banner</span>
                     </a>
                 </li>

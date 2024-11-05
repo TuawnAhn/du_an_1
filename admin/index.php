@@ -12,7 +12,7 @@ require_once 'controllers/ContactController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
-require_once 'models/Banners.php';
+require_once 'models/Banner.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -21,15 +21,22 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
-    // '/'                 => (new DashboardController())->index(),
+    '/'                    => (new DashboardController())->index(),
+    //Quan li danh muc
+    'danh-mucs'            => (new DanhMucController())->index(),
+    'form-them-danh-muc'   => (new DanhMucController())->create(),
+    'them-danh-muc'        => (new DanhMucController())->store(),
+    'form-sua-danh-muc'    => (new DanhMucController())->edit(),
+    'sua-danh-muc'         => (new DanhMucController())->update(),
+    'xoa-danh-muc'         => (new DanhMucController())->destroy(),
+    //Quan li lien he
+    // 'lien-he'              => (new ContactController())->index(),
+    //Quan li banner
+    'banners'              => (new BannerController())->index(),
+    'form-them-banner'     => (new BannerController())->create(),
+    'them-banner'          => (new BannerController())->store(),
+    'form-sua-banner'      => (new BannerController())->edit(),
+    'sua-banner'           => (new BannerController())->update(),
+    'xoa-banner'           => (new BannerController())->destroy(),
 
-    'danh-mucs'         => (new DanhMucController())->index(),
-    'form-them-danh-muc' => (new DanhMucController())->create(),
-    'them-danh-muc'     => (new DanhMucController())->store(),
-    'form-sua-danh-muc' => (new DanhMucController())->edit(),
-    'sua-danh-muc'      => (new DanhMucController())->update(),
-    'xoa-danh-muc'      => (new DanhMucController())->destroy(),
-    'banner'            => (new BannerController())->index(),
-    'lien-he' => (new ContactController())->index(),
 }; 
-
