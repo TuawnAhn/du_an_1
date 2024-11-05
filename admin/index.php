@@ -8,11 +8,12 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
 require_once 'controllers/BannerController.php';
-require_once 'controllers/ContactController.php';
+require_once 'controllers/LienHeController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/Banners.php';
+require_once 'models/LienHe.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -30,6 +31,13 @@ match ($act) {
     'sua-danh-muc'      => (new DanhMucController())->update(),
     'xoa-danh-muc'      => (new DanhMucController())->destroy(),
     'banner'            => (new BannerController())->index(),
-    'lien-he' => (new ContactController())->index(),
+
+
+    'lien-he'                  => (new LienHeController())->index(),
+    'form-them-lien-he'         => (new LienHeController())->create(),
+    'them-lien-he'              => (new LienHeController())->store(),
+    'form-sua-lien-he'          => (new LienHeController())->edit(),
+    'sua-lien-he'               => (new LienHeController())->update(),
+    'xoa-lien-he'               => (new LienHeController())->destroy(),
 }; 
 
