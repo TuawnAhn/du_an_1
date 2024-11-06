@@ -42,7 +42,7 @@
 
             <div class="page-content">
                 <div class="container-fluid">
-                <div class="row">
+                    <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
                                 <h4 class="mb-sm-0">Liên Hệ Sản Phẩm</h4>
@@ -62,87 +62,87 @@
                         <div class="col">
 
                             <div class="h-100">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">THêm Liên Hệ</h4>
-                                    
-                                </div><!-- end card header -->
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">THêm Liên Hệ</h4>
 
-                                <div class="card-body">
-                                    <div class="live-preview">
-                                        <form action=?act=them-lien-he method="POST">
+                                    </div><!-- end card header -->
 
-                                            <div class="row">
-                                               
-                                               
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="citynameInput" class="form-label">Tên Liên hệ</label>
-                                                        <input type="text" class="form-control" placeholder="Nhập tên liên hệ" name="ten_lien_he">
-                                                        <span class="text-danger">
-                                                    <? !empty($_SESSION['errors']['tien_lien_he']) ? $_SESSION['errors']['tien_lien_he'] : ' ' ?>
+                                    <div class="card-body">
+                                        <div class="live-preview">
+                                            <form action=?act=them-lien-he method="POST" enctype="multipart/form-data">
 
-                                                        </span>
+                                                <div class="row">
+
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="citynameInput" class="form-label">Tên Liên hệ</label>
+                                                            <input type="text" class="form-control" placeholder="Nhập tên liên hệ" name="ten_lien_he">
+                                                            <span class="text-danger">
+                                                                <? !empty($_SESSION['errors']['tien_lien_he']) ? $_SESSION['errors']['tien_lien_he'] : ' ' ?>
+
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="ForminputState" class="form-label">TRạng thái</label>
-                                                        <select  class="form-select" name="trang_thai">
-                                                            <option selected disabled>Chon trang thái</option>
-                                                            <option value="1">HIển thị</option>
-                                                            <option value="0">Không hiển thị</option>
-                                                        </select>
-                                                        <span class="text-danger">
-                                                    <? !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : ' ' ?>
+                                                    <!--end col-->
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="ForminputState" class="form-label">TRạng thái</label>
+                                                            <select class="form-select" name="trang_thai">
+                                                                <option selected disabled>Chon trang thái</option>
+                                                                <option value="1">HIển thị</option>
+                                                                <option value="0">Không hiển thị</option>
+                                                            </select>
+                                                            <span class="text-danger">
+                                                                <? !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : ' ' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="citynameInput" class="form-label">Nội dung</label>
-                                                        <input type="text" class="form-control" placeholder="Nhập nội dung" name="noi_dung">
-                                                        <span class="text-danger">
-                                                    <? !empty($_SESSION['errors']['noi_dung']) ? $_SESSION['errors']['noi_dung'] : ' ' ?>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="citynameInput" class="form-label">Nội dung</label>
+                                                            <input type="text" class="form-control" placeholder="Nhập nội dung" name="noi_dung">
+                                                            <span class="text-danger">
+                                                                <? !empty($_SESSION['errors']['noi_dung']) ? $_SESSION['errors']['noi_dung'] : ' ' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="citynameInput" class="form-label">Số điện thoại</label>
-                                                        <input type="text" class="form-control" placeholder="Nhập số điện thoại" name="so_dien_thoai">
-                                                        <span class="text-danger">
-                                                    <? !empty($_SESSION['errors']['so_dien_thoai']) ? $_SESSION['errors']['so_dien_thoai'] : ' ' ?>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="citynameInput" class="form-label">Số điện thoại</label>
+                                                            <input type="text" class="form-control" placeholder="Nhập số điện thoại" name="so_dien_thoai">
+                                                            <span class="text-danger">
+                                                                <? !empty($_SESSION['errors']['so_dien_thoai']) ? $_SESSION['errors']['so_dien_thoai'] : ' ' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-lg-12">
-                                                    <div class="text-end">
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <!--end col-->
+                                                    <div class="col-lg-12">
+                                                        <div class="text-end">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
                                                     </div>
+                                                    <!--end col-->
                                                 </div>
-                                                <!--end col-->
-                                            </div>
-                                            <!--end row-->
-                                        </form>
+                                                <!--end row-->
+                                            </form>
+                                        </div>
+
+
                                     </div>
-                                   
-                                    
                                 </div>
-                            </div>
-                        </div> <!-- end col -->
+                            </div> <!-- end col -->
 
-                    
 
-                            </div> <!-- end .h-100-->
 
-                        </div> <!-- end col -->
-                
+                        </div> <!-- end .h-100-->
+
+                    </div> <!-- end col -->
+
                 </div>
                 <!-- container-fluid -->
             </div>
