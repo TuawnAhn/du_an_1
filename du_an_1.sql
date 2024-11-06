@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 03, 2024 at 03:23 PM
+-- Generation Time: Nov 06, 2024 at 10:19 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `du_an_1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banners`
+--
+
+CREATE TABLE `banners` (
+  `id` int NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `hinh_anh` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `lien_ket` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `trang_thai` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `banners`
+--
+
+INSERT INTO `banners` (`id`, `title`, `hinh_anh`, `lien_ket`, `trang_thai`) VALUES
+(1, 'Dây chuyền', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'lili.vn', 1);
 
 -- --------------------------------------------------------
 
@@ -42,8 +63,28 @@ INSERT INTO `tbl_danhmuc` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
 (2, 'Dây chuyền bạc nữ đính đá CZ cá tiên LILI_831944\r\n', 0),
 (5, 'Vòng-Lắc', 1),
 (6, 'Nhẫn', 1),
-(7, 'Dây chuyền', 1),
 (8, 'Bông tai', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tin_tucs`
+--
+
+CREATE TABLE `tin_tucs` (
+  `id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `img` text NOT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tin_tucs`
+--
+
+INSERT INTO `tin_tucs` (`id`, `title`, `content`, `img`, `date`) VALUES
+(2, '11 Cách Chọn Mua Trang Sức Làm Quà Tặng Phù Hợp Và Ý Nghĩa Cho Nữ', 'Sự lựa chọn món quà trang sức đúng đắn có thể mang đến nhiều ý nghĩa tuyệt ạn yêu quý.sss', 'https://lili.vn/wp-content/uploads/2022/07/Nhan-bac-nu-dinh-kim-cuong-Moissanite-Aidan-LILI_335168_5.jpg', '2024-11-08');
 
 --
 -- Indexes for dumped tables
@@ -56,6 +97,12 @@ ALTER TABLE `tbl_danhmuc`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tin_tucs`
+--
+ALTER TABLE `tin_tucs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -64,6 +111,12 @@ ALTER TABLE `tbl_danhmuc`
 --
 ALTER TABLE `tbl_danhmuc`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tin_tucs`
+--
+ALTER TABLE `tin_tucs`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

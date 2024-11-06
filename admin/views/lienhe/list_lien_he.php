@@ -79,6 +79,8 @@
                                                         <th scope="col">Tên liên hệ</th>
                                                         <th scope="col">TRạng thái</th>
                                                         <th scope="col">Action</th>
+                                                        <th scope="col">Số điện thoại</th>
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -110,9 +112,9 @@
                                                                         <a href="?act=form-sua-lien-he&lien_he_id=<?= $lienHe['id']?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                                                         <form action="?act=xoa-lien-he" method="POST"
                                                                         onsubmit="return confirm('bạn đồng ý xóa không')">
-                                                                        <input type="hiden" name="lien_he_id" value="<?= $lienHe['id']?>">
+                                                                        
 
-                                                                        <button type="submit" href="javascript:void(0);" class="link-danger fs-15" style=""><i class="ri-delete-bin-line"></i></button>
+                                                                        <button type="submit" href="javascript:void(0);" class="link-danger fs-15" style="border: none; background: none;"><i class="ri-delete-bin-line"></i></button>
 
                                                                         </form>
                                                                         
