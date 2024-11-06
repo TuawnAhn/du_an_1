@@ -8,10 +8,12 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
 require_once 'controllers/BannerController.php';
+require_once 'controllers/TinTucController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/Banner.php';
+require_once 'models/TinTuc.php';
 
 
 
@@ -39,6 +41,14 @@ match ($act) {
     'form-sua-banner'      => (new BannerController())->edit(),
     'sua-banner'           => (new BannerController())->update(),
     'xoa-banner'           => (new BannerController())->destroy(),
+
+    //Quan li tin tuc
+    'tin-tucs'                  => (new TinTucController())->index(),
+    'form-them-tin-tuc'         => (new TinTucController())->create(),
+    'them-tin-tuc'              => (new TinTucController())->store(),
+    'form-sua-tin-tuc'          => (new TinTucController())->edit(),
+    'sua-tin-tuc'               => (new TinTucController())->update(),
+    'xoa-tin-tuc'               => (new TinTucController())->destroy(),
 
 
 }; 
