@@ -88,17 +88,22 @@
                                                                 <div>
                                                                     <div>
                                                                         <label for="formFile" class="form-label">Hình ảnh</label>
-                                                                        <input type="file" class="form-control" type="file" id="formFile">
+                                                                        <input type="text" class="form-control"  name="hinh_anh">
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['hinh_anh']) ? $_SESSION['errors']['hinh_anh'] : '' ?>
+                                                            </span>
                                                             <div class="col-xxl-4 col-md-5">
                                                                 <div>
                                                                     <label for="link" class="form-label">Liên kết</label>
-                                                                    <input type="text" class="form-control" id="link" placeholder="liên kết">
+                                                                    <input type="text" class="form-control"  placeholder="liên kết" name="lien_ket">
                                                                 </div>
                                                             </div>
-                                                            
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['lien_ket']) ? $_SESSION['errors']['lien_ket'] : '' ?>
+                                                            </span>
                                                             <!--end col-->
                                                             <div class="col-md-6">
                                                         <div class="mb-3">
@@ -120,7 +125,7 @@
                                                             <!--end col-->
 
                                             </div>
-                                            
+                                            </div>
                                             <!--end row-->
                                             </form>
                                     </div>

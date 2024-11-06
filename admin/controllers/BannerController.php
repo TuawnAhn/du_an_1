@@ -34,7 +34,7 @@ class BannerController
             }
 
             if (empty($hinh_anh)) {
-                $errors['hinh_anh'] = 'Liên kết không được để trống';
+                $errors['hinh_anh'] = 'Hình ảnh không được để trống';
             }
 
             if (empty($lien_ket)) {
@@ -82,7 +82,7 @@ class BannerController
             }
 
             if (empty($hinh_anh)) {
-                $errors['hinh_anh'] = 'Liên kết không được để trống';
+                $errors['hinh_anh'] = 'Hình ảnh không được để trống';
             }
 
             if (empty($lien_ket)) {
