@@ -27,7 +27,6 @@ class BannerController
             $lien_ket = $_POST['lien_ket'];
             $trang_thai = $_POST['trang_thai'];
             $errors = [];
-
             // Xử lý file hình ảnh
             if (isset($_FILES['hinh_anh']) && $_FILES['hinh_anh']['error'] == 0) {
                 $targetDir = "uploads/";
@@ -37,31 +36,52 @@ class BannerController
                 } else {
                     $errors['hinh_anh'] = 'Lỗi tải lên ảnh';
                 }
-            } else {
-                $errors['hinh_anh'] = 'Hình ảnh không được để trống';
-            }
+                if (empty($title)) {
+                    $errors['title'] = 'Tiêu đề không được để trống';
+                }
 
-            // Kiểm tra các trường đầu vào
-            if (empty($title)) $errors['title'] = 'Tiêu đề không được để trống';
-            if (empty($lien_ket)) $errors['lien_ket'] = 'Liên kết không được để trống';
-            if (empty($trang_thai)) $errors['trang_thai'] = 'Trạng thái không được để trống';
+                if (empty($hinh_anh)) {
+                    $errors['hinh_anh'] = 'Hình ảnh không được để trống';
+                }
 
-            // Nếu không có lỗi, lưu banner vào CSDL
-            if (empty($errors)) {
-                // Gọi phương thức postBanner để lưu dữ liệu vào CSDL
-                $this->modelBanner->postBanner($title, $hinh_anh, $lien_ket, $trang_thai);
+                if (empty($lien_ket)) {
+                    $errors['lien_ket'] = 'Liên kết không được để trống';
+                }
 
-                // Lưu thông báo thành công vào session
-                $_SESSION['success'] = 'Thêm banner thành công';
+                if (empty($trang_thai)) {
+                    $errors['trang_thai'] = 'Trạng thái không được để trống';
+                }
+                //them du lieu
+                if (empty($errors)) {
+                    $this->modelBanner->postBanner($title, $hinh_anh, $lien_ket, $trang_thai);
+                    unset($_SESSION['errors']);
+                    header("Location: ?act=banners");
+                } else {
+                    $errors['hinh_anh'] = 'Hình ảnh không được để trống';
+                }
 
-                // Redirect về trang danh sách banner
-                header("Location: ?act=banners");
-                exit();
-            } else {
-                // Nếu có lỗi, lưu thông báo lỗi vào session
-                $_SESSION['errors'] = $errors;
-                header("Location: ?act=form-them-banner");
-                exit();
+                // Kiểm tra các trường đầu vào
+                if (empty($title)) $errors['title'] = 'Tiêu đề không được để trống';
+                if (empty($lien_ket)) $errors['lien_ket'] = 'Liên kết không được để trống';
+                if (empty($trang_thai)) $errors['trang_thai'] = 'Trạng thái không được để trống';
+
+                // Nếu không có lỗi, lưu banner vào CSDL
+                if (empty($errors)) {
+                    // Gọi phương thức postBanner để lưu dữ liệu vào CSDL
+                    $this->modelBanner->postBanner($title, $hinh_anh, $lien_ket, $trang_thai);
+
+                    // Lưu thông báo thành công vào session
+                    $_SESSION['success'] = 'Thêm banner thành công';
+
+                    // Redirect về trang danh sách banner
+                    header("Location: ?act=banners");
+                    exit();
+                } else {
+                    // Nếu có lỗi, lưu thông báo lỗi vào session
+                    $_SESSION['errors'] = $errors;
+                    header("Location: ?act=form-them-banner");
+                    exit();
+                }
             }
         }
     }
@@ -99,6 +119,17 @@ class BannerController
             if (empty($title)) $errors['title'] = 'Tiêu đề không được để trống';
             if (empty($lien_ket)) $errors['lien_ket'] = 'Liên kết không được để trống';
             if (empty($trang_thai)) $errors['trang_thai'] = 'Trạng thái không được để trống';
+            if (empty($hinh_anh)) {
+                $errors['hinh_anh'] = 'Hình ảnh không được để trống';
+            }
+
+            if (empty($lien_ket)) {
+                $errors['lien_ket'] = 'Liên kết không được để trống';
+            }
+
+            if (empty($trang_thai)) {
+                $errors['trang_thai'] = 'Trạng thái không được để trống';
+            }
 
             if (empty($errors)) {
                 $this->modelBanner->updateBanner($id, $title, $hinh_anh, $lien_ket, $trang_thai);

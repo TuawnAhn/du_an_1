@@ -82,45 +82,82 @@
                                                                     <?= !empty($_SESSION['errors']['title']) ? $_SESSION['errors']['title'] : ''  ?>
                                                                 </span>
                                                             </div>
-                                                        </div>
-                                                        <!--end col-->
-                                                        <div class="col-xxl-4 col-md-5">
-                                                            <div>
+                                                            <!--end col-->
+                                                            <div class="col-xxl-4 col-md-5">
                                                                 <div>
-                                                                    <label for="formFile" class="form-label">Hình ảnh</label>
-                                                                    <input type="file" class="form-control" type="file" id="formFile" name="hinh_anh" id="formFile">
+                                                                    <div>
+                                                                        <label for="formFile" class="form-label">Hình ảnh</label>
+                                                                        <input type="text" class="form-control" name="hinh_anh">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-xxl-4 col-md-5">
-                                                            <div>
-                                                                <label for="link" class="form-label">Liên kết</label>
-                                                                <input type="text" class="form-control" id="link" name="lien_ket" placeholder="liên kết">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['hinh_anh']) ? $_SESSION['errors']['hinh_anh'] : '' ?>
+                                                            </span>
+                                                            <div class="col-xxl-4 col-md-5">
+                                                                <div>
+                                                                    <label for="link" class="form-label">Liên kết</label>
+                                                                    <input type="text" class="form-control" placeholder="liên kết" name="lien_ket">
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['lien_ket']) ? $_SESSION['errors']['lien_ket'] : '' ?>
+                                                            </span>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                                    <select class="form-select" name="trang_thai">
+                                                                        <option selected disabled>Chọn trạng thái</option>
+                                                                        <option value="1">Hiển thị</option>
+                                                                        <option value="2">Ẩn</option>
+                                                                    </select>
+                                                                    <span class="text-danger">
+                                                                        <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
+                                                                    </span>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-xxl-4 col-md-5">
+                                                                    <div>
+                                                                        <div>
+                                                                            <label for="formFile" class="form-label">Hình ảnh</label>
+                                                                            <input type="file" class="form-control" type="file" id="formFile" name="hinh_anh" id="formFile">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xxl-4 col-md-5">
+                                                                    <div>
+                                                                        <label for="link" class="form-label">Liên kết</label>
+                                                                        <input type="text" class="form-control" id="link" name="lien_ket" placeholder="liên kết">
+                                                                    </div>
+                                                                </div>
 
-                                                        <!--end col-->
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="ForminputState" class="form-label">Trạng thái</label>
-                                                                <select class="form-select" name="trang_thai">
-                                                                    <option selected disabled>Chọn trạng thái</option>
-                                                                    <option value="1">Hiển thị</option>
-                                                                    <option value="2">Ẩn</option>
-                                                                </select>
-                                                                <span class="text-danger">
-                                                                    <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
-                                                                </span>
+                                                                <!--end col-->
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                                        <select class="form-select" name="trang_thai">
+                                                                            <option selected disabled>Chọn trạng thái</option>
+                                                                            <option value="1">Hiển thị</option>
+                                                                            <option value="2">Ẩn</option>
+                                                                        </select>
+                                                                        <span class="text-danger">
+                                                                            <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-12" style="text-align: center">
+                                                                    <button class="btn btn-primary" type="submit" onsubmit="alert('Thêm banner thành công')">Thêm banner</button>
+                                                                </div>
+                                                                <!--end col-->
+
                                                             </div>
-                                                        </div>
-                                                        <!--end col-->
-                                                        <div class="col-12" style="text-align: center">
-                                                            <button class="btn btn-primary" type="submit" onsubmit="alert('Thêm banner thành công')">Thêm banner</button>
-                                                        </div>
-                                                        <!--end col-->
 
+                                                            <!--end row-->
+                                                            =======
+                                                        </div>
                                                     </div>
-
                                                     <!--end row-->
                                             </form>
                                         </div>

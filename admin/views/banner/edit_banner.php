@@ -61,6 +61,56 @@
                                                         <label for="title" class="form-label">Tiêu đề</label>
                                                         <input type="text" class="form-control" name="title" placeholder="Hãy nhập thêm tiêu đề" value="<?= $banner['title'] ?>">
                                                         <span class="text-danger"><?= $_SESSION['errors']['title'] ?? '' ?></span>
+                                <div class="card-body">
+                                    <div class="live-preview">
+                                        <form action="?act=sua-banner" method="POST">
+                                            <input type="hidden" name="id" value="<?= $banner['id'] ?>">
+                                            <div class="row">
+                                            <div class="row g-3">
+                                                            <div class="col-xxl-4 col-md-5">
+                                                                <div>
+                                                                    <label for="title" class="form-label">Tiêu đề</label>
+                                                                    <input type="text" class="form-control" placeholder="Hãy nhập thêm tiêu đề" name="title" value="<?= $banner['title'] ?>">
+                                                                    <span class="text-danger">
+                                                                        <?= !empty($_SESSION['errors']['title']) ? $_SESSION['errors']['title'] : ''  ?>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-xxl-4 col-md-5">
+                                                                <div>
+                                                                    <div>
+                                                                        <label for="formFile" class="form-label">Hình ảnh</label>
+                                                                        <input type="text" class="form-control" name="hinh_anh" value="<?= $banner['hinh_anh'] ?>">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['hinh_anh']) ? $_SESSION['errors']['hinh_anh'] : '' ?>
+                                                            </span>
+                                                            <div class="col-xxl-4 col-md-5">
+                                                                <div>
+                                                                    <label for="link" class="form-label">Liên kết</label>
+                                                                    <input type="text" class="form-control" name="lien_ket" placeholder="liên kết" value="<?= $banner['lien_ket'] ?>">
+                                                                </div>
+                                                            </div>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['lien_ket']) ? $_SESSION['errors']['lien_ket'] : '' ?>
+                                                            </span>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                            <select class="form-select" name="trang_thai">
+                                                                <option selected disabled>Chọn trạng thái</option>
+                                                                <option value="1" <?= $banner['trang_thai'] == 1 ? 'selected' : '' ?>>Hiển thị</option>
+                                                                <option value="2" <?= $banner['trang_thai'] == 2 ? 'selected' : '' ?>>Ẩn</option>
+                                                            </select>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
+                                                            </span>
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-xxl-4 col-md-5">
