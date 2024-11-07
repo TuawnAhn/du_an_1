@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,25 @@
     <style>
         /* Thay đổi màu nền của thanh bên trái */
         .app-menu {
-            background-color: #000000; /* Màu đen */
+            background-color: #000000;
+            /* Màu đen */
         }
 
         /* Thay đổi màu chữ trong thanh bên trái */
         .app-menu .navbar-nav .nav-link,
         .app-menu .navbar-nav .menu-title {
-            color: #ffffff; /* Màu trắng */
+            color: #ffffff;
+            /* Màu trắng */
         }
 
         /* Thay đổi màu chữ cho các mục trong menu khi di chuột */
         .app-menu .navbar-nav .nav-link:hover {
-            color: #cccccc; /* Màu xám nhạt khi di chuột */
+            color: #cccccc;
+            /* Màu xám nhạt khi di chuột */
         }
     </style>
 </head>
+
 <body>
     <div class="app-menu navbar-menu">
         <!-- LOGO -->
@@ -63,7 +68,7 @@
                 <a class="dropdown-item" href="auth-logout-basic.html"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
             </div>
 
-            
+
         </div>
 
         <div id="scrollbar">
@@ -72,24 +77,55 @@
                 <ul class="navbar-nav" id="navbar-nav">
                     <li class="menu-title"><span data-key="t-menu">Quản lý</span></li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link">
+                        <a class="nav-link menu-link" href="?act=dashboard">
                             <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                         </a>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="?act=banners">
+                        <a class="nav-link menu-link" href="#sidebarBanner" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarBanner">
                             <i class="ri-image-line"></i> <span data-key="t-dashboards">Banner</span>
                         </a>
+                        <div class="collapse menu-dropdown" id="sidebarBanner">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="?act=banners" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=form-them-banner" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="?act=tin-tucs">
+                        <a class="nav-link menu-link" href="#sidebarTinTuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTinTuc">
                             <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Tin Tức</span>
                         </a>
+                        <div class="collapse menu-dropdown" id="sidebarTinTuc">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="?act=tin-tucs" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=form-them-tin-tuc" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a href="?act=lien-he" class="nav-link menu-link">
+                        <a href="#sidebarLienHe" class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLienHe">
                             <i class="ri-contacts-line"></i> <span data-key="t-pages">Liên hệ</span>
                         </a>
+                        <div class="collapse menu-dropdown" id="sidebarLienHe">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="?act=lien-he" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=form-them-lien-he" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
@@ -108,7 +144,7 @@
                     </li>
 
                     <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
-                    
+
                 </ul>
             </div>
             <!-- Sidebar -->
@@ -117,5 +153,6 @@
         <div class="sidebar-background"></div>
     </div>
 </body>
+
 </html>
 <!-- #region -->

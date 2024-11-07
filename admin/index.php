@@ -31,7 +31,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Dashboards
 
-    '/'                    => (new DashboardController())->index(),
+    'dashboard'                    => (new DashboardController())->index(),
     //Quan li danh muc
     'danh-mucs'            => (new DanhMucController())->index(),
     'form-them-danh-muc'   => (new DanhMucController())->create(),
