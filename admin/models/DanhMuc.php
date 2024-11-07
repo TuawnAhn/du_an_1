@@ -11,7 +11,7 @@ class DanhMuc
     public function getAll()
     {
         try {
-            $sql = "SELECT * FROM tbl_danhmuc";
+            $sql = "SELECT * FROM danh_mucs";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -26,7 +26,7 @@ class DanhMuc
     public function postDanhMuc($ten_danh_muc, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO tbl_danhmuc (ten_danh_muc, trang_thai) VALUES (:ten_danh_muc, :trang_thai)";
+            $sql = "INSERT INTO danh_mucs (ten_danh_muc, trang_thai) VALUES (:ten_danh_muc, :trang_thai)";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -44,7 +44,7 @@ class DanhMuc
     public function deleteDanhMuc($id)
     {
         try {
-            $sql = "DELETE FROM tbl_danhmuc WHERE id = :id";
+            $sql = "DELETE FROM danh_mucs WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -61,7 +61,7 @@ class DanhMuc
     public function getDetailData($id)
     {
         try {
-            $sql = "SELECT * FROM tbl_danhmuc WHERE id = :id";
+            $sql = "SELECT * FROM danh_mucs WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -77,7 +77,7 @@ class DanhMuc
     public function updateData($id, $ten_danh_muc, $trang_thai)
     {
         try {
-            $sql = "UPDATE tbl_danhmuc SET ten_danh_muc = :ten_danh_muc, trang_thai = :trang_thai WHERE id = :id";
+            $sql = "UPDATE danh_mucs SET ten_danh_muc = :ten_danh_muc, trang_thai = :trang_thai WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
