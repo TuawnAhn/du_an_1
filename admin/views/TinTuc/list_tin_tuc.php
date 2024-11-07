@@ -198,7 +198,22 @@ button:hover {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="row">
+                        <div class="col-12">
+                            <div
+                                class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
+                                <h4 class="mb-sm-0">Quản lý danh sách tin tức</h4>
 
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
+                                        <li class="breadcrumb-item active">Tin tức</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
     <div class="news-list-container">
     <h2>Tin Tức</h2>
     <div class="row g-3 mb-0 align-items-center">
