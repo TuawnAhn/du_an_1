@@ -61,34 +61,38 @@
                         </div>
                     </div>
 
-                   <div><!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liên hệ</title>
-</head>
-<body>
-    <h2>Liên Hệ Chúng Tôi</h2>
-    <form action="contact.php" method="POST">
-        <label for="name">Họ và tên:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        
+                    <div>
+                        <!DOCTYPE html>
+                        <html lang="vi">
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Liên hệ</title>
+                        </head>
 
-        <label for="phone">Sđt:</label>
-        <input type="number" id="Sđt" name="Sđt" required><br><br>
+                        <body>
+                            <h2>Liên Hệ Chúng Tôi</h2>
+                            <form action="contact.php" method="POST">
+                                <label for="name">Họ và tên:</label>
+                                <input type="text" id="name" name="name" required><br><br>
 
-        <label for="message">Nội dung:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
 
-        <input type="submit" value="Gửi">
-    </form>
-</body>
-</html>
-</div>
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required><br><br>
+
+                                <label for="phone">Sđt:</label>
+                                <input type="number" id="Sđt" name="Sđt" required><br><br>
+
+                                <label for="message">Nội dung:</label><br>
+                                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+                                <input type="submit" value="Gửi">
+                            </form>
+                        </body>
+
+                        </html>
+                    </div>
 
                 </div>
                 <!-- container-fluid -->

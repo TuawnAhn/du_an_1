@@ -10,17 +10,20 @@ require_once 'controllers/DanhMucController.php';
 require_once 'controllers/BannerController.php';
 require_once 'controllers/LienHeController.php';
 require_once 'controllers/TinTucController.php';
+require_once 'controllers/KhuyenMaiController.php';
 
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/Banner.php';
 require_once 'models/LienHe.php';
-
-// Require toàn bộ file Models
-require_once 'models/DanhMuc.php';
-require_once 'models/Banner.php';
 require_once 'models/TinTuc.php';
+require_once 'models/KhuyenMai.php';
+
+// // Require toàn bộ file Models
+// require_once 'models/DanhMuc.php';
+// require_once 'models/Banner.php';
+// require_once 'models/TinTuc.php';
 
 
 // Route
@@ -49,17 +52,26 @@ match ($act) {
     'xoa-banner'           => (new BannerController())->destroy(),
 
     //Quan li tin tuc
-    'tin-tucs'                  => (new TinTucController())->index(),
-    'form-them-tin-tuc'         => (new TinTucController())->create(),
-    'them-tin-tuc'              => (new TinTucController())->store(),
-    'form-sua-tin-tuc'          => (new TinTucController())->edit(),
-    'sua-tin-tuc'               => (new TinTucController())->update(),
-    'xoa-tin-tuc'               => (new TinTucController())->destroy(),
+    'tin-tucs'               => (new TinTucController())->index(),
+    'form-them-tin-tuc'      => (new TinTucController())->create(),
+    'them-tin-tuc'           => (new TinTucController())->store(),
+    'form-sua-tin-tuc'       => (new TinTucController())->edit(),
+    'sua-tin-tuc'            => (new TinTucController())->update(),
+    'xoa-tin-tuc'            => (new TinTucController())->destroy(),
 
-    'lien-he'                  => (new LienHeController())->index(),
-    'form-them-lien-he'         => (new LienHeController())->create(),
-    'them-lien-he'              => (new LienHeController())->store(),
-    'form-sua-lien-he'          => (new LienHeController())->edit(),
-    'sua-lien-he'               => (new LienHeController())->update(),
-    'xoa-lien-he'               => (new LienHeController())->destroy(),
+    //Quan li lien he
+    'lien-he'                => (new LienHeController())->index(),
+    'form-them-lien-he'      => (new LienHeController())->create(),
+    'them-lien-he'           => (new LienHeController())->store(),
+    'form-sua-lien-he'       => (new LienHeController())->edit(),
+    'sua-lien-he'            => (new LienHeController())->update(),
+    'xoa-lien-he'            => (new LienHeController())->destroy(),
+
+    //Quan li khuyen mai
+    'khuyen-mais'            => (new KhuyenMaiController())->index(),
+    'form-them-khuyen-mai'   => (new KhuyenMaiController())->create(),
+    'them-khuyen-mai'        => (new KhuyenMaiController())->store(),
+    'form-sua-khuyen-mai'    => (new KhuyenMaiController())->edit(),
+    'sua-khuyen-mai'         => (new KhuyenMaiController())->update(),
+    'xoa-khuyen-mai'         => (new KhuyenMaiController())->destroy(),
 };

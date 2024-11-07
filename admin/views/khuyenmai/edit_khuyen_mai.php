@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Thêm danh mục sản phẩm | Sliver Ring</title>
+    <title>Cập nhật danh mục khuyến mãi | Sliver Ring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -21,8 +21,10 @@
 </head>
 
 <body>
+
     <!-- Begin page -->
     <div id="layout-wrapper">
+
         <!-- HEADER -->
         <?php
         require_once "views/layouts/header.php";
@@ -46,12 +48,12 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lí danh mục sản phẩm</h4>
+                                <h4 class="mb-sm-0">Quản lí danh mục khuyến mãi</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Danh mục sản phẩm</li>
+                                        <li class="breadcrumb-item active">Danh mục khuyến mãi</li>
                                     </ol>
                                 </div>
 
@@ -65,20 +67,39 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Thêm danh mục</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Cập nhật khuyến mãi</h4>
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=them-danh-muc" method="post">
+                                            <form action="?act=sua-khuyen-mai" method="post">
+                                                <input type="hidden" name="id" value="<?= $khuyenmais['id'] ?>">
                                                 <div class="row">
                                                     <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="citynameInput" class="form-label">Tên danh mục</label>
-                                                            <input type="text" class="form-control" placeholder="Nhập vào tên danh mục" name="ten_danh_muc">
+                                                            <label for="citynameInput" class="form-label">Tên khuyến mãi</label>
+                                                            <input type="text" class="form-control" placeholder="Nhập vào tên khuyến mãi" name="ten_khuyen_mai" value="<?= $khuyenmais['ten_khuyen_mai'] ?>">
                                                             <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['ten_danh_muc']) ? $_SESSION['errors']['ten_danh_muc'] : '' ?>
+                                                                <?= !empty($_SESSION['errors']['ten_khuyen_mai']) ? $_SESSION['errors']['ten_khuyen_mai'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="citynameInput" class="form-label">Mô tả</label>
+                                                            <textarea class="form-control" placeholder="Nhập vào mô tả" name="mo_ta" rows="2"><?= htmlspecialchars($khuyenmais['mo_ta']) ?></textarea>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['mo_ta']) ? $_SESSION['errors']['mo_ta'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="citynameInput" class="form-label">Giảm giá</label>
+                                                            <input type="number" class="form-control" placeholder="Nhập vào giảm giá" name="giam_gia" value="<?= $khuyenmais['giam_gia'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['giam_gia']) ? $_SESSION['errors']['giam_gia'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -88,8 +109,8 @@
                                                             <label for="ForminputState" class="form-label">Trạng thái</label>
                                                             <select class="form-select" name="trang_thai">
                                                                 <option selected disabled>Chọn trạng thái</option>
-                                                                <option value="1">Hiển thị</option>
-                                                                <option value="2">Ẩn</option>
+                                                                <option value="1" <?= $khuyenmais['trang_thai'] == 1 ? 'selected' : '' ?>>Hiển thị</option>
+                                                                <option value="2" <?= $khuyenmais['trang_thai'] == 2 ? 'selected' : '' ?>>Ẩn</option>
                                                             </select>
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
