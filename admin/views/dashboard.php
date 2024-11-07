@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | NN Shop</title>
+    <title>Trang chủ | Sliver Ring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -51,7 +51,7 @@
                                     <div class="col-12">
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
-                                                <h4 class="fs-16 mb-1">Good Morning, Anna!</h4>
+                                                <h4 class="fs-16 mb-1">Good Morning, Sliver Ring!</h4>
                                                 <p class="text-muted mb-0">Here's what's happening with your store today.</p>
                                             </div>
                                             <div class="mt-3 mt-lg-0">
@@ -194,7 +194,7 @@
                                 </div> <!-- end row-->
 
                                 <div class="row">
-                                    <div class="col-xl-8">
+                                    <div class="col-xl-6">
                                         <div class="card">
                                             <div class="card-header border-0 align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Revenue</h4>
@@ -214,48 +214,72 @@
                                                 </div>
                                             </div><!-- end card header -->
 
-                                            <div class="card-header p-0 border-0 bg-light-subtle">
-                                                <div class="row g-0 text-center">
-                                                    <div class="col-6 col-sm-3">
-                                                        <div class="p-3 border border-dashed border-start-0">
-                                                            <h5 class="mb-1"><span class="counter-value" data-target="7585">0</span></h5>
-                                                            <p class="text-muted mb-0">Orders</p>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-6 col-sm-3">
-                                                        <div class="p-3 border border-dashed border-start-0">
-                                                            <h5 class="mb-1">$<span class="counter-value" data-target="22.89">0</span>k</h5>
-                                                            <p class="text-muted mb-0">Earnings</p>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-6 col-sm-3">
-                                                        <div class="p-3 border border-dashed border-start-0">
-                                                            <h5 class="mb-1"><span class="counter-value" data-target="367">0</span></h5>
-                                                            <p class="text-muted mb-0">Refunds</p>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-6 col-sm-3">
-                                                        <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                                            <h5 class="mb-1 text-success"><span class="counter-value" data-target="18.92">0</span>%</h5>
-                                                            <p class="text-muted mb-0">Conversation Ratio</p>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                </div>
-                                            </div><!-- end card header -->
+                                            <div class="card-body">
+                                                <div class="live-preview">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped table-nowrap align-middle mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">STT</th>
+                                                                    <th scope="col">Tên danh mục</th>
+                                                                    <th scope="col">Trạng thái</th>
+                                                                    <th scope="col">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                // Kết nối cơ sở dữ liệu
+                                                                $conn = new mysqli('localhost', 'root', '', 'du_an_1');
 
-                                            <div class="card-body p-0 pb-2">
-                                                <div class="w-100">
-                                                    <div id="customer_impression_charts" data-colors='["--vz-primary", "--vz-success", "--vz-danger"]' data-colors-minimal='["--vz-light", "--vz-primary", "--vz-info"]' data-colors-saas='["--vz-success", "--vz-info", "--vz-danger"]' data-colors-modern='["--vz-warning", "--vz-primary", "--vz-success"]' data-colors-interactive='["--vz-info", "--vz-primary", "--vz-danger"]' data-colors-creative='["--vz-warning", "--vz-primary", "--vz-danger"]' data-colors-corporate='["--vz-light", "--vz-primary", "--vz-secondary"]' data-colors-galaxy='["--vz-secondary", "--vz-primary", "--vz-primary-rgb, 0.50"]' data-colors-classic='["--vz-light", "--vz-primary", "--vz-secondary"]' data-colors-vintage='["--vz-success", "--vz-primary", "--vz-secondary"]' class="apex-charts" dir="ltr"></div>
+                                                                if ($conn->connect_error) {
+                                                                    die("Connection thất bại: " . $conn->connect_error);
+                                                                }
+
+                                                                $sql = "SELECT * FROM danh_mucs";
+                                                                $result = $conn->query($sql);
+
+                                                                if ($result->num_rows > 0) {
+                                                                    $index = 1;
+                                                                    while ($row = $result->fetch_assoc()) {
+                                                                        echo '<tr>';
+                                                                        echo '<td class="fw-medium">' . $index++ . '</td>';
+                                                                        echo '<td>' . $row['ten_danh_muc'] . '</td>';
+                                                                        echo '<td>';
+                                                                        if ($row['trang_thai'] == 1) {
+                                                                            echo '<span class="badge bg-success">Hiển thị</span>';
+                                                                        } else {
+                                                                            echo '<span class="badge bg-danger">Đã ẩn</span>';
+                                                                        }
+                                                                        echo '</td>';
+                                                                        echo '<td>';
+                                                                        echo '<div class="hstack gap-3 flex-wrap">';
+                                                                        echo '<a href="?act=form-sua-danh-muc&id=' . $row['id'] . '" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>';
+                                                                        echo '<form action="?act=xoa-danh-muc" method="post" onsubmit="return confirm(\'Bạn có chắc muốn xóa danh mục này?\');">';
+                                                                        echo '<input type="hidden" name="danh_muc_id" value="' . $row['id'] . '">';
+                                                                        echo '<button type="submit" class="link-danger fs-15" style="border: none; background: none;">';
+                                                                        echo '<i class="ri-delete-bin-line"></i>';
+                                                                        echo '</button>';
+                                                                        echo '</form>';
+                                                                        echo '</div>';
+                                                                        echo '</td>';
+                                                                        echo '</tr>';
+                                                                    }
+                                                                } else {
+                                                                    echo '<tr><td colspan="4">No records found</td></tr>';
+                                                                }
+
+                                                                // Đóng kết nối
+                                                                $conn->close();
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
-                                            </div><!-- end card body -->
+                                            </div><!-- end card-body -->
                                         </div><!-- end card -->
                                     </div><!-- end col -->
 
-                                    <div class="col-xl-4">
+                                    <div class="col-xl-6">
                                         <!-- card -->
                                         <div class="card card-height-100">
                                             <div class="card-header align-items-center d-flex">
@@ -301,7 +325,7 @@
                                     <div class="col-xl-6">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
-                                                <h4 class="card-title mb-0 flex-grow-1">Best Selling Products</h4>
+                                                <h4 class="card-title mb-0 flex-grow-1">Danh sách banner</h4>
                                                 <div class="flex-shrink-0">
                                                     <div class="dropdown card-header-dropdown">
                                                         <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -319,188 +343,75 @@
                                                     </div>
                                                 </div>
                                             </div><!-- end card header -->
-
                                             <div class="card-body">
-                                                <div class="table-responsive table-card">
-                                                    <table class="table table-hover table-centered align-middle table-nowrap mb-0">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-1.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                                            <span class="text-muted">24 Apr 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                                    <span class="text-muted">Price</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">62</h5>
-                                                                    <span class="text-muted">Orders</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$1,798</h5>
-                                                                    <span class="text-muted">Amount</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-2.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Bentwood Chair</a></h5>
-                                                                            <span class="text-muted">19 Mar 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$85.20</h5>
-                                                                    <span class="text-muted">Price</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">35</h5>
-                                                                    <span class="text-muted">Orders</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal"><span class="badge bg-danger-subtle text-danger">Out of stock</span> </h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$2982</h5>
-                                                                    <span class="text-muted">Amount</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-3.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Borosil Paper Cup</a></h5>
-                                                                            <span class="text-muted">01 Mar 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$14.00</h5>
-                                                                    <span class="text-muted">Price</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">80</h5>
-                                                                    <span class="text-muted">Orders</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">749</h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$1120</h5>
-                                                                    <span class="text-muted">Amount</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-4.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">One Seater Sofa</a></h5>
-                                                                            <span class="text-muted">11 Feb 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$127.50</h5>
-                                                                    <span class="text-muted">Price</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">56</h5>
-                                                                    <span class="text-muted">Orders</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal"><span class="badge bg-danger-subtle text-danger">Out of stock</span></h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$7140</h5>
-                                                                    <span class="text-muted">Amount</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-5.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Stillbird Helmet</a></h5>
-                                                                            <span class="text-muted">17 Jan 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$54</h5>
-                                                                    <span class="text-muted">Price</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">74</h5>
-                                                                    <span class="text-muted">Orders</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">805</h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$3996</h5>
-                                                                    <span class="text-muted">Amount</span>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                                <div class="live-preview">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped table-nowrap align-middle mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">STT</th>
+                                                                    <th scope="col">Tiêu đề</th>
+                                                                    <th scope="col">Hình ảnh</th>
+                                                                    <th scope="col">Liên kết</th>
+                                                                    <th scope="col">Trạng thái</th>
+                                                                    <th scope="col">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                // Kết nối cơ sở dữ liệu
+                                                                $conn = new mysqli('localhost', 'root', '', 'du_an_1');
 
-                                                <div class="align-items-center mt-4 pt-2 justify-content-between row text-center text-sm-start">
-                                                    <div class="col-sm">
-                                                        <div class="text-muted">
-                                                            Showing <span class="fw-semibold">5</span> of <span class="fw-semibold">25</span> Results
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-auto  mt-3 mt-sm-0">
-                                                        <ul class="pagination pagination-separated pagination-sm mb-0 justify-content-center">
-                                                            <li class="page-item disabled">
-                                                                <a href="#" class="page-link">←</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">1</a>
-                                                            </li>
-                                                            <li class="page-item active">
-                                                                <a href="#" class="page-link">2</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">3</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">→</a>
-                                                            </li>
-                                                        </ul>
+                                                                // Kiểm tra kết nối
+                                                                if ($conn->connect_error) {
+                                                                    die("Connection failed: " . $conn->connect_error);
+                                                                }
+
+                                                                // Truy vấn lấy banner
+                                                                $sql = "SELECT * FROM banners";
+                                                                $result = $conn->query($sql);
+
+                                                                if ($result->num_rows > 0) {
+                                                                    $index = 1;
+                                                                    while ($row = $result->fetch_assoc()) {
+                                                                        echo '<tr>';
+                                                                        echo '<td class="fw-medium">' . $index++ . '</td>';
+                                                                        echo '<td>' . $row['title'] . '</td>';
+                                                                        echo '<td><img src="' . $row['hinh_anh'] . '" width="70" alt=""></td>';
+                                                                        echo '<td>' . $row['lien_ket'] . '</td>';
+                                                                        echo '<td>';
+                                                                        if ($row['trang_thai'] == 1) {
+                                                                            echo '<span class="badge bg-success">Hiển thị</span>';
+                                                                        } else {
+                                                                            echo '<span class="badge bg-danger">Đã ẩn</span>';
+                                                                        }
+                                                                        echo '</td>';
+                                                                        echo '<td>';
+                                                                        echo '<div class="hstack gap-3 flex-wrap">';
+                                                                        echo '<a href="?act=form-sua-banner&banner_id=' . $row['id'] . '" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>';
+                                                                        echo '<form action="?act=xoa-banner" method="post" onsubmit="return confirm(\'Bạn có chắc muốn xóa banner này?\');">';
+                                                                        echo '<input type="hidden" name="banner_id" value="' . $row['id'] . '">';
+                                                                        echo '<button type="submit" class="link-danger fs-15" style="border: none; background: none;">';
+                                                                        echo '<i class="ri-delete-bin-line"></i>';
+                                                                        echo '</button>';
+                                                                        echo '</form>';
+                                                                        echo '</div>';
+                                                                        echo '</td>';
+                                                                        echo '</tr>';
+                                                                    }
+                                                                } else {
+                                                                    echo '<tr><td colspan="6">No records found</td></tr>';
+                                                                }
+
+                                                                // Đóng kết nối
+                                                                $conn->close();
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
+                                            </div><!-- end card-body -->
 
-                                            </div>
                                         </div>
                                     </div>
 
@@ -724,153 +635,81 @@
                                     <div class="col-xl-8">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
-                                                <h4 class="card-title mb-0 flex-grow-1">Recent Orders</h4>
+                                                <h4 class="card-title mb-0 flex-grow-1">Danh sách khuyến mãi</h4>
                                                 <div class="flex-shrink-0">
                                                     <button type="button" class="btn btn-soft-info btn-sm material-shadow-none">
                                                         <i class="ri-file-list-3-line align-middle"></i> Generate Report
                                                     </button>
                                                 </div>
                                             </div><!-- end card header -->
-
                                             <div class="card-body">
-                                                <div class="table-responsive table-card">
-                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                                        <thead class="text-muted table-light">
-                                                            <tr>
-                                                                <th scope="col">Order ID</th>
-                                                                <th scope="col">Customer</th>
-                                                                <th scope="col">Product</th>
-                                                                <th scope="col">Amount</th>
-                                                                <th scope="col">Vendor</th>
-                                                                <th scope="col">Status</th>
-                                                                <th scope="col">Rating</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2112</a>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                        </div>
-                                                                        <div class="flex-grow-1">Alex Smith</div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>Clothes</td>
-                                                                <td>
-                                                                    <span class="text-success">$109.00</span>
-                                                                </td>
-                                                                <td>Zoetic Fashion</td>
-                                                                <td>
-                                                                    <span class="badge bg-success-subtle text-success">Paid</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 fw-medium mb-0">5.0<span class="text-muted fs-11 ms-1">(61 votes)</span></h5>
-                                                                </td>
-                                                            </tr><!-- end tr -->
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2111</a>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/users/avatar-2.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                        </div>
-                                                                        <div class="flex-grow-1">Jansh Brown</div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>Kitchen Storage</td>
-                                                                <td>
-                                                                    <span class="text-success">$149.00</span>
-                                                                </td>
-                                                                <td>Micro Design</td>
-                                                                <td>
-                                                                    <span class="badge bg-warning-subtle text-warning">Pending</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 fw-medium mb-0">4.5<span class="text-muted fs-11 ms-1">(61 votes)</span></h5>
-                                                                </td>
-                                                            </tr><!-- end tr -->
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2109</a>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/users/avatar-3.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                        </div>
-                                                                        <div class="flex-grow-1">Ayaan Bowen</div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>Bike Accessories</td>
-                                                                <td>
-                                                                    <span class="text-success">$215.00</span>
-                                                                </td>
-                                                                <td>Nesta Technologies</td>
-                                                                <td>
-                                                                    <span class="badge bg-success-subtle text-success">Paid</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 fw-medium mb-0">4.9<span class="text-muted fs-11 ms-1">(89 votes)</span></h5>
-                                                                </td>
-                                                            </tr><!-- end tr -->
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2108</a>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/users/avatar-4.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                        </div>
-                                                                        <div class="flex-grow-1">Prezy Mark</div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>Furniture</td>
-                                                                <td>
-                                                                    <span class="text-success">$199.00</span>
-                                                                </td>
-                                                                <td>Syntyce Solutions</td>
-                                                                <td>
-                                                                    <span class="badge bg-danger-subtle text-danger">Unpaid</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 fw-medium mb-0">4.3<span class="text-muted fs-11 ms-1">(47 votes)</span></h5>
-                                                                </td>
-                                                            </tr><!-- end tr -->
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2107</a>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/users/avatar-6.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                        </div>
-                                                                        <div class="flex-grow-1">Vihan Hudda</div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>Bags and Wallets</td>
-                                                                <td>
-                                                                    <span class="text-success">$330.00</span>
-                                                                </td>
-                                                                <td>iTest Factory</td>
-                                                                <td>
-                                                                    <span class="badge bg-success-subtle text-success">Paid</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 fw-medium mb-0">4.7<span class="text-muted fs-11 ms-1">(161 votes)</span></h5>
-                                                                </td>
-                                                            </tr><!-- end tr -->
-                                                        </tbody><!-- end tbody -->
-                                                    </table><!-- end table -->
+                                                <div class="live-preview">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped table-nowrap align-middle mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">STT</th>
+                                                                    <th scope="col">Tên khuyến mãi</th>
+                                                                    <th scope="col">Mô tả</th>
+                                                                    <th scope="col">Giảm giá</th>
+                                                                    <th scope="col">Trạng thái</th>
+                                                                    <th scope="col">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                // Kết nối cơ sở dữ liệu
+                                                                $conn = new mysqli('localhost', 'root', '', 'du_an_1');
+
+                                                                // Kiểm tra kết nối
+                                                                if ($conn->connect_error) {
+                                                                    die("Connection failed: " . $conn->connect_error);
+                                                                }
+
+                                                                // Truy vấn lấy khuyến mãi
+                                                                $sql = "SELECT * FROM khuyen_mais";
+                                                                $result = $conn->query($sql);
+
+                                                                if ($result->num_rows > 0) {
+                                                                    $index = 1;
+                                                                    while ($row = $result->fetch_assoc()) {
+                                                                        echo '<tr>';
+                                                                        echo '<td class="fw-medium">' . $index++ . '</td>';
+                                                                        echo '<td>' . $row['ten_khuyen_mai'] . '</td>';
+                                                                        echo '<td>' . $row['mo_ta'] . '</td>';
+                                                                        echo '<td>' . $row['giam_gia'] . '%</td>';
+                                                                        echo '<td>';
+                                                                        if ($row['trang_thai'] == 1) {
+                                                                            echo '<span class="badge bg-success">Hiển thị</span>';
+                                                                        } else {
+                                                                            echo '<span class="badge bg-danger">Đã ẩn</span>';
+                                                                        }
+                                                                        echo '</td>';
+                                                                        echo '<td>';
+                                                                        echo '<div class="hstack gap-3 flex-wrap">';
+                                                                        echo '<a href="?act=form-sua-khuyen-mai&id=' . $row['id'] . '" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>';
+                                                                        echo '<form action="?act=xoa-khuyen-mai" method="post" onsubmit="return confirm(\'Bạn có chắc muốn xóa khuyến mãi này?\');">';
+                                                                        echo '<input type="hidden" name="khuyen_mai_id" value="' . $row['id'] . '">';
+                                                                        echo '<button type="submit" class="link-danger fs-15" style="border: none; background: none;">';
+                                                                        echo '<i class="ri-delete-bin-line"></i>';
+                                                                        echo '</button>';
+                                                                        echo '</form>';
+                                                                        echo '</div>';
+                                                                        echo '</td>';
+                                                                        echo '</tr>';
+                                                                    }
+                                                                } else {
+                                                                    echo '<tr><td colspan="6">No records found</td></tr>';
+                                                                }
+
+                                                                // Đóng kết nối
+                                                                $conn->close();
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </div><!-- end card-body -->
                                         </div> <!-- .card-->
                                     </div> <!-- .col-->
                                 </div> <!-- end row-->

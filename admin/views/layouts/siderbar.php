@@ -31,7 +31,7 @@
     <div class="app-menu navbar-menu">
         <!-- LOGO -->
         <div class="navbar-brand-box">
-            <a href="index.html" class="logo logo-dark">
+            <a href="?act=dashboard" class="logo logo-dark">
                 <span class="logo-sm">
                     <img src="assets/images/logo-sm.png" alt="" height="22">
                 </span>
@@ -39,7 +39,7 @@
                     <img src="assets/images/logo-dark.png" alt="" height="17">
                 </span>
             </a>
-            <a href="index.html" class="logo logo-light">
+            <a href="?act=dashboard" class="logo logo-light">
                 <span class="logo-sm">
                     <img src="assets/images/logo-sm.png" alt="" height="22">
                 </span>
@@ -78,7 +78,7 @@
                     <li class="menu-title"><span data-key="t-menu">Quản lý</span></li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="?act=dashboard">
-                            <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
+                            <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Trang chủ</span>
                         </a>
 
                     </li>

@@ -20,10 +20,6 @@ require_once 'models/LienHe.php';
 require_once 'models/TinTuc.php';
 require_once 'models/KhuyenMai.php';
 
-// // Require toàn bộ file Models
-// require_once 'models/DanhMuc.php';
-// require_once 'models/Banner.php';
-// require_once 'models/TinTuc.php';
 
 
 // Route
@@ -35,6 +31,7 @@ match ($act) {
     // Dashboards
 
     'dashboard'                    => (new DashboardController())->index(),
+
     //Quan li danh muc
     'danh-mucs'            => (new DanhMucController())->index(),
     'form-them-danh-muc'   => (new DanhMucController())->create(),

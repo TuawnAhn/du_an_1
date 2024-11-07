@@ -48,7 +48,7 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý danh mục sản phẩm</h4>
+                                <h4 class="mb-sm-0">Quản lý danh mục banner</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
@@ -69,7 +69,7 @@
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách Banner</h4>
                                         <a href="?act=form-them-banner" class="btn btn-soft-success material-shadow-none">
-                                            <i class="ri-add-circle-line align-middle me-1"></i> 
+                                            <i class="ri-add-circle-line align-middle me-1"></i>
                                             Thêm banner
                                         </a>
                                     </div><!-- end card header -->
@@ -96,7 +96,7 @@
                                                                 <td><img src="<?= $banner['hinh_anh'] ?>" width="70" alt=""></td>
                                                                 <td><?= $banner['lien_ket'] ?></td>
                                                                 <td>
-                                                                <?php
+                                                                    <?php
                                                                     if ($banner['trang_thai'] == 1) { ?>
                                                                         <span class="badge bg-success">Hiển thị</span>
                                                                     <?php
@@ -106,7 +106,7 @@
                                                                     <?php
                                                                     }
                                                                     ?>
-                                                                </td>  
+                                                                </td>
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
                                                                         <a href="?act=form-sua-banner&banner_id=<?= $banner['id'] ?>"
