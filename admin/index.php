@@ -11,6 +11,8 @@ require_once 'controllers/BannerController.php';
 require_once 'controllers/LienHeController.php';
 require_once 'controllers/TinTucController.php';
 require_once 'controllers/NguoiDungController.php';
+require_once 'controllers/KhuyenMaiController.php';
+
 
 
 // Require toàn bộ file Models
@@ -19,6 +21,9 @@ require_once 'models/Banner.php';
 require_once 'models/LienHe.php';
 require_once 'models/TinTuc.php';
 require_once 'models/NguoiDung.php';
+require_once 'models/KhuyenMai.php';
+
+
 
 
 // Route
@@ -29,7 +34,8 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Dashboards
 
-    '/'                    => (new DashboardController())->index(),
+    'dashboard'                    => (new DashboardController())->index(),
+
     //Quan li danh muc
     'danh-mucs'            => (new DanhMucController())->index(),
     'form-them-danh-muc'   => (new DanhMucController())->create(),
@@ -47,6 +53,7 @@ match ($act) {
     'xoa-banner'           => (new BannerController())->destroy(),
 
     //Quan li tin tuc
+
     'tin-tucs'                  => (new TinTucController())->index(),
     'form-them-tin-tuc'         => (new TinTucController())->create(),
     'them-tin-tuc'              => (new TinTucController())->store(),
@@ -68,4 +75,13 @@ match ($act) {
     'form-sua-nguoi-dung'      => (new NguoiDungController())->edit(),
     'sua-nguoi-dung'           => (new NguoiDungController())->update(),
     'xoa-nguoi-dung'           => (new NguoiDungController())->destroy(),
+
+    //Quan li khuyen mai
+    'khuyen-mais'            => (new KhuyenMaiController())->index(),
+    'form-them-khuyen-mai'   => (new KhuyenMaiController())->create(),
+    'them-khuyen-mai'        => (new KhuyenMaiController())->store(),
+    'form-sua-khuyen-mai'    => (new KhuyenMaiController())->edit(),
+    'sua-khuyen-mai'         => (new KhuyenMaiController())->update(),
+    'xoa-khuyen-mai'         => (new KhuyenMaiController())->destroy(),
+
 };

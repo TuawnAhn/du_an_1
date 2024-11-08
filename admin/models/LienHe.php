@@ -4,13 +4,13 @@ class LienHe
 {
     public $conn;
 
-    //Ket noi csdl
+    // Kết nối cơ sở dữ liệu
     public function __construct()
     {
         $this->conn = connectDB();
     }
 
-    //Danh sach liên hệ
+    // Lấy danh sách liên hệ
     public function getAll()
     {
         try {
@@ -19,19 +19,19 @@ class LienHe
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (PDOException $e) {
-            echo 'Loi: ' . $e->getMessage();
+            echo 'Lỗi: ' . $e->getMessage();
         }
     }
 
-    //Them du lieu moi vao csdl
+    // Thêm liên hệ mới
     public function postData($name, $so_dien_thoai, $noi_dung, $ngay_gio)
     {
         try {
-            $sql = 'INSERT INTO tbl_lienhe (name,so_dien_thoai,noi_dung,ngay_gio)
-                 VALUES(:name,:so_dien_thoai,:noi_dung,:ngay_gio)';
+            $sql = 'INSERT INTO tbl_lienhe (name, so_dien_thoai, noi_dung, ngay_gio)
+                    VALUES (:name, :so_dien_thoai, :noi_dung, :ngay_gio)';
             $stmt = $this->conn->prepare($sql);
 
-            //Gan gia tri vao cac tham so
+            // Gán giá trị cho các tham số
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
             $stmt->bindParam(':noi_dung', $noi_dung);
@@ -41,71 +41,66 @@ class LienHe
 
             return true;
         } catch (PDOException $e) {
-            echo 'Loi: ' . $e->getMessage();
+            echo 'Lỗi: ' . $e->getMessage();
+            return false;
         }
     }
 
-    //Lay thong tin chi tiet
+    // Lấy thông tin chi tiết liên hệ
     public function getDetailData($id)
     {
         try {
-
-            $sql = 'SELECT * FROM tbl_lienhe WHERE id=:id';
-
+            $sql = 'SELECT * FROM tbl_lienhe WHERE id = :id';
             $stmt = $this->conn->prepare($sql);
-
             $stmt->bindParam(':id', $id);
-
             $stmt->execute();
-
             return $stmt->fetch();
         } catch (PDOException $e) {
-            echo 'Loi: ' . $e->getMessage();
+            echo 'Lỗi: ' . $e->getMessage();
+            return false;
         }
     }
 
-    //Cap nhat du lieu
+    // Cập nhật thông tin liên hệ
     public function updateData($id, $name, $so_dien_thoai, $noi_dung, $ngay_gio)
     {
         try {
-            $sql = 'UPDATE tbl_lienhe SET name= :name, so_dien_thoai=:so_dien_thoai, noi_dung=:noi_dung , ngay_gio=:ngay_gio WHERE id=:id ';
+            $sql = 'UPDATE tbl_lienhe SET name = :name, so_dien_thoai = :so_dien_thoai, 
+                    noi_dung = :noi_dung, ngay_gio = :ngay_gio WHERE id = :id';
             $stmt = $this->conn->prepare($sql);
 
-            //Gan gia tri vao cac tham so
+            // Gán giá trị cho các tham số
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
             $stmt->bindParam(':noi_dung', $noi_dung);
             $stmt->bindParam(':ngay_gio', $ngay_gio);
 
-
             $stmt->execute();
 
             return true;
         } catch (PDOException $e) {
-            echo 'Loi: ' . $e->getMessage();
+            echo 'Lỗi: ' . $e->getMessage();
+            return false;
         }
     }
 
-    //Xoa du lieu trong csdl
+    // Xóa liên hệ
     public function deleteData($id)
     {
         try {
-            $sql = 'DELETE FROM tbl_lienhe WHERE id=:id';
-
+            $sql = 'DELETE FROM tbl_lienhe WHERE id = :id';
             $stmt = $this->conn->prepare($sql);
-
             $stmt->bindParam(':id', $id);
-
             $stmt->execute();
-
             return true;
         } catch (PDOException $e) {
-            echo 'Loi: ' . $e->getMessage();
+            echo 'Lỗi: ' . $e->getMessage();
+            return false;
         }
     }
 
-    //Huy ket noi
+    // Hủy kết nối
     public function __destruct()
     {
         $this->conn = null;

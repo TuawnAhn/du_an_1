@@ -1,5 +1,5 @@
 <?php
-class DanhMuc
+class KhuyenMai
 {
     public $conn;
 
@@ -11,7 +11,7 @@ class DanhMuc
     public function getAll()
     {
         try {
-            $sql = "SELECT * FROM danh_mucs";
+            $sql = "SELECT * FROM khuyen_mais";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -23,14 +23,18 @@ class DanhMuc
         }
     }
 
-    public function postDanhMuc($ten_danh_muc, $trang_thai)
+    public function postKhuyenMai($ten_khuyen_mai, $mo_ta, $giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO danh_mucs (ten_danh_muc, trang_thai) VALUES (:ten_danh_muc, :trang_thai)";
+            $sql = "INSERT INTO khuyen_mais (ten_khuyen_mai, mo_ta, giam_gia, ngay_bat_dau, ngay_ket_thuc, trang_thai) VALUES (:ten_khuyen_mai, :mo_ta, :giam_gia, :ngay_bat_dau, :ngay_ket_thuc, :trang_thai)";
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->bindParam(':ten_danh_muc', $ten_danh_muc);
+            $stmt->bindParam(':ten_khuyen_mai', $ten_khuyen_mai);
+            $stmt->bindParam(':mo_ta', $mo_ta);
+            $stmt->bindParam(':giam_gia', $giam_gia);
+            $stmt->bindParam(':ngay_bat_dau', $ngay_bat_dau);
+            $stmt->bindParam(':ngay_ket_thuc', $ngay_ket_thuc);
             $stmt->bindParam(':trang_thai', $trang_thai);
 
             $stmt->execute();
@@ -41,10 +45,10 @@ class DanhMuc
         }
     }
 
-    public function deleteDanhMuc($id)
+    public function deleteKhuyenMai($id)
     {
         try {
-            $sql = "DELETE FROM danh_mucs WHERE id = :id";
+            $sql = "DELETE FROM khuyen_mais WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -61,7 +65,7 @@ class DanhMuc
     public function getDetailData($id)
     {
         try {
-            $sql = "SELECT * FROM danh_mucs WHERE id = :id";
+            $sql = "SELECT * FROM khuyen_mais WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -74,15 +78,19 @@ class DanhMuc
             echo 'Lỗi' . $e->getMessage();
         }
     }
-    public function updateData($id, $ten_danh_muc, $trang_thai)
+    public function updateData($id, $ten_khuyen_mai, $mo_ta, $giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
     {
         try {
-            $sql = "UPDATE danh_mucs SET ten_danh_muc = :ten_danh_muc, trang_thai = :trang_thai WHERE id = :id";
+            $sql = "UPDATE khuyen_mais SET ten_khuyen_mai = :ten_khuyen_mai, mo_ta = :mo_ta, giam_gia = :giam_gia, ngay_bat_dau = :ngay_bat_dau, ngay_ket_thuc = :ngay_ket_thuc, trang_thai = :trang_thai WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':ten_danh_muc', $ten_danh_muc);
+            $stmt->bindParam(':ten_khuyen_mai', $ten_khuyen_mai);
+            $stmt->bindParam(':mo_ta', $mo_ta);
+            $stmt->bindParam(':giam_gia', $giam_gia);
+            $stmt->bindParam(':ngay_bat_dau', $ngay_bat_dau);
+            $stmt->bindParam(':ngay_ket_thuc', $ngay_ket_thuc);
             $stmt->bindParam(':trang_thai', $trang_thai);
 
             $stmt->execute();
