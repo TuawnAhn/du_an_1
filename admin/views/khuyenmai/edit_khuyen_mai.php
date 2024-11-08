@@ -103,6 +103,24 @@
                                                             </span>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="" class="form-lable">Ngày bắt đầu</label>
+                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày bắt đầu" name="ngay_bat_dau" value="<?= $khuyenmais['ngay_bat_dau'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ngay_bat_dau']) ? $_SESSION['errors']['ngay_bat_dau'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="" class="form-lable">Ngày kết thúc</label>
+                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày bắt đầu" name="ngay_ket_thuc" value="<?= $khuyenmais['ngay_ket_thuc'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ngay_ket_thuc']) ? $_SESSION['errors']['ngay_ket_thuc'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                     <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">

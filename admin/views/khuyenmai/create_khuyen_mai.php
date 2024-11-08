@@ -70,7 +70,7 @@
 
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=them-khuyen-mai" method="post">
+                                            <form action="?act=them-khuyen-mai" method="post" enctype="multipart/form-data">
                                                 <div class="row">
                                                     <!--end col-->
                                                     <div class="col-md-6">
@@ -97,6 +97,24 @@
                                                             <input type="number" class="form-control" placeholder="Nhập vào giảm giá" name="giam_gia">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['giam_gia']) ? $_SESSION['errors']['giam_gia'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="citynameInput" class="form-lable">Ngày bắt đầu</label>
+                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày bắt đầu" name="ngay_bat_dau">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ngay_bat_dau']) ? $_SESSION['errors']['ngay_bat_dau'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="citynameInput" class="form-lable">Ngày kết thúc</label>
+                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày bắt đầu" name="ngay_ket_thuc">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ngay_ket_thuc']) ? $_SESSION['errors']['ngay_ket_thuc'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>

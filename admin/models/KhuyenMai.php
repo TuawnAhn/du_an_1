@@ -23,16 +23,18 @@ class KhuyenMai
         }
     }
 
-    public function postKhuyenMai($ten_khuyen_mai, $mo_ta, $giam_gia, $trang_thai)
+    public function postKhuyenMai($ten_khuyen_mai, $mo_ta, $giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO khuyen_mais (ten_khuyen_mai, mo_ta, giam_gia, trang_thai) VALUES (:ten_khuyen_mai, :mo_ta, :giam_gia, :trang_thai)";
+            $sql = "INSERT INTO khuyen_mais (ten_khuyen_mai, mo_ta, giam_gia, ngay_bat_dau, ngay_ket_thuc, trang_thai) VALUES (:ten_khuyen_mai, :mo_ta, :giam_gia, :ngay_bat_dau, :ngay_ket_thuc, :trang_thai)";
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->bindParam(':ten_khuyen_mai', $ten_khuyen_mai);
             $stmt->bindParam(':mo_ta', $mo_ta);
             $stmt->bindParam(':giam_gia', $giam_gia);
+            $stmt->bindParam(':ngay_bat_dau', $ngay_bat_dau);
+            $stmt->bindParam(':ngay_ket_thuc', $ngay_ket_thuc);
             $stmt->bindParam(':trang_thai', $trang_thai);
 
             $stmt->execute();
@@ -76,10 +78,10 @@ class KhuyenMai
             echo 'Lỗi' . $e->getMessage();
         }
     }
-    public function updateData($id, $ten_khuyen_mai, $mo_ta, $giam_gia, $trang_thai)
+    public function updateData($id, $ten_khuyen_mai, $mo_ta, $giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
     {
         try {
-            $sql = "UPDATE khuyen_mais SET ten_khuyen_mai = :ten_khuyen_mai, mo_ta = :mo_ta, giam_gia = :giam_gia, trang_thai = :trang_thai WHERE id = :id";
+            $sql = "UPDATE khuyen_mais SET ten_khuyen_mai = :ten_khuyen_mai, mo_ta = :mo_ta, giam_gia = :giam_gia, ngay_bat_dau = :ngay_bat_dau, ngay_ket_thuc = :ngay_ket_thuc, trang_thai = :trang_thai WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -87,6 +89,8 @@ class KhuyenMai
             $stmt->bindParam(':ten_khuyen_mai', $ten_khuyen_mai);
             $stmt->bindParam(':mo_ta', $mo_ta);
             $stmt->bindParam(':giam_gia', $giam_gia);
+            $stmt->bindParam(':ngay_bat_dau', $ngay_bat_dau);
+            $stmt->bindParam(':ngay_ket_thuc', $ngay_ket_thuc);
             $stmt->bindParam(':trang_thai', $trang_thai);
 
             $stmt->execute();
