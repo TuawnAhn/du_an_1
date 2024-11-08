@@ -196,6 +196,7 @@
     </div>
 
     <!-- JAVASCRIPT -->
+     <!-- tuấn anhhihihi -->
     <?php
     require_once "views/layouts/libs_js.php";
     ?>
