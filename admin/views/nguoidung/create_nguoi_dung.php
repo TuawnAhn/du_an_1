@@ -64,115 +64,108 @@
                         <div class="col">
 
                             <div class="h-100">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Thêm người dùng</h4>
-                                </div><!-- end card header -->
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Thêm người dùng</h4>
+                                    </div><!-- end card header -->
 
-                                <div class="card-body">
-                                    <div class="live-preview">
-                                        <form action="?act=them-nguoi-dung" method="POST" >
-                                            <div class="row">
-                                            <div class="row g-3">
-                                                            <div class="col-xxl-4 col-md-5">
-                                                                <div>
-                                                                    <label for="ho_ten"  class="form-label">Họ tên</label>
-                                                                    <input type="text" class="form-control" placeholder="Hãy nhập thêm họ tên" name="ho_ten">
-                                                                    <span class="text-danger">
-                                                                        <?= !empty($_SESSION['errors']['ho_ten']) ? $_SESSION['errors']['ho_ten'] : ''  ?>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-xxl-4 col-md-5">
-                                                                <div>
-                                                                    <div>
-                                                                        <label for="email"  class="form-label">Email</label>
-                                                                        <input type="email" class="form-control" placeholder="Nhập vào email"  name="email">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                    <div class="card-body">
+                                        <div class="live-preview">
+                                            <form action="?act=them-nguoi-dung" method="POST">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="ho_ten" class="form-label">Họ tên</label>
+                                                            <input type="text" class="form-control" placeholder="Hãy nhập thêm họ tên" name="ho_ten">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ho_ten']) ? $_SESSION['errors']['ho_ten'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="email" class="form-label">Email</label>
+                                                            <input type="email" class="form-control" placeholder="Hãy nhập thêm họ tên" name="email">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['email']) ? $_SESSION['errors']['email'] : '' ?>
                                                             </span>
-                                                            <div class="col-xxl-4 col-md-5">
-                                                                <div>
-                                                                    <label for="mat_khau"  class="form-label">Mật khẩu</label>
-                                                                    <input type="password" class="form-control"  placeholder="Nhập vào mật khẩu" name="mat_khau">
-                                                                </div>
-                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="mat_khau" class="form-label">Password</label>
+                                                            <input type="password" class="form-control" placeholder="Hãy nhập vào password" name="mat_khau">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['mat_khau']) ? $_SESSION['errors']['mat_khau'] : '' ?>
                                                             </span>
-                                                            <!--end col-->
-                                                            <div class="col-xxl-4 col-md-5">
-                                                                <div>
-                                                                    <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
-                                                                    <input type="number" class="form-control"  placeholder="Nhập số điện thoại của bạn" name="so_dien_thoai">
-                                                                </div>
-                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
+                                                            <input type="number" class="form-control" placeholder="Nhập số điện thoại của bạn" name="so_dien_thoai">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['so_dien_thoai']) ? $_SESSION['errors']['so_dien_thoai'] : '' ?>
                                                             </span>
+                                                        </div>
+                                                    </div>
                                                     <!--end col-->
-                                                    <div class="col-xxl-4 col-md-5">
-                                                                <div>
-                                                                    <label for="dia_Chi"  class="form-label">Địa chỉ</label>
-                                                                    <input type="text" class="form-control"  placeholder="Nhập số địa chỉ của bạn" name="dia_chi">
-                                                                </div>
-                                                            </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="dia_chi" class="form-label">Địa chỉ</label>
+                                                            <input type="text" class="form-control" placeholder="Nhập vào địa chỉ của bạn" name="dia_chi">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['dia_chi']) ? $_SESSION['errors']['dia_chi'] : '' ?>
                                                             </span>
+                                                        </div>
+                                                    </div>
                                                     <!--end col-->
-                                                            <div class="col-12" style="text-align: center">
-                                                                <button class="btn btn-primary" type="submit" onsubmit="alert('Thêm người dùng thành công')">Thêm người dùng</button>
-                                                            </div>
-                                                            <!--end col-->
+                                                    <div class="col-12" style="text-align: center">
+                                                        <button class="btn btn-primary" type="submit">Thêm người dùng</button>
+                                                    </div>
+                                                    <!--end col-->
 
-                                            </div>
-                                            </div>
-                                            <!--end row-->
+                                                </div>
+                                                <!--end row-->
                                             </form>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                            </div>
-                                    
-                                                </div><!-- end card-body -->
-                                            </div><!-- end card -->
-                                        </div><!-- end col -->
-                                    </div><!-- end row -->
-                                    <!-- end col -->
-                                </div>
-                            </div><!-- end card -->
-
-                        </div> <!-- end .h-100-->
-
-                    </div> <!-- end col -->
-                </div>
-
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+                <!-- end col -->
             </div>
-            <!-- container-fluid -->
+        </div><!-- end card -->
+
+    </div> <!-- end .h-100-->
+
+    </div> <!-- end col -->
+    </div>
+
+    </div>
+    <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> © Velzon.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Design & Develop by Themesbrand
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- End Page-content -->
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> © Velzon.
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    </footer>
     </div>
     <!-- end main content-->
 

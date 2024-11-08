@@ -1,6 +1,6 @@
 <?php
 class NguoiDungController
-{ 
+{
     // ket noiden file model
     public $modelNguoiDung;
 
@@ -8,29 +8,29 @@ class NguoiDungController
     {
         $this->modelNguoiDung = new NguoiDung();
     }
-    public function index() {
+    public function index()
+    {
         //Lay ra du lieu banner
         $nguoi_dungs = $this->modelNguoiDung->getAll();
         require_once "./views/nguoidung/list_nguoi_dung.php";
-        
-    } 
+    }
     public function create()
     {
-        
+
         require_once "./views/nguoidung/create_nguoi_dung.php";
     }
 
     public function store()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $ho_ten= $_POST['ho_ten'];
+            $ho_ten = $_POST['ho_ten'];
             $email = $_POST['email'];
             $mat_khau = $_POST['mat_khau'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
             $dia_chi = $_POST['dia_chi'];
-            
+
             $errors = [];
-            
+
             if (empty($ho_ten)) {
                 $errors['ho_ten'] = 'Họ tên không được để trống';
             }
@@ -53,8 +53,9 @@ class NguoiDungController
 
             //them du lieu
             if (empty($errors)) {
-                $this->modelNguoiDung->postNguoiDung($ho_ten,$email,$mat_khau,$so_dien_thoai,$dia_chi);
+                $this->modelNguoiDung->postNguoiDung($ho_ten, $email, $mat_khau, $so_dien_thoai, $dia_chi);
                 unset($_SESSION['errors']);
+                // echo "Thêm thành công";
                 header("Location: ?act=nguoi-dungs");
             } else {
                 $_SESSION['errors'] = $errors;
@@ -67,7 +68,7 @@ class NguoiDungController
     {
         $id = $_GET['nguoi_dung_id'];
         $nguoi_dung = $this->modelNguoiDung->getDetailData($id);
-        
+
 
         require_once "./views/nguoidung/edit_nguoi_dung.php";
     }
@@ -76,14 +77,14 @@ class NguoiDungController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_POST['id'];
-            $ho_ten= $_POST['ho_ten'];
+            $ho_ten = $_POST['ho_ten'];
             $email = $_POST['email'];
             $mat_khau = $_POST['mat_khau'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
             $dia_chi = $_POST['dia_chi'];
-            
+
             $errors = [];
-            
+
             if (empty($ho_ten)) {
                 $errors['ho_ten'] = 'Họ tên không được để trống';
             }
@@ -104,10 +105,10 @@ class NguoiDungController
                 $errors['dia_chi'] = 'Địa chỉ không được để trống';
             }
 
-           
+
 
             if (empty($errors)) {
-                $this->modelNguoiDung->updateNguoiDung($id, $ho_ten, $email, $mat_khau, $so_dien_thoai, $dia_chi );
+                $this->modelNguoiDung->updateNguoiDung($id, $ho_ten, $email, $mat_khau, $so_dien_thoai, $dia_chi);
                 unset($_SESSION['errors']);
                 header("Location: ?act=nguoi-dungs");
             } else {
@@ -129,5 +130,5 @@ class NguoiDungController
             header("Location: ?act=nguoi-dungs");
             exit();
         }
-    } 
+    }
 }

@@ -1,23 +1,23 @@
-<?php 
-class NguoiDung 
+<?php
+class NguoiDung
 {
     public $conn;
     public function __construct()
     {
-        $this->conn= connectDB();
+        $this->conn = connectDB();
     }
-    //Danh sach banner
-    public function getAll(){
-        try{
+    public function getAll()
+    {
+        try {
             $sql = 'SELECT * FROM nguoi_dungs';
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
-        }catch (PDOException $e){
-            echo 'Lỗi:' .$e->getMessage();
+        } catch (PDOException $e) {
+            echo 'Lỗi:' . $e->getMessage();
         }
     }
-    public function postNguoiDung($ho_ten,$email,$mat_khau,$so_dien_thoai,$dia_chi)
+    public function postNguoiDung($ho_ten, $email, $mat_khau, $so_dien_thoai, $dia_chi)
     {
         try {
             $sql = 'INSERT INTO nguoi_dungs (ho_ten, email, mat_khau, so_dien_thoai, dia_chi) 
@@ -25,12 +25,12 @@ class NguoiDung
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->bindParam(':ho_ten',$ho_ten);
-            $stmt->bindParam(':email',$email);
-            $stmt->bindParam(':mat_khau',$mat_khau);
-            $stmt->bindParam(':so_dien_thoai',$so_dien_thoai);
-            $stmt->bindParam(':dia_chi', $dia_chi); 
-            
+            $stmt->bindParam(':ho_ten', $ho_ten);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':mat_khau', $mat_khau);
+            $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
+            $stmt->bindParam(':dia_chi', $dia_chi);
+
 
             $stmt->execute();
 
@@ -82,11 +82,11 @@ class NguoiDung
 
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':ho_ten', $ho_ten);
-            $stmt->bindParam(':email',$email);
-            $stmt->bindParam(':mat_khau',$mat_khau);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':mat_khau', $mat_khau);
             $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
             $stmt->bindParam(':dia_chi', $dia_chi);
-           
+
 
             $stmt->execute();
 
