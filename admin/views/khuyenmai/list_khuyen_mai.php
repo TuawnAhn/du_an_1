@@ -53,7 +53,7 @@
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Danh mục khuyến mãi</li>
+                                        <li class="breadcrumb-item active">Danh sách khuyến mãi</li>
                                     </ol>
                                 </div>
 
@@ -67,7 +67,7 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách danh mục khuyến mãi</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách khuyến mãi</h4>
                                         <a href="?act=form-them-khuyen-mai" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm khuyến mãi</a>
                                     </div><!-- end card header -->
 

@@ -60,6 +60,7 @@ match ($act) {
     'form-sua-tin-tuc'          => (new TinTucController())->edit(),
     'sua-tin-tuc'               => (new TinTucController())->update(),
     'xoa-tin-tuc'               => (new TinTucController())->destroy(),
+    
     //Quan li lien he
     'lien-he'                  => (new LienHeController())->index(),
     'form-them-lien-he'         => (new LienHeController())->create(),

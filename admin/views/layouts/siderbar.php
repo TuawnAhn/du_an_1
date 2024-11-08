@@ -128,9 +128,19 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                         <a class="nav-link menu-link" href="?act=nguoi-dungs">
+                        <a class="nav-link menu-link" href="#sidebarNguoiDung" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarNguoiDung">
                             <i class="ri-user-line"></i> <span data-key="t-dashboards">Người dùng</span>
                         </a>
+                        <div class="collapse menu-dropdown" id="sidebarNguoiDung">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="?act=nguoi-dungs" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=form-them-nguoi-dung" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
