@@ -10,17 +10,15 @@ require_once 'controllers/DanhMucController.php';
 require_once 'controllers/BannerController.php';
 require_once 'controllers/LienHeController.php';
 require_once 'controllers/TinTucController.php';
+require_once 'controllers/NguoiDungController.php';
 
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/Banner.php';
 require_once 'models/LienHe.php';
-
-// Require toàn bộ file Models
-require_once 'models/DanhMuc.php';
-require_once 'models/Banner.php';
 require_once 'models/TinTuc.php';
+require_once 'models/NguoiDung.php';
 
 
 // Route
@@ -55,11 +53,19 @@ match ($act) {
     'form-sua-tin-tuc'          => (new TinTucController())->edit(),
     'sua-tin-tuc'               => (new TinTucController())->update(),
     'xoa-tin-tuc'               => (new TinTucController())->destroy(),
-
+    //Quan li lien he
     'lien-he'                  => (new LienHeController())->index(),
     'form-them-lien-he'         => (new LienHeController())->create(),
     'them-lien-he'              => (new LienHeController())->store(),
     'form-sua-lien-he'          => (new LienHeController())->edit(),
     'sua-lien-he'               => (new LienHeController())->update(),
     'xoa-lien-he'               => (new LienHeController())->destroy(),
+    
+    //Quan li Nguoi Dung
+    'nguoi-dungs'              => (new NguoiDungController())->index(),
+    'form-them-nguoi-dung'     => (new NguoiDungController())->create(),
+    'them-nguoi-dung'          => (new NguoiDungController())->store(),
+    'form-sua-nguoi-dung'      => (new NguoiDungController())->edit(),
+    'sua-nguoi-dung'           => (new NguoiDungController())->update(),
+    'xoa-nguoi-dung'           => (new NguoiDungController())->destroy(),
 };

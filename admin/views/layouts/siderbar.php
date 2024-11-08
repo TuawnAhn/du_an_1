@@ -92,6 +92,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                         <a class="nav-link menu-link" href="?act=nguoi-dungs">
+                            <i class="ri-user-line"></i> <span data-key="t-dashboards">Người dùng</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
                             <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Danh mục sản phẩm</span>
                         </a>

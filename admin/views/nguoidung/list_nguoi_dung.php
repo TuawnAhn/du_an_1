@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Banner | Sliver Ring</title>
+    <title>Danh mục người dùng | Sliver Ring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -48,12 +48,12 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý danh mục sản phẩm</h4>
+                                <h4 class="mb-sm-0">Quản lý người dùng</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Banner</li>
+                                        <li class="breadcrumb-item active">Người dùng</li>
                                     </ol>
                                 </div>
 
@@ -67,10 +67,10 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách Banner</h4>
-                                        <a href="?act=form-them-banner" class="btn btn-soft-success material-shadow-none">
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách Người dùng</h4>
+                                        <a href="?act=form-them-nguoi-dung" class="btn btn-soft-success material-shadow-none">
                                             <i class="ri-add-circle-line align-middle me-1"></i> 
-                                            Thêm banner
+                                            Thêm Người dùng
                                         </a>
                                     </div><!-- end card header -->
 
@@ -81,41 +81,34 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
-                                                            <th scope="col">Tiêu đề</th>
-                                                            <th scope="col">Hình ảnh</th>
-                                                            <th scope="col">Liên kết</th>
-                                                            <th scope="col">Trạng thái</th>
+                                                            <th scope="col">Họ tên</th>
+                                                            <th scope="col">Email</th>
+                                                            <th scope="col">Mật khẩu</th>
+                                                            <th scope="col">Số điện thoại</th>
+                                                            <th scope="col">Địa chỉ</th>
+                                                            
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($banners as $index => $banner): ?>
+                                                        <?php foreach ($nguoi_dungs as $index => $nguoi_dung): ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $banner['title'] ?></td>
-                                                                <td><img src="<?= $banner['hinh_anh'] ?>" width="70" alt=""></td>
-                                                                <td><?= $banner['lien_ket'] ?></td>
-                                                                <td>
-                                                                <?php
-                                                                    if ($banner['trang_thai'] == 1) { ?>
-                                                                        <span class="badge bg-success">Hiển thị</span>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                        <span class="badge bg-danger">Đã ẩn</span>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-                                                                </td>  
+                                                                <td><?= $nguoi_dung['ho_ten'] ?></td>
+                                                                <td><?= $nguoi_dung['email'] ?></td>
+                                                                <td><?= $nguoi_dung['mat_khau'] ?></td>
+                                                                <td><?= $nguoi_dung['so_dien_thoai'] ?></td>
+                                                                <td><?= $nguoi_dung['dia_chi'] ?></td>
+                                                                
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=form-sua-banner&banner_id=<?= $banner['id'] ?>"
+                                                                        <a href="?act=form-sua-nguoi-dung&nguoi_dung_id=<?= $nguoi_dung['id'] ?>"
                                                                             class="link-success fs-15"><i
                                                                                 class="ri-edit-2-line"></i></a>
 
-                                                                        <form action="?act=xoa-banner" method="POST"
-                                                                            onsubmit="return confirm('Bạn có chắc muốn xóa banner này?');">
-                                                                            <input type="hidden" name="banner_id" value="<?= $banner['id'] ?>">
+                                                                        <form action="?act=xoa-nguoi-dung" method="POST"
+                                                                            onsubmit="return confirm('Bạn có chắc muốn xóa người dùng này?');">
+                                                                            <input type="hidden" name="nguoi_dung_id" value="<?= $nguoi_dung['id'] ?>">
                                                                             <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
                                                                                 <i class="ri-delete-bin-line"></i>
                                                                             </button>
