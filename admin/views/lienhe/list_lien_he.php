@@ -79,7 +79,9 @@
                                                             <th scope="col">Tên liên hệ</th>
                                                             <th scope="col">TRạng thái</th>
                                                             <th scope="col">Số điện thoại</th>
-                                                            <th scope="col">Action</th>
+                                                             <th scope="col">Action</th>
+                                                            <th scope="col">Nội dung</th>
+                                                           
 
                                                         </tr>
                                                     </thead>
@@ -109,6 +111,8 @@
                                                                 </td>
                                                                 <td><?= $lienHe['so_dien_thoai'] ?></td>
                                                                 <td>
+                                                              
+                                                                
                                                                     <div class="hstack gap-3 flex-wrap">
                                                                         <a href="?act=form-sua-lien-he&lien_he_id=<?= $lienHe['id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                                                         <form action="?act=xoa-lien-he" method="POST"
@@ -121,7 +125,9 @@
 
                                                                     </div>
                                                                 </td>
-                                                
+                                                                </td>
+                                                                <td><?= $lienHe['noi_dung'] ?></td>
+
                                                             </tr>
 
 
