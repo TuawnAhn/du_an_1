@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 07, 2024 at 10:39 AM
+-- Generation Time: Nov 08, 2024 at 09:56 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `banners` (
   `id` int NOT NULL,
   `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `hinh_anh` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `hinh_anh` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `lien_ket` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `trang_thai` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -40,58 +40,32 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `title`, `hinh_anh`, `lien_ket`, `trang_thai`) VALUES
-(1, 'Dây chuyềnnnn11', 'uploads/sound.jpg', 'lili.vn', 1);
+(1, 'Dây chuyền đẹp', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'lili.vn', 2),
+(6, 'ádasd', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'ád', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `danh_mucs`
+-- Table structure for table `tbl_danhmuc`
 --
 
-CREATE TABLE `danh_mucs` (
+CREATE TABLE `tbl_danhmuc` (
   `id` int NOT NULL,
   `ten_danh_muc` varchar(255) NOT NULL,
   `trang_thai` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `danh_mucs`
+-- Dumping data for table `tbl_danhmuc`
 --
 
-INSERT INTO `danh_mucs` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
+INSERT INTO `tbl_danhmuc` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
+(1, 'Nhẫn bạc nữ đính kim cương Moissanite Aidan LILI_335168\r\n', 1),
+(2, 'Dây chuyền bạc nữ đính đá CZ cá tiên LILI_831944\r\n', 0),
 (5, 'Vòng-Lắc', 1),
 (6, 'Nhẫn', 1),
 (7, 'Dây chuyền', 1),
-(8, 'Bông taiiiiiiiiiii', 2),
-(12, 'Bông tai', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `khuyen_mais`
---
-
-CREATE TABLE `khuyen_mais` (
-  `id` int NOT NULL,
-  `ten_khuyen_mai` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `mo_ta` text,
-  `giam_gia` decimal(5,2) DEFAULT NULL,
-  `ngay_bat_dau` date DEFAULT NULL,
-  `ngay_ket_thuc` date DEFAULT NULL,
-  `trang_thai` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `khuyen_mais`
---
-
-INSERT INTO `khuyen_mais` (`id`, `ten_khuyen_mai`, `mo_ta`, `giam_gia`, `ngay_bat_dau`, `ngay_ket_thuc`, `trang_thai`) VALUES
-(1, 'Giảm giá mùa hè', 'Giảm giá 20% cho tất cả sản phẩm mùa hè', '20.00', '2024-06-01', '2024-08-31', 1),
-(2, 'Khuyến mãi Giáng Sinh', 'Giảm giá đặc biệt mùa Giáng Sinh', '25.00', '2024-12-01', '2024-12-25', 1),
-(3, 'Black Friday', 'Giảm giá lớn nhân dịp Black Friday', '50.00', '2024-11-25', '2024-11-29', 2),
-(4, 'Tết Nguyên Đán', 'Khuyến mãi đặc biệt mừng Tết Nguyên Đán', '30.00', '2025-01-10', '2025-02-10', 1),
-(5, 'Giảm giá 8/8', 'Giảm ngay 50.000 cho đơn từ 200.000 khi mua sắm tại các danh mục Nhẫn Đính Kim Cương', '50.00', NULL, NULL, 1),
-(7, 'Giảm giá cuối năm', 'Khuyến mãi giảm giá lên đến 70% vào dịp cuối năm', '70.00', NULL, NULL, 1);
+(8, 'Bông tai', 2);
 
 -- --------------------------------------------------------
 
@@ -112,8 +86,9 @@ CREATE TABLE `tbl_lienhe` (
 --
 
 INSERT INTO `tbl_lienhe` (`id`, `name`, `so_dien_thoai`, `noi_dung`, `ngay_gio`) VALUES
-(1, 'chiennnll', 338506483, 'dfvgfbdsx', 2),
-(2, 'thinhnguchi1444', 338506458, 'rfsgdhbazx', 1);
+(1, 'chiennnll33333', 338506483, 'deptraicogisaiiiiiiiiiii', 2),
+(9, 'thinhkhonroi', 3333555, '33339999', 1),
+(10, 'hahoingu', 1111111888, 'sản phẩm quá oki', 1);
 
 -- --------------------------------------------------------
 
@@ -134,22 +109,16 @@ CREATE TABLE `tin_tucs` (
 --
 
 INSERT INTO `tin_tucs` (`id`, `title`, `content`, `img`, `date`) VALUES
-(2, '11 Cách Chọn Mua Trang Sức Làm Quà Tặng Phù Hợp Và Ý Nghĩa Cho Nữ', 'Sự lựa chọn món quà trang sức đúng đắn có thể mang đến nhiều ý nghĩa tuyệt ạn yêu quý.', 'https://lili.vn/wp-content/uploads/2022/07/Nhan-bac-nu-dinh-kim-cuong-Moissanite-Aidan-LILI_335168_5.jpg', '2024-11-14');
+(2, '11 Cách Chọn Mua Trang Sức Làm Quà Tặng Phù Hợp Và Ý Nghĩa Cho Nữ oki', 'Sự lựa chọn món quà trang sức đúng đắn có thể mang đến nhiều ý nghĩa tuyệt ạn yêu quý.', 'https://lili.vn/wp-content/uploads/2022/07/Nhan-bac-nu-dinh-kim-cuong-Moissanite-Aidan-LILI_335168_5.jpg', '2024-11-14');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `danh_mucs`
+-- Indexes for table `tbl_danhmuc`
 --
-ALTER TABLE `danh_mucs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `khuyen_mais`
---
-ALTER TABLE `khuyen_mais`
+ALTER TABLE `tbl_danhmuc`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -169,22 +138,16 @@ ALTER TABLE `tin_tucs`
 --
 
 --
--- AUTO_INCREMENT for table `danh_mucs`
+-- AUTO_INCREMENT for table `tbl_danhmuc`
 --
-ALTER TABLE `danh_mucs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `khuyen_mais`
---
-ALTER TABLE `khuyen_mais`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `tbl_danhmuc`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_lienhe`
 --
 ALTER TABLE `tbl_lienhe`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tin_tucs`
