@@ -26,7 +26,7 @@ class DonHang
     public function postDonHang($trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO don_hangs (trang_thai_don_hang, trang_thai_thanh_toan, ngay_tao) VALUES (:trang_thai_don_hang, :trang_thai_thanh_toan, :ngay_tao)";
+            $sql = "INSERT INTO don_hangs (trang_thai_don_hang, trang_thai_thanh_toan, ngay_tao, trang_thai) VALUES (:trang_thai_don_hang, :trang_thai_thanh_toan, :ngay_tao, :trang_thai)";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -76,10 +76,10 @@ class DonHang
             echo 'Lỗi' . $e->getMessage();
         }
     }
-    public function updateData($id, $trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao)
+    public function updateData($id, $trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao, $trang_thai)
     {
         try {
-            $sql = "UPDATE don_hangs SET trang_thai_don_hang = :trang_thai_don_hang, trang_thai_thanh_toan = :trang_thai_thanh_toan, ngay_tao = :ngay_tao WHERE id = :id";
+            $sql = "UPDATE don_hangs SET trang_thai_don_hang = :trang_thai_don_hang, trang_thai_thanh_toan = :trang_thai_thanh_toan, ngay_tao = :ngay_tao, trang_thai = :trang_thai WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -87,6 +87,7 @@ class DonHang
             $stmt->bindParam(':trang_thai_don_hang', $trang_thai_don_hang);
             $stmt->bindParam(':trang_thai_thanh_toan', $trang_thai_thanh_toan);
             $stmt->bindParam(':ngay_tao', $ngay_tao);
+            $stmt->bindParam(':trang_thai', $trang_thai);
 
             $stmt->execute();
 

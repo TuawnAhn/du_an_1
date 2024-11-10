@@ -65,7 +65,7 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Thêm đơn hàng</h4>
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
@@ -91,8 +91,8 @@
                                                             <label for="trang_thai_thanh_toan" class="form-label">Trạng thái thanh toán</label>
                                                             <select class="form-select" name="trang_thai_thanh_toan">
                                                                 <option selected disabled>Chọn trạng thái thanh toán</option>
-                                                                <option value="1">Chưa thanh toán</option>
-                                                                <option value="2">Đã thanh toán</option>
+                                                                <option value="1">Đã thanh toán</option>
+                                                                <option value="2">Chưa thanh toán</option>
                                                             </select>
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['trang_thai_thanh_toan']) ? $_SESSION['errors']['trang_thai_thanh_toan'] : '' ?>

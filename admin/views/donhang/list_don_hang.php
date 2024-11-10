@@ -113,10 +113,10 @@
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="flex-wrap">
+                                                                    <div class="hstack gap-2 flex-wrap">
                                                                         <a href="?act=form-sua-don-hang&id=<?= $donhang['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
                                                                         <form action="?act=xoa-don-hang" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa trạng thái đơn hàng này?');">
-                                                                            <input type="hidden" name="donhang_id" value="<?= $donhang['id'] ?>">
+                                                                            <input type="hidden" name="don_hang_id" value="<?= $donhang['id'] ?>">
                                                                             <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
                                                                                 <i class="ri-delete-bin-line"></i>
                                                                             </button>
