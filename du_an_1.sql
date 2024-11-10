@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 10, 2024 at 12:09 PM
+-- Generation Time: Nov 10, 2024 at 02:11 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -77,7 +77,7 @@ CREATE TABLE `don_hangs` (
   `id` int NOT NULL,
   `trang_thai_don_hang` int NOT NULL COMMENT '1="''Chờ xác nhận'',2= ''Đã xác nhận''',
   `trang_thai_thanh_toan` int NOT NULL COMMENT '1=''Đã thanh toán'',2=''Chưa thanh toán''',
-  `ngay_tao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `ngay_tao` date DEFAULT NULL,
   `trang_thai` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -86,10 +86,11 @@ CREATE TABLE `don_hangs` (
 --
 
 INSERT INTO `don_hangs` (`id`, `trang_thai_don_hang`, `trang_thai_thanh_toan`, `ngay_tao`, `trang_thai`) VALUES
-(1, 1, 2, '2024-11-11 17:00:00', 1),
-(2, 1, 2, '2024-11-22 17:00:00', 2),
-(3, 1, 2, '2024-11-13 17:00:00', 1),
-(4, 1, 2, '2024-11-06 17:00:00', 2);
+(1, 2, 2, '2024-11-12', 1),
+(2, 1, 2, '2024-11-23', 2),
+(5, 2, 2, '2024-11-03', 1),
+(6, 2, 2, '2024-11-03', 1),
+(7, 2, 1, '2024-11-22', 1);
 
 -- --------------------------------------------------------
 
@@ -254,7 +255,7 @@ ALTER TABLE `danh_mucs`
 -- AUTO_INCREMENT for table `don_hangs`
 --
 ALTER TABLE `don_hangs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `khuyen_mais`
