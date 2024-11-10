@@ -12,6 +12,7 @@ require_once 'controllers/LienHeController.php';
 require_once 'controllers/TinTucController.php';
 require_once 'controllers/NguoiDungController.php';
 require_once 'controllers/KhuyenMaiController.php';
+require_once 'controllers/DonHangController.php';
 
 
 
@@ -22,6 +23,7 @@ require_once 'models/LienHe.php';
 require_once 'models/TinTuc.php';
 require_once 'models/NguoiDung.php';
 require_once 'models/KhuyenMai.php';
+require_once 'models/DonHang.php';
 
 
 
@@ -60,7 +62,7 @@ match ($act) {
     'form-sua-tin-tuc'          => (new TinTucController())->edit(),
     'sua-tin-tuc'               => (new TinTucController())->update(),
     'xoa-tin-tuc'               => (new TinTucController())->destroy(),
-    
+
     //Quan li lien he
     'lien-he'                  => (new LienHeController())->index(),
     'form-them-lien-he'         => (new LienHeController())->create(),
@@ -68,7 +70,7 @@ match ($act) {
     'form-sua-lien-he'          => (new LienHeController())->edit(),
     'sua-lien-he'               => (new LienHeController())->update(),
     'xoa-lien-he'               => (new LienHeController())->destroy(),
-    
+
     //Quan li Nguoi Dung
     'nguoi-dungs'              => (new NguoiDungController())->index(),
     'form-them-nguoi-dung'     => (new NguoiDungController())->create(),
@@ -85,4 +87,11 @@ match ($act) {
     'sua-khuyen-mai'         => (new KhuyenMaiController())->update(),
     'xoa-khuyen-mai'         => (new KhuyenMaiController())->destroy(),
 
+    //Quan li don hang
+    'don-hangs'            => (new DonHangController())->index(),
+    'form-them-don-hang'   => (new DonHangController())->create(),
+    'them-don-hang'        => (new DonHangController())->store(),
+    'form-sua-don-hang'    => (new DonHangController())->edit(),
+    'sua-don-hang'         => (new DonHangController())->update(),
+    'xoa-don-hang'         => (new DonHangController())->destroy(),
 };

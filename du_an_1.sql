@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 08, 2024 at 10:36 AM
+-- Generation Time: Nov 10, 2024 at 12:09 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -70,6 +70,30 @@ INSERT INTO `danh_mucs` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `don_hangs`
+--
+
+CREATE TABLE `don_hangs` (
+  `id` int NOT NULL,
+  `trang_thai_don_hang` int NOT NULL COMMENT '1="''Chờ xác nhận'',2= ''Đã xác nhận''',
+  `trang_thai_thanh_toan` int NOT NULL COMMENT '1=''Đã thanh toán'',2=''Chưa thanh toán''',
+  `ngay_tao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `trang_thai` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `don_hangs`
+--
+
+INSERT INTO `don_hangs` (`id`, `trang_thai_don_hang`, `trang_thai_thanh_toan`, `ngay_tao`, `trang_thai`) VALUES
+(1, 1, 2, '2024-11-11 17:00:00', 1),
+(2, 1, 2, '2024-11-22 17:00:00', 2),
+(3, 1, 2, '2024-11-13 17:00:00', 1),
+(4, 1, 2, '2024-11-06 17:00:00', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `khuyen_mais`
 --
 
@@ -116,7 +140,8 @@ CREATE TABLE `nguoi_dungs` (
 
 INSERT INTO `nguoi_dungs` (`id`, `ho_ten`, `email`, `mat_khau`, `so_dien_thoai`, `dia_chi`) VALUES
 (1, 'Đàm Đức Thịnh', 'thinhdepzaivl@gmail.com', 'hangu', '0985671234', 'Hà Nội city '),
-(3, 'thinhj', 'thinhddph51501@gmail.com', '12435', '07865746', 'Hà Nội');
+(3, 'thinhj', 'thinhddph51501@gmail.com', '12435', '07865746', 'Hà Nội'),
+(4, 'dsfsdfdsfsd', 'anhntph51526@gmail.com', 'fsfsdfsf', '7827528', 'Hà nội city');
 
 -- --------------------------------------------------------
 
@@ -180,9 +205,21 @@ ALTER TABLE `danh_mucs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `don_hangs`
+--
+ALTER TABLE `don_hangs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `khuyen_mais`
 --
 ALTER TABLE `khuyen_mais`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `nguoi_dungs`
+--
+ALTER TABLE `nguoi_dungs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -214,10 +251,22 @@ ALTER TABLE `danh_mucs`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT for table `don_hangs`
+--
+ALTER TABLE `don_hangs`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `khuyen_mais`
 --
 ALTER TABLE `khuyen_mais`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `nguoi_dungs`
+--
+ALTER TABLE `nguoi_dungs`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_lienhe`
