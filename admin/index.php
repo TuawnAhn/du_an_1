@@ -12,9 +12,7 @@ require_once 'controllers/LienHeController.php';
 require_once 'controllers/TinTucController.php';
 require_once 'controllers/NguoiDungController.php';
 require_once 'controllers/KhuyenMaiController.php';
-
 require_once 'controllers/SanPhamController.php';
-
 require_once 'controllers/DonHangController.php';
 
 
@@ -26,9 +24,7 @@ require_once 'models/LienHe.php';
 require_once 'models/TinTuc.php';
 require_once 'models/NguoiDung.php';
 require_once 'models/KhuyenMai.php';
-
 require_once 'models/SanPham.php';
-
 require_once 'models/DonHang.php';
 
 

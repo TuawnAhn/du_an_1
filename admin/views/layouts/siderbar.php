@@ -115,7 +115,7 @@
                         </div>
                     </li>
 
-                    
+
                     <li class="nav-item">
                         <a href="#sidebarLienHe" class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLienHe">
                             <i class="ri-contacts-line"></i> <span data-key="t-pages">Liên hệ</span>
@@ -182,7 +182,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarDonHang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDonHang">
-                            <i class="ri-shopping-bag-line"></i> <span data-key="t-advance-ui">Đơn hàng </span>
+                            <i class="ri-shopping-cart-line"></i> <span data-key="t-advance-ui">Đơn hàng </span>
                         </a>
                         <div class="collapse menu-dropdown" id="sidebarDonHang">
                             <ul class="nav nav-sm flex-column">
