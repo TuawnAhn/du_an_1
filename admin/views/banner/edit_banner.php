@@ -71,7 +71,7 @@
 
                                 <div class="card-body">
                                     <div class="live-preview">
-                                        <form action="?act=sua-banner" method="POST">
+                                        <form action="?act=sua-banner" method="POST" enctype="multipart/form-data">
                                             <input type="hidden" name="id" value="<?= $banner['id'] ?>">
                                             <div class="row">
                                             <div class="row g-3">
@@ -86,17 +86,19 @@
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-xxl-4 col-md-5">
-                                                                <div>
-                                                                    <div>
-                                                                        <label for="formFile" class="form-label">Hình ảnh</label>
-                                                                        <input type="text" class="form-control" name="hinh_anh" value="<?= $banner['hinh_anh'] ?>">
-                                                                        
-                                                                    </div>
+                                                            <label for="hinh_anh" class="form-label">Hình Ảnh</label>
+                                                            <input type="file" class="form-control" placeholder="Đường dẫn hình ảnh" name="hinh_anh" >
+                                                            <span class="text-danger"><?= !empty($_SESSION['errors']['hinh_anh']) ? $_SESSION['errors']['hinh_anh'] : '' ?></span>
+
+                                                            <?php if (!empty($banner['hinh_anh'])): ?>
+                                                                <div class="mt-2">
+                                                                    <label>Ảnh hiện tại:</label>
+                                                                    <img src="<?= $banner['hinh_anh'] ?>" alt="Current Image" class="hinh_anh-fluid" style="max-width: 200px;">
+                                                                </div>
+                                                            <?php endif; ?>
                                                                 </div>
                                                             </div>
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['hinh_anh']) ? $_SESSION['errors']['hinh_anh'] : '' ?>
-                                                            </span>
+                                                           
                                                             <div class="col-xxl-4 col-md-5">
                                                                 <div>
                                                                     <label for="link" class="form-label">Liên kết</label>

@@ -93,8 +93,18 @@
                                                                 <td>
                                                                     <?php if ($donhang['trang_thai_don_hang'] == 1) { ?>
                                                                         <span>Chờ xác nhận</span>
-                                                                    <?php } else { ?>
+                                                                    <?php } else if($donhang['trang_thai_don_hang'] == 2) { ?>
                                                                         <span>Đã xác nhận</span>
+                                                                        <?php } else if($donhang['trang_thai_don_hang'] == 3) { ?>
+                                                                        <span>Đang giao</span>
+                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 4) { ?>
+                                                                        <span>Đã giao</span>    
+                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 5) { ?>
+                                                                        <span>Đã hoàn thành</span>
+                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 6) { ?>
+                                                                        <span>Đã thất bại</span>
+                                                                    <?php } else { ?>
+                                                                        <span>Đã Hủy</span>    
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td>

@@ -80,6 +80,11 @@
                                                                 <option selected disabled>Chọn trạng thái</option>
                                                                 <option value="1">Chờ xác nhận</option>
                                                                 <option value="2">Đã xác nhận</option>
+                                                                <option value="3">Đang giao</option>
+                                                                <option value="4">Đã giao</option>
+                                                                <option value="5">Đã hoàn thành </option>
+                                                                <option value="6">Đã thất bại</option>
+                                                                <option value="7">Đã hủy</option>
                                                             </select>
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['trang_thai_don_hang']) ? $_SESSION['errors']['trang_thai_don_hang'] : '' ?>

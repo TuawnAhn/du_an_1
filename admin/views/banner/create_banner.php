@@ -71,7 +71,7 @@
 
                                 <div class="card-body">
                                     <div class="live-preview">
-                                        <form action="?act=them-banner" method="POST">
+                                        <form action="?act=them-banner" method="POST" enctype="multipart/form-data">
                                             <div class="row">
                                             <div class="row g-3">
                                                             <div class="col-xxl-4 col-md-5">
@@ -88,7 +88,7 @@
                                                                 <div>
                                                                     <div>
                                                                         <label for="formFile" class="form-label">Hình ảnh</label>
-                                                                        <input type="text" class="form-control"  name="hinh_anh">
+                                                                        <input type="file" class="form-control"  name="hinh_anh">
                                                                     </div>
                                                                 </div>
                                                             </div>

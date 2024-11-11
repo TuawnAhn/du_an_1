@@ -83,6 +83,11 @@
                                                                 <option selected disabled>Chọn trạng thái</option>
                                                                 <option value="1" <?= $donhangs['trang_thai_don_hang'] == 1 ? 'selected' : '' ?>>Chờ xác nhận</option>
                                                                 <option value="2" <?= $donhangs['trang_thai_don_hang'] == 2 ? 'selected' : '' ?>>Đã xác nhận</option>
+                                                                <option value="3" <?= $donhangs['trang_thai_don_hang'] == 3 ? 'selected' : '' ?>>Đang giao</option>
+                                                                <option value="4" <?= $donhangs['trang_thai_don_hang'] == 4 ? 'selected' : '' ?>>Đã giao</option>
+                                                                <option value="5" <?= $donhangs['trang_thai_don_hang'] == 5 ? 'selected' : '' ?>>Đã hoàn thành</option>
+                                                                <option value="6" <?= $donhangs['trang_thai_don_hang'] == 6 ? 'selected' : '' ?>>Đã thất bại</option>
+                                                                <option value="7" <?= $donhangs['trang_thai_don_hang'] == 7 ? 'selected' : '' ?>>Đã hủy</option>
                                                             </select>
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['trang_thai_don_hang']) ? $_SESSION['errors']['trang_thai_don_hang'] : '' ?>

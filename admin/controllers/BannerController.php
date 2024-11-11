@@ -24,7 +24,6 @@ class BannerController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $title = $_POST['title'];
-            $hinh_anh = $_POST['hinh_anh'];
             $lien_ket = $_POST['lien_ket'];
             $trang_thai = $_POST['trang_thai'];
             $errors = [];
@@ -33,16 +32,28 @@ class BannerController
                 $errors['title'] = 'Tiêu đề không được để trống';
             }
 
-            if (empty($hinh_anh)) {
-                $errors['hinh_anh'] = 'Hình ảnh không được để trống';
-            }
-
             if (empty($lien_ket)) {
                 $errors['lien_ket'] = 'Liên kết không được để trống';
             }
             
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'Trạng thái không được để trống';
+            }
+            if (isset($_FILES['hinh_anh']) && $_FILES['hinh_anh']['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = 'imgs/uploads'; // Thư mục lưu ảnh
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0777, true);
+                }
+                
+                // Tạo đường dẫn lưu ảnh
+                $uploadFile = $uploadDir.basename($_FILES['hinh_anh']['name']);
+                if (!move_uploaded_file($_FILES['hinh_anh']['tmp_name'], $uploadFile)) {
+                    $errors['hinh_anh'] = 'Không thể tải lên ảnh';
+                } else {
+                    $hinh_anh = $uploadFile;
+                }
+            } else {
+                $errors['hinh_anh'] = 'Vui lòng chọn một file ảnh hợp lệ';
             }
             //them du lieu
             if (empty($errors)) {
@@ -69,8 +80,8 @@ class BannerController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_POST['id'];
+            $hinh_anh = $_FILES['hinh_anh'];
             $title = $_POST['title'];
-            $hinh_anh = $_POST['hinh_anh'];
             $lien_ket = $_POST['lien_ket'];
             $trang_thai = $_POST['trang_thai'];
             // var_dump($trang_thai);
@@ -81,10 +92,6 @@ class BannerController
                 $errors['title'] = 'Tên danh mục không được để trống';
             }
 
-            if (empty($hinh_anh)) {
-                $errors['hinh_anh'] = 'Hình ảnh không được để trống';
-            }
-
             if (empty($lien_ket)) {
                 $errors['lien_ket'] = 'Liên kết không được để trống';
             }
@@ -92,7 +99,24 @@ class BannerController
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'Trạng thái không được để trống';
             }
-
+            if (isset($hinh_anh) && $hinh_anh['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = 'imgs/uploads'; // Thư mục lưu ảnh
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0777, true);
+                }
+    
+                // Tạo đường dẫn lưu ảnh
+                $uploadFile = $uploadDir . basename($hinh_anh['name']);
+                if (!move_uploaded_file($hinh_anh['tmp_name'], $uploadFile)) {
+                    $errors['hinh_anh'] = 'Không thể tải lên ảnh';
+                } else {
+                    $hinh_anh = $uploadFile;
+                }
+            } else {
+                // Nếu không có ảnh mới, giữ ảnh cũ
+                $banner = $this->modelBanner->getDetailData($id);
+                $hinh_anh= $banner['hinh_anh'];  // Giữ ảnh cũ trong cơ sở dữ liệu
+            }
             if (empty($errors)) {
                 $this->modelBanner->updateBanner($id, $title, $hinh_anh, $lien_ket,  $trang_thai);
                 unset($_SESSION['errors']);
