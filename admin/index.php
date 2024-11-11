@@ -11,6 +11,7 @@ require_once 'controllers/BannerController.php';
 require_once 'controllers/LienHeController.php';
 require_once 'controllers/TinTucController.php';
 require_once 'controllers/KhuyenMaiController.php';
+require_once 'controllers/SanPhamController.php';
 
 
 // Require toàn bộ file Models
@@ -19,7 +20,7 @@ require_once 'models/Banner.php';
 require_once 'models/LienHe.php';
 require_once 'models/TinTuc.php';
 require_once 'models/KhuyenMai.php';
-
+require_once 'models/SanPham.php';
 
 
 // Route
@@ -71,4 +72,12 @@ match ($act) {
     'form-sua-khuyen-mai'    => (new KhuyenMaiController())->edit(),
     'sua-khuyen-mai'         => (new KhuyenMaiController())->update(),
     'xoa-khuyen-mai'         => (new KhuyenMaiController())->destroy(),
+
+    //Quan li san pham
+    'san-phams'            => (new SanPhamController())->index(),
+    'form-them-san-pham'   => (new SanPhamController())->create(),
+    'them-san-pham'        => (new SanPhamController())->store(),
+    'form-sua-san-pham'    => (new SanPhamController())->edit(),
+    'sua-san-pham'         => (new SanPhamController())->update(),
+    'xoa-san-pham'         => (new SanPhamController())->destroy(),
 };

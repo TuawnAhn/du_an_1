@@ -18,10 +18,8 @@ class TinTucController{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $title = $_POST['title'];
             $content = $_POST['content'];
-            $img = $_POST['img'];
             $date = $_POST['date'];
             
-
             $errors = [];
             if(empty($title)){
                 $errors['title'] = 'Vui lòng nhập tiêu đề'; 
@@ -29,29 +27,42 @@ class TinTucController{
             if(empty($content)){
                 $errors['content'] = 'Vui lòng nhập mô tả'; 
             }
-            if(empty($img)){
-                $errors['img'] = 'Vui lòng nhập link ảnh'; 
-            }
             if(empty($date)){
-                $errors['date'] = 'Vui lòng nhập link ảnh'; 
+                $errors['date'] = 'Vui lòng nhập ngày xuất bản'; 
             }
-
-            //Thêm dữ liệu
-            if (empty($errors)){
-                //Neu ko co loi thi them du lieu
-                // Them vao csdl
-                $this->modelTinTuc->postData($title,$content,$img,$date);
+    
+            // Xử lý ảnh tải lên
+            if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = 'imgs/uploads'; // Thư mục lưu ảnh
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0777, true);
+                }
+                
+                // Tạo đường dẫn lưu ảnh
+                $uploadFile = $uploadDir.basename($_FILES['img']['name']);
+                if (!move_uploaded_file($_FILES['img']['tmp_name'], $uploadFile)) {
+                    $errors['img'] = 'Không thể tải lên ảnh';
+                } else {
+                    $imgPath = $uploadFile;
+                }
+            } else {
+                $errors['img'] = 'Vui lòng chọn một file ảnh hợp lệ';
+            }
+    
+            // Thêm dữ liệu nếu không có lỗi
+            if (empty($errors)) {
+                $this->modelTinTuc->postData($title, $content, $imgPath, $date);
                 unset($_SESSION['errors']);
                 header('Location: ?act=tin-tucs');
-            }else{
+                exit();
+            } else {
                 $_SESSION['errors'] =  $errors;
                 header('Location: ?act=form-them-tin-tuc');
                 exit();
             }
-
         }
     }
-
+    
     //Hien thi form sua
     public function edit(){
         $id = $_GET['tin_tuc_id'];
@@ -63,45 +74,58 @@ class TinTucController{
 
 
     }
-    public function update(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    public function update() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_POST['id'];
             $title = $_POST['title'];
             $content = $_POST['content'];
-            $img = $_POST['img'];
+            $img = $_FILES['img'];
             $date = $_POST['date'];
-            
-
+    
             $errors = [];
-            if(empty($title)){
+            if (empty($title)) {
                 $errors['title'] = 'Vui lòng nhập tiêu đề'; 
             }
-            if(empty($content)){
+            if (empty($content)) {
                 $errors['content'] = 'Vui lòng nhập mô tả'; 
             }
-            if(empty($img)){
-                $errors['img'] = 'Vui lòng nhập link ảnh'; 
+            if (empty($date)) {
+                $errors['date'] = 'Vui lòng nhập ngày xuất bản'; 
             }
-            if(empty($date)){
-                $errors['date'] = 'Vui lòng nhập link ảnh'; 
+    
+            // Kiểm tra nếu có file ảnh mới
+            if (isset($img) && $img['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = 'imgs/uploads'; // Thư mục lưu ảnh
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0777, true);
+                }
+    
+                // Tạo đường dẫn lưu ảnh
+                $uploadFile = $uploadDir . basename($img['name']);
+                if (!move_uploaded_file($img['tmp_name'], $uploadFile)) {
+                    $errors['img'] = 'Không thể tải lên ảnh';
+                } else {
+                    $imgPath = $uploadFile;
+                }
+            } else {
+                // Nếu không có ảnh mới, giữ ảnh cũ
+                $Tintuc = $this->modelTinTuc->getDetailData($id);
+                $imgPath = $Tintuc['img'];  // Giữ ảnh cũ trong cơ sở dữ liệu
             }
-
-            //Thêm dữ liệu
-            if (empty($errors)){
-                //Neu ko co loi thi them du lieu
-                // Them vao csdl
-                $this->modelTinTuc->updateData($id,$title,$content,$img,$date);
+    
+            // Thêm dữ liệu vào cơ sở dữ liệu nếu không có lỗi
+            if (empty($errors)) {
+                $this->modelTinTuc->updateData($id, $title, $content, $imgPath, $date);
                 unset($_SESSION['errors']);
                 header('Location: ?act=tin-tucs');
-            }else{
-                $_SESSION['errors'] =  $errors;
+            } else {
+                $_SESSION['errors'] = $errors;
                 header('Location: ?act=form-sua-tin-tuc');
                 exit();
             }
-
         }
-
     }
+    
     public function destroy(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_POST['tin_tuc_id'];

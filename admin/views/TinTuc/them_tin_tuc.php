@@ -1,228 +1,96 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
-
-<!-- Mirrored from themesbrand.com/velzon/html/master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Oct 2024 07:29:52 GMT -->
-
 <head>
-    <style>
-        /* styles.css */
-        .news-form-container {
-    width: 100%;
-    
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    text-align: center;
-}
-
-.news-form-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
-form label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-    color: #555;
-}
-
-form input[type="text"],
-form input[type="date"],
-form input[type="file"],
-form select,
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-form textarea {
-    resize: vertical;
-}
-
-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #218838;
-}
-
-    </style>
     <meta charset="utf-8" />
-    <title>Them tin tuc</title>
+    <title>Thêm Tin Tức | Sliver Ring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
-    <!-- CSS -->
     <?php
     require_once "views/layouts/libs_css.php";
     ?>
-
 </head>
 
 <body>
 
-    <!-- Begin page -->
     <div id="layout-wrapper">
-
-        <!-- HEADER -->
         <?php
         require_once "views/layouts/header.php";
-
         require_once "views/layouts/siderbar.php";
         ?>
-        
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
-        <div class="vertical-overlay"></div>
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
-
                     <div class="row">
                         <div class="col">
-                        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Submission Form</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News List</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Tin Tức</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="news-form-container">
-        <h2>Thêm Tin Tức</h2>
-        <form action="?act=them-tin-tuc" method="POST" enctype="multipart/form-data">
-            <label for="title">Tiêu Đề</label>
-            <input type="text" id="title" name="title" >
-            <span class="text-danger">
-                <?= !empty($_SESSION['errors']['title']) ? $_SESSION['errors']['title'] : '' ?>
-            </span>
-            <label for="content">Mô Tả</label>
-            <textarea id="content" name="content" rows="4" ></textarea>
-            <span class="text-danger">
-                <?= !empty($_SESSION['errors']['content']) ? $_SESSION['errors']['content'] : '' ?>
-            </span>
-
-            <label for="img">Hình Ảnh</label>
-            <input type="text" id="img" name="img">
-
-            <label for="date">Ngày Xuất Bản</label>
-            <input type="date" id="date" name="date" >
-
-            <button type="submit">Thêm Bài Viết</button>
-        </form>
-    </div>
-</body>
-</html>
-
-</body>
-</html>
-
-          
-           
-    </div>
-    
-</body>
-</html>
-
-
                             <div class="h-100">
-                               
-                                
-                                </div> <!-- end row-->
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Thêm Tin Tức</h4>
+                                    </div>
 
-                            </div> <!-- end .h-100-->
+                                    <div class="card-body">
+                                        <form action="?act=them-tin-tuc" method="POST" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="title" class="form-label">Tiêu Đề</label>
+                                                    <input type="text" id="title" name="title" class="form-control" placeholder="Nhập tiêu đề">
+                                                    <span class="text-danger"><?= !empty($_SESSION['errors']['title']) ? $_SESSION['errors']['title'] : '' ?></span>
+                                                </div>
+                                                
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="content" class="form-label">Mô Tả</label>
+                                                    <textarea id="content" name="content" class="form-control" rows="4" placeholder="Nhập mô tả"></textarea>
+                                                    <span class="text-danger"><?= !empty($_SESSION['errors']['content']) ? $_SESSION['errors']['content'] : '' ?></span>
+                                                </div>
 
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="img" class="form-label">Hình Ảnh</label>
+                                                    <input type="file" id="img" name="img" class="form-control" placeholder="Nhập đường dẫn hình ảnh">
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="date" class="form-label">Ngày Xuất Bản</label>
+                                                    <input type="date" id="date" name="date" class="form-control">
+                                                </div>
+
+                                                <div class="col-lg-12 text-center">
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div> <!-- end row -->
+                                        </form>
+                                    </div> <!-- end card-body -->
+                                </div> <!-- end card -->
+                            </div> <!-- end h-100 -->
                         </div> <!-- end col -->
-                    </div>
-
-                </div>
-                <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
+                    </div> <!-- end row -->
+                </div> <!-- container-fluid -->
+            </div> <!-- page-content -->
 
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Velzon.
+                            <script>document.write(new Date().getFullYear())</script> © Velzon.
                         </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
-                            </div>
+                        <div class="col-sm-6 text-sm-end d-none d-sm-block">
+                            Design & Develop by Themesbrand
                         </div>
                     </div>
                 </div>
             </footer>
-        </div>
-        <!-- end main content-->
+        </div> <!-- end main content -->
+    </div> <!-- END layout-wrapper -->
 
-    </div>
-    <!-- END layout-wrapper -->
-
-
-
-    <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
     </button>
-    <!--end back-to-top-->
 
-    <!--preloader-->
-   
-
-  
-
-    <!-- JAVASCRIPT -->
     <?php
     require_once "views/layouts/libs_js.php";
     ?>
-
 </body>
-
 </html>
