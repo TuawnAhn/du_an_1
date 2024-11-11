@@ -1,6 +1,6 @@
 <?php
 
-class TinTuc{
+class SanPham{
     public $conn;
 
     //Ket noi csdl
@@ -11,7 +11,7 @@ class TinTuc{
     //Danh sach tin tuc
     public function getAll(){
         try {
-            $sql = 'SELECT * FROM tin_tucs';
+            $sql = 'SELECT * FROM san_phams';
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -21,16 +21,19 @@ class TinTuc{
     }
 
     //Them du lieu moi vao csdl
-    public function postData($title,$content,$img,$date){
+    public function postData($ten,$img,$gia_ban,$gia_km,$mo_ta,$so_luong,$date){
         try {
-            $sql = 'INSERT INTO tin_tucs (title,content,img,date)
-                 VALUES(:title,:content,:img,:date)';
+            $sql = 'INSERT INTO san_phams (ten,img,gia_ban,gia_km,mo_ta,so_luong,date)
+                 VALUES(:ten,:img,:gia_ban,:gia_km,:mo_ta,:so_luong,:date)';
             $stmt = $this->conn->prepare($sql);
 
             //Gan gia tri vao cac tham so
-            $stmt->bindParam(':title',$title);
-            $stmt->bindParam(':content',$content);
+            $stmt->bindParam(':ten',$ten);
             $stmt->bindParam(':img',$img);
+            $stmt->bindParam(':gia_ban',$gia_ban);
+            $stmt->bindParam(':gia_km',$gia_km);
+            $stmt->bindParam(':mo_ta',$mo_ta);
+            $stmt->bindParam(':so_luong',$so_luong);
             $stmt->bindParam(':date',$date);
 
             $stmt->execute();
@@ -44,13 +47,14 @@ class TinTuc{
     //Lay thong tin chi tiet
     public function getDetailData($id){
         try {
-            $sql = 'SELECT * FROM tin_tucs WHERE id=:id';
+            $sql = 'SELECT * FROM san_phams WHERE id=:id';
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->bindParam(':id',$id);
 
             $stmt->execute();
+        
 
             return $stmt->fetch();
         } catch (PDOException $e) {
@@ -59,41 +63,33 @@ class TinTuc{
     }
 
     //Cap nhat du lieu
-    public function updateData($id, $title, $content, $img, $date){
+    public function updateData($id,$ten,$img,$gia_ban,$gia_km,$mo_ta,$so_luong,$date){
         try {
-            // Sử dụng giá trị ảnh cũ nếu không có ảnh mới
-            if (empty($img)) {
-                // Nếu không có ảnh mới, không thay đổi cột ảnh trong cơ sở dữ liệu
-                $sql = 'UPDATE tin_tucs SET title = :title, content = :content, date = :date WHERE id = :id';
-            } else {
-                // Nếu có ảnh mới, cập nhật cả cột ảnh
-                $sql = 'UPDATE tin_tucs SET title = :title, content = :content, img = :img, date = :date WHERE id = :id';
-            }
-    
+            $sql = 'UPDATE san_phams SET ten= :ten, img=:img, gia_ban=:gia_ban, gia_km=:gia_km, mo_ta=:mo_ta, so_luong=:so_luong, date=:date WHERE id=:id ';
             $stmt = $this->conn->prepare($sql);
-    
-            // Gán giá trị vào các tham số
-            $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':title', $title);
-            $stmt->bindParam(':content', $content);
-            $stmt->bindParam(':date', $date);
-    
-            if (!empty($img)) {
-                $stmt->bindParam(':img', $img);
-            }
-    
+
+            //Gan gia tri vao cac tham so
+            $stmt->bindParam(':id',$id);
+            $stmt->bindParam(':ten',$ten);
+            $stmt->bindParam(':img',$img);
+            $stmt->bindParam(':gia_ban',$gia_ban);
+            $stmt->bindParam(':gia_km',$gia_km);
+            $stmt->bindParam(':mo_ta',$mo_ta);
+            $stmt->bindParam(':so_luong',$so_luong);
+            $stmt->bindParam(':date',$date);
+
             $stmt->execute();
+
             return true;
         } catch (PDOException $e) {
-            echo 'Lỗi: ' . $e->getMessage();
+            echo 'Loi: '. $e->getMessage();
         }
     }
-    
 
     //Xoa du lieu trong csdl
     public function deleteData($id){
         try {
-            $sql = 'DELETE FROM tin_tucs WHERE id=:id';
+            $sql = 'DELETE FROM san_phams WHERE id=:id';
 
             $stmt = $this->conn->prepare($sql);
 

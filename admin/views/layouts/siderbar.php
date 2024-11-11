@@ -97,6 +97,8 @@
                             </ul>
                         </div>
                     </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarTinTuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTinTuc">
                             <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Tin Tức</span>
@@ -112,6 +114,8 @@
                             </ul>
                         </div>
                     </li>
+
+                    
                     <li class="nav-item">
                         <a href="#sidebarLienHe" class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLienHe">
                             <i class="ri-contacts-line"></i> <span data-key="t-pages">Liên hệ</span>
@@ -127,6 +131,8 @@
                             </ul>
                         </div>
                     </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarNguoiDung" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarNguoiDung">
                             <i class="ri-user-line"></i> <span data-key="t-dashboards">Người dùng</span>
@@ -157,6 +163,8 @@
                             </ul>
                         </div>
                     </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarKhuyenMai" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarKhuyenMai">
                             <i class="ri-gift-line"></i> <span data-key="t-advance-ui">Khuyến Mãi</span>
@@ -183,6 +191,23 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="?act=form-them-don-hang" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebarSanPham" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSanPham">
+                            <i class="ri-shopping-bag-line"></i> <span data-key="t-dashboards">Sản phẩm</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarSanPham">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="?act=san-phams" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=form-them-san-pham" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
                                 </li>
                             </ul>
                         </div>
