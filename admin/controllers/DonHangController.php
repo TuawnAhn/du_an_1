@@ -15,12 +15,12 @@ class DonHangController
         $donhangs = $this->modelDonHang->getAll();
 
 
-        require_once "./views/donhang/list_don_hang.php";
+        require_once "./views/trangthaidonhang/list_don_hang.php";
     }
 
     public function create()
     {
-        require_once "./views/donhang/create_don_hang.php";
+        require_once "./views/trangthaidonhang/create_don_hang.php";
     }
 
     public function store()
@@ -69,7 +69,7 @@ class DonHangController
         $id = $_GET['id'];
         $donhangs = $this->modelDonHang->getDetailData($id);
 
-        require_once "./views/donhang/edit_don_hang.php";
+        require_once "./views/trangthaidonhang/edit_don_hang.php";
     }
 
     public function update()
