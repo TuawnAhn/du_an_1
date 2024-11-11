@@ -93,7 +93,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="citynameInput" class="form-label">Số điện thoại</label>
-                                                            <input type="text" class="form-control" placeholder="Nhập số điện thoại" name="so_dien_thoai">
+                                                            <input type="number" class="form-control" placeholder="Nhập số điện thoại" name="so_dien_thoai">
                                                             <span class="text-danger">
                                                                 <?php echo !empty($_SESSION['errors']['so_dien_thoai']) ? $_SESSION['errors']['so_dien_thoai'] : ' '; ?>
                                                             </span>

@@ -10,8 +10,14 @@ require_once 'controllers/DanhMucController.php';
 require_once 'controllers/BannerController.php';
 require_once 'controllers/LienHeController.php';
 require_once 'controllers/TinTucController.php';
+require_once 'controllers/NguoiDungController.php';
 require_once 'controllers/KhuyenMaiController.php';
+<<<<<<< HEAD
 require_once 'controllers/SanPhamController.php';
+=======
+require_once 'controllers/DonHangController.php';
+
+>>>>>>> 6a3abb1948e1cb3bd6ccb640a4cde7dc205e5fec
 
 
 // Require toàn bộ file Models
@@ -19,8 +25,15 @@ require_once 'models/DanhMuc.php';
 require_once 'models/Banner.php';
 require_once 'models/LienHe.php';
 require_once 'models/TinTuc.php';
+require_once 'models/NguoiDung.php';
 require_once 'models/KhuyenMai.php';
+<<<<<<< HEAD
 require_once 'models/SanPham.php';
+=======
+require_once 'models/DonHang.php';
+
+
+>>>>>>> 6a3abb1948e1cb3bd6ccb640a4cde7dc205e5fec
 
 
 // Route
@@ -50,20 +63,29 @@ match ($act) {
     'xoa-banner'           => (new BannerController())->destroy(),
 
     //Quan li tin tuc
-    'tin-tucs'               => (new TinTucController())->index(),
-    'form-them-tin-tuc'      => (new TinTucController())->create(),
-    'them-tin-tuc'           => (new TinTucController())->store(),
-    'form-sua-tin-tuc'       => (new TinTucController())->edit(),
-    'sua-tin-tuc'            => (new TinTucController())->update(),
-    'xoa-tin-tuc'            => (new TinTucController())->destroy(),
+
+    'tin-tucs'                  => (new TinTucController())->index(),
+    'form-them-tin-tuc'         => (new TinTucController())->create(),
+    'them-tin-tuc'              => (new TinTucController())->store(),
+    'form-sua-tin-tuc'          => (new TinTucController())->edit(),
+    'sua-tin-tuc'               => (new TinTucController())->update(),
+    'xoa-tin-tuc'               => (new TinTucController())->destroy(),
 
     //Quan li lien he
-    'lien-he'                => (new LienHeController())->index(),
-    'form-them-lien-he'      => (new LienHeController())->create(),
-    'them-lien-he'           => (new LienHeController())->store(),
-    'form-sua-lien-he'       => (new LienHeController())->edit(),
-    'sua-lien-he'            => (new LienHeController())->update(),
-    'xoa-lien-he'            => (new LienHeController())->destroy(),
+    'lien-he'                  => (new LienHeController())->index(),
+    'form-them-lien-he'         => (new LienHeController())->create(),
+    'them-lien-he'              => (new LienHeController())->store(),
+    'form-sua-lien-he'          => (new LienHeController())->edit(),
+    'sua-lien-he'               => (new LienHeController())->update(),
+    'xoa-lien-he'               => (new LienHeController())->destroy(),
+
+    //Quan li Nguoi Dung
+    'nguoi-dungs'              => (new NguoiDungController())->index(),
+    'form-them-nguoi-dung'     => (new NguoiDungController())->create(),
+    'them-nguoi-dung'          => (new NguoiDungController())->store(),
+    'form-sua-nguoi-dung'      => (new NguoiDungController())->edit(),
+    'sua-nguoi-dung'           => (new NguoiDungController())->update(),
+    'xoa-nguoi-dung'           => (new NguoiDungController())->destroy(),
 
     //Quan li khuyen mai
     'khuyen-mais'            => (new KhuyenMaiController())->index(),
@@ -73,6 +95,7 @@ match ($act) {
     'sua-khuyen-mai'         => (new KhuyenMaiController())->update(),
     'xoa-khuyen-mai'         => (new KhuyenMaiController())->destroy(),
 
+<<<<<<< HEAD
     //Quan li san pham
     'san-phams'            => (new SanPhamController())->index(),
     'form-them-san-pham'   => (new SanPhamController())->create(),
@@ -80,4 +103,13 @@ match ($act) {
     'form-sua-san-pham'    => (new SanPhamController())->edit(),
     'sua-san-pham'         => (new SanPhamController())->update(),
     'xoa-san-pham'         => (new SanPhamController())->destroy(),
+=======
+    //Quan li don hang
+    'don-hangs'            => (new DonHangController())->index(),
+    'form-them-don-hang'   => (new DonHangController())->create(),
+    'them-don-hang'        => (new DonHangController())->store(),
+    'form-sua-don-hang'    => (new DonHangController())->edit(),
+    'sua-don-hang'         => (new DonHangController())->update(),
+    'xoa-don-hang'         => (new DonHangController())->destroy(),
+>>>>>>> 6a3abb1948e1cb3bd6ccb640a4cde7dc205e5fec
 };

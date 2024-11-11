@@ -29,6 +29,8 @@ class KhuyenMaiController
             $ten_khuyen_mai = $_POST['ten_khuyen_mai'];
             $mo_ta = $_POST['mo_ta'];
             $giam_gia = $_POST['giam_gia'];
+            $ngay_bat_dau = $_POST['ngay_bat_dau'];
+            $ngay_ket_thuc = $_POST['ngay_ket_thuc'];
             $trang_thai = $_POST['trang_thai'];
             // var_dump($trang_thai);
 
@@ -43,7 +45,16 @@ class KhuyenMaiController
             }
 
             if (empty($giam_gia)) {
-                $errors['giam_gia'] = 'Giảm giá khuyến mái không được để trống';
+                $errors['giam_gia'] = 'Giảm giá khuyến mãi không được để trống';
+            }
+
+            if (empty($ngay_bat_dau)) {
+                $errors['ngay_bat_dau'] = 'Ngày bắt đầu khuyến mãi không được để trống';
+            }
+
+
+            if (empty($ngay_ket_thuc)) {
+                $errors['ngay_ket_thuc'] = 'Ngày kết thúc khuyến mãi không được để trống';
             }
 
             if (empty($trang_thai)) {
@@ -51,7 +62,7 @@ class KhuyenMaiController
             }
 
             if (empty($errors)) {
-                $this->modelKhuyenMai->postKhuyenMai($ten_khuyen_mai, $mo_ta, $giam_gia, $trang_thai);
+                $this->modelKhuyenMai->postKhuyenMai($ten_khuyen_mai, $mo_ta, $giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
                 unset($_SESSION['errors']);
                 header("Location: ?act=khuyen-mais");
             } else {
@@ -77,6 +88,8 @@ class KhuyenMaiController
             $ten_khuyen_mai = $_POST['ten_khuyen_mai'];
             $mo_ta = $_POST['mo_ta'];
             $giam_gia = $_POST['giam_gia'];
+            $ngay_bat_dau = $_POST['ngay_bat_dau'];
+            $ngay_ket_thuc = $_POST['ngay_ket_thuc'];
             $trang_thai = $_POST['trang_thai'];
             // var_dump($trang_thai);
 
@@ -91,7 +104,7 @@ class KhuyenMaiController
             }
 
             if (empty($errors)) {
-                $this->modelKhuyenMai->updateData($id, $ten_khuyen_mai, $mo_ta, $giam_gia, $trang_thai);
+                $this->modelKhuyenMai->updateData($id, $ten_khuyen_mai, $mo_ta, $giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
                 unset($_SESSION['errors']);
                 header("Location: ?act=khuyen-mais");
             } else {

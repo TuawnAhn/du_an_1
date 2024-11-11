@@ -53,7 +53,7 @@
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Danh mục khuyến mãi</li>
+                                        <li class="breadcrumb-item active">Danh sách khuyến mãi</li>
                                     </ol>
                                 </div>
 
@@ -67,20 +67,22 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách danh mục khuyến mãi</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách khuyến mãi</h4>
                                         <a href="?act=form-them-khuyen-mai" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm khuyến mãi</a>
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
                                         <div class="live-preview">
                                             <div class="table-responsive">
-                                                <table class="table table-striped table-nowrap align-middle mb-0">
+                                                <table class="table table-striped table-nowrap align-middle table-sm mb-0">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
                                                             <th scope="col">Tên khuyến mãi</th>
                                                             <th scope="col">Mô tả</th>
                                                             <th scope="col">Giảm giá</th>
+                                                            <th scope="col">Ngày bắt đầu</th>
+                                                            <th scope="col">Ngày kết thúc</th>
                                                             <th scope="col">Trạng thái</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -92,26 +94,19 @@
                                                                 <td><?= $khuyenmai['ten_khuyen_mai'] ?></td>
                                                                 <td><?= $khuyenmai['mo_ta'] ?></td>
                                                                 <td><?= $khuyenmai['giam_gia'] ?></td>
+                                                                <td><?= $khuyenmai['ngay_bat_dau'] ?></td>
+                                                                <td><?= $khuyenmai['ngay_ket_thuc'] ?></td>
                                                                 <td>
-                                                                    <?php
-                                                                    if ($khuyenmai['trang_thai'] == 1) { ?>
+                                                                    <?php if ($khuyenmai['trang_thai'] == 1) { ?>
                                                                         <span class="badge bg-success">Hiển thị</span>
-                                                                    <?php
-                                                                    } else { ?>
+                                                                    <?php } else { ?>
                                                                         <span class="badge bg-danger">Đã ẩn</span>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
+                                                                    <?php } ?>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=form-sua-khuyen-mai&id=<?= $khuyenmai['id'] ?>"
-                                                                            class="link-success fs-15"><i
-                                                                                class="ri-edit-2-line"></i></a>
-
-                                                                        <form action="?act=xoa-khuyen-mai" method="post"
-                                                                            onsubmit="return confirm('Bạn có chắc muốn xóa danh mục này?');">
+                                                                    <div class="flex-wrap">
+                                                                        <a href="?act=form-sua-khuyen-mai&id=<?= $khuyenmai['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
+                                                                        <form action="?act=xoa-khuyen-mai" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa danh mục này?');">
                                                                             <input type="hidden" name="khuyen_mai_id" value="<?= $khuyenmai['id'] ?>">
                                                                             <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
                                                                                 <i class="ri-delete-bin-line"></i>
@@ -125,7 +120,8 @@
                                                 </table>
                                             </div>
                                         </div>
-                                    </div><!-- end card-body -->
+                                    </div>
+
                                 </div><!-- end card -->
 
                             </div> <!-- end .h-100-->

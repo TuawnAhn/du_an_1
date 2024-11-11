@@ -1,5 +1,5 @@
 <?php
-class KhuyenMai
+class DonHang
 {
     public $conn;
 
@@ -11,7 +11,7 @@ class KhuyenMai
     public function getAll()
     {
         try {
-            $sql = "SELECT * FROM khuyen_mais";
+            $sql = "SELECT * FROM don_hangs";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -23,18 +23,16 @@ class KhuyenMai
         }
     }
 
-    public function postKhuyenMai($ten_khuyen_mai, $mo_ta, $giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
+    public function postDonHang($trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO khuyen_mais (ten_khuyen_mai, mo_ta, giam_gia, ngay_bat_dau, ngay_ket_thuc, trang_thai) VALUES (:ten_khuyen_mai, :mo_ta, :giam_gia, :ngay_bat_dau, :ngay_ket_thuc, :trang_thai)";
+            $sql = "INSERT INTO don_hangs (trang_thai_don_hang, trang_thai_thanh_toan, ngay_tao, trang_thai) VALUES (:trang_thai_don_hang, :trang_thai_thanh_toan, :ngay_tao, :trang_thai)";
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->bindParam(':ten_khuyen_mai', $ten_khuyen_mai);
-            $stmt->bindParam(':mo_ta', $mo_ta);
-            $stmt->bindParam(':giam_gia', $giam_gia);
-            $stmt->bindParam(':ngay_bat_dau', $ngay_bat_dau);
-            $stmt->bindParam(':ngay_ket_thuc', $ngay_ket_thuc);
+            $stmt->bindParam(':trang_thai_don_hang', $trang_thai_don_hang);
+            $stmt->bindParam(':trang_thai_thanh_toan', $trang_thai_thanh_toan);
+            $stmt->bindParam(':ngay_tao', $ngay_tao);
             $stmt->bindParam(':trang_thai', $trang_thai);
 
             $stmt->execute();
@@ -45,10 +43,10 @@ class KhuyenMai
         }
     }
 
-    public function deleteKhuyenMai($id)
+    public function deleteDonHang($id)
     {
         try {
-            $sql = "DELETE FROM khuyen_mais WHERE id = :id";
+            $sql = "DELETE FROM don_hangs WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -65,7 +63,7 @@ class KhuyenMai
     public function getDetailData($id)
     {
         try {
-            $sql = "SELECT * FROM khuyen_mais WHERE id = :id";
+            $sql = "SELECT * FROM don_hangs WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -78,19 +76,17 @@ class KhuyenMai
             echo 'Lỗi' . $e->getMessage();
         }
     }
-    public function updateData($id, $ten_khuyen_mai, $mo_ta, $giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
+    public function updateData($id, $trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao, $trang_thai)
     {
         try {
-            $sql = "UPDATE khuyen_mais SET ten_khuyen_mai = :ten_khuyen_mai, mo_ta = :mo_ta, giam_gia = :giam_gia, ngay_bat_dau = :ngay_bat_dau, ngay_ket_thuc = :ngay_ket_thuc, trang_thai = :trang_thai WHERE id = :id";
+            $sql = "UPDATE don_hangs SET trang_thai_don_hang = :trang_thai_don_hang, trang_thai_thanh_toan = :trang_thai_thanh_toan, ngay_tao = :ngay_tao, trang_thai = :trang_thai WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':ten_khuyen_mai', $ten_khuyen_mai);
-            $stmt->bindParam(':mo_ta', $mo_ta);
-            $stmt->bindParam(':giam_gia', $giam_gia);
-            $stmt->bindParam(':ngay_bat_dau', $ngay_bat_dau);
-            $stmt->bindParam(':ngay_ket_thuc', $ngay_ket_thuc);
+            $stmt->bindParam(':trang_thai_don_hang', $trang_thai_don_hang);
+            $stmt->bindParam(':trang_thai_thanh_toan', $trang_thai_thanh_toan);
+            $stmt->bindParam(':ngay_tao', $ngay_tao);
             $stmt->bindParam(':trang_thai', $trang_thai);
 
             $stmt->execute();

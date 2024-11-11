@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Thêm danh mục khuyến mãi | Sliver Ring</title>
+    <title>Cập nhật danh mục khuyến mãi | Sliver Ring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -21,8 +21,10 @@
 </head>
 
 <body>
+
     <!-- Begin page -->
     <div id="layout-wrapper">
+
         <!-- HEADER -->
         <?php
         require_once "views/layouts/header.php";
@@ -46,12 +48,12 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lí danh mục khuyến mãi</h4>
+                                <h4 class="mb-sm-0">Quản lí trạng thái đơn hàng</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Thêm khuyến mãi</li>
+                                        <li class="breadcrumb-item active">Trạng thái đơn hàng</li>
                                     </ol>
                                 </div>
 
@@ -65,67 +67,57 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Thêm khuyến mãi</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Cập nhật trạng thái đơn hàng</h4>
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=them-khuyen-mai" method="post" enctype="multipart/form-data">
+                                            <form action="?act=sua-don-hang" method="post">
+                                                <input type="hidden" name="id" value="<?= $donhangs['id'] ?>">
                                                 <div class="row">
                                                     <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="citynameInput" class="form-label">Tên khuyến mãi</label>
-                                                            <input type="text" class="form-control" placeholder="Nhập vào tên khuyến mãi" name="ten_khuyen_mai">
+                                                            <label for="trang_thai_don_hang" class="form-label">Trạng thái đơn hàng</label>
+                                                            <select class="form-select" name="trang_thai_don_hang">
+                                                                <option selected disabled>Chọn trạng thái</option>
+                                                                <option value="1" <?= $donhangs['trang_thai_don_hang'] == 1 ? 'selected' : '' ?>>Chờ xác nhận</option>
+                                                                <option value="2" <?= $donhangs['trang_thai_don_hang'] == 2 ? 'selected' : '' ?>>Đã xác nhận</option>
+                                                            </select>
                                                             <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['ten_khuyen_mai']) ? $_SESSION['errors']['ten_khuyen_mai'] : '' ?>
+                                                                <?= !empty($_SESSION['errors']['trang_thai_don_hang']) ? $_SESSION['errors']['trang_thai_don_hang'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="citynameInput" class="form-label">Mô tả</label>
-                                                            <textarea class="form-control" placeholder="Nhập vào mô tả" name="mo_ta" rows="2"></textarea>
+                                                            <label for="trang_thai_thanh_toan" class="form-label">Trạng thái thanh toán</label>
+                                                            <select class="form-select" name="trang_thai_thanh_toan">
+                                                                <option selected disabled>Chọn trạng thái thanh toán</option>
+                                                                <option value="1" <?= $donhangs['trang_thai_thanh_toan'] == 1 ? 'selected' : '' ?>>Đã thanh toán</option>
+                                                                <option value="2" <?= $donhangs['trang_thai_thanh_toan'] == 2 ? 'selected' : '' ?>>Chưa thanh toán</option>
+                                                            </select>
                                                             <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['mo_ta']) ? $_SESSION['errors']['mo_ta'] : '' ?>
+                                                                <?= !empty($_SESSION['errors']['trang_thai_thanh_toan']) ? $_SESSION['errors']['trang_thai_thanh_toan'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="citynameInput" class="form-label">Giảm giá</label>
-                                                            <input type="number" class="form-control" placeholder="Nhập vào giảm giá" name="giam_gia">
+                                                            <label for="ngay_tao" class="form-lable">Ngày tạo</label>
+                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày tạo" name="ngay_tao" value="<?= $donhangs['ngay_tao'] ?>">
                                                             <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['giam_gia']) ? $_SESSION['errors']['giam_gia'] : '' ?>
+                                                                <?= !empty($_SESSION['errors']['ngay_tao']) ? $_SESSION['errors']['ngay_tao'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="citynameInput" class="form-lable">Ngày bắt đầu</label>
-                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày bắt đầu" name="ngay_bat_dau">
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['ngay_bat_dau']) ? $_SESSION['errors']['ngay_bat_dau'] : '' ?>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="citynameInput" class="form-lable">Ngày kết thúc</label>
-                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày bắt đầu" name="ngay_ket_thuc">
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['ngay_ket_thuc']) ? $_SESSION['errors']['ngay_ket_thuc'] : '' ?>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="ForminputState" class="form-label">Trạng thái</label>
                                                             <select class="form-select" name="trang_thai">
                                                                 <option selected disabled>Chọn trạng thái</option>
-                                                                <option value="1">Hiển thị</option>
-                                                                <option value="2">Ẩn</option>
+                                                                <option value="1" <?= $donhangs['trang_thai'] == 1 ? 'selected' : '' ?>>Hiển thị</option>
+                                                                <option value="2" <?= $donhangs['trang_thai'] == 2 ? 'selected' : '' ?>>Ẩn</option>
                                                             </select>
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
@@ -135,7 +127,7 @@
                                                     <!--end col-->
                                                     <div class="col-lg-12">
                                                         <div class="text-center">
-                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                            <button type="submit" class="btn btn-primary">Sửa trạng thái</button>
                                                         </div>
                                                     </div>
                                                     <!--end col-->
