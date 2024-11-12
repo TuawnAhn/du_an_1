@@ -180,21 +180,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidebarDonHang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDonHang">
-                            <i class="ri-shopping-cart-line"></i> <span data-key="t-advance-ui">Trạng thái đơn hàng </span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="sidebarDonHang">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="?act=don-hangs" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="?act=form-them-don-hang" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+
 
 
                     <li class="nav-item">
@@ -208,6 +194,38 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="?act=form-them-san-pham" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebarTrangThaiDonHang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTrangThaiDonHang">
+                            <i class="ri-shopping-cart-line"></i> <span data-key="t-advance-ui">Trạng thái đơn hàng </span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarTrangThaiDonHang">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="?act=trang-thai-don-hangs" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=form-them-trang-thai-don-hang" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebarDonHang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDonHang">
+                            <i class="ri-shopping-bag-fill"></i> <span data-key="t-advance-ui">Đơn hàng </span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarDonHang">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="?act=don-hangs" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=form-them-don-hang" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
                                 </li>
                             </ul>
                         </div>

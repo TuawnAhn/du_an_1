@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 10, 2024 at 02:11 PM
+-- Generation Time: Nov 12, 2024 at 02:37 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -75,22 +75,17 @@ INSERT INTO `danh_mucs` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
 
 CREATE TABLE `don_hangs` (
   `id` int NOT NULL,
-  `trang_thai_don_hang` int NOT NULL COMMENT '1="''Chờ xác nhận'',2= ''Đã xác nhận''',
-  `trang_thai_thanh_toan` int NOT NULL COMMENT '1=''Đã thanh toán'',2=''Chưa thanh toán''',
-  `ngay_tao` date DEFAULT NULL,
-  `trang_thai` int NOT NULL
+  `ma_don_hang` varchar(50) NOT NULL,
+  `nguoi_dung_id` int NOT NULL,
+  `ho_ten_nguoi_nhan` varchar(100) NOT NULL,
+  `sdt_nguoi_nhan` varchar(15) NOT NULL,
+  `email_nguoi_nhan` varchar(100) DEFAULT NULL,
+  `dia_chi_nguoi_nhan` text NOT NULL,
+  `ngay_dat_hang` datetime NOT NULL,
+  `trang_thai_thanh_toan_id` int DEFAULT NULL,
+  `trang_thai_don_hang_id` int DEFAULT NULL,
+  `phuong_thuc_thanh_toan` int NOT NULL COMMENT '1: ''Tiền mặt'',2: ''Chuyển khoản'''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `don_hangs`
---
-
-INSERT INTO `don_hangs` (`id`, `trang_thai_don_hang`, `trang_thai_thanh_toan`, `ngay_tao`, `trang_thai`) VALUES
-(1, 2, 2, '2024-11-12', 1),
-(2, 1, 2, '2024-11-23', 2),
-(5, 2, 2, '2024-11-03', 1),
-(6, 2, 2, '2024-11-03', 1),
-(7, 2, 1, '2024-11-22', 1);
 
 -- --------------------------------------------------------
 
@@ -147,6 +142,35 @@ INSERT INTO `nguoi_dungs` (`id`, `ho_ten`, `email`, `mat_khau`, `so_dien_thoai`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `san_phams`
+--
+
+CREATE TABLE `san_phams` (
+  `id` int NOT NULL,
+  `ten` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `gia_ban` decimal(10,0) NOT NULL,
+  `gia_km` decimal(10,0) NOT NULL,
+  `mo_ta` text NOT NULL,
+  `so_luong` int NOT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `san_phams`
+--
+
+INSERT INTO `san_phams` (`id`, `ten`, `img`, `gia_ban`, `gia_km`, `mo_ta`, `so_luong`, `date`) VALUES
+(5, 'a', 'jjj.imgsss', '10000', '2', 'aaaaaaaaaa', 2, '2024-11-09'),
+(6, 'aaaaaaaaaaa', 'aa', '10000', '20000', 'bbbbbb', 1000, '2024-11-08'),
+(8, 'aaaaaaaaaaa', './uploads/1731319111_taoanhdep_cover_marketing_61385.png', '10000', '20000', 'aaa', 2, '2024-11-06'),
+(9, 'aaaaaaaaaaa', './uploads/1731318245_Screenshot 2024-09-20 165738.png', '10000', '20000', 'aaa', 150, '2024-11-06'),
+(13, 'aaaaaaaaaaa', './uploads/1731302601_th (13).jpg', '10000', '20000', 's', 2, '2024-11-10'),
+(14, 'aaaaaaaaaaa', './uploads/1731302279_th (14).jpg', '10000', '20000', 'a', 1, '2024-11-10');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_lienhe`
 --
 
@@ -189,6 +213,34 @@ CREATE TABLE `tin_tucs` (
 INSERT INTO `tin_tucs` (`id`, `title`, `content`, `img`, `date`) VALUES
 (2, '11 Cách Chọn Mua Trang Sức Làm Quà Tặng Phù Hợp Và Ý Nghĩa Cho Nữ', 'Sự lựa chọn món quà trang sức đúng đắn có thể mang đến nhiều ý nghĩa tuyệt ạn yêu quý.', 'https://lili.vn/wp-content/uploads/2022/07/Nhan-bac-nu-dinh-kim-cuong-Moissanite-Aidan-LILI_335168_5.jpg', '2024-11-14');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trang_thai_don_hangs`
+--
+
+CREATE TABLE `trang_thai_don_hangs` (
+  `id` int NOT NULL,
+  `trang_thai_don_hang` int NOT NULL COMMENT '1="''Chờ xác nhận'',2= ''Đã xác nhận''',
+  `trang_thai_thanh_toan` int NOT NULL COMMENT '1=''Đã thanh toán'',2=''Chưa thanh toán''',
+  `ngay_tao` date DEFAULT NULL,
+  `trang_thai` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `trang_thai_don_hangs`
+--
+
+INSERT INTO `trang_thai_don_hangs` (`id`, `trang_thai_don_hang`, `trang_thai_thanh_toan`, `ngay_tao`, `trang_thai`) VALUES
+(1, 2, 2, '2024-11-12', 1),
+(2, 1, 2, '2024-11-23', 2),
+(5, 7, 2, '2024-11-03', 1),
+(6, 3, 2, '2024-11-03', 2),
+(7, 6, 1, '2024-11-22', 2),
+(8, 5, 2, '2024-11-09', 1),
+(9, 6, 2, '2024-11-24', 2),
+(10, 6, 2, '2024-12-01', 2);
+
 --
 -- Indexes for dumped tables
 --
@@ -209,7 +261,9 @@ ALTER TABLE `danh_mucs`
 -- Indexes for table `don_hangs`
 --
 ALTER TABLE `don_hangs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `trang_thai_thanh_toan_id` (`trang_thai_thanh_toan_id`),
+  ADD KEY `trang_thai_don_hang_id` (`trang_thai_don_hang_id`);
 
 --
 -- Indexes for table `khuyen_mais`
@@ -224,6 +278,12 @@ ALTER TABLE `nguoi_dungs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `san_phams`
+--
+ALTER TABLE `san_phams`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_lienhe`
 --
 ALTER TABLE `tbl_lienhe`
@@ -233,6 +293,12 @@ ALTER TABLE `tbl_lienhe`
 -- Indexes for table `tin_tucs`
 --
 ALTER TABLE `tin_tucs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `trang_thai_don_hangs`
+--
+ALTER TABLE `trang_thai_don_hangs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -255,7 +321,7 @@ ALTER TABLE `danh_mucs`
 -- AUTO_INCREMENT for table `don_hangs`
 --
 ALTER TABLE `don_hangs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `khuyen_mais`
@@ -270,6 +336,12 @@ ALTER TABLE `nguoi_dungs`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `san_phams`
+--
+ALTER TABLE `san_phams`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `tbl_lienhe`
 --
 ALTER TABLE `tbl_lienhe`
@@ -279,7 +351,24 @@ ALTER TABLE `tbl_lienhe`
 -- AUTO_INCREMENT for table `tin_tucs`
 --
 ALTER TABLE `tin_tucs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `trang_thai_don_hangs`
+--
+ALTER TABLE `trang_thai_don_hangs`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `don_hangs`
+--
+ALTER TABLE `don_hangs`
+  ADD CONSTRAINT `don_hangs_ibfk_1` FOREIGN KEY (`trang_thai_thanh_toan_id`) REFERENCES `trang_thai_don_hangs` (`id`),
+  ADD CONSTRAINT `don_hangs_ibfk_2` FOREIGN KEY (`trang_thai_don_hang_id`) REFERENCES `trang_thai_don_hangs` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

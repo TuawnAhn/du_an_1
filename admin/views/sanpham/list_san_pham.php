@@ -232,7 +232,7 @@
                                                                 <?php foreach ($SanPhams as $index => $SanPham): ?>
                                                                     <tr>
                                                                         <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                        <td><img src="<?= $SanPham['img'] ?>" alt="Product Image" width="100" height="100"></td>
+                                                                        <td><img src="<?= $SanPham['img'] ?>" alt="Product Image" width="200" height="100"></td>
                                                                         <td class="text-wrap"><?= $SanPham['ten'] ?></td>
                                                                         <td class="text-wrap"><?= $SanPham['mo_ta'] ?></td>
                                                                         <td><?= $SanPham['gia_ban'] ?> VND</td>

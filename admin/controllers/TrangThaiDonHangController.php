@@ -1,5 +1,5 @@
 <?php
-class DonHangController
+class TrangThaiDonHangController
 {
 
     //Hàm kết nối tới Model
@@ -8,19 +8,19 @@ class DonHangController
 
     public function __construct()
     {
-        $this->modelDonHang = new DonHang();
+        $this->modelDonHang = new TrangThaiDonHang();
     }
     public function index()
     {
-        $donhangs = $this->modelDonHang->getAll();
+        $trangthaidonhangs = $this->modelDonHang->getAll();
 
 
-        require_once "./views/donhang/list_don_hang.php";
+        require_once "./views/trangthaidonhang/list_trang_thai_don_hang.php";
     }
 
     public function create()
     {
-        require_once "./views/donhang/create_don_hang.php";
+        require_once "./views/trangthaidonhang/create_trang_thai_don_hang.php";
     }
 
     public function store()
@@ -56,7 +56,7 @@ class DonHangController
                 $this->modelDonHang->postDonHang($trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao, $trang_thai);
                 unset($_SESSION['errors']);
                 // echo "Lỗi";
-                header("Location: ?act=don-hangs");
+                header("Location: ?act=trang-thai-don-hangs");
             } else {
                 $_SESSION['errors'] = $errors;
                 header("Location: ?act=form-them-don-hang");
@@ -69,7 +69,7 @@ class DonHangController
         $id = $_GET['id'];
         $donhangs = $this->modelDonHang->getDetailData($id);
 
-        require_once "./views/trangthaidonhang/edit_don_hang.php";
+        require_once "./views/trangthaidonhang/edit_trang_thai_don_hang.php";
     }
 
     public function update()
@@ -103,7 +103,7 @@ class DonHangController
             if (empty($errors)) {
                 $this->modelDonHang->updateData($id, $trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao, $trang_thai);
                 unset($_SESSION['errors']);
-                header("Location: ?act=don-hangs");
+                header("Location: ?act=trang-thai-don-hangs");
             } else {
                 $_SESSION['errors'] = $errors;
                 header("Location: ?act=sua-don-hang");
@@ -120,7 +120,7 @@ class DonHangController
 
             $this->modelDonHang->deleteDonHang($id);
 
-            header("Location: ?act=don-hangs");
+            header("Location: ?act=trang-thai-don-hangs");
             exit();
         }
     }

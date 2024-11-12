@@ -14,6 +14,7 @@ require_once 'controllers/NguoiDungController.php';
 require_once 'controllers/KhuyenMaiController.php';
 require_once 'controllers/SanPhamController.php';
 require_once 'controllers/DonHangController.php';
+require_once 'controllers/TrangThaiDonHangController.php';
 
 
 
@@ -26,6 +27,7 @@ require_once 'models/NguoiDung.php';
 require_once 'models/KhuyenMai.php';
 require_once 'models/SanPham.php';
 require_once 'models/DonHang.php';
+require_once 'models/TrangThaiDonHang.php';
 
 
 
@@ -98,6 +100,14 @@ match ($act) {
     'form-sua-san-pham'    => (new SanPhamController())->edit(),
     'sua-san-pham'         => (new SanPhamController())->update(),
     'xoa-san-pham'         => (new SanPhamController())->destroy(),
+
+    //Quan li trang thai don hang
+    'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
+    'form-them-trang-thai-don-hang'   => (new TrangThaiDonHangController())->create(),
+    'them-trang-thai-don-hang'        => (new TrangThaiDonHangController())->store(),
+    'form-sua-trang-thai-don-hang'    => (new TrangThaiDonHangController())->edit(),
+    'sua-trang-thai-don-hang'         => (new TrangThaiDonHangController())->update(),
+    'xoa-trang-thai-don-hang'         => (new TrangThaiDonHangController())->destroy(),
 
     //Quan li don hang
     'don-hangs'            => (new DonHangController())->index(),

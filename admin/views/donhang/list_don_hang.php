@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Trạng thái đơn hàng | Sliver Ring</title>
+    <title>Đơn hàng | Sliver Ring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -48,12 +48,12 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý trạng thái đơn hàng</h4>
+                                <h4 class="mb-sm-0">Quản lý đơn hàng</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Danh sách trạng thái đơn hàng</li>
+                                        <li class="breadcrumb-item active">Danh sách đơn hàng</li>
                                     </ol>
                                 </div>
 
@@ -68,7 +68,7 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
-                                        <a href="?act=form-them-don-hang" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i>Thêm trạng thái đơn hàng</a>
+                                        <a href="?act=form-them-don-hang" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i>Thêm đơn hàng</a>
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
@@ -78,9 +78,16 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
+                                                            <th scope="col">Mã đơn hàng</th>
+                                                            <th scope="col">Họ tên người nhận</th>
+                                                            <th scope="col">Sđt người nhận</th>
+                                                            <th scope="col">Email người nhận</th>
+                                                            <th scope="col">Địa chỉ người nhận</th>
+                                                            <th scope="col">Ngày đặt hàng</th>
                                                             <th scope="col">Trạng thái đơn hàng</th>
                                                             <th scope="col">Trạng thái thanh toán</th>
-                                                            <th scope="col">Ngày tạo</th>
+                                                            <th scope="col">Phương thức thanh toán</th>
+                                                            <th scope="col">Id người dùng</th>
                                                             <th scope="col">Trạng thái</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -89,32 +96,8 @@
                                                         <?php foreach ($donhangs as $index => $donhang): ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-
-                                                                <td>
-                                                                    <?php if ($donhang['trang_thai_don_hang'] == 1) { ?>
-                                                                        <span>Chờ xác nhận</span>
-                                                                    <?php } else if($donhang['trang_thai_don_hang'] == 2) { ?>
-                                                                        <span>Đã xác nhận</span>
-                                                                        <?php } else if($donhang['trang_thai_don_hang'] == 3) { ?>
-                                                                        <span>Đang giao</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 4) { ?>
-                                                                        <span>Đã giao</span>    
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 5) { ?>
-                                                                        <span>Đã hoàn thành</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 6) { ?>
-                                                                        <span>Đã thất bại</span>
-                                                                    <?php } else { ?>
-                                                                        <span>Đã Hủy</span>    
-                                                                    <?php } ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php if ($donhang['trang_thai_thanh_toan'] == 1) { ?>
-                                                                        <span>Đã thanh toán </span>
-                                                                    <?php } else { ?>
-                                                                        <span>Chưa thanh toán</span>
-                                                                    <?php } ?>
-                                                                </td>
-                                                                <td><?= $donhang['ngay_tao'] ?></td>
+                                                                <td><?= $donhang['ma_don_hang'] ?></td>
+                                                                <td></td>
                                                                 <td>
                                                                     <?php if ($donhang['trang_thai'] == 1) { ?>
                                                                         <span class="badge bg-success">Hiển thị</span>
