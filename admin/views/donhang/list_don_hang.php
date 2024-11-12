@@ -97,7 +97,43 @@
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
                                                                 <td><?= $donhang['ma_don_hang'] ?></td>
-                                                                <td></td>
+                                                                <td><?= $donhang['ho_ten_nguoi_nhan'] ?></td>
+                                                                <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
+                                                                <td><?= $donhang['email_nguoi_nhan'] ?></td>
+                                                                <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
+                                                                <td><?= $donhang['ngay_dat_hang'] ?></td>
+                                                                <td>
+                                                                    <?php if ($donhang['trang_thai_don_hang'] == 1) { ?>
+                                                                        <span>Chờ xác nhận</span>
+                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 2) { ?>
+                                                                        <span>Đã xác nhận</span>
+                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 3) { ?>
+                                                                        <span>Đang giao</span>
+                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 4) { ?>
+                                                                        <span>Đã giao</span>
+                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 5) { ?>
+                                                                        <span>Đã hoàn thành</span>
+                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 6) { ?>
+                                                                        <span>Đã thất bại</span>
+                                                                    <?php } else { ?>
+                                                                        <span>Đã Hủy</span>
+                                                                    <?php } ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php if ($donhang['trang_thai_thanh_toan'] == 1) { ?>
+                                                                        <span>Đã thanh toán </span>
+                                                                    <?php } else { ?>
+                                                                        <span>Chưa thanh toán</span>
+                                                                    <?php } ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php if ($donhang['phuong_thuc_thanh_toan'] == 1) { ?>
+                                                                        <span class="badge bg-success">Tiền mặt</span>
+                                                                    <?php } else { ?>
+                                                                        <span class="badge bg-danger">Chuyển khoản</span>
+                                                                    <?php } ?>
+                                                                </td>
+                                                                <td><?= $donhang['nguoi_dung_id'] ?></td>
                                                                 <td>
                                                                     <?php if ($donhang['trang_thai'] == 1) { ?>
                                                                         <span class="badge bg-success">Hiển thị</span>
@@ -108,7 +144,7 @@
                                                                 <td>
                                                                     <div class="hstack gap-2 flex-wrap">
                                                                         <a href="?act=form-sua-don-hang&id=<?= $donhang['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
-                                                                        <form action="?act=xoa-don-hang" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa trạng thái đơn hàng này?');">
+                                                                        <form action="?act=xoa-don-hang" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa đơn hàng này?');">
                                                                             <input type="hidden" name="don_hang_id" value="<?= $donhang['id'] ?>">
                                                                             <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
                                                                                 <i class="ri-delete-bin-line"></i>
