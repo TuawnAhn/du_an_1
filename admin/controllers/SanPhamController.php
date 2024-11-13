@@ -31,20 +31,17 @@ class SanPhamController
 
             $errors = [];
 
-            // Kiểm tra tên file ảnh
             if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
                 // Xử lý file ảnh
                 $imgFile = $_FILES['img'];
                 $imgName = time() . '_' . basename($imgFile['name']); // Đổi tên file tránh trùng lặp
                 $imgPath = './uploads/' . $imgName;
 
-                // Kiểm tra loại file (chỉ chấp nhận jpg, png)
                 $fileType = strtolower(pathinfo($imgPath, PATHINFO_EXTENSION));
                 if (!in_array($fileType, ['jpg', 'jpeg', 'png'])) {
                     $errors['img'] = 'Chỉ chấp nhận các file có định dạng JPG, JPEG, hoặc PNG';
                 }
 
-                // Nếu không có lỗi, di chuyển file đến thư mục uploads
                 if (empty($errors['img']) && move_uploaded_file($imgFile['tmp_name'], $imgPath)) {
                     $img = $imgPath; // Lưu đường dẫn ảnh vào cơ sở dữ liệu
                 } else {

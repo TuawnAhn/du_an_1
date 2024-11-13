@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 12, 2024 at 04:59 PM
+-- Generation Time: Nov 13, 2024 at 10:30 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -43,6 +43,31 @@ INSERT INTO `banners` (`id`, `title`, `hinh_anh`, `lien_ket`, `trang_thai`) VALU
 (1, 'Dây chuyền đẹp', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'lili.vn', 2),
 (15, 'áda', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'sd', 1),
 (18, 'thht', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'đâsđấ', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chi_tiet_don_hangs`
+--
+
+CREATE TABLE `chi_tiet_don_hangs` (
+  `id` int NOT NULL,
+  `don_hang_id` int NOT NULL,
+  `san_pham_id` int NOT NULL,
+  `so_luong` int NOT NULL,
+  `don_gia` decimal(10,2) NOT NULL,
+  `thanh_tien` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `chi_tiet_don_hangs`
+--
+
+INSERT INTO `chi_tiet_don_hangs` (`id`, `don_hang_id`, `san_pham_id`, `so_luong`, `don_gia`, `thanh_tien`) VALUES
+(1, 1, 13, 1, '12345.00', '12345.00'),
+(2, 1, 14, 2, '1234.00', '12345.00'),
+(3, 1, 8, 1, '12345.00', '12345.00'),
+(4, 1, 9, 2, '1234.00', '12345.00');
 
 -- --------------------------------------------------------
 
@@ -163,20 +188,21 @@ CREATE TABLE `san_phams` (
   `gia_km` decimal(10,0) NOT NULL,
   `mo_ta` text NOT NULL,
   `so_luong` int NOT NULL,
-  `date` date DEFAULT NULL
+  `date` date DEFAULT NULL,
+  `trang_thai` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `san_phams`
 --
 
-INSERT INTO `san_phams` (`id`, `ten`, `img`, `gia_ban`, `gia_km`, `mo_ta`, `so_luong`, `date`) VALUES
-(5, 'a', 'jjj.imgsss', '10000', '2', 'aaaaaaaaaa', 2, '2024-11-09'),
-(6, 'aaaaaaaaaaa', 'aa', '10000', '20000', 'bbbbbb', 1000, '2024-11-08'),
-(8, 'aaaaaaaaaaa', './uploads/1731319111_taoanhdep_cover_marketing_61385.png', '10000', '20000', 'aaa', 2, '2024-11-06'),
-(9, 'aaaaaaaaaaa', './uploads/1731318245_Screenshot 2024-09-20 165738.png', '10000', '20000', 'aaa', 150, '2024-11-06'),
-(13, 'aaaaaaaaaaa', './uploads/1731302601_th (13).jpg', '10000', '20000', 's', 2, '2024-11-10'),
-(14, 'aaaaaaaaaaa', './uploads/1731302279_th (14).jpg', '10000', '20000', 'a', 1, '2024-11-10');
+INSERT INTO `san_phams` (`id`, `ten`, `img`, `gia_ban`, `gia_km`, `mo_ta`, `so_luong`, `date`, `trang_thai`) VALUES
+(5, 'a', 'jjj.imgsss', '10000', '2', 'aaaaaaaaaa', 2, '2024-11-09', 1),
+(6, 'aaaaaaaaaaa', 'aa', '10000', '20000', 'bbbbbb', 1000, '2024-11-08', 2),
+(8, 'aaaaaaaaaaa', './uploads/1731319111_taoanhdep_cover_marketing_61385.png', '10000', '20000', 'aaa', 2, '2024-11-06', 1),
+(9, 'aaaaaaaaaaa', './uploads/1731318245_Screenshot 2024-09-20 165738.png', '10000', '20000', 'aaa', 150, '2024-11-06', 1),
+(13, 'aaaaaaaaaaa', './uploads/1731302601_th (13).jpg', '10000', '20000', 's', 2, '2024-11-10', 2),
+(14, 'aaaaaaaaaaa', './uploads/1731302279_th (14).jpg', '10000', '20000', 'a', 1, '2024-11-10', 1);
 
 -- --------------------------------------------------------
 
@@ -262,6 +288,12 @@ ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `chi_tiet_don_hangs`
+--
+ALTER TABLE `chi_tiet_don_hangs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `danh_mucs`
 --
 ALTER TABLE `danh_mucs`
@@ -320,6 +352,12 @@ ALTER TABLE `trang_thai_don_hangs`
 --
 ALTER TABLE `banners`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `chi_tiet_don_hangs`
+--
+ALTER TABLE `chi_tiet_don_hangs`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `danh_mucs`

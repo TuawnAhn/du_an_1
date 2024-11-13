@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+
 <head>
     <meta charset="utf-8" />
     <title>Thêm sản phẩm | Sliver Ring</title>
@@ -78,12 +79,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-    <div class="mb-3">
-        <label for="img" class="form-label">Hình ảnh</label>
-        <input type="file" class="form-control" id="img" name="img">
-        <span class="text-danger"><?= !empty($_SESSION['errors']['img']) ? $_SESSION['errors']['img'] : '' ?></span>
-    </div>
-</div>
+                                                        <div class="mb-3">
+                                                            <label for="img" class="form-label">Hình ảnh</label>
+                                                            <input type="file" class="form-control" id="img" name="img[]" multiple>
+                                                            <span class="text-danger"><?= !empty($_SESSION['errors']['img']) ? $_SESSION['errors']['img'] : '' ?></span>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="date" class="form-label">Ngày nhập hàng</label>
@@ -113,7 +114,7 @@
                                                         </div>
                                                     </div>
 
-                                                    
+
                                                     <div class="col-lg-12 text-center">
                                                         <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
                                                     </div>
@@ -156,4 +157,5 @@
     require_once "views/layouts/libs_js.php";
     ?>
 </body>
+
 </html>

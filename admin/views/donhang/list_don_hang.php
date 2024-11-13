@@ -68,7 +68,13 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
-                                        <a href="?act=form-them-don-hang" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i>Thêm đơn hàng</a>
+                                        <form class="app-search d-none d-md-block">
+                                            <div class="position-relative">
+                                                <input type="text" class="form-control" placeholder="Search..." autocomplete="off" id="search-options" value="">
+                                                <span class="mdi mdi-magnify search-widget-icon"></span>
+                                                <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
+                                            </div>
+                                        </form>
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
@@ -81,15 +87,15 @@
                                                             <th scope="col">Mã đơn hàng</th>
                                                             <th scope="col">Họ tên người nhận</th>
                                                             <th scope="col">Sđt người nhận</th>
-                                                            
+
                                                             <th scope="col">Địa chỉ người nhận</th>
                                                             <th scope="col">Ngày đặt hàng</th>
                                                             <th scope="col">Trạng thái đơn hàng</th>
                                                             <th scope="col">Trạng thái thanh toán</th>
-                                                            
-                                                         
+
+
                                                             <th scope="col">Trạng thái</th>
-                                                            <th scope="col" >Action</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -99,7 +105,7 @@
                                                                 <td><?= $donhang['ma_don_hang'] ?></td>
                                                                 <td><?= $donhang['ho_ten_nguoi_nhan'] ?></td>
                                                                 <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
-                                                               
+
                                                                 <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
                                                                 <td><?= $donhang['ngay_dat_hang'] ?></td>
                                                                 <td>
@@ -126,8 +132,8 @@
                                                                         <span>Chưa thanh toán</span>
                                                                     <?php } ?>
                                                                 </td>
-                                                            
-                                                                
+
+
                                                                 <td>
                                                                     <?php if ($donhang['trang_thai'] == 1) { ?>
                                                                         <span class="badge bg-success">Hiển thị</span>
@@ -137,13 +143,13 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="hstack gap-2 flex-wrap">
-                                                                    <a href="?act=chi-tiet-don-hangs&id_don_hang=<?= $donhang['id'] ?>" class="link-primary fs-15 me-2" title="View">
-                                                                        <i class="ri-eye-line"></i>
-                                                                    </a>
-                                                                        
-                                                                
+                                                                        <a href="?act=chi-tiet-don-hangs&id_don_hang=<?= $donhang['id'] ?>" class="link-primary fs-15 me-2" title="View">
+                                                                            <i class="ri-eye-line"></i>
+                                                                        </a>
+
+
                                                                         <a href="?act=form-sua-don-hang&id=<?= $donhang['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
-                                                                    
+
                                                                     </div>
                                                                 </td>
                                                             </tr>
