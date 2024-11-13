@@ -23,6 +23,19 @@ class DonHangController
         require_once "./views/donhang/create_don_hang.php";
     }
 
+    public function detail(){
+        $don_hang_id = $_GET['id_don_hang'];
+        
+        $donHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
+
+        //Lay danh sach o bang chi tiet don hang
+        $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($don_hang_id);
+
+        
+        
+        require_once './views/donhang/chiTietDonHang.php';
+    }
+
     public function store()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

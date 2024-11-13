@@ -21,10 +21,10 @@ class SanPham{
     }
 
     //Them du lieu moi vao csdl
-    public function postData($ten,$img,$gia_ban,$gia_km,$mo_ta,$so_luong,$date){
+    public function postData($ten,$img,$gia_ban,$gia_km,$trang_thai,$mo_ta,$so_luong,$date){
         try {
-            $sql = 'INSERT INTO san_phams (ten,img,gia_ban,gia_km,mo_ta,so_luong,date)
-                 VALUES(:ten,:img,:gia_ban,:gia_km,:mo_ta,:so_luong,:date)';
+            $sql = 'INSERT INTO san_phams (ten,img,gia_ban,gia_km,trang_thai,mo_ta,so_luong,date)
+                 VALUES(:ten,:img,:gia_ban,:gia_km,:trang_thai,:mo_ta,:so_luong,:date)';
             $stmt = $this->conn->prepare($sql);
 
             //Gan gia tri vao cac tham so
@@ -32,6 +32,7 @@ class SanPham{
             $stmt->bindParam(':img',$img);
             $stmt->bindParam(':gia_ban',$gia_ban);
             $stmt->bindParam(':gia_km',$gia_km);
+            $stmt->bindParam(':trang_thai', $trang_thai);
             $stmt->bindParam(':mo_ta',$mo_ta);
             $stmt->bindParam(':so_luong',$so_luong);
             $stmt->bindParam(':date',$date);
@@ -63,9 +64,9 @@ class SanPham{
     }
 
     //Cap nhat du lieu
-    public function updateData($id,$ten,$img,$gia_ban,$gia_km,$mo_ta,$so_luong,$date){
+    public function updateData($id,$ten,$img,$gia_ban,$gia_km,$trang_thai,$mo_ta,$so_luong,$date){
         try {
-            $sql = 'UPDATE san_phams SET ten= :ten, img=:img, gia_ban=:gia_ban, gia_km=:gia_km, mo_ta=:mo_ta, so_luong=:so_luong, date=:date WHERE id=:id ';
+            $sql = 'UPDATE san_phams SET ten= :ten, img=:img, gia_ban=:gia_ban, gia_km=:gia_km, trang_thai=:trang_thai, mo_ta=:mo_ta, so_luong=:so_luong, date=:date WHERE id=:id ';
             $stmt = $this->conn->prepare($sql);
 
             //Gan gia tri vao cac tham so
@@ -74,6 +75,7 @@ class SanPham{
             $stmt->bindParam(':img',$img);
             $stmt->bindParam(':gia_ban',$gia_ban);
             $stmt->bindParam(':gia_km',$gia_km);
+            $stmt->bindParam(':trang_thai', $trang_thai);
             $stmt->bindParam(':mo_ta',$mo_ta);
             $stmt->bindParam(':so_luong',$so_luong);
             $stmt->bindParam(':date',$date);

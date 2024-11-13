@@ -90,6 +90,21 @@
                                                             <input type="date" class="form-control" id="date" name="date">
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                            <select class="form-select" name="trang_thai">
+                                                                <option selected disabled>Chọn trạng thái</option>
+                                                                <option value="1">Hiển thị</option>
+                                                                <option value="2">Ẩn</option>
+                                                            </select>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="col-lg-12">
                                                         <div class="mb-3">
                                                             <label for="mo_ta" class="form-label">Mô tả</label>
@@ -97,6 +112,8 @@
                                                             <span class="text-danger"><?= !empty($_SESSION['errors']['mo_ta']) ? $_SESSION['errors']['mo_ta'] : '' ?></span>
                                                         </div>
                                                     </div>
+
+                                                    
                                                     <div class="col-lg-12 text-center">
                                                         <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
                                                     </div>

@@ -24,6 +24,7 @@ class SanPhamController
             $ten = $_POST['ten'];
             $gia_ban = $_POST['gia_ban'];
             $gia_km = $_POST['gia_km'];
+            $trang_thai = $_POST['trang_thai'];
             $mo_ta = $_POST['mo_ta'];
             $so_luong = $_POST['so_luong'];
             $date = $_POST['date'];
@@ -62,6 +63,9 @@ class SanPhamController
             }
             if (empty($gia_km)) {
                 $errors['gia_km'] = 'Vui lòng nhập giá khuyến mãi';
+            }
+            if (empty($trang_thai)) {
+                $errors['trang_thai'] = 'Trạng thái không được để trống';
             }
             if (empty($mo_ta)) {
                 $errors['mo_ta'] = 'Vui lòng nhập mô tả';
@@ -104,6 +108,7 @@ class SanPhamController
             $ten = $_POST['ten'];
             $gia_ban = $_POST['gia_ban'];
             $gia_km = $_POST['gia_km'];
+            $trang_thai = $_POST['trang_thai'];
             $mo_ta = $_POST['mo_ta'];
             $so_luong = $_POST['so_luong'];
             $date = $_POST['date'];
@@ -144,6 +149,9 @@ class SanPhamController
             }
             if (empty($gia_km)) {
                 $errors['gia_km'] = 'Vui lòng nhập giá khuyến mãi';
+            }
+            if (empty($trang_thai)) {
+                $errors['trang_thai'] = 'Trạng thái không được để trống';
             }
             if (empty($mo_ta)) {
                 $errors['mo_ta'] = 'Vui lòng nhập mô tả';
