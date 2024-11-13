@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
@@ -93,13 +92,27 @@
                                                 <td>
                                                     <?php
                                                     switch ($donhang['trang_thai_don_hang']) {
-                                                        case 1: echo '<span class="badge bg-warning">Chờ xác nhận</span>'; break;
-                                                        case 2: echo '<span class="badge bg-info">Đã xác nhận</span>'; break;
-                                                        case 3: echo '<span class="badge bg-primary">Đang giao</span>'; break;
-                                                        case 4: echo '<span class="badge bg-success">Đã giao</span>'; break;
-                                                        case 5: echo '<span class="badge bg-dark">Đã hoàn thành</span>'; break;
-                                                        case 6: echo '<span class="badge bg-danger">Đã thất bại</span>'; break;
-                                                        default: echo '<span class="badge bg-secondary">Đã hủy</span>'; break;
+                                                        case 1:
+                                                            echo '<span class="badge bg-warning">Chờ xác nhận</span>';
+                                                            break;
+                                                        case 2:
+                                                            echo '<span class="badge bg-info">Đã xác nhận</span>';
+                                                            break;
+                                                        case 3:
+                                                            echo '<span class="badge bg-primary">Đang giao</span>';
+                                                            break;
+                                                        case 4:
+                                                            echo '<span class="badge bg-success">Đã giao</span>';
+                                                            break;
+                                                        case 5:
+                                                            echo '<span class="badge bg-dark">Đã hoàn thành</span>';
+                                                            break;
+                                                        case 6:
+                                                            echo '<span class="badge bg-danger">Đã thất bại</span>';
+                                                            break;
+                                                        default:
+                                                            echo '<span class="badge bg-secondary">Đã hủy</span>';
+                                                            break;
                                                     }
                                                     ?>
                                                 </td>
@@ -107,7 +120,7 @@
                                             <tr>
                                                 <th class="bg-light">Trạng thái thanh toán:</th>
                                                 <td>
-                                                    <?= $donhang['trang_thai_thanh_toan'] == 1 ? '<span class="badge bg-success">Đã thanh toán</span>' : '<span class="badge bg-danger">Chưa thanh toán</span>' ?>
+                                                    <?= $donhang['trang_thai_thanh_toan_id'] == 1 ? '<span class="badge bg-success">Đã thanh toán</span>' : '<span class="badge bg-danger">Chưa thanh toán</span>' ?>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -115,7 +128,7 @@
 
                                     <!-- Nút điều hướng -->
                                     <div class="d-flex justify-content-between">
-                                        <a href="?act=list-orders" class="btn btn-primary"><i class="ri-arrow-left-line"></i> Quay lại danh sách đơn hàng</a>
+                                        <a href="?act=don-hangs" class="btn btn-primary"><i class="ri-arrow-left-line"></i> Quay lại danh sách đơn hàng</a>
                                         <a href="?act=form-sua-don-hang&id=<?= $donhang['id'] ?>" class="btn btn-success"><i class="ri-edit-2-line"></i> Sửa đơn hàng</a>
                                     </div>
                                 </div>
@@ -131,7 +144,9 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © Velzon.
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © Velzon.
                         </div>
                     </div>
                 </div>

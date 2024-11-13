@@ -165,7 +165,7 @@ class SanPhamController
 
             // Cập nhật dữ liệu
             if (empty($errors)) {
-                $this->modelSanPham->updateData($id, $ten, $img, $gia_ban, $gia_km, $mo_ta, $so_luong, $date);
+                $this->modelSanPham->updateData($id, $ten, $img, $gia_ban, $gia_km, $trang_thai, $mo_ta, $so_luong, $date);
                 unset($_SESSION['errors']);
                 header('Location: ?act=san-phams');
             } else {
