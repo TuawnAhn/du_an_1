@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 12, 2024 at 02:37 PM
+-- Generation Time: Nov 12, 2024 at 04:59 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -84,8 +84,18 @@ CREATE TABLE `don_hangs` (
   `ngay_dat_hang` datetime NOT NULL,
   `trang_thai_thanh_toan_id` int DEFAULT NULL,
   `trang_thai_don_hang_id` int DEFAULT NULL,
-  `phuong_thuc_thanh_toan` int NOT NULL COMMENT '1: ''Tiền mặt'',2: ''Chuyển khoản'''
+  `phuong_thuc_thanh_toan` int NOT NULL COMMENT '1: ''Tiền mặt'',2: ''Chuyển khoản''',
+  `trang_thai` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `don_hangs`
+--
+
+INSERT INTO `don_hangs` (`id`, `ma_don_hang`, `nguoi_dung_id`, `ho_ten_nguoi_nhan`, `sdt_nguoi_nhan`, `email_nguoi_nhan`, `dia_chi_nguoi_nhan`, `ngay_dat_hang`, `trang_thai_thanh_toan_id`, `trang_thai_don_hang_id`, `phuong_thuc_thanh_toan`, `trang_thai`) VALUES
+(1, 'DH001', 1, 'Nguyễn Văn A', '0123456789', 'vana@example.com', '123 Đường A, Quận B, TP.C', '2024-11-12 10:00:00', 1, 1, 1, 1),
+(2, 'DH002', 2, 'Trần Thị B', '0987654321', 'thib@example.com', '456 Đường X, Quận Y, TP.Z', '2024-11-12 11:00:00', 2, 2, 2, 2),
+(3, 'DH003', 3, 'Lê Văn C', '0932112233', NULL, '789 Đường L, Quận M, TP.N', '2024-11-12 12:00:00', 2, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -321,7 +331,7 @@ ALTER TABLE `danh_mucs`
 -- AUTO_INCREMENT for table `don_hangs`
 --
 ALTER TABLE `don_hangs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `khuyen_mais`
