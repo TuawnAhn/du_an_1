@@ -221,10 +221,11 @@
                                                                     <th scope="col">Ảnh</th>
                                                                     <th scope="col" style="width: 10%;">Tên sản phẩm</th>
                                                                     <th scope="col" style="width: 25%;">Mô tả</th>
-                                                                    <th scope="col">Giá bán</th>
-                                                                    <th scope="col">Giá KM</th>
+                                                                    <th scope="col" style="width: 10%;">Giá bán</th>
+                                                                    <th scope="col" style="width: 10%;">Giá KM</th>
                                                                     <th scope="col">Số lượng</th>
-                                                                    <th scope="col" style="width: 15%;">Ngày đăng</th>
+                                                                    <th scope="col" style="width: 15%;">Ngày nhập</th>
+                                                                    <th scope="col" style="width: 15%;">Trạng thái</th>
                                                                     <th scope="col" style="width: 12%;">Action</th>
                                                                 </tr>
                                                             </thead>
@@ -232,13 +233,25 @@
                                                                 <?php foreach ($SanPhams as $index => $SanPham): ?>
                                                                     <tr>
                                                                         <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                        <td><img src="<?= $SanPham['img'] ?>" alt="Product Image" width="200" height="100"></td>
+                                                                        <td><img src="<?= $SanPham['img'] ?>" alt="Product Image" width="150" height="80"></td>
                                                                         <td class="text-wrap"><?= $SanPham['ten'] ?></td>
                                                                         <td class="text-wrap"><?= $SanPham['mo_ta'] ?></td>
                                                                         <td><?= $SanPham['gia_ban'] ?> VND</td>
                                                                         <td><?= $SanPham['gia_km'] ?> VND</td>
                                                                         <td><?= $SanPham['so_luong'] ?></td>
                                                                         <td><?= $SanPham['date'] ?></td>
+                                                                        <td>
+                                                                    <?php
+                                                                    if ($SanPham['trang_thai'] == 1) { ?>
+                                                                        <span class="badge bg-success">Hiển thị</span>
+                                                                    <?php
+                                                                    } else { ?>
+                                                                        <span class="badge bg-danger">Đã ẩn</span>
+
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+                                                                </td>
                                                                         <td>
                                                                             <div class="hstack gap-3 flex-wrap">
                                                                                 <a href="?act=form-sua-san-pham&san_pham_id=<?= $SanPham['id'] ?>" class="link-success fs-15">

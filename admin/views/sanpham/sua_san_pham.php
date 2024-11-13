@@ -115,6 +115,20 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                            <select class="form-select" name="trang_thai">
+                                                                <option selected disabled>Chọn trạng thái</option>
+                                                                <option value="1" <?= $SanPham['trang_thai'] == 1 ? 'selected' : '' ?>>Hiển thị</option>
+                                                                <option value="2" <?= $SanPham['trang_thai'] == 2 ? 'selected' : '' ?>>Ẩn</option>
+                                                            </select>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
                                                     <!-- Mô tả -->
                                                     <div class="col-md-12">
                                                         <div class="mb-3">
@@ -125,6 +139,8 @@
                                                             </span>
                                                         </div>
                                                     </div>
+
+                                                    
 
                                                     <!-- Số lượng -->
                                                     <div class="col-md-6">
