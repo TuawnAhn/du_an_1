@@ -81,15 +81,15 @@
                                                             <th scope="col">Mã đơn hàng</th>
                                                             <th scope="col">Họ tên người nhận</th>
                                                             <th scope="col">Sđt người nhận</th>
-                                                            <th scope="col">Email người nhận</th>
+                                                            
                                                             <th scope="col">Địa chỉ người nhận</th>
                                                             <th scope="col">Ngày đặt hàng</th>
                                                             <th scope="col">Trạng thái đơn hàng</th>
                                                             <th scope="col">Trạng thái thanh toán</th>
-                                                            <th scope="col">Phương thức thanh toán</th>
-                                                            <th scope="col">Id người dùng</th>
+                                                            
+                                                         
                                                             <th scope="col">Trạng thái</th>
-                                                            <th scope="col">Action</th>
+                                                            <th scope="col" >Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -99,7 +99,7 @@
                                                                 <td><?= $donhang['ma_don_hang'] ?></td>
                                                                 <td><?= $donhang['ho_ten_nguoi_nhan'] ?></td>
                                                                 <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
-                                                                <td><?= $donhang['email_nguoi_nhan'] ?></td>
+                                                               
                                                                 <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
                                                                 <td><?= $donhang['ngay_dat_hang'] ?></td>
                                                                 <td>
@@ -126,14 +126,8 @@
                                                                         <span>Chưa thanh toán</span>
                                                                     <?php } ?>
                                                                 </td>
-                                                                <td>
-                                                                    <?php if ($donhang['phuong_thuc_thanh_toan'] == 1) { ?>
-                                                                        <span class="badge bg-success">Tiền mặt</span>
-                                                                    <?php } else { ?>
-                                                                        <span class="badge bg-danger">Chuyển khoản</span>
-                                                                    <?php } ?>
-                                                                </td>
-                                                                <td><?= $donhang['nguoi_dung_id'] ?></td>
+                                                            
+                                                                
                                                                 <td>
                                                                     <?php if ($donhang['trang_thai'] == 1) { ?>
                                                                         <span class="badge bg-success">Hiển thị</span>
@@ -143,13 +137,13 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="hstack gap-2 flex-wrap">
+                                                                    <a href="?act=chi-tiet-don-hangs&id_don_hang=<?= $donhang['id'] ?>" class="link-primary fs-15 me-2" title="View">
+                                                                        <i class="ri-eye-line"></i>
+                                                                    </a>
+                                                                        
+                                                                
                                                                         <a href="?act=form-sua-don-hang&id=<?= $donhang['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
-                                                                        <form action="?act=xoa-don-hang" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa đơn hàng này?');">
-                                                                            <input type="hidden" name="don_hang_id" value="<?= $donhang['id'] ?>">
-                                                                            <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
-                                                                                <i class="ri-delete-bin-line"></i>
-                                                                            </button>
-                                                                        </form>
+                                                                    
                                                                     </div>
                                                                 </td>
                                                             </tr>
