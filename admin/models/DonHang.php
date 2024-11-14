@@ -24,6 +24,19 @@ class DonHang
             echo 'Lỗi' . $e->getMessage();
         }
     }
+    public function searchOrders($search)
+    {
+        // Kết nối cơ sở dữ liệu
+        $conn = connectDB();
+
+        // Truy vấn tìm kiếm theo mã đơn hàng hoặc số điện thoại
+        $query = "SELECT * FROM don_hangs WHERE ma_don_hang LIKE :search OR sdt_nguoi_nhan LIKE :search";
+        $stmt = $conn->prepare($query);
+        $stmt->bindValue(':search', '%' . $search . '%');
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 
 
 
@@ -88,7 +101,8 @@ class DonHang
         }
     }
 
-    public function getDetailDonHang($id) {
+    public function getDetailDonHang($id)
+    {
         try {
             $sql = 'SELECT don_hangs.*, trang_thai_don_hangs.trang_thai_don_hang
             FROM don_hangs
@@ -97,7 +111,7 @@ class DonHang
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->execute([':id'=>$id]);
+            $stmt->execute([':id' => $id]);
 
             return $stmt->fetch();
         } catch (PDOException $e) {
@@ -105,14 +119,15 @@ class DonHang
         }
     }
 
-    public function getListSpDonHang($id) {
+    public function getListSpDonHang($id)
+    {
         try {
             $sql = 'SELECT * FROM chi_tiet_don_hangs
             WHERE don_hang_id = :id';
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->execute([':id'=>$id]);
+            $stmt->execute([':id' => $id]);
 
             return $stmt->fetchAll();
         } catch (PDOException $e) {

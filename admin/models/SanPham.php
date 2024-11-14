@@ -10,36 +10,60 @@ class SanPham
         $this->conn = connectDB();
     }
 
-    //Danh sach tin tuc
-    public function getAll()   
+    //Danh sach
+    public function getAll()
     {
         try {
-            $sql = 'SELECT * FROM san_phams';
+            $sql = 'SELECT san_phams.*,danh_mucs.ten_danh_muc FROM san_phams INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id';
+
             $stmt = $this->conn->prepare($sql);
+
             $stmt->execute();
+
             return $stmt->fetchAll();
         } catch (PDOException $e) {
-            echo 'Loi: ' . $e->getMessage();
+            echo 'Lỗi' . $e->getMessage();
         }
     }
 
+
     //Them du lieu moi vao csdl
-    public function postData($ten, $img, $gia_ban, $gia_km, $mo_ta, $so_luong, $date)
+    public function postData($ten, $img, $gia_nhap, $gia_ban,  $gia_km, $mo_ta, $so_luong, $date, $trang_thai, $danh_muc_id)
     {
         try {
-            $sql = 'INSERT INTO san_phams (ten,img,gia_ban,gia_km,trang_thai,mo_ta,so_luong,date)
-                 VALUES(:ten,:img,:gia_ban,:gia_km,:trang_thai,:mo_ta,:so_luong,:date)';
+            $sql = 'INSERT INTO san_phams (ten,img,gia_nhap,gia_ban,gia_km,trang_thai,mo_ta,so_luong,date,danh_muc_id)
+                 VALUES(:ten,:img,:gia_nhap,:gia_ban,:gia_km,:trang_thai,:mo_ta,:so_luong,:date,:danh_muc_id)';
             $stmt = $this->conn->prepare($sql);
 
             //Gan gia tri vao cac tham so
             $stmt->bindParam(':ten', $ten);
             $stmt->bindParam(':img', $img);
+            $stmt->bindParam(':gia_nhap', $gia_nhap);
             $stmt->bindParam(':gia_ban', $gia_ban);
             $stmt->bindParam(':gia_km', $gia_km);
             $stmt->bindParam(':trang_thai', $trang_thai);
             $stmt->bindParam(':mo_ta', $mo_ta);
             $stmt->bindParam(':so_luong', $so_luong);
             $stmt->bindParam(':date', $date);
+            $stmt->bindParam(':danh_muc_id', $danh_muc_id);
+
+            $stmt->execute();
+
+            return $this->conn->lastInsertId();
+        } catch (PDOException $e) {
+            echo 'Loi: ' . $e->getMessage();
+        }
+    }
+
+    public function albumHinhAnh($san_pham_id, $album_hinh_anh)
+    {
+        try {
+            $sql = 'INSERT INTO hinh_anh_san_phams (san_pham_id, album_hinh_anh) VALUES (:san_pham_id, :album_hinh_anh)';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':san_pham_id', $san_pham_id);
+            $stmt->bindParam(':album_hinh_anh', $album_hinh_anh);
 
             $stmt->execute();
 
@@ -68,23 +92,43 @@ class SanPham
         }
     }
 
-    //Cap nhat du lieu
-    public function updateData($id, $ten, $img, $gia_ban, $gia_km, $trang_thai, $mo_ta, $so_luong, $date)
+    public function getAlbumHinhAnh($id)
     {
         try {
-            $sql = 'UPDATE san_phams SET ten= :ten, img=:img, gia_ban=:gia_ban, gia_km=:gia_km, trang_thai=:trang_thai, mo_ta=:mo_ta, so_luong=:so_luong, date=:date WHERE id=:id ';
+            $sql = 'SELECT * FROM hinh_anh_san_phams WHERE san_pham_id=:id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':id', $id);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (\Throwable $e) {
+            echo 'Loi: ' . $e->getMessage();
+        }
+    }
+
+    //Cap nhat du lieu
+    public function updateData($id, $ten, $img, $gia_nhap, $gia_ban, $gia_km, $trang_thai, $mo_ta, $so_luong, $date, $danh_muc_id)
+    {
+        try {
+            $sql = 'UPDATE san_phams SET ten= :ten, img=:img,gia_nhap=:gia_nhap, gia_ban=:gia_ban, gia_km=:gia_km, trang_thai=:trang_thai, mo_ta=:mo_ta, so_luong=:so_luong, date=:date, danh_muc_id=:danh_muc_id WHERE id=:id ';
+
             $stmt = $this->conn->prepare($sql);
 
             //Gan gia tri vao cac tham so
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':ten', $ten);
             $stmt->bindParam(':img', $img);
+            $stmt->bindParam(':gia_nhap', $gia_nhap);
             $stmt->bindParam(':gia_ban', $gia_ban);
             $stmt->bindParam(':gia_km', $gia_km);
             $stmt->bindParam(':trang_thai', $trang_thai);
             $stmt->bindParam(':mo_ta', $mo_ta);
             $stmt->bindParam(':so_luong', $so_luong);
             $stmt->bindParam(':date', $date);
+            $stmt->bindParam(':danh_muc_id', $danh_muc_id);
 
             $stmt->execute();
 

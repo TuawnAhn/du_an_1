@@ -117,5 +117,4 @@ match ($act) {
     'sua-don-hang'         => (new DonHangController())->update(),
     'xoa-don-hang'         => (new DonHangController())->destroy(),
     'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
-
 };

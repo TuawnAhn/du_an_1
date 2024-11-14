@@ -68,13 +68,14 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
-                                        <form class="app-search d-none d-md-block">
+                                        <form class="app-search d-none d-md-block" method="get" action="">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control" placeholder="Search..." autocomplete="off" id="search-options" value="">
+                                                <input type="text" class="form-control" name="search" placeholder="Search by Order Code or Phone Number" value="<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                                                 <span class="mdi mdi-magnify search-widget-icon"></span>
                                                 <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
                                             </div>
                                         </form>
+
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
@@ -99,62 +100,51 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($donhangs as $index => $donhang): ?>
+                                                        <?php if (empty($donhangs)): ?>
                                                             <tr>
-                                                                <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $donhang['ma_don_hang'] ?></td>
-                                                                <td><?= $donhang['ho_ten_nguoi_nhan'] ?></td>
-                                                                <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
-
-                                                                <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
-                                                                <td><?= $donhang['ngay_dat_hang'] ?></td>
-                                                                <td>
-                                                                    <?php if ($donhang['trang_thai_don_hang'] == 1) { ?>
-                                                                        <span>Chờ xác nhận</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 2) { ?>
-                                                                        <span>Đã xác nhận</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 3) { ?>
-                                                                        <span>Đang giao</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 4) { ?>
-                                                                        <span>Đã giao</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 5) { ?>
-                                                                        <span>Đã hoàn thành</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 6) { ?>
-                                                                        <span>Đã thất bại</span>
-                                                                    <?php } else { ?>
-                                                                        <span>Đã Hủy</span>
-                                                                    <?php } ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php if ($donhang['trang_thai_thanh_toan'] == 1) { ?>
-                                                                        <span>Đã thanh toán </span>
-                                                                    <?php } else { ?>
-                                                                        <span>Chưa thanh toán</span>
-                                                                    <?php } ?>
-                                                                </td>
-
-
-                                                                <td>
-                                                                    <?php if ($donhang['trang_thai'] == 1) { ?>
-                                                                        <span class="badge bg-success">Hiển thị</span>
-                                                                    <?php } else { ?>
-                                                                        <span class="badge bg-danger">Đã ẩn</span>
-                                                                    <?php } ?>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="hstack gap-2 flex-wrap">
+                                                                <td colspan="10" class="text-center">Không tìm thấy đơn hàng nào.</td>
+                                                            </tr>
+                                                        <?php else: ?>
+                                                            <?php foreach ($donhangs as $index => $donhang): ?>
+                                                                <tr>
+                                                                    <td class="fw-medium"><?= $index + 1 ?></td>
+                                                                    <td><?= $donhang['ma_don_hang'] ?></td>
+                                                                    <td><?= $donhang['ho_ten_nguoi_nhan'] ?></td>
+                                                                    <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
+                                                                    <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
+                                                                    <td><?= $donhang['ngay_dat_hang'] ?></td>
+                                                                    <td>
+                                                                        <?php if ($donhang['trang_thai_don_hang'] == 1) { ?>
+                                                                            <span>Chờ xác nhận</span>
+                                                                        <?php } else if ($donhang['trang_thai_don_hang'] == 2) { ?>
+                                                                            <span>Đã xác nhận</span>
+                                                                        <?php } ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php if ($donhang['trang_thai_thanh_toan'] == 1) { ?>
+                                                                            <span>Đã thanh toán </span>
+                                                                        <?php } else { ?>
+                                                                            <span>Chưa thanh toán</span>
+                                                                        <?php } ?>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php if ($donhang['trang_thai'] == 1) { ?>
+                                                                            <span class="badge bg-success">Hiển thị</span>
+                                                                        <?php } else { ?>
+                                                                            <span class="badge bg-danger">Đã ẩn</span>
+                                                                        <?php } ?>
+                                                                    </td>
+                                                                    <td>
                                                                         <a href="?act=chi-tiet-don-hangs&id_don_hang=<?= $donhang['id'] ?>" class="link-primary fs-15 me-2" title="View">
                                                                             <i class="ri-eye-line"></i>
                                                                         </a>
-
-
                                                                         <a href="?act=form-sua-don-hang&id=<?= $donhang['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
-
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
                                                     </tbody>
+
                                                 </table>
                                             </div>
                                         </div>
