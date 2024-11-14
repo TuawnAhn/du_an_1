@@ -32,6 +32,8 @@ class DonHangController
         //Lay danh sach o bang chi tiet don hang
         $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($don_hang_id);
 
+        $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
+
 
 
         require_once './views/donhang/chiTietDonHang.php';

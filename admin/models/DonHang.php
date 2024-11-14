@@ -25,6 +25,21 @@ class DonHang
         }
     }
 
+    public function getAllTrangThaiDonHang()
+    {
+        try {
+            $sql = "SELECT * FROM trang_thai_don_hangs";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
+    }
+
 
 
     public function postDonHang($ma_don_hang, $ho_ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ngay_dat_hang, $trang_thai_don_hang, $trang_thai_thanh_toan, $phuong_thuc_thanh_toan, $nguoi_dung_id, $trang_thai)
@@ -107,8 +122,10 @@ class DonHang
 
     public function getListSpDonHang($id) {
         try {
-            $sql = 'SELECT * FROM chi_tiet_don_hangs
-            WHERE don_hang_id = :id';
+            $sql = 'SELECT chi_tiet_don_hangs.*, san_phams.ten
+             FROM chi_tiet_don_hangs
+             INNER JOIN san_phams ON chi_tiet_don_hangs.san_pham_id = san_pham_id
+            WHERE chi_tiet_don_hangs.don_hang_id = :id';
 
             $stmt = $this->conn->prepare($sql);
 
