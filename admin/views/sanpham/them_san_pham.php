@@ -59,15 +59,22 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
+                                                            <label for="gia_nhap" class="form-label">Giá nhập</label>
+                                                            <input type="number" class="form-control" id="gia_nhap" name="gia_nhap" placeholder="Nhập vào giá nhập">
+                                                            <span class="text-danger"><?= !empty($_SESSION['errors']['gia_nhap']) ? $_SESSION['errors']['gia_nhap'] : '' ?></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
                                                             <label for="gia_ban" class="form-label">Giá bán</label>
-                                                            <input type="text" class="form-control" id="gia_ban" name="gia_ban" placeholder="Nhập vào giá bán">
+                                                            <input type="number" class="form-control" id="gia_ban" name="gia_ban" placeholder="Nhập vào giá bán">
                                                             <span class="text-danger"><?= !empty($_SESSION['errors']['gia_ban']) ? $_SESSION['errors']['gia_ban'] : '' ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="gia_km" class="form-label">Giá khuyến mãi</label>
-                                                            <input type="text" class="form-control" id="gia_km" name="gia_km" placeholder="Nhập vào giá khuyến mãi">
+                                                            <input type="number" class="form-control" id="gia_km" name="gia_km" placeholder="Nhập vào giá khuyến mãi">
                                                             <span class="text-danger"><?= !empty($_SESSION['errors']['gia_km']) ? $_SESSION['errors']['gia_km'] : '' ?></span>
                                                         </div>
                                                     </div>
@@ -81,14 +88,35 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="img" class="form-label">Hình ảnh</label>
-                                                            <input type="file" class="form-control" id="img" name="img[]" multiple>
+                                                            <input type="file" class="form-control" id="img" name="img">
                                                             <span class="text-danger"><?= !empty($_SESSION['errors']['img']) ? $_SESSION['errors']['img'] : '' ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
+                                                            <label class="form-label">Album ảnh</label>
+                                                            <input type="file" class="form-control" name="img_array[]" multiple>
+                                                            <span class="text-danger"><?= !empty($_SESSION['errors']['img_array']) ? $_SESSION['errors']['img_array'] : '' ?></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
                                                             <label for="date" class="form-label">Ngày nhập hàng</label>
-                                                            <input type="date" class="form-control" id="date" name="date">
+                                                            <input type="date" class="form-control" id="date" name="date" placeholder="Nhập vào ngày nhập hàng">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="danh_muc_id" class="form-label">Danh mục</label>
+                                                            <select class="form-select" name="danh_muc_id" id="exampleFormControlSelect1">
+
+                                                                <option selected disabled>Chọn danh mục sản phẩm</option>
+
+                                                                <?php foreach ($danhmucs as $danh_muc) : ?>
+                                                                    <option value="<?= $danh_muc['id'] ?>"><?= $danh_muc['ten_danh_muc'] ?></option>
+                                                                <?php endforeach; ?>
+
+                                                            </select>
                                                         </div>
                                                     </div>
 
