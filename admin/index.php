@@ -15,6 +15,10 @@ require_once 'controllers/KhuyenMaiController.php';
 require_once 'controllers/SanPhamController.php';
 require_once 'controllers/DonHangController.php';
 require_once 'controllers/TrangThaiDonHangController.php';
+require_once 'controllers/BaoCaoThongKeController.php';
+require_once 'controllers/TaiKhoanController.php';
+
+
 
 
 
@@ -28,6 +32,7 @@ require_once 'models/KhuyenMai.php';
 require_once 'models/SanPham.php';
 require_once 'models/DonHang.php';
 require_once 'models/TrangThaiDonHang.php';
+require_once 'models/TaiKhoan.php';
 
 
 
@@ -40,6 +45,7 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
+     '/' => (new BaoCaoThongKeController())->home(),
 
     'dashboard'                    => (new DashboardController())->index(),
 
@@ -117,4 +123,16 @@ match ($act) {
     'sua-don-hang'         => (new DonHangController())->update(),
     'xoa-don-hang'         => (new DonHangController())->destroy(),
     'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
+<<<<<<< Updated upstream
+=======
+
+// Quản lý tài khaonr Quản trị
+'list-tai-khoan-quan-tri'=> (new TaiKhoanController())->danhSachQuanTri(),
+'form-them-quan-tri'=> (new TaiKhoanController())->formAddQuanTri(),
+'them-quan-tri'=> (new TaiKhoanController())->postAddQuanTri(),
+//
+'login-admin' => (new TaiKhoanController()) ->formLogin(),
+'check-login-admin' => (new TaiKhoanController()) ->login(),
+
+>>>>>>> Stashed changes
 };
