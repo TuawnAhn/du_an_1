@@ -2,9 +2,6 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
-
-<!-- Mirrored from themesbrand.com/velzon/html/master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Oct 2024 07:29:52 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -28,7 +25,6 @@
         <!-- HEADER -->
         <?php
         require_once "views/layouts/header.php";
-
         require_once "views/layouts/siderbar.php";
         ?>
 
@@ -68,14 +64,13 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
-                                        <form class="app-search d-none d-md-block" method="get" action="">
+                                        <form class="app-search d-none d-md-block" method="get" action="index.php?act=search">
                                             <div class="position-relative">
                                                 <input type="text" class="form-control" name="search" placeholder="Search by Order Code or Phone Number" value="<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                                                 <span class="mdi mdi-magnify search-widget-icon"></span>
                                                 <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
                                             </div>
                                         </form>
-
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
@@ -88,19 +83,18 @@
                                                             <th scope="col">Mã đơn hàng</th>
                                                             <th scope="col">Họ tên người nhận</th>
                                                             <th scope="col">Sđt người nhận</th>
-
                                                             <th scope="col">Địa chỉ người nhận</th>
                                                             <th scope="col">Ngày đặt hàng</th>
                                                             <th scope="col">Trạng thái đơn hàng</th>
                                                             <th scope="col">Trạng thái thanh toán</th>
-
-
                                                             <th scope="col">Trạng thái</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php if (empty($donhangs)): ?>
+                                                        <?php
+                                                        // Kiểm tra nếu mảng $donhangs có dữ liệu
+                                                        if (empty($donhangs)): ?>
                                                             <tr>
                                                                 <td colspan="10" class="text-center">Không tìm thấy đơn hàng nào.</td>
                                                             </tr>
@@ -112,7 +106,7 @@
                                                                     <td><?= $donhang['ho_ten_nguoi_nhan'] ?></td>
                                                                     <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
                                                                     <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
-                                                                    <td><?= $donhang['ngay_dat_hang'] ?></td>
+                                                                    <td><?= date('d-m-Y', strtotime($donhang['ngay_dat_hang'])) ?></td> <!-- Định dạng ngày tháng -->
                                                                     <td>
                                                                         <?php if ($donhang['trang_thai_don_hang'] == 1) { ?>
                                                                             <span>Chờ xác nhận</span>
@@ -122,7 +116,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <?php if ($donhang['trang_thai_thanh_toan'] == 1) { ?>
-                                                                            <span>Đã thanh toán </span>
+                                                                            <span>Đã thanh toán</span>
                                                                         <?php } else { ?>
                                                                             <span>Chưa thanh toán</span>
                                                                         <?php } ?>
@@ -144,14 +138,12 @@
                                                             <?php endforeach; ?>
                                                         <?php endif; ?>
                                                     </tbody>
-
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div><!-- end card -->
-
                             </div> <!-- end .h-100-->
 
                         </div> <!-- end col -->
@@ -183,8 +175,6 @@
 
     </div>
     <!-- END layout-wrapper -->
-
-
 
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">

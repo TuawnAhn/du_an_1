@@ -24,19 +24,17 @@ class DonHang
             echo 'Lỗi' . $e->getMessage();
         }
     }
-    public function searchOrders($search)
+    public function searchDonHang($searchTerm)
     {
-        // Kết nối cơ sở dữ liệu
-        $conn = connectDB();
-
-        // Truy vấn tìm kiếm theo mã đơn hàng hoặc số điện thoại
-        $query = "SELECT * FROM don_hangs WHERE ma_don_hang LIKE :search OR sdt_nguoi_nhan LIKE :search";
-        $stmt = $conn->prepare($query);
-        $stmt->bindValue(':search', '%' . $search . '%');
+        // Giả sử bạn đang tìm kiếm theo mã đơn hàng (hoặc theo các thuộc tính khác)
+        $sql = "SELECT * FROM don_hangs WHERE ma_don_hang LIKE :searchTerm";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':searchTerm', '%' . $searchTerm . '%');
         $stmt->execute();
 
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function getAllTrangThaiDonHang()
     {

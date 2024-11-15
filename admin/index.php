@@ -41,7 +41,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Dashboards
 
-    'dashboard'                    => (new DashboardController())->index(),
+    '/'                    => (new DashboardController())->index(),
 
     //Quan li danh muc
     'danh-mucs'            => (new DanhMucController())->index(),
@@ -118,4 +118,8 @@ match ($act) {
     'sua-don-hang'         => (new DonHangController())->update(),
     'xoa-don-hang'         => (new DonHangController())->destroy(),
     'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
+    // Route cho tìm kiếm
+    'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
+
+
 };

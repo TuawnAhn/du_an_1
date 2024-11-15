@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 13, 2024 at 10:30 AM
+-- Generation Time: Nov 14, 2024 at 09:04 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -72,6 +72,20 @@ INSERT INTO `chi_tiet_don_hangs` (`id`, `don_hang_id`, `san_pham_id`, `so_luong`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chi_tiet_san_phams`
+--
+
+CREATE TABLE `chi_tiet_san_phams` (
+  `id` int NOT NULL,
+  `ten` varchar(255) NOT NULL,
+  `ma_san_pham` varchar(11) NOT NULL,
+  `tinh_trang` int NOT NULL,
+  `so_luong_kho` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `danh_mucs`
 --
 
@@ -86,11 +100,11 @@ CREATE TABLE `danh_mucs` (
 --
 
 INSERT INTO `danh_mucs` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
-(5, 'Vòng-Lắc', 1),
-(6, 'Nhẫn', 1),
-(7, 'Dây chuyền', 1),
-(8, 'Bông taiiiiiiiiiii', 2),
-(12, 'Bông tai', 1);
+(1, 'Vòng-Lắc', 1),
+(2, 'Nhẫn', 1),
+(3, 'Dây chuyền', 1),
+(4, 'Bông taiiiiiiiiiii', 2),
+(5, 'Bông tai', 1);
 
 -- --------------------------------------------------------
 
@@ -121,6 +135,31 @@ INSERT INTO `don_hangs` (`id`, `ma_don_hang`, `nguoi_dung_id`, `ho_ten_nguoi_nha
 (1, 'DH001', 1, 'Nguyễn Văn A', '0123456789', 'vana@example.com', '123 Đường A, Quận B, TP.C', '2024-11-12 10:00:00', 1, 1, 1, 1),
 (2, 'DH002', 2, 'Trần Thị B', '0987654321', 'thib@example.com', '456 Đường X, Quận Y, TP.Z', '2024-11-12 11:00:00', 2, 2, 2, 2),
 (3, 'DH003', 3, 'Lê Văn C', '0932112233', NULL, '789 Đường L, Quận M, TP.N', '2024-11-12 12:00:00', 2, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hinh_anh_san_phams`
+--
+
+CREATE TABLE `hinh_anh_san_phams` (
+  `id` int NOT NULL,
+  `san_pham_id` int NOT NULL,
+  `album_hinh_anh` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `hinh_anh_san_phams`
+--
+
+INSERT INTO `hinh_anh_san_phams` (`id`, `san_pham_id`, `album_hinh_anh`) VALUES
+(1, 24, ''),
+(2, 28, './uploads/1731593916279749712_530299182020173_5296107756670684214_n.jpg'),
+(3, 28, './uploads/1731593916IMG-0380.jpg'),
+(4, 28, './uploads/1731593916IMG-1159.jpg'),
+(5, 29, './uploads/1731593926279749712_530299182020173_5296107756670684214_n.jpg'),
+(6, 29, './uploads/1731593926IMG-0380.jpg'),
+(7, 29, './uploads/1731593926IMG-1159.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,26 +222,28 @@ INSERT INTO `nguoi_dungs` (`id`, `ho_ten`, `email`, `mat_khau`, `so_dien_thoai`,
 CREATE TABLE `san_phams` (
   `id` int NOT NULL,
   `ten` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL,
+  `img` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `gia_ban` decimal(10,0) NOT NULL,
   `gia_km` decimal(10,0) NOT NULL,
   `mo_ta` text NOT NULL,
   `so_luong` int NOT NULL,
   `date` date DEFAULT NULL,
-  `trang_thai` int NOT NULL
+  `trang_thai` int NOT NULL,
+  `gia_nhap` decimal(10,0) NOT NULL,
+  `danh_muc_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `san_phams`
 --
 
-INSERT INTO `san_phams` (`id`, `ten`, `img`, `gia_ban`, `gia_km`, `mo_ta`, `so_luong`, `date`, `trang_thai`) VALUES
-(5, 'a', 'jjj.imgsss', '10000', '2', 'aaaaaaaaaa', 2, '2024-11-09', 1),
-(6, 'aaaaaaaaaaa', 'aa', '10000', '20000', 'bbbbbb', 1000, '2024-11-08', 2),
-(8, 'aaaaaaaaaaa', './uploads/1731319111_taoanhdep_cover_marketing_61385.png', '10000', '20000', 'aaa', 2, '2024-11-06', 1),
-(9, 'aaaaaaaaaaa', './uploads/1731318245_Screenshot 2024-09-20 165738.png', '10000', '20000', 'aaa', 150, '2024-11-06', 1),
-(13, 'aaaaaaaaaaa', './uploads/1731302601_th (13).jpg', '10000', '20000', 's', 2, '2024-11-10', 2),
-(14, 'aaaaaaaaaaa', './uploads/1731302279_th (14).jpg', '10000', '20000', 'a', 1, '2024-11-10', 1);
+INSERT INTO `san_phams` (`id`, `ten`, `img`, `gia_ban`, `gia_km`, `mo_ta`, `so_luong`, `date`, `trang_thai`, `gia_nhap`, `danh_muc_id`) VALUES
+(8, 'aaaaaaaaaaa', './uploads/1731319111_taoanhdep_cover_marketing_61385.png', '10000', '20000', 'aaa', 2, '2024-11-06', 1, '56785', 3),
+(9, 'aaaaaaaaaaa', './uploads/1731318245_Screenshot 2024-09-20 165738.png', '10000', '20000', 'aaa', 150, '2024-11-06', 1, '42345', 4),
+(13, 'aaaaaaaaaaa', './uploads/1731302601_th (13).jpg', '10000', '20000', 's', 2, '2024-11-10', 2, '89679', 5),
+(14, 'aaaaaaaaaaa', './uploads/1731556148_64451024_1314853245331472_240455474938380288_n.jpg', '10000', '20000', 'asadá', 1, '2024-11-10', 1, '34675', 3),
+(15, 'fawfasf', './uploads/1731556759_233703160_1992416827575107_6782043107933747975_n.jpg', '120000', '4234', '12323123', 12, '2024-11-10', 1, '1233333', 5),
+(30, 'fawfasf', './uploads/1731616690Slide1.JPG', '120000', '32000', '', 123, '2024-12-07', 1, '1413424', 4);
 
 -- --------------------------------------------------------
 
@@ -294,6 +335,12 @@ ALTER TABLE `chi_tiet_don_hangs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `chi_tiet_san_phams`
+--
+ALTER TABLE `chi_tiet_san_phams`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `danh_mucs`
 --
 ALTER TABLE `danh_mucs`
@@ -306,6 +353,12 @@ ALTER TABLE `don_hangs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `trang_thai_thanh_toan_id` (`trang_thai_thanh_toan_id`),
   ADD KEY `trang_thai_don_hang_id` (`trang_thai_don_hang_id`);
+
+--
+-- Indexes for table `hinh_anh_san_phams`
+--
+ALTER TABLE `hinh_anh_san_phams`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `khuyen_mais`
@@ -360,16 +413,28 @@ ALTER TABLE `chi_tiet_don_hangs`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `chi_tiet_san_phams`
+--
+ALTER TABLE `chi_tiet_san_phams`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `danh_mucs`
 --
 ALTER TABLE `danh_mucs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `don_hangs`
 --
 ALTER TABLE `don_hangs`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `hinh_anh_san_phams`
+--
+ALTER TABLE `hinh_anh_san_phams`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `khuyen_mais`
@@ -387,7 +452,7 @@ ALTER TABLE `nguoi_dungs`
 -- AUTO_INCREMENT for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_lienhe`

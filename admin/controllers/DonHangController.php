@@ -5,10 +5,12 @@ class DonHangController
     //Hàm kết nối tới Model
 
     public $modelDonHang;
+    public $modelSanPham;
 
     public function __construct()
     {
         $this->modelDonHang = new DonHang();
+        $this->modelSanPham = new SanPham();
     }
     public function index()
     {
@@ -23,6 +25,7 @@ class DonHangController
         require_once "./views/donhang/create_don_hang.php";
     }
 
+
     public function detail()
     {
         $don_hang_id = $_GET['id_don_hang'];
@@ -30,6 +33,7 @@ class DonHangController
         $donhang = $this->modelDonHang->getDetailDonHang($don_hang_id);
 
         //Lay danh sach o bang chi tiet don hang
+
         $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($don_hang_id);
 
         $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
@@ -211,5 +215,19 @@ class DonHangController
             header("Location: ?act=don-hangs");
             exit();
         }
+    }
+    public function search()
+    {
+        // Kiểm tra xem có dữ liệu tìm kiếm hay không
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $searchTerm = $_GET['search'];
+            // Gọi model để tìm kiếm đơn hàng theo từ khóa
+            $donhangs = $this->modelDonHang->searchDonHang($searchTerm);
+        } else {
+            // Nếu không có tìm kiếm, lấy tất cả đơn hàng
+            $donhangs = $this->modelDonHang->getAll();
+        }
+
+        require_once "./views/donhang/list_don_hang.php";
     }
 }
