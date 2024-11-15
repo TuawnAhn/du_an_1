@@ -45,14 +45,14 @@
                             <div class="card">
                                 <?php if (!empty($SanPham['img'])): ?>
                                     <div>
-                                        <img src="<?= $SanPham['img'] ?>" alt="Hình ảnh hiện tại" style="width: 800px; height: 445px; ">
+                                        <img src="<?= $SanPham['img'] ?>" alt="Hình ảnh hiện tại" style="width: 600px; height: 800px; ">
 
                                     </div>
                                 <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h1><?= $SanPham['ten'] ?></h1>
