@@ -24,15 +24,30 @@ class DonHang
             echo 'Lỗi' . $e->getMessage();
         }
     }
-    public function searchDonHang($searchTerm)
+    public function searchOrders($search, $status)
     {
-        // Giả sử bạn đang tìm kiếm theo mã đơn hàng (hoặc theo các thuộc tính khác)
-        $sql = "SELECT * FROM don_hangs WHERE ma_don_hang LIKE :searchTerm";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(':searchTerm', '%' . $searchTerm . '%');
+
+        $query = "SELECT don_hangs.*, trang_thai_don_hangs.trang_thai FROM don_hangs JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang_id = trang_thai_don_hangs.id ";
+
+        if ($search) {
+            $query .= " AND ma_don_hang LIKE :search";
+        }
+        if ($status) {
+            $query .= " AND trang_thai = :status";
+        }
+
+        $stmt = $this->conn->prepare($query);
+
+        if ($search) {
+            $stmt->bindValue(':search', "%$search%");
+        }
+        if ($status) {
+            $stmt->bindValue(':status', $status);
+        }
+
         $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();  // Trả về kết quả tìm kiếm
     }
 
 

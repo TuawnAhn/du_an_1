@@ -60,7 +60,7 @@
                                     <h3 class="text-danger"><?= number_format($SanPham['gia_ban'], 0, ',', '.') ?> VND</h3>
                                     <h5 class="text-danger"><del><?= number_format($SanPham['gia_km'], 0, ',', '.') ?> VND</del></h5>
                                     <hr>
-                                    <p><strong>Danh mục:</strong> <?= $SanPham['danh_muc_id'] ?></p>
+                                    <p><strong>Danh mục:</strong> <?= $SanPham['danh_muc_id'] == 1 ? 'Vòng-Lắc' : 'Nhẫn' ?></p>
                                     <p><strong>Số lượng trong kho:</strong> <?= $SanPham['so_luong'] ?></p>
                                     <p><strong>Tình trạng:</strong> <?= $SanPham['trang_thai'] ? 'Còn hàng' : 'Hết hàng' ?></p>
 

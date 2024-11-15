@@ -64,12 +64,19 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
-                                        <form class="app-search d-none d-md-block" method="get" action="index.php?act=search">
-                                            <div class="position-relative">
-                                                <input type="text" class="form-control" name="search" placeholder="Search by Order Code or Phone Number" value="<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>">
-                                                <span class="mdi mdi-magnify search-widget-icon"></span>
-                                                <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
-                                            </div>
+                                        <form class="app-search d-none d-md-block" method="post" action="index.php?act=search">
+                                            <input type="text" class="form-control" name="search" placeholder="Search by Order Code or Phone Number">
+                                            <select name="form-control me-2" name="status">
+                                                <option value="" selected disabled>Trang thai don hang</option>
+                                                <option value="Chờ xác nhận">Chờ xác nhận</option>
+                                                <option value="Đã xác nhận">Đã xác nhận</option>
+                                                <option value="Đang giao">Đang giao</option>
+                                                <option value="Hoàn thành">Đã giao hàng</option>
+                                                <option value="Hệ thống">Giao hàng thất bại</option>
+                                                <option value="Huy">Đã huỷ</option>
+                                                <option value="Đã hoàn thanh">Đã hoàn thành</option>
+                                            </select>
+                                            <input type="submit" class="btn btn-primary" value="Tìm kiếm">
                                         </form>
                                     </div><!-- end card header -->
 

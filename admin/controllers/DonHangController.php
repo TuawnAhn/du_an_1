@@ -216,18 +216,21 @@ class DonHangController
             exit();
         }
     }
-    public function search()
+    public function searchDonHang()
     {
-        // Kiểm tra xem có dữ liệu tìm kiếm hay không
-        if (isset($_GET['search']) && !empty($_GET['search'])) {
-            $searchTerm = $_GET['search'];
-            // Gọi model để tìm kiếm đơn hàng theo từ khóa
-            $donhangs = $this->modelDonHang->searchDonHang($searchTerm);
-        } else {
-            // Nếu không có tìm kiếm, lấy tất cả đơn hàng
-            $donhangs = $this->modelDonHang->getAll();
-        }
 
-        require_once "./views/donhang/list_don_hang.php";
+        // var_dump($_POST);
+        // Lấy các tham số từ POST thay vì GET
+        $search = isset($_POST['search']) ? $_POST['search'] : '';
+        $status = isset($_POST['status']) ? $_POST['status'] : '';
+
+        // Gọi model để tìm kiếm đơn hàng
+        $donHang = $this->modelDonHang->searchOrders($search, $status);
+
+
+
+
+        // Hiển thị kết quả tìm kiếm
+        require_once './views/donhang/list_don_hang.php';
     }
 }
