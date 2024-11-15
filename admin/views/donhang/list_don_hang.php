@@ -113,13 +113,7 @@
                                                                     <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
                                                                     <td><?= $donhang['dia_chi_nguoi_nhan'] ?></td>
                                                                     <td><?= $donhang['ngay_dat_hang'] ?></td>
-                                                                    <td>
-                                                                        <?php if ($donhang['trang_thai_don_hang'] == 1) { ?>
-                                                                            <span>Chờ xác nhận</span>
-                                                                        <?php } else if ($donhang['trang_thai_don_hang'] == 2) { ?>
-                                                                            <span>Đã xác nhận</span>
-                                                                        <?php } ?>
-                                                                    </td>
+                                                                    <td><?= $donhang['trang_thai_don_hang'] ?></td>
                                                                     <td>
                                                                         <?php if ($donhang['trang_thai_thanh_toan'] == 1) { ?>
                                                                             <span>Đã thanh toán </span>
@@ -138,7 +132,7 @@
                                                                         <a href="?act=chi-tiet-don-hangs&id_don_hang=<?= $donhang['id'] ?>" class="link-primary fs-15 me-2" title="View">
                                                                             <i class="ri-eye-line"></i>
                                                                         </a>
-                                                                        <a href="?act=form-sua-don-hang&id=<?= $donhang['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
+                                                                        <a href="?act=form-sua-don-hang&id_don_hang=<?= $donhang['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
                                                                     </td>
                                                                 </tr>
                                                             <?php endforeach; ?>

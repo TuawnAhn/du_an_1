@@ -111,10 +111,7 @@ match ($act) {
 
     //Quan li don hang
     'don-hangs'            => (new DonHangController())->index(),
-    'form-them-don-hang'   => (new DonHangController())->create(),
-    'them-don-hang'        => (new DonHangController())->store(),
     'form-sua-don-hang'    => (new DonHangController())->edit(),
     'sua-don-hang'         => (new DonHangController())->update(),
-    'xoa-don-hang'         => (new DonHangController())->destroy(),
     'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
 };
