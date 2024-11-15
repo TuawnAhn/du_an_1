@@ -120,6 +120,21 @@ class SanPhamController
         require_once './views/sanpham/sua_san_pham.php';
         deleteSessionError();
     }
+
+    public function DetailSanPham()
+    {
+        $id = $_GET['san_pham_id'];
+
+        $SanPham = $this->modelSanPham->getDetailData($id);
+
+        $listSanPham = $this->modelSanPham->getAlbumHinhAnh($id);
+
+        $danhmucs = $this->modelDanhMuc->getAll();
+
+        //Do du lieu ra form
+        require_once './views/sanpham/chi_tiet_san_pham.php';
+        deleteSessionError();
+    }
     public function update()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

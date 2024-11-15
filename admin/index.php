@@ -106,6 +106,7 @@ match ($act) {
     'form-sua-san-pham'    => (new SanPhamController())->edit(),
     'sua-san-pham'         => (new SanPhamController())->update(),
     'xoa-san-pham'         => (new SanPhamController())->destroy(),
+    'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),

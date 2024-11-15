@@ -268,6 +268,9 @@
                                                                                         <i class="ri-delete-bin-line"></i>
                                                                                     </button>
                                                                                 </form>
+                                                                                <a href="?act=chi-tiet-san-pham&san_pham_id=<?= $sanPham['id'] ?>" class="link-primary fs-15 me-2" title="View">
+                                                                            <i class="ri-eye-line"></i>
+                                                                        </a>
                                                                             </div>
                                                                         </td>
                                                                     </tr>
