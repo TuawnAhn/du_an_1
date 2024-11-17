@@ -127,7 +127,7 @@
                             </div>
                         </div>
 
-                        <!-- Bình luận sản phẩm -->
+                        <!-- Bình luận sản phẩm- Tuấn Anh làm -->
                         <div class="row mt-4">
                             <div class="col-md-12">
                                 <div class="card">
