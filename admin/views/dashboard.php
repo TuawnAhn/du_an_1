@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 
 <!-- Mirrored from themesbrand.com/velzon/html/master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Oct 2024 07:29:52 GMT -->
@@ -27,14 +28,14 @@
         <!-- HEADER -->
         <?php
         require_once "layouts/header.php";
-
+        
         require_once "layouts/siderbar.php";
         ?>
 
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
-
+        
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -52,17 +53,23 @@
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
                                                 <h4 class="fs-16 mb-1">Good Morning, Sliver Ring!</h4>
-                                                <p class="text-muted mb-0">Here's what's happening with your store today.</p>
+                                                <p class="text-muted mb-0">Here's what's happening with your store
+                                                    today.</p>
                                             </div>
                                             <div class="mt-3 mt-lg-0">
                                                 <form action="javascript:void(0);">
                                                     <div class="row g-3 mb-0 align-items-center">
                                                         <div class="col-auto">
-                                                            <button type="button" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Add Product</button>
+                                                            <button type="button"
+                                                                class="btn btn-soft-success material-shadow-none"><i
+                                                                    class="ri-add-circle-line align-middle me-1"></i>
+                                                                Add Product</button>
                                                         </div>
                                                         <!--end col-->
                                                         <div class="col-auto">
-                                                            <button type="button" class="btn btn-soft-info btn-icon waves-effect material-shadow-none waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
+                                                            <button type="button"
+                                                                class="btn btn-soft-info btn-icon waves-effect material-shadow-none waves-light layout-rightside-btn"><i
+                                                                    class="ri-pulse-line"></i></button>
                                                         </div>
                                                         <!--end col-->
                                                     </div>
@@ -82,18 +89,24 @@
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Earnings</p>
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                            Total Earnings</p>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <h5 class="text-success fs-14 mb-0">
-                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
+                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
+                                                            +16.24 %
                                                         </h5>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="559.25">0</span>k </h4>
-                                                        <a href="#" class="text-decoration-underline">View net earnings</a>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span
+                                                                class="counter-value" data-target="559.25">0</span>k
+                                                        </h4>
+                                                        <a href="#" class="text-decoration-underline">View net
+                                                            earnings</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-success-subtle rounded fs-3">
@@ -111,18 +124,23 @@
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Orders</p>
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                            Orders</p>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <h5 class="text-danger fs-14 mb-0">
-                                                            <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                                            <i class="ri-arrow-right-down-line fs-13 align-middle"></i>
+                                                            -3.57 %
                                                         </h5>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="36894">0</span></h4>
-                                                        <a href="#" class="text-decoration-underline">View all orders</a>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span
+                                                                class="counter-value" data-target="36894">0</span></h4>
+                                                        <a href="#" class="text-decoration-underline">View all
+                                                            orders</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-info-subtle rounded fs-3">
@@ -140,17 +158,22 @@
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Customers</p>
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                            Customers</p>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <h5 class="text-success fs-14 mb-0">
-                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
+                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
+                                                            +29.08 %
                                                         </h5>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="183.35">0</span>M </h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span
+                                                                class="counter-value" data-target="183.35">0</span>M
+                                                        </h4>
                                                         <a href="#" class="text-decoration-underline">See details</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -169,7 +192,9 @@
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> My Balance</p>
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                            My Balance</p>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <h5 class="text-muted fs-14 mb-0">
@@ -179,7 +204,9 @@
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="165.89">0</span>k </h4>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span
+                                                                class="counter-value" data-target="165.89">0</span>k
+                                                        </h4>
                                                         <a href="#" class="text-decoration-underline">Withdraw money</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -199,16 +226,20 @@
                                             <div class="card-header border-0 align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Revenue</h4>
                                                 <div>
-                                                    <button type="button" class="btn btn-soft-secondary material-shadow-none btn-sm">
+                                                    <button type="button"
+                                                        class="btn btn-soft-secondary material-shadow-none btn-sm">
                                                         ALL
                                                     </button>
-                                                    <button type="button" class="btn btn-soft-secondary material-shadow-none btn-sm">
+                                                    <button type="button"
+                                                        class="btn btn-soft-secondary material-shadow-none btn-sm">
                                                         1M
                                                     </button>
-                                                    <button type="button" class="btn btn-soft-secondary material-shadow-none btn-sm">
+                                                    <button type="button"
+                                                        class="btn btn-soft-secondary material-shadow-none btn-sm">
                                                         6M
                                                     </button>
-                                                    <button type="button" class="btn btn-soft-primary material-shadow-none btn-sm">
+                                                    <button type="button"
+                                                        class="btn btn-soft-primary material-shadow-none btn-sm">
                                                         1Y
                                                     </button>
                                                 </div>
@@ -217,7 +248,8 @@
                                             <div class="card-body">
                                                 <div class="live-preview">
                                                     <div class="table-responsive">
-                                                        <table class="table table-striped table-nowrap align-middle mb-0">
+                                                        <table
+                                                            class="table table-striped table-nowrap align-middle mb-0">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">STT</th>
@@ -285,7 +317,8 @@
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Sales by Locations</h4>
                                                 <div class="flex-shrink-0">
-                                                    <button type="button" class="btn btn-soft-primary material-shadow-none btn-sm">
+                                                    <button type="button"
+                                                        class="btn btn-soft-primary material-shadow-none btn-sm">
                                                         Export Report
                                                     </button>
                                                 </div>
@@ -294,23 +327,32 @@
                                             <!-- card body -->
                                             <div class="card-body">
 
-                                                <div id="sales-by-locations" data-colors='["--vz-light", "--vz-success", "--vz-primary"]' data-colors-interactive='["--vz-light", "--vz-info", "--vz-primary"]' style="height: 269px" dir="ltr"></div>
+                                                <div id="sales-by-locations"
+                                                    data-colors='["--vz-light", "--vz-success", "--vz-primary"]'
+                                                    data-colors-interactive='["--vz-light", "--vz-info", "--vz-primary"]'
+                                                    style="height: 269px" dir="ltr"></div>
 
                                                 <div class="px-2 py-2 mt-1">
                                                     <p class="mb-1">Canada <span class="float-end">75%</span></p>
                                                     <div class="progress mt-2" style="height: 6px;">
-                                                        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="75"></div>
+                                                        <div class="progress-bar progress-bar-striped bg-primary"
+                                                            role="progressbar" style="width: 75%" aria-valuenow="75"
+                                                            aria-valuemin="0" aria-valuemax="75"></div>
                                                     </div>
 
                                                     <p class="mt-3 mb-1">Greenland <span class="float-end">47%</span>
                                                     </p>
                                                     <div class="progress mt-2" style="height: 6px;">
-                                                        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 47%" aria-valuenow="47" aria-valuemin="0" aria-valuemax="47"></div>
+                                                        <div class="progress-bar progress-bar-striped bg-primary"
+                                                            role="progressbar" style="width: 47%" aria-valuenow="47"
+                                                            aria-valuemin="0" aria-valuemax="47"></div>
                                                     </div>
 
                                                     <p class="mt-3 mb-1">Russia <span class="float-end">82%</span></p>
                                                     <div class="progress mt-2" style="height: 6px;">
-                                                        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="82"></div>
+                                                        <div class="progress-bar progress-bar-striped bg-primary"
+                                                            role="progressbar" style="width: 82%" aria-valuenow="82"
+                                                            aria-valuemin="0" aria-valuemax="82"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -328,9 +370,12 @@
                                                 <h4 class="card-title mb-0 flex-grow-1">Danh sách banner</h4>
                                                 <div class="flex-shrink-0">
                                                     <div class="dropdown card-header-dropdown">
-                                                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="text-reset dropdown-btn" href="#"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
                                                             <span class="fw-semibold text-uppercase fs-12">Sort by:
-                                                            </span><span class="text-muted">Today<i class="mdi mdi-chevron-down ms-1"></i></span>
+                                                            </span><span class="text-muted">Today<i
+                                                                    class="mdi mdi-chevron-down ms-1"></i></span>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item" href="#">Today</a>
@@ -346,7 +391,8 @@
                                             <div class="card-body">
                                                 <div class="live-preview">
                                                     <div class="table-responsive">
-                                                        <table class="table table-striped table-nowrap align-middle mb-0">
+                                                        <table
+                                                            class="table table-striped table-nowrap align-middle mb-0">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">STT</th>
@@ -421,8 +467,11 @@
                                                 <h4 class="card-title mb-0 flex-grow-1">Top Sellers</h4>
                                                 <div class="flex-shrink-0">
                                                     <div class="dropdown card-header-dropdown">
-                                                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="text-muted">Report<i class="mdi mdi-chevron-down ms-1"></i></span>
+                                                        <a class="text-reset dropdown-btn" href="#"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <span class="text-muted">Report<i
+                                                                    class="mdi mdi-chevron-down ms-1"></i></span>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item" href="#">Download Report</a>
@@ -435,17 +484,20 @@
 
                                             <div class="card-body">
                                                 <div class="table-responsive table-card">
-                                                    <table class="table table-centered table-hover align-middle table-nowrap mb-0">
+                                                    <table
+                                                        class="table table-centered table-hover align-middle table-nowrap mb-0">
                                                         <tbody>
                                                             <tr>
                                                                 <td>
                                                                     <div class="d-flex align-items-center">
                                                                         <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/companies/img-1.png" alt="" class="avatar-sm p-2" />
+                                                                            <img src="assets/images/companies/img-1.png"
+                                                                                alt="" class="avatar-sm p-2" />
                                                                         </div>
                                                                         <div>
                                                                             <h5 class="fs-14 my-1 fw-medium">
-                                                                                <a href="apps-ecommerce-seller-details.html" class="text-reset">iTest Factory</a>
+                                                                                <a href="apps-ecommerce-seller-details.html"
+                                                                                    class="text-reset">iTest Factory</a>
                                                                             </h5>
                                                                             <span class="text-muted">Oliver Tyler</span>
                                                                         </div>
@@ -462,17 +514,23 @@
                                                                     <span class="text-muted">$541200</span>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="fs-14 mb-0">32%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
+                                                                    <h5 class="fs-14 mb-0">32%<i
+                                                                            class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
+                                                                    </h5>
                                                                 </td>
                                                             </tr><!-- end -->
                                                             <tr>
                                                                 <td>
                                                                     <div class="d-flex align-items-center">
                                                                         <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/companies/img-2.png" alt="" class="avatar-sm p-2" />
+                                                                            <img src="assets/images/companies/img-2.png"
+                                                                                alt="" class="avatar-sm p-2" />
                                                                         </div>
                                                                         <div class="flex-grow-1">
-                                                                            <h5 class="fs-14 my-1 fw-medium"><a href="apps-ecommerce-seller-details.html" class="text-reset">Digitech Galaxy</a></h5>
+                                                                            <h5 class="fs-14 my-1 fw-medium"><a
+                                                                                    href="apps-ecommerce-seller-details.html"
+                                                                                    class="text-reset">Digitech
+                                                                                    Galaxy</a></h5>
                                                                             <span class="text-muted">John Roberts</span>
                                                                         </div>
                                                                     </div>
@@ -488,18 +546,25 @@
                                                                     <span class="text-muted">$75030</span>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="fs-14 mb-0">79%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
+                                                                    <h5 class="fs-14 mb-0">79%<i
+                                                                            class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
+                                                                    </h5>
                                                                 </td>
                                                             </tr><!-- end -->
                                                             <tr>
                                                                 <td>
                                                                     <div class="d-flex align-items-center">
                                                                         <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/companies/img-3.png" alt="" class="avatar-sm p-2" />
+                                                                            <img src="assets/images/companies/img-3.png"
+                                                                                alt="" class="avatar-sm p-2" />
                                                                         </div>
                                                                         <div class="flex-gow-1">
-                                                                            <h5 class="fs-14 my-1 fw-medium"><a href="apps-ecommerce-seller-details.html" class="text-reset">Nesta Technologies</a></h5>
-                                                                            <span class="text-muted">Harley Fuller</span>
+                                                                            <h5 class="fs-14 my-1 fw-medium"><a
+                                                                                    href="apps-ecommerce-seller-details.html"
+                                                                                    class="text-reset">Nesta
+                                                                                    Technologies</a></h5>
+                                                                            <span class="text-muted">Harley
+                                                                                Fuller</span>
                                                                         </div>
                                                                     </div>
                                                                 </td>
@@ -514,17 +579,23 @@
                                                                     <span class="text-muted">$45600</span>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="fs-14 mb-0">90%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
+                                                                    <h5 class="fs-14 mb-0">90%<i
+                                                                            class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
+                                                                    </h5>
                                                                 </td>
                                                             </tr><!-- end -->
                                                             <tr>
                                                                 <td>
                                                                     <div class="d-flex align-items-center">
                                                                         <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/companies/img-8.png" alt="" class="avatar-sm p-2" />
+                                                                            <img src="assets/images/companies/img-8.png"
+                                                                                alt="" class="avatar-sm p-2" />
                                                                         </div>
                                                                         <div class="flex-grow-1">
-                                                                            <h5 class="fs-14 my-1 fw-medium"><a href="apps-ecommerce-seller-details.html" class="text-reset">Zoetic Fashion</a></h5>
+                                                                            <h5 class="fs-14 my-1 fw-medium"><a
+                                                                                    href="apps-ecommerce-seller-details.html"
+                                                                                    class="text-reset">Zoetic
+                                                                                    Fashion</a></h5>
                                                                             <span class="text-muted">James Bowen</span>
                                                                         </div>
                                                                     </div>
@@ -540,18 +611,22 @@
                                                                     <span class="text-muted">$29456</span>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="fs-14 mb-0">40%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
+                                                                    <h5 class="fs-14 mb-0">40%<i
+                                                                            class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
+                                                                    </h5>
                                                                 </td>
                                                             </tr><!-- end -->
                                                             <tr>
                                                                 <td>
                                                                     <div class="d-flex align-items-center">
                                                                         <div class="flex-shrink-0 me-2">
-                                                                            <img src="assets/images/companies/img-5.png" alt="" class="avatar-sm p-2" />
+                                                                            <img src="assets/images/companies/img-5.png"
+                                                                                alt="" class="avatar-sm p-2" />
                                                                         </div>
                                                                         <div class="flex-grow-1">
                                                                             <h5 class="fs-14 my-1 fw-medium">
-                                                                                <a href="apps-ecommerce-seller-details.html" class="text-reset">Meta4Systems</a>
+                                                                                <a href="apps-ecommerce-seller-details.html"
+                                                                                    class="text-reset">Meta4Systems</a>
                                                                             </h5>
                                                                             <span class="text-muted">Zoe Dennis</span>
                                                                         </div>
@@ -568,21 +643,26 @@
                                                                     <span class="text-muted">$11260</span>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="fs-14 mb-0">57%<i class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i></h5>
+                                                                    <h5 class="fs-14 mb-0">57%<i
+                                                                            class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
+                                                                    </h5>
                                                                 </td>
                                                             </tr><!-- end -->
                                                         </tbody>
                                                     </table><!-- end table -->
                                                 </div>
 
-                                                <div class="align-items-center mt-4 pt-2 justify-content-between row text-center text-sm-start">
+                                                <div
+                                                    class="align-items-center mt-4 pt-2 justify-content-between row text-center text-sm-start">
                                                     <div class="col-sm">
                                                         <div class="text-muted">
-                                                            Showing <span class="fw-semibold">5</span> of <span class="fw-semibold">25</span> Results
+                                                            Showing <span class="fw-semibold">5</span> of <span
+                                                                class="fw-semibold">25</span> Results
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-auto  mt-3 mt-sm-0">
-                                                        <ul class="pagination pagination-separated pagination-sm mb-0 justify-content-center">
+                                                        <ul
+                                                            class="pagination pagination-separated pagination-sm mb-0 justify-content-center">
                                                             <li class="page-item disabled">
                                                                 <a href="#" class="page-link">←</a>
                                                             </li>
@@ -614,8 +694,11 @@
                                                 <h4 class="card-title mb-0 flex-grow-1">Store Visits by Source</h4>
                                                 <div class="flex-shrink-0">
                                                     <div class="dropdown card-header-dropdown">
-                                                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="text-muted">Report<i class="mdi mdi-chevron-down ms-1"></i></span>
+                                                        <a class="text-reset dropdown-btn" href="#"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <span class="text-muted">Report<i
+                                                                    class="mdi mdi-chevron-down ms-1"></i></span>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item" href="#">Download Report</a>
@@ -627,7 +710,12 @@
                                             </div><!-- end card header -->
 
                                             <div class="card-body">
-                                                <div id="store-visits-source" data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]' data-colors-minimal='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]' data-colors-interactive='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]' data-colors-galaxy='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]' class="apex-charts" dir="ltr"></div>
+                                                <div id="store-visits-source"
+                                                    data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]'
+                                                    data-colors-minimal='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]'
+                                                    data-colors-interactive='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]'
+                                                    data-colors-galaxy='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]'
+                                                    class="apex-charts" dir="ltr"></div>
                                             </div>
                                         </div> <!-- .card-->
                                     </div> <!-- .col-->
@@ -637,7 +725,8 @@
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Danh sách khuyến mãi</h4>
                                                 <div class="flex-shrink-0">
-                                                    <button type="button" class="btn btn-soft-info btn-sm material-shadow-none">
+                                                    <button type="button"
+                                                        class="btn btn-soft-info btn-sm material-shadow-none">
                                                         <i class="ri-file-list-3-line align-middle"></i> Generate Report
                                                     </button>
                                                 </div>
@@ -645,7 +734,8 @@
                                             <div class="card-body">
                                                 <div class="live-preview">
                                                     <div class="table-responsive">
-                                                        <table class="table table-striped table-nowrap align-middle mb-0">
+                                                        <table
+                                                            class="table table-striped table-nowrap align-middle mb-0">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">STT</th>
@@ -764,7 +854,8 @@
     </div>
 
     <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"
+            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>

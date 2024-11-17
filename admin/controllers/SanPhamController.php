@@ -5,7 +5,6 @@ class SanPhamController
     //Ket noi den file model
     public $modelSanPham;
     public $modelDanhMuc;
-
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
@@ -129,6 +128,8 @@ class SanPhamController
 
         $listSanPham = $this->modelSanPham->getAlbumHinhAnh($id);
 
+        $binhLuan = $this->getBinhLuanBySanPhamId($id);
+
         $danhmucs = $this->modelDanhMuc->getAll();
 
         //Do du lieu ra form
@@ -208,6 +209,27 @@ class SanPhamController
             }
         }
     }
+
+    public function getBinhLuanBySanPhamId($san_pham_id)
+    {
+        $binhLuan = $this->modelSanPham->getBinhLuanBySanPhamId($san_pham_id);
+        return $binhLuan;
+    }
+
+    public function deleteReview()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            $this->modelSanPham->deleteReviewById($id);
+
+            // Sau khi xóa thành công, chuyển hướng về trang chi tiết sản phẩm
+            header('Location: ?act=chi-tiet-san-pham&id=' . $_GET['san_pham_id']);
+        } else {
+            echo "Khong tim thay id";
+        }
+    }
+
 
     public function destroy()
     {

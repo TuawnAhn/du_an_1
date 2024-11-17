@@ -3,7 +3,7 @@ session_start();
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
-
+checkLoginAdmin();
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
@@ -108,6 +108,7 @@ match ($act) {
     'sua-san-pham'         => (new SanPhamController())->update(),
     'xoa-san-pham'         => (new SanPhamController())->destroy(),
     'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
+    'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
@@ -126,8 +127,17 @@ match ($act) {
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
+// Quản lý tài khaonr Quản trị
+'list-tai-khoan-quan-tri'=> (new TaiKhoanController())->danhSachQuanTri(),
+'form-them-quan-tri'=> (new TaiKhoanController())->formAddQuanTri(),
+'them-quan-tri'=> (new TaiKhoanController())->postAddQuanTri(),
+//
+'login-admin' => (new TaiKhoanController()) ->formLogin(),
+'check-login-admin' => (new TaiKhoanController()) ->login(),
+'logout-admin' => (new TaiKhoanController()) ->logout(),
 
 
+<<<<<<< HEAD
     // Quản lý tài khaonr Quản trị
     'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
     'form-them-quan-tri'      => (new TaiKhoanController())->formAddQuanTri(),
@@ -141,4 +151,10 @@ match ($act) {
 
     //Thống kê 
    
+=======
+//
+'login' => (new HomeController()) ->formLogin(),
+'check-login' => (new HomeController()) ->postlogin(),
+>>>>>>> 42ca197e6f26fd4e42fe2cf544b4631b9209dede
 };
+
