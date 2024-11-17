@@ -108,6 +108,7 @@ match ($act) {
     'xoa-san-pham'         => (new SanPhamController())->destroy(),
     'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
     'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
+    'xoa-danh-gia'        => (new SanPhamController())->deleteDanhgia(),
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
