@@ -155,6 +155,28 @@ class SanPham
             echo 'Loi: ' . $e->getMessage();
         }
     }
+    public function getBinhLuanBySanPhamId($san_pham_id)
+    {
+        try {
+            // Thay đổi từ binh_luan thành binh_luans
+            $sql = "SELECT * FROM binh_luans WHERE san_pham_id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':san_pham_id', $san_pham_id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+        }
+    }
+    public function deleteReviewById($id)
+    {
+        $sql = "DELETE FROM binh_luans WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+
+
 
     //Huy ket noi
     public function __destruct()

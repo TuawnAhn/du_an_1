@@ -81,7 +81,19 @@
                                         <h5 class="card-title mb-0" style="color: white;">Mô tả Chi Tiết Sản Phẩm</h5>
                                     </div>
                                     <div class="card-body">
-                                        <p><?= $SanPham['mo_ta'] ?></p>
+                                        <?php if (empty($danhgiaSanPham)) : ?>
+                                            <p>Chưa có mô tả cho sản phẩm này.</p>
+                                        <?php else : ?>
+                                            <?php foreach ($danhgiasanpham as $danhgia): ?>
+                                                <div class="media mb-4">
+                                                    <img class="mr-3 rounded-circle" src="<?= $danhgia['user_avatar'] ?>" alt="User avatar" width="50">
+                                                    <div class="media-body">
+                                                        <p><?= $SanPham['mo_ta'] ?></p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -123,16 +135,20 @@
                                         <h5 class="card-title mb-0" style="color: white;">Bình Luận Sản Phẩm</h5>
                                     </div>
                                     <div class="card-body">
-                                        <?php if (empty($binhluansanpham)) : ?>
+                                        <?php if (empty($binhLuan)) : ?>
                                             <p>Chưa có bình luận cho sản phẩm này.</p>
                                         <?php else : ?>
-                                            <?php foreach ($binhluansanpham as $binhluan): ?>
+                                            <?php foreach ($binhLuan as $binhluan): ?>
                                                 <div class="media mb-4">
-                                                    <img class="mr-3 rounded-circle" src="<?= $binhluan['user_avatar'] ?>" alt="User avatar" width="50">
                                                     <div class="media-body">
-                                                        <h6 class="mt-0"><?= $binhluan['username'] ?> <small class="text-muted"><?= date("d/m/Y H:i", strtotime($binhluan['ngay_binh_luan'])) ?></small></h6>
+                                                        <h6 class="mt-0"><?= $binhluan['ten_nguoi_binh_luan'] ?>
+                                                            <small class="text-muted"><?= date("d/m/Y H:i", strtotime($binhluan['ngay_binh_luan'])) ?></small>
+                                                        </h6>
                                                         <p><?= $binhluan['noi_dung'] ?></p>
-                                                        <a href="?act=delete-comment&id=<?= $binhluan['id'] ?>" class="text-danger" onclick="return confirm('Bạn có chắc muốn xóa bình luận này không?')"><i class="ri-delete-bin-6-line"></i> Xóa bình luận</a>
+                                                        <!-- Chỉ áp dụng class text-danger cho liên kết Xóa -->
+                                                        <a href="?act=xoa-binh-luan&id=<?= $binhluan['id'] ?>" class="text-danger" onclick="return confirm('Bạn có chắc muốn xóa đánh giá này không?')">
+                                                            <i class="ri-delete-bin-6-line"></i> Xóa bình luận
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <hr>
