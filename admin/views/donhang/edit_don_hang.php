@@ -79,7 +79,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="trang_thai_don_hang" class="form-label">Trạng thái đơn hàng</label>
-                                                            <select class="form-select" name="trang_thai_don_hang">
+                                                            <select class="form-select" name="trang_thai_don_hang_id">
                                                                 <option selected disabled>Chọn trạng thái</option>
                                                                 <option value="1" <?= $donhangs['trang_thai_don_hang'] == 1 ? 'selected' : '' ?>>Chờ xác nhận</option>
                                                                 <option value="2" <?= $donhangs['trang_thai_don_hang'] == 2 ? 'selected' : '' ?>>Đã xác nhận</option>
@@ -110,7 +110,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="ngay_tao" class="form-lable">Ngày tạo</label>
-                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày tạo" name="ngay_tao" value="<?= $donhangs['ngay_tao'] ?>">
+                                                            <input type="date" class="form-control" placeholder="Hãy chọn ngày tạo" name="ngay_tao" value="<?= $donhangs['ngay_dat_hang'] ?>">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['ngay_tao']) ? $_SESSION['errors']['ngay_tao'] : '' ?>
                                                             </span>
