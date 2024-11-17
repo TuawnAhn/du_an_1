@@ -256,20 +256,30 @@
   </div>
   <form action="?act=check-login-admin" method="post">
 
-    <label for="username">Username</label>
-    <input type="text" placeholder="Email or Phone" id="username" name="email">
+    <label for="email">Username</label>
+    <input type="gmail" placeholder="Email or Phone" id="email" name="email">
 
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password" name="password">
-    <div class="error-message">
-      <?php
-      if ($_SESSION['flash']) {
-        echo $_SESSION['flash'];
-      }
-      ?>
-    </div>
 
-    <button style="margin-top: 40px;">Log In</button>
+
+    <button style="margin-top: 50px;" type="submit">Đăng nhập</button>
+    <div class="err"></div>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $email = $_POST['email'] ?? '';
+      $password = $_POST['password'] ?? '';
+
+      // Kiểm tra thông tin đăng nhập
+      if ($email == 'chiennvph51500@gmail.com' && $password == '123456') {
+        echo "Đăng nhập thành công!";
+        header("Location: ?act=dashboard");
+        exit();
+      } else {
+        echo "Sai thông tin đăng nhập. Vui lòng thử lại.";
+      }
+    }
+    ?>
 
   </form>
   <script src="./assets/plugins/jquery/jquery.min.js"></script>

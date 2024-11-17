@@ -125,7 +125,7 @@ match ($act) {
     'xoa-don-hang'         => (new DonHangController())->destroy(),
     'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
     // Route cho tìm kiếm
-    'search' => (new DonHangController())->searchDonHang(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
+    'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
 

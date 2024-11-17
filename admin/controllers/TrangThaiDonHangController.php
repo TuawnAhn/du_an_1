@@ -27,7 +27,6 @@ class TrangThaiDonHangController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $trang_thai_don_hang = $_POST['trang_thai_don_hang'];
-            $trang_thai_thanh_toan = $_POST['trang_thai_thanh_toan'];
             $ngay_tao = $_POST['ngay_tao'];
             $trang_thai = $_POST['trang_thai'];
 
@@ -39,9 +38,6 @@ class TrangThaiDonHangController
                 $errors['trang_thai_don_hang'] = 'Trạng thái đơn hàng không được để trống';
             }
 
-            if (empty($trang_thai_thanh_toan)) {
-                $errors['trang_thai_thanh_toan'] = 'Trạng thái thanh toán không được để trống';
-            }
 
             if (empty($ngay_tao)) {
                 $errors['ngay_tao'] = 'Ngày tạo không được để trống';
@@ -53,7 +49,7 @@ class TrangThaiDonHangController
 
 
             if (empty($errors)) {
-                $this->modelDonHang->postDonHang($trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao, $trang_thai);
+                $this->modelDonHang->postDonHang($trang_thai_don_hang, $ngay_tao, $trang_thai);
                 unset($_SESSION['errors']);
                 // echo "Lỗi";
                 header("Location: ?act=trang-thai-don-hangs");
