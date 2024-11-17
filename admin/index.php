@@ -45,7 +45,7 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
-     '/' => (new BaoCaoThongKeController())->home(),
+    '/' => (new BaoCaoThongKeController())->home(),
 
     'dashboard'                    => (new DashboardController())->index(),
 
@@ -107,6 +107,7 @@ match ($act) {
     'sua-san-pham'         => (new SanPhamController())->update(),
     'xoa-san-pham'         => (new SanPhamController())->destroy(),
     'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
+    'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
@@ -124,6 +125,8 @@ match ($act) {
     'sua-don-hang'         => (new DonHangController())->update(),
     'xoa-don-hang'         => (new DonHangController())->destroy(),
     'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
+    // Route cho tìm kiếm
+    'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
 // Quản lý tài khaonr Quản trị
@@ -140,3 +143,4 @@ match ($act) {
 'login' => (new HomeController()) ->formLogin(),
 'check-login' => (new HomeController()) ->postlogin(),
 };
+

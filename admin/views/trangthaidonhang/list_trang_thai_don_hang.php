@@ -79,7 +79,6 @@
                                                         <tr>
                                                             <th scope="col">STT</th>
                                                             <th scope="col">Trạng thái đơn hàng</th>
-                                                            <th scope="col">Trạng thái thanh toán</th>
                                                             <th scope="col">Ngày tạo</th>
                                                             <th scope="col">Trạng thái</th>
                                                             <th scope="col">Action</th>
@@ -105,13 +104,6 @@
                                                                         <span>Đã thất bại</span>
                                                                     <?php } else { ?>
                                                                         <span>Đã Hủy</span>
-                                                                    <?php } ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php if ($trangthaidonhang['trang_thai_thanh_toan'] == 1) { ?>
-                                                                        <span>Đã thanh toán </span>
-                                                                    <?php } else { ?>
-                                                                        <span>Chưa thanh toán</span>
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td><?= $trangthaidonhang['ngay_tao'] ?></td>

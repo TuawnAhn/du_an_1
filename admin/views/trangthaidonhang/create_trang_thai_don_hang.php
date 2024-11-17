@@ -91,7 +91,7 @@
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <!-- <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="trang_thai_thanh_toan" class="form-label">Trạng thái thanh toán</label>
                                                             <select class="form-select" name="trang_thai_thanh_toan">
@@ -100,10 +100,9 @@
                                                                 <option value="2">Chưa thanh toán</option>
                                                             </select>
                                                             <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['trang_thai_thanh_toan']) ? $_SESSION['errors']['trang_thai_thanh_toan'] : '' ?>
                                                             </span>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="ngay_tao" class="form-lable">Ngày tạo</label>

@@ -41,162 +41,179 @@
                 <div class="container-fluid">
 
                     <!-- Tiêu đề trang -->
-                                                <div class="row">
-                                                <div class="col-12">
-                                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                        <h4 class="mb-sm-0">Quản lý danh sách đơn hàng - Đơn hàng: <?= $donhang['ma_don_hang'] ?></h4>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Quản lý danh sách đơn hàng - Đơn hàng: <?= $donhang['ma_don_hang'] ?></h4>
 
-                                       
 
-                                        <div class="page-title-right">
-                                            <ol class="breadcrumb m-0">
-                                                <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                                <li class="breadcrumb-item"><a href="?act=don-hangs">Danh sách đơn hàng</a></li>
-                                                <li class="breadcrumb-item active">Chi tiết đơn hàng</li>
-                                            </ol>
-                                        </div>
-                                    </div>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
+                                        <li class="breadcrumb-item"><a href="?act=don-hangs">Danh sách đơn hàng</a></li>
+                                        <li class="breadcrumb-item active">Chi tiết đơn hàng</li>
+                                    </ol>
                                 </div>
-                              
-                                                </div>
-
-    
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-header bg-warning text-white">
-                                            <h5 class="card-title mb-0" style="color: #fff;">Đơn hàng: <?php if ($donhang['trang_thai_don_hang'] == 1) { ?>
-                                                                        <span>Chờ xác nhận</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 2) { ?>
-                                                                        <span>Đã xác nhận</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 3) { ?>
-                                                                        <span>Đang giao</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 4) { ?>
-                                                                        <span>Đã giao</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 5) { ?>
-                                                                        <span>Đã hoàn thành</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang'] == 6) { ?>
-                                                                        <span>Đã thất bại</span>
-                                                                    <?php } else { ?>
-                                                                        <span>Đã Hủy</span>
-                                                                    <?php } ?></h5>
-                                        </div>
-
-                                        
-                                        <div class="card-body">
-                                        <div class="row">
-                    <!-- Title with Icon and Date -->
-                    <div class="d-flex justify-content-between align-items-center">
-                        <!-- Silver Ring Title with Icon -->
-                        <div class="col-md-6 text-right">
-                            <h4 class="mb-0">Silver Ring</h4>
+                            </div>
                         </div>
-                        <!-- Order Date -->
-                        <div class="col-md-6 text-right">
-                            <p>Ngày đặt hàng: <?= date("d/m/Y", strtotime($donhang['ngay_dat_hang'])) ?></p>
-                        </div>
+
                     </div>
-                    <hr>
 
-                                                                <div class="row">
-                                                <!-- Customer Information Column 1 -->
-                                                <div class="col-md-4">
-                                                    <h5>Người nhận</h5>
-                                                    <p>Họ tên: <?= $donhang['ho_ten_nguoi_nhan'] ?></p>
-                                                    <p>Email: <?= $donhang['email_nguoi_nhan'] ?></p>
-                                                    <p>SĐT: <?= $donhang['sdt_nguoi_nhan'] ?></p>
-                                                    <p>Địa chỉ: <?= $donhang['dia_chi_nguoi_nhan'] ?></p>
-                                                </div>
 
-                                                <!-- Customer Information Column 2 -->
-                                                <div class="col-md-4">
-                                                    <h5>Người nhận</h5>
-                                                    <p>Họ tên: <?= $donhang['ho_ten_nguoi_nhan'] ?></p>
-                                                    <p>Email: <?= $donhang['email_nguoi_nhan'] ?></p>
-                                                    <p>SĐT: <?= $donhang['sdt_nguoi_nhan'] ?></p>
-                                                    <p>Địa chỉ: <?= $donhang['dia_chi_nguoi_nhan'] ?></p>
-                                                </div>
 
-                                                <!-- Customer Information Column 3 -->
-                                                <div class="col-md-4">
-                                                    <h5>Người nhận</h5>
-                                                    <p>Họ tên: <?= $donhang['ho_ten_nguoi_nhan'] ?></p>
-                                                    <p>Email: <?= $donhang['email_nguoi_nhan'] ?></p>
-                                                    <p>SĐT: <?= $donhang['sdt_nguoi_nhan'] ?></p>
-                                                    <p>Địa chỉ: <?= $donhang['dia_chi_nguoi_nhan'] ?></p>
-                                                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <?php
+                                if ($donhang['trang_thai_don_hang_id'] == 1) {
+                                    $color = "bg-warning";
+                                } else if ($donhang['trang_thai_don_hang_id'] >= 2 && $donhang['trang_thai_don_hang_id'] <= 5) {
+                                    $color = "bg-success";
+                                } else {
+                                    $color = "bg-danger";
+                                }
+                                ?>
+
+                                <div class="alert <?= $color ?>" role="alert">
+                                    <h4 class="alert-heading">Trạng thái:
+                                        <?php
+                                        if ($donhang['trang_thai_don_hang_id'] == 1) {
+                                            echo "<span>Chờ xác nhận</span>";
+                                        } else if ($donhang['trang_thai_don_hang_id'] == 2) {
+                                            echo "<span>Đã xác nhận</span>";
+                                        } else if ($donhang['trang_thai_don_hang_id'] == 3) {
+                                            echo "<span>Đang giao</span>";
+                                        } else if ($donhang['trang_thai_don_hang_id'] == 4) {
+                                            echo "<span>Đã giao</span>";
+                                        } else if ($donhang['trang_thai_don_hang_id'] == 5) {
+                                            echo "<span>Đã hoàn thành</span>";
+                                        } else if ($donhang['trang_thai_don_hang_id'] == 6) {
+                                            echo "<span>Đã thất bại</span>";
+                                        } else {
+                                            echo "<span>Đã Hủy</span>";
+                                        }
+                                        ?>
+                                    </h4>
+                                </div>
+
+
+
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- Title with Icon and Date -->
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <!-- Silver Ring Title with Icon -->
+                                            <div class="col-md-6 text-right">
+                                                <h4 class="mb-3" style="font-weight: bold; color:red">Silver Ring</h4>
                                             </div>
-                                            <hr>
-
-                                            <!-- Bảng sản phẩm -->
-                                            <h5>Sản phẩm</h5>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Tên sản phẩm</th>
-                                                        <th>Đơn giá</th>
-                                                        <th>Số lượng</th>
-                                                        <th>Thành tiền</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $tong_tien = 0; ?>
-                                                    <?php foreach ($sanPhamDonHang as $index => $SanPham): ?>
-                                                        <tr>
-                                                            <td><?= $index + 1 ?></td>
-                                                            <td><?= $SanPham['ten'] ?></td>
-                                                            <td><?= number_format($SanPham['don_gia'], 2) ?></td>
-                                                            <td><?= $SanPham['so_luong'] ?></td>
-                                                            <td><?= number_format($SanPham['thanh_tien'], 2) ?></td>
-                                                            
-                                                        </tr>
-                                                        <?php $tong_tien += $SanPham['thanh_tien']?>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                            </table>
-
-                                            <!-- Tổng kết đơn hàng -->
-                                            <div class="d-flex justify-content-between">
+                                            <!-- Order Date -->
+                                            <div class="col-md-2 text-right" style="margin-bottom: 10px;">
                                                 <p>Ngày đặt hàng: <?= date("d/m/Y", strtotime($donhang['ngay_dat_hang'])) ?></p>
-                                                <p>Mã đơn hàng: <?= $donhang['ma_don_hang'] ?></p>
                                             </div>
-                                            <p>Thành tiền:
-                                                <?= $tong_tien  ?>
-                                            </p>
-                                            <p>Vận chuyển: 200.000 </p>
-                                            <p>Tổng tiền: <?= $tong_tien + 200000 ?></p>
+                                        </div>
+                                        <hr>
 
-                                            <!-- Nút điều hướng -->
-                                            <div class="d-flex justify-content-between mt-3">
-                                                <a href="?act=don-hangs" class="btn btn-primary"><i class="ri-arrow-left-line"></i> Quay lại danh sách đơn hàng</a>
-                                                
+                                        <div class="row" style="margin-bottom: 20px;">
+
+                                            <div class="col-md-4">
+                                                <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin người đặt</u></h5>
+                                                <p>Họ tên: <?= $donhang['ho_ten'] ?></p>
+                                                <p>Email: <?= $donhang['email'] ?></p>
+                                                <p>SĐT: <?= $donhang['so_dien_thoai'] ?></p>
                                             </div>
+
+                                            <div class="col-md-4">
+                                                <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin người nhận</u></h5>
+                                                <p>Họ tên: <?= $donhang['ho_ten_nguoi_nhan'] ?></p>
+                                                <p>Email: <?= $donhang['email_nguoi_nhan'] ?></p>
+                                                <p>SĐT: <?= $donhang['sdt_nguoi_nhan'] ?></p>
+                                                <p>Địa chỉ: <?= $donhang['dia_chi_nguoi_nhan'] ?></p>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin đơn hàng</u></h5>
+                                                <p>Mã đơn hàng: <?= $donhang['ma_don_hang'] ?></p>
+                                                <p>Phương thức thanh toán:
+                                                    <?php if ($donhang['phuong_thuc_thanh_toan_id'] == 1) { ?>
+                                                        <span>Thanh toán tiền mặt khi giao hàng</span>
+                                                    <?php } else if ($donhang['phuong_thuc_thanh_toan_id'] == 2) { ?>
+                                                        <span>Thanh toán qua ví Momo, ZaloPay,...</span>
+                                                    <?php } ?>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <!-- Bảng sản phẩm -->
+                                        <h5>Sản phẩm</h5>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th>Tên sản phẩm</th>
+                                                    <th>Đơn giá</th>
+                                                    <th>Số lượng</th>
+                                                    <th>Thành tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $tong_tien = 0; ?>
+                                                <?php foreach ($sanPhamDonHang as $key => $SanPham) : ?> <tr>
+                                                        <td><?= $key + 1 ?></td>
+                                                        <td><?= $SanPham['ten'] ?></td>
+                                                        <td><?= number_format($SanPham['don_gia'], 2) ?></td>
+                                                        <td><?= $SanPham['so_luong'] ?></td>
+                                                        <td><?= number_format($SanPham['thanh_tien'], 2) ?></td>
+
+                                                    </tr>
+                                                    <?php $tong_tien += $SanPham['thanh_tien'] ?>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+
+                                        <!-- Tổng kết đơn hàng -->
+                                        <div class="d-flex justify-content-between">
+                                            <p>Ngày đặt hàng: <?= date("d/m/Y", strtotime($donhang['ngay_dat_hang'])) ?></p>
+                                            <p>Mã đơn hàng: <?= $donhang['ma_don_hang'] ?></p>
+                                        </div>
+                                        <p>Thành tiền:
+                                            <?= $tong_tien  ?>
+                                        </p>
+                                        <p>Vận chuyển: 200.000 </p>
+                                        <p>Tổng tiền: <?= $tong_tien + 200000 ?></p>
+
+                                        <!-- Nút điều hướng -->
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <a href="?act=don-hangs" class="btn btn-primary"><i class="ri-arrow-left-line"></i> Quay lại danh sách đơn hàng</a>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
 
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> © Velzon.
+                    </div>
                 </div>
             </div>
-
-            <!-- Footer -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Velzon.
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+        </footer>
+    </div>
     </div>
 
     <?php require_once "views/layouts/libs_js.php"; ?>

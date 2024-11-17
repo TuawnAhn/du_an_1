@@ -23,7 +23,7 @@ class TrangThaiDonHang
         }
     }
 
-    public function postDonHang($trang_thai_don_hang, $trang_thai_thanh_toan, $ngay_tao, $trang_thai)
+    public function postDonHang($trang_thai_don_hang, $ngay_tao, $trang_thai)
     {
         try {
             $sql = "INSERT INTO trang_thai_don_hangs (trang_thai_don_hang, trang_thai_thanh_toan, ngay_tao, trang_thai) VALUES (:trang_thai_don_hang, :trang_thai_thanh_toan, :ngay_tao, :trang_thai)";
