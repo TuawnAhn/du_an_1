@@ -133,14 +133,7 @@
       </label>
       <a href="#">Forgot Password?</a>
     </div>
-    <div class="error-message">
-      <?php
-      if ($_SESSION && $_SESSION['flash']) {
-        echo $_SESSION['flash'];
-      }
-      ?>
 
-    </div>
 
     <button class="login-btn">Login</button>
 

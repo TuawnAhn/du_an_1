@@ -168,6 +168,19 @@ class SanPham
             echo 'Lỗi: ' . $e->getMessage();
         }
     }
+    public function getDanhGia($san_pham_id)
+    {
+        try {
+
+            $sql = "SELECT * FROM danh_gias WHERE san_pham_id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':san_pham_id', $san_pham_id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+        }
+    }
     public function deleteReviewById($id)
     {
         $sql = "DELETE FROM binh_luans WHERE id = :id";
@@ -175,6 +188,24 @@ class SanPham
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+
+
+    public function deleteDanhGiaById($id)
+    {
+        $sql = "DELETE FROM danh_gias WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+
+
+    // Thêm đánh giá mới
+
+
+    // Xóa đánh giá
+
+
+
 
     //Huy ket noi
     public function __destruct()

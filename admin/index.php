@@ -22,6 +22,7 @@ require_once 'controllers/TaiKhoanController.php';
 
 
 
+
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/Banner.php';
@@ -108,39 +109,38 @@ match ($act) {
     'xoa-san-pham'         => (new SanPhamController())->destroy(),
     'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
     'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
+    'xoa-danh-gia'        => (new SanPhamController())->deleteDanhgia(),
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
     'form-them-trang-thai-don-hang'   => (new TrangThaiDonHangController())->create(),
     'them-trang-thai-don-hang'        => (new TrangThaiDonHangController())->store(),
-    'form-sua-trang-thai-don-hang'    => (new TrangThaiDonHangController())->edit(),
+    // 'form-sua-trang-thai-don-hang'    => (new TrangThaiDonHangController())->edit(),
     'sua-trang-thai-don-hang'         => (new TrangThaiDonHangController())->update(),
     'xoa-trang-thai-don-hang'         => (new TrangThaiDonHangController())->destroy(),
 
     //Quan li don hang
     'don-hangs'            => (new DonHangController())->index(),
-    'form-them-don-hang'   => (new DonHangController())->create(),
-    'them-don-hang'        => (new DonHangController())->store(),
     'form-sua-don-hang'    => (new DonHangController())->edit(),
     'sua-don-hang'         => (new DonHangController())->update(),
-    'xoa-don-hang'         => (new DonHangController())->destroy(),
     'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
     // Route cho tìm kiếm
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
-// Quản lý tài khaonr Quản trị
-'list-tai-khoan-quan-tri'=> (new TaiKhoanController())->danhSachQuanTri(),
-'form-them-quan-tri'=> (new TaiKhoanController())->formAddQuanTri(),
-'them-quan-tri'=> (new TaiKhoanController())->postAddQuanTri(),
-//
-'login-admin' => (new TaiKhoanController()) ->formLogin(),
-'check-login-admin' => (new TaiKhoanController()) ->login(),
-'logout-admin' => (new TaiKhoanController()) ->logout(),
+    // Quản lý tài khaonr Quản trị
+    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
+    'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
+    'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
+    //
+    'login-admin' => (new TaiKhoanController())->formLogin(),
+    'check-login-admin' => (new TaiKhoanController())->login(),
+    'logout-admin' => (new TaiKhoanController())->logout(),
+
+    //Thống kê 
 
 
-//
-'login' => (new HomeController()) ->formLogin(),
-'check-login' => (new HomeController()) ->postlogin(),
+    //
+    'login' => (new HomeController())->formLogin(),
+    'check-login' => (new HomeController())->postlogin(),
 };
-

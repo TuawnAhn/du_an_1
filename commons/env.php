@@ -3,7 +3,7 @@
 // Biến môi trường, dùng chung toàn hệ thống
 // Khai báo dưới dạng HẰNG SỐ để không phải dùng $GLOBALS
 
-define('BASE_URL'   , 'http://localhost/DA1-Sliver%20Ring/DA1_SilerRing/');
+define('BASE_URL'   , 'http://localhost/du_an_1/');
 
 define('DB_HOST'    , 'localhost');
 define('DB_PORT'    , 3306);
