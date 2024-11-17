@@ -22,6 +22,7 @@ require_once 'controllers/TaiKhoanController.php';
 
 
 
+
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/Banner.php';
@@ -120,11 +121,8 @@ match ($act) {
 
     //Quan li don hang
     'don-hangs'            => (new DonHangController())->index(),
-    'form-them-don-hang'   => (new DonHangController())->create(),
-    'them-don-hang'        => (new DonHangController())->store(),
     'form-sua-don-hang'    => (new DonHangController())->edit(),
     'sua-don-hang'         => (new DonHangController())->update(),
-    'xoa-don-hang'         => (new DonHangController())->destroy(),
     'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
     // Route cho tìm kiếm
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
@@ -140,8 +138,24 @@ match ($act) {
 'logout-admin' => (new TaiKhoanController()) ->logout(),
 
 
+<<<<<<< HEAD
+    // Quản lý tài khaonr Quản trị
+    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
+    'form-them-quan-tri'      => (new TaiKhoanController())->formAddQuanTri(),
+    'them-quan-tri'           => (new TaiKhoanController())->postAddQuanTri(),
+    //
+    'login-admin'             => (new TaiKhoanController())->formLogin(),
+    'check-login-admin'       => (new TaiKhoanController())->login(),
+
+
+
+
+    //Thống kê 
+   
+=======
 //
 'login' => (new HomeController()) ->formLogin(),
 'check-login' => (new HomeController()) ->postlogin(),
+>>>>>>> 42ca197e6f26fd4e42fe2cf544b4631b9209dede
 };
 
