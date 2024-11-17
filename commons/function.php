@@ -47,6 +47,17 @@ function deleteSessionError()
     if (isset($_SESSION['flash'])) {
         unset($_SESSION['flash']);
         session_unset();
-        session_destroy();
+        // session_destroy();
     }
+}
+
+function checkLoginAdmin()
+{
+    if ($_REQUEST['act'] === 'login-admin' || $_REQUEST['act'] === 'check-login-admin' || $_REQUEST['act'] === 'logout-admin') {
+    } else {
+        if (!isset($_SESSION['user_admin'])) {
+            header("Location: ?act=login-admin");
+        }
+    }
+
 }

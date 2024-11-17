@@ -189,6 +189,7 @@ class SanPham
         return $stmt->execute();
     }
 
+
     public function deleteDanhGiaById($id)
     {
         $sql = "DELETE FROM danh_gias WHERE id = :id";
@@ -196,6 +197,18 @@ class SanPham
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+  
+
+    // Thêm đánh giá mới
+    public function addDanhGia($data)
+    {
+        $sql = "INSERT INTO danh_gias (san_pham_id, ten_nguoi_danh_gia, noi_dung, so_sao) 
+                VALUES (:san_pham_id, :ten_nguoi_danh_gia, :noi_dung, :so_sao)";
+        return $this->conn->query($sql, $data);
+    }
+
+    // Xóa đánh giá
+  
 
 
 

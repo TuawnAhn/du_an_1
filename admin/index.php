@@ -3,7 +3,7 @@ session_start();
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
-
+checkLoginAdmin();
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
@@ -130,13 +130,18 @@ match ($act) {
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
+// Quản lý tài khaonr Quản trị
+'list-tai-khoan-quan-tri'=> (new TaiKhoanController())->danhSachQuanTri(),
+'form-them-quan-tri'=> (new TaiKhoanController())->formAddQuanTri(),
+'them-quan-tri'=> (new TaiKhoanController())->postAddQuanTri(),
+//
+'login-admin' => (new TaiKhoanController()) ->formLogin(),
+'check-login-admin' => (new TaiKhoanController()) ->login(),
+'logout-admin' => (new TaiKhoanController()) ->logout(),
 
 
-    // Quản lý tài khaonr Quản trị
-    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
-    'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
-    'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
-    //
-    'login-admin' => (new TaiKhoanController())->formLogin(),
-    'check-login-admin' => (new TaiKhoanController())->login(),
+//
+'login' => (new HomeController()) ->formLogin(),
+'check-login' => (new HomeController()) ->postlogin(),
 };
+

@@ -251,6 +251,12 @@
 
 <body class="hold-transition login-page">
   <div class="background">
+    <?php if (isset($_SESSION['eror'])) { ?>
+      <p class="text-danger"><?= $_SESSION['error'] ?></p>
+    <?php } else { ?>
+      <p class="login-box-msg"> Vui lòng đăng nhập</p>
+
+    <?php } ?>
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
@@ -261,6 +267,14 @@
 
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password" name="password">
+    <div class="error-message">
+      <?php
+      if ($_SESSION && $_SESSION['flash']) {
+        echo $_SESSION['flash'];
+      }
+      ?>
+
+    </div>
 
 
     <button style="margin-top: 50px;" type="submit">Đăng nhập</button>
