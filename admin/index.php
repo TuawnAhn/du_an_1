@@ -138,7 +138,7 @@ match ($act) {
 'logout-admin' => (new TaiKhoanController()) ->logout(),
 
 
-<<<<<<< HEAD
+
     // Quản lý tài khaonr Quản trị
     'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
     'form-them-quan-tri'      => (new TaiKhoanController())->formAddQuanTri(),
@@ -152,10 +152,10 @@ match ($act) {
 
     //Thống kê 
    
-=======
+
 //
 'login' => (new HomeController()) ->formLogin(),
 'check-login' => (new HomeController()) ->postlogin(),
->>>>>>> 42ca197e6f26fd4e42fe2cf544b4631b9209dede
+
 };
 
