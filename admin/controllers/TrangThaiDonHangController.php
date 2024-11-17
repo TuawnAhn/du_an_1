@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <?php
 class TrangThaiDonHangController
 {
@@ -123,4 +122,4 @@ class TrangThaiDonHangController
         }
     }
 }
->>>>>>> 3502b0f91f30b53d1adc2100e74156b892fa876f
+

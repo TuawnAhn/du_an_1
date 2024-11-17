@@ -22,6 +22,7 @@ require_once 'controllers/TaiKhoanController.php';
 
 
 
+
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/Banner.php';
@@ -129,9 +130,15 @@ match ($act) {
 
     // Quản lý tài khaonr Quản trị
     'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
-    'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
-    'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
+    'form-them-quan-tri'      => (new TaiKhoanController())->formAddQuanTri(),
+    'them-quan-tri'           => (new TaiKhoanController())->postAddQuanTri(),
     //
-    'login-admin' => (new TaiKhoanController())->formLogin(),
-    'check-login-admin' => (new TaiKhoanController())->login(),
+    'login-admin'             => (new TaiKhoanController())->formLogin(),
+    'check-login-admin'       => (new TaiKhoanController())->login(),
+
+
+
+
+    //Thống kê 
+   
 };
