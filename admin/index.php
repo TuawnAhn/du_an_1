@@ -3,7 +3,7 @@ session_start();
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
-
+checkLoginAdmin();
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
@@ -133,5 +133,10 @@ match ($act) {
 //
 'login-admin' => (new TaiKhoanController()) ->formLogin(),
 'check-login-admin' => (new TaiKhoanController()) ->login(),
+'logout-admin' => (new TaiKhoanController()) ->logout(),
 
+
+//
+'login' => (new HomeController()) ->formLogin(),
+'check-login' => (new HomeController()) ->postlogin(),
 };

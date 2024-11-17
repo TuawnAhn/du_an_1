@@ -86,4 +86,12 @@ class TaiKhoanController
 
         }
     }
+    public function logout(){
+        if(isset($_SESSION['user_admin'])){
+            unset($_SESSION['user_admin']);
+            header("Location: ?act=login-admin");
+            exit();
+
+        }
+    }
 }
