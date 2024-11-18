@@ -55,7 +55,6 @@ class TaiKhoanController
                 header("Location: ?act=form-them-quan-tri");
                 exit();
             }
-
         }
     }
     public function formLogin()
@@ -76,17 +75,15 @@ class TaiKhoanController
                     if ($user['chuc_vu_id'] == 1) {
                         header("Location: ?act=dashboard");
                     } else {
-                        header("Location: ?act=danh-mucs");
+                        header("Location: ?act=home");
                     }
                     exit();
                 }
-
             } else {
                 $_SESSION['flash'] = $user;
-                header("Location: ?act=login-admin");
+                header("Location: http://localhost/DA1-Sliver%20Ring/?act=home");
                 exit();
             }
-
         }
     }
     public function logout()
@@ -95,7 +92,6 @@ class TaiKhoanController
             unset($_SESSION['user_admin']);
             header("Location: ?act=login-admin");
             exit();
-
         }
     }
 }
