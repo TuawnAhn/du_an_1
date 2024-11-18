@@ -168,6 +168,19 @@ class SanPham
             echo 'Lỗi: ' . $e->getMessage();
         }
     }
+    public function getDanhGia($san_pham_id)
+    {
+        try {
+            
+            $sql = "SELECT * FROM danh_gias WHERE san_pham_id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':san_pham_id', $san_pham_id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+        }
+    }
     public function deleteReviewById($id)
     {
         $sql = "DELETE FROM binh_luans WHERE id = :id";
@@ -176,26 +189,21 @@ class SanPham
         return $stmt->execute();
     }
 
-    public function getDanhGiaBySanPhamId($san_pham_id)
-    {
-        $sql = "SELECT * FROM danh_gias WHERE san_pham_id = :san_pham_id ORDER BY ngay_danh_gia DESC";
-        return $this->conn->query($sql, ['san_pham_id' => $san_pham_id])->fetchAll();
-    }
 
-    // Thêm đánh giá mới
-    public function addDanhGia($data)
-    {
-        $sql = "INSERT INTO danh_gias (san_pham_id, ten_nguoi_danh_gia, noi_dung, so_sao) 
-                VALUES (:san_pham_id, :ten_nguoi_danh_gia, :noi_dung, :so_sao)";
-        return $this->conn->query($sql, $data);
-    }
-
-    // Xóa đánh giá
     public function deleteDanhGiaById($id)
     {
         $sql = "DELETE FROM danh_gias WHERE id = :id";
-        return $this->conn->query($sql, ['id' => $id]);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
     }
+  
+
+    // Thêm đánh giá mới
+    
+
+    // Xóa đánh giá
+  
 
 
 

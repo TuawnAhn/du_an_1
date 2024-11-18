@@ -63,10 +63,7 @@ class DonHangController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_POST['id_don_hang'];
-            $ho_ten_nguoi_nhan = $_POST['ho_ten_nguoi_nhan'];
-            $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan'];
-            $email_nguoi_nhan = $_POST['email_nguoi_nhan'];
-            $dia_chi_nguoi_nhan = $_POST['dia_chi_nguoi_nhan'];
+            $ma_don_hang = $_POST['ma_don_hang'];
             $trang_thai_don_hang_id = $_POST['trang_thai_don_hang_id'];
            
 
@@ -74,28 +71,20 @@ class DonHangController
 
             $errors = [];
 
-            if (empty($ho_ten_nguoi_nhan)) {
-                $errors['ho_ten_nguoi_nhan'] = 'Hóa đơn hàng không được để trống';
+            
+
+            if (empty($ma_don_hang)) {
+                $errors['ma_don_hang'] = 'Mã đơn hàng không được để trống';
             }
 
-            if (empty($sdt_nguoi_nhan)) {
-                $errors['sdt_nguoi_nhan'] = 'Sđt nguoi nhan không được để trống';
-            }
-
-            if (empty($email_nguoi_nhan)) {
-                $errors['email_nguoi_nhan'] = 'Email nguoi nhan không được để trống';
-            }
-
-            if (empty($dia_chi_nguoi_nhan)) {
-                $errors['dia_chi_nguoi_nhan'] = 'Đia chi nguoi nhan không được để trống';
-            }
+           
 
 
             if (empty($trang_thai_don_hang_id)) {
                 $errors['trang_thai_don_hang_id'] = 'Trạng thái đơn hàng không được để trống';
             }
             if (empty($errors)) {
-                $this->modelDonHang->updateData($id,  $ho_ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan,  $trang_thai_don_hang_id);
+                $this->modelDonHang->updateData($id, $ma_don_hang, $trang_thai_don_hang_id);
                 unset($_SESSION['errors']);
                 header("Location: ?act=don-hangs");
             } else {

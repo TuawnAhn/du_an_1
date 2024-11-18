@@ -11,6 +11,8 @@
 
     <!-- CSS -->
     <?php require_once "views/layouts/libs_css.php"; ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>
@@ -101,31 +103,59 @@
 
                         <!-- Đánh giá sản phẩm -->
                         <div class="row mt-4">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header bg-info text-white">
-                                        <h5 class="card-title mb-0" style="color: white;">Đánh Giá Sản Phẩm</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <?php if (empty($danhgiaSanPham)) : ?>
-                                            <p>Chưa có đánh giá cho sản phẩm này.</p>
-                                        <?php else : ?>
-                                            <?php foreach ($danhgiasanpham as $danhgia): ?>
-                                                <div class="media mb-4">
-                                                    <img class="mr-3 rounded-circle" src="<?= $danhgia['user_avatar'] ?>" alt="User avatar" width="50">
-                                                    <div class="media-body">
-                                                        <h6 class="mt-0"><?= $danhgia['username'] ?> <small class="text-muted"><?= date("d/m/Y", strtotime($danhgia['ngay_danh_gia'])) ?></small></h6>
-                                                        <p><?= $danhgia['noi_dung'] ?></p>
-                                                        <a href="?act=delete-review&id=<?= $danhgia['id'] ?>" class="text-danger" onclick="return confirm('Bạn có chắc muốn xóa đánh giá này không?')"><i class="ri-delete-bin-6-line"></i> Xóa đánh giá</a>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header bg-info text-white">
+                                                <h5 class="card-title mb-0">Đánh Giá Sản Phẩm</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <?php if (empty($danhgia)) : ?>
+                                                    <p>Chưa có đánh giá cho sản phẩm </p>
+                                                <?php else : ?>
+                                                    <?php foreach ($danhgia as $danhGia): ?>
+                                                        <div class="media mb-4">
+                                                            <!-- Avatar người dùng -->
+                                                            
+
+                                                            <div class="media-body">
+                                                                <!-- Tên người dùng và ngày đánh giá -->
+                                                                <h6 class="mt-0"><?= htmlspecialchars($danhGia['ten_nguoi_danh_gia']) ?> <small class="text-muted"><?= date("d/m/Y", strtotime($danhGia['ngay_danh_gia'])) ?></small></h6>
+                                                                
+                                                                <!-- Hiển thị đánh giá sao -->
+                                                                <div class="rating">
+                                                                    <?php 
+                                                                    $rating = $danhGia['rating'];
+                                                                    // Lặp qua các sao được đánh giá
+                                                                    for ($i = 1; $i <= 5; $i++):
+                                                                        if ($i <= $rating): ?>
+                                                                            <span class="fa fa-star checked"></span>
+                                                                        <?php else: ?>
+                                                                            <span class="fa fa-star"></span>
+                                                                        <?php endif;
+                                                                    endfor; ?>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                    
+                                                                <a href="?act=xoa-danh-gia&id=<?= $danhGia['id'] ?>" class="text-danger" onclick="return confirm('Bạn có chắc muốn xóa đánh giá này không?')">
+                                                            <i class="ri-delete-bin-6-line"></i> Xóa đánh giá
+                                                        </a>
+
+
+                                                                
+                        
+
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
 
                         <!-- Bình luận sản phẩm- Tuấn Anh làm -->
                         <div class="row mt-4">
@@ -146,7 +176,7 @@
                                                         </h6>
                                                         <p><?= $binhluan['noi_dung'] ?></p>
                                                         <!-- Chỉ áp dụng class text-danger cho liên kết Xóa -->
-                                                        <a href="?act=xoa-binh-luan&id=<?= $binhluan['id'] ?>" class="text-danger" onclick="return confirm('Bạn có chắc muốn xóa đánh giá này không?')">
+                                                        <a href="?act=xoa-binh-luan&id=<?= $binhluan['id'] ?>" class="text-danger" onclick="return confirm('Bạn có chắc muốn xóa bình luận này không?')">
                                                             <i class="ri-delete-bin-6-line"></i> Xóa bình luận
                                                         </a>
                                                     </div>
@@ -177,6 +207,24 @@
         </div>
 
         <?php require_once "views/layouts/libs_js.php"; ?>
+        <style>
+    /* CSS để hiển thị sao */
+    .rating {
+    display: inline-block;
+    color: #FFD700; /* Màu vàng cho sao */
+}
+
+.fa-star {
+    font-size: 18px;
+    color: #ddd; /* Màu xám cho sao không được chọn */
+}
+
+.fa-star.checked {
+    color: #FFD700; /* Màu vàng cho sao được chọn */
+}
+
+
+</style>
 </body>
 
 </html>

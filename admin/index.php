@@ -33,6 +33,7 @@ require_once 'models/KhuyenMai.php';
 require_once 'models/SanPham.php';
 require_once 'models/DonHang.php';
 require_once 'models/TrangThaiDonHang.php';
+require_once 'models/ThongKe.php';
 require_once 'models/TaiKhoan.php';
 
 
@@ -46,7 +47,7 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
-    '/' => (new BaoCaoThongKeController())->home(),
+    'thong-ke' => (new BaoCaoThongKeController())->home(),
 
     'dashboard'                    => (new DashboardController())->index(),
 
@@ -109,6 +110,7 @@ match ($act) {
     'xoa-san-pham'         => (new SanPhamController())->destroy(),
     'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
     'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
+    'xoa-danh-gia'        => (new SanPhamController())->deleteDanhgia(),
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
@@ -135,6 +137,10 @@ match ($act) {
 'login-admin' => (new TaiKhoanController()) ->formLogin(),
 'check-login-admin' => (new TaiKhoanController()) ->login(),
 'logout-admin' => (new TaiKhoanController()) ->logout(),
+
+
+
+
 
 
 

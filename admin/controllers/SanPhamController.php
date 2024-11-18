@@ -132,6 +132,8 @@ class SanPhamController
 
         $danhmucs = $this->modelDanhMuc->getAll();
 
+        $danhgia = $this->getDanhGia($id);
+
         //Do du lieu ra form
         require_once './views/sanpham/chi_tiet_san_pham.php';
         deleteSessionError();
@@ -216,6 +218,12 @@ class SanPhamController
         return $binhLuan;
     }
 
+    public function getDanhGia($san_pham_id)
+    {
+        $danhgia = $this->modelSanPham->getDanhGia($san_pham_id);
+        
+        return $danhgia;
+    }
     public function deleteReview()
     {
         if (isset($_GET['id'])) {
@@ -225,6 +233,20 @@ class SanPhamController
 
             // Sau khi xóa thành công, chuyển hướng về trang chi tiết sản phẩm
             header('Location: ?act=chi-tiet-san-pham&id=' . $_GET['san_pham_id']);
+        } else {
+            echo "Khong tim thay id";
+        }
+    }
+
+    public function deleteDanhGia()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            $this->modelSanPham->deleteDanhGiaById($id);
+
+            // Sau khi xóa thành công, chuyển hướng về trang chi tiết sản phẩm
+            header('Location: ?act=chi-tiet-san-pham&id=' . $_GET['id']);
         } else {
             echo "Khong tim thay id";
         }
