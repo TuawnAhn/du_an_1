@@ -124,7 +124,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="footer-left">
-                                <p class="copyright">Bản quyền © 2023. Tất cả quyền được bảo lưu</p>
+                                <p class="copyright">Bản quyền © 2024. Sliver Ring</p>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -451,19 +451,19 @@
     <a href="#" class="newsletter-close"></a>
     <div class="newsletter-container">
         <div class="newsletter-img">
-            <img src="media/banner/newsletter-popup.jpg" alt="">
+            <img src="media/banner/instagram-6.jpg" alt="">
         </div>
         <div class="newsletter-form">
             <form action="#" method="post">
                 <div class="newsletter-title">
-                    <div class="title">Get<br> free shipping</div>
-                    <div class="sub-title">on your first order. Offer ends soon.</div>
+                    <div class="title">Nhận<br>giao hàng miễn phí</div>
+                    <div class="sub-title">theo đơn đặt hàng đầu tiên của bạn. Ưu đãi kết thúc sớm.</div>
                 </div>
                 <div class="newsletter-input clearfix">
-                    <input type="email" name="your-email" size="40" class="form-control" placeholder="Enter Your Email ...">
-                    <input type="submit" value="Subscribe" class="form-control">
+                    <input type="email" name="your-email" size="40" class="form-control" placeholder="Nhập vào Email của bạn...">
+                    <input type="submit" value="Đăng ký" class="form-control">
                 </div>
-                <div class="newsletter-no">no thanks !</div>
+                <div class="newsletter-no">Thanks you !</div>
             </form>
         </div>
     </div>

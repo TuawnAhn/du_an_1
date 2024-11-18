@@ -50,8 +50,8 @@ require_once('views/layout/header.php'); ?>
                                                             <div class="banner-wrapper-infor">
                                                                 <div class="info">
                                                                     <div class="content">
-                                                                        <h3 class="title-banner">New Arrivals</h3>
-                                                                        <a class="button" href="shop-grid-left.html">Shop Now</a>
+                                                                        <h3 class="title-banner">Sản phẩm mới</h3>
+                                                                        <a class="button" href="shop-grid-left.html">Mua ngay</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -71,8 +71,8 @@ require_once('views/layout/header.php'); ?>
                                                             <div class="banner-wrapper-infor text-center">
                                                                 <div class="info">
                                                                     <div class="content">
-                                                                        <h3 class="title-banner">Best Seller</h3>
-                                                                        <a class="button center" href="shop-grid-left.html">Shop Now</a>
+                                                                        <h3 class="title-banner">Bán chạy nhất</h3>
+                                                                        <a class="button center" href="shop-grid-left.html">Mua ngay</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -92,8 +92,8 @@ require_once('views/layout/header.php'); ?>
                                                             <div class="banner-wrapper-infor">
                                                                 <div class="info">
                                                                     <div class="content">
-                                                                        <h3 class="title-banner">Clearance Sale</h3>
-                                                                        <a class="button" href="shop-grid-left.html">Shop Now</a>
+                                                                        <h3 class="title-banner">Xả kho</h3>
+                                                                        <a class="button" href="shop-grid-left.html">Mua ngay</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -216,7 +216,7 @@ require_once('views/layout/header.php'); ?>
                                 <div class="row">
                                     <div class="section-column left">
                                         <div class="intro-wrap">
-                                            <h2 class="intro-title">Handcrafted<br> &amp; Ethically Sourced</h2>
+                                            <h2 class="intro-title">Được làm thủ công<br> &amp; có nguồn gốc từ Đức</h2>
                                             <div class="intro-item">
                                                 <div class="icon">
                                                     <span class="wrap animation-horizontal">
@@ -250,8 +250,8 @@ require_once('views/layout/header.php'); ?>
                                                     </span>
                                                 </div>
                                                 <div class="content">
-                                                    <h3 class="title">FAIR PRICING</h3>
-                                                    <div class="text">Nullam quis ante. Pellentesque libero tortor, tincidunt et, tinciduntamet est.In hac habitasse platea dictumst. Praesent nec nisl a purus blandit viverra</div>
+                                                    <h3 class="title">Giá hợp lý</h3>
+                                                    <!-- <div class="text">Nullam quis ante. Pellentesque libero tortor, tincidunt et, tinciduntamet est.In hac habitasse platea dictumst. Praesent nec nisl a purus blandit viverra</div> -->
                                                 </div>
                                             </div>
                                             <div class="intro-item">
@@ -268,12 +268,12 @@ require_once('views/layout/header.php'); ?>
                                                     </span>
                                                 </div>
                                                 <div class="content">
-                                                    <h3 class="title">HIGH QUALITY</h3>
-                                                    <div class="text">Nullam quis ante. Pellentesque libero tortor, tincidunt et, tinciduntamet est.In hac habitasse platea dictumst. Praesent nec nisl a purus blandit viverra</div>
+                                                    <h3 class="title">Chất lượng cao</h3>
+                                                    <!-- <div class="text">Nullam quis ante. Pellentesque libero tortor, tincidunt et, tinciduntamet est.In hac habitasse platea dictumst. Praesent nec nisl a purus blandit viverra</div> -->
                                                 </div>
                                             </div>
                                             <div class="intro-btn">
-                                                <a href="shop-grid-left.html" class="button button-black button-arrow animation-horizontal">LEARN MORE</a>
+                                                <a href="shop-grid-left.html" class="button button-black button-arrow animation-horizontal">Tìm hiểu thêm</a>
                                             </div>
                                         </div>
                                     </div>
@@ -366,11 +366,11 @@ require_once('views/layout/header.php'); ?>
                                                             <div class="banner-wrapper-infor">
                                                                 <div class="info">
                                                                     <div class="content">
-                                                                        <h3 class="title-banner">Summer Collections</h3>
+                                                                        <h3 class="title-banner">Bộ sưu tập mùa hè</h3>
                                                                         <div class="banner-image-description">
-                                                                            Freshwater pearl necklace and earrings
+                                                                            Vòng cổ và bông tai ngọc trai nước ngọt
                                                                         </div>
-                                                                        <a class="button button-outline thick-border border-white button-arrow" href="shop-grid-left.html">Explore</a>
+                                                                        <a class="button button-outline thick-border border-white button-arrow" href="shop-grid-left.html">Khám phá</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -390,11 +390,11 @@ require_once('views/layout/header.php'); ?>
                                                             <div class="banner-wrapper-infor">
                                                                 <div class="info">
                                                                     <div class="content">
-                                                                        <h3 class="title-banner"> Make It Memorable</h3>
+                                                                        <h3 class="title-banner"> Làm cho nó đáng nhớ</h3>
                                                                         <div class="banner-image-description">
-                                                                            Freshwater pearl necklace and earrings
+                                                                            Vòng cổ và bông tai ngọc trai nước ngọt
                                                                         </div>
-                                                                        <a class="button button-outline thick-border border-white button-arrow" href="shop-grid-left.html">Explore</a>
+                                                                        <a class="button button-outline thick-border border-white button-arrow" href="shop-grid-left.html">Khám phá</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -414,7 +414,7 @@ require_once('views/layout/header.php'); ?>
                                 <div class="block block-testimonial layout-2">
                                     <div class="block-widget-wrap">
                                         <div class="block-title">
-                                            <h2>What Our Customers Say</h2>
+                                            <h2>Khách hàng của chúng tôi nói gì</h2>
                                         </div>
                                         <div class="block-content">
                                             <div class="testimonial-wrap slick-wrap">
@@ -427,17 +427,16 @@ require_once('views/layout/header.php'); ?>
                                                                         <div class="star star-5"></div>
                                                                     </div>
                                                                 </div>
-                                                                <h2 class="testimonial-title">“Amazing piece of history”</h2>
+                                                                <h2 class="testimonial-title">“Những bình luận tuyệt vời”</h2>
                                                                 <div class="testimonial-excerpt">
-                                                                    Blood bank canine teeth larynx occupational therapist oncologist optician plaque spinal tap stat strep...
-                                                                </div>
+                                                                    Trang web có thiết kế tinh tế, phù hợp với sản phẩm nhẫn. </div>
                                                             </div>
                                                             <div class="testimonial-image image-position-top">
                                                                 <div class="thumbnail">
-                                                                    <img width="110" height="110" src="media/testimonial/1.jpg" alt="">
+                                                                    <img width="110" height="110" src="media/testimonial/5.jpg" alt="">
                                                                 </div>
                                                                 <div class="testimonial-info">
-                                                                    <h2 class="testimonial-customer-name">Robet Smith</h2>
+                                                                    <h2 class="testimonial-customer-name">Đàm Đức Thịnh</h2>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -450,17 +449,16 @@ require_once('views/layout/header.php'); ?>
                                                                         <div class="star star-4"></div>
                                                                     </div>
                                                                 </div>
-                                                                <h2 class="testimonial-title">“Fabulous Grounds”</h2>
+                                                                <h2 class="testimonial-title">“Hình ảnh chất lượng”</h2>
                                                                 <div class="testimonial-excerpt">
-                                                                    Blood bank canine teeth larynx occupational therapist oncologist optician plaque spinal tap stat strep...
-                                                                </div>
+                                                                    Nhẫn được trình bày với hình ảnh rõ nét, hấp dẫn. </div>
                                                             </div>
                                                             <div class="testimonial-image image-position-top">
                                                                 <div class="thumbnail">
-                                                                    <img width="110" height="110" src="media/testimonial/2.jpg" alt="">
+                                                                    <img width="110" height="110" src="media/testimonial/6.jpg" alt="">
                                                                 </div>
                                                                 <div class="testimonial-info">
-                                                                    <h2 class="testimonial-customer-name">Saitama One</h2>
+                                                                    <h2 class="testimonial-customer-name">Nguyễn Tuấn Anh</h2>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -473,17 +471,16 @@ require_once('views/layout/header.php'); ?>
                                                                         <div class="star star-5"></div>
                                                                     </div>
                                                                 </div>
-                                                                <h2 class="testimonial-title">“Great vineyard tour and tasting!”</h2>
+                                                                <h2 class="testimonial-title">“Chính sách minh bạch1”</h2>
                                                                 <div class="testimonial-excerpt">
-                                                                    Blood bank canine teeth larynx occupational therapist oncologist optician plaque spinal tap stat strep...
-                                                                </div>
+                                                                    Chính sách đổi trả và bảo hành rõ ràng, tạo sự tin tưởng. </div>
                                                             </div>
                                                             <div class="testimonial-image image-position-top">
                                                                 <div class="thumbnail">
-                                                                    <img width="110" height="110" src="media/testimonial/3.jpg" alt="">
+                                                                    <img width="110" height="110" src="media/testimonial/7.jpg" alt="">
                                                                 </div>
                                                                 <div class="testimonial-info">
-                                                                    <h2 class="testimonial-customer-name">Sara Colinton</h2>
+                                                                    <h2 class="testimonial-customer-name">Đặng Thanh Hà</h2>
                                                                 </div>
                                                             </div>
                                                         </div>
