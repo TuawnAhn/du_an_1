@@ -11,17 +11,87 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-<<<<<<< HEAD
   <link rel="stylesheet" href="views/auth/style.css">
+</head>
 
-  <script data-cfasync="false"
-    nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
-=======
+<body class="hold-transition login-page">
+
+  <div class="background">
+    <!-- Form Login -->
+    <form action="?act=check-login-admin" method="post" class="login-form">
+      <h1 class="login-title">Sliver Ring</h1>
+
+      <!-- Email Input -->
+      <div class="input-box">
+        <i class='bx bxs-user'></i>
+        <input type="email" placeholder="Hãy nhập vào email" id="email" name="email" required>
+      </div>
+
+      <!-- Password Input -->
+      <div class="input-box">
+        <i class='bx bxs-lock-alt'></i>
+        <input type="password" placeholder="Hãy nhập vào password" id="password" name="password" required>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-message">
+        <?php if (isset($_SESSION['error'])) { ?>
+          <p class="text-danger"><?= $_SESSION['error'] ?></p>
+        <?php } else { ?>
+          <p class="login-box-msg">Vui lòng đăng nhập</p>
+        <?php } ?>
+      </div>
+
+      <!-- Remember Me and Forgot Password -->
+      <div class="remember-forgot-box">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          Remember me
+        </label>
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <!-- Login Button -->
+      <button class="login-btn">Login</button>
+
+      <!-- Register Link -->
+      <p class="register">
+        Don't have an account? <a href="?act=dang-ky">Register</a>
+      </p>
+
+      <!-- Register Button -->
+      <!-- <button class="register-btn">
+        <a href="?act=dang-ky">Đăng ký</a>
+      </button> -->
+    </form>
+
+    <!-- Shape Decoration -->
+    <div class="shape"></div>
+    <div class="shape"></div>
+
+    <!-- PHP Code to Handle Login -->
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $email = $_POST['email'] ?? '';
+      $password = $_POST['password'] ?? '';
+
+      // Kiểm tra thông tin đăng nhập
+      if ($email === 'chiennvph51500@gmail.com' && $password === '123456') {
+        echo "Đăng nhập thành công!";
+        header("Location: ?act=dashboard");
+        exit();
+      } else {
+        echo "<div class='err'>Sai thông tin đăng nhập. Vui lòng thử lại.</div>";
+      }
+    }
+    ?>
+  </div>
+
+  <!-- Zaraz Script -->
   <script data-cfasync="false" nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
->>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
     try {
-      (function (w, d) {
-        ! function (ne, nf, ng, nh) {
+      (function(w, d) {
+        ! function(ne, nf, ng, nh) {
           if (ne.zaraz) console.error("zaraz is loaded twice");
           else {
             ne[ng] = ne[ng] || {};
@@ -33,8 +103,8 @@
             ne.zaraz._v = "5823";
             ne.zaraz._n = "7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2";
             ne.zaraz.q = [];
-            ne.zaraz._f = function (ni) {
-              return async function () {
+            ne.zaraz._f = function(ni) {
+              return async function() {
                 var nj = Array.prototype.slice.call(arguments);
                 ne.zaraz.q.push({
                   m: ni,
@@ -60,9 +130,9 @@
               ne[ng].o = (new Date).getTimezoneOffset();
               if (ne.dataLayer)
                 for (const no of Object.entries(Object.entries(dataLayer).reduce(((np, nq) => ({
-                  ...np[1],
-                  ...nq[1]
-                })), {}))) zaraz.set(no[0], no[1], {
+                    ...np[1],
+                    ...nq[1]
+                  })), {}))) zaraz.set(no[0], no[1], {
                   scope: "page"
                 });
               ne[ng].q = [];
@@ -85,270 +155,11 @@
             ["complete", "interactive"].includes(nf.readyState) ? zaraz.init() : ne.addEventListener("DOMContentLoaded", zaraz.init)
           }
         }(w, d, "zarazData", "script");
-        window.zaraz._p = async br => new Promise((bs => {
-          if (br) {
-            br.e && br.e.forEach((bt => {
-              try {
-                const bu = d.querySelector("script[nonce]"),
-                  bv = bu?.nonce || bu?.getAttribute("nonce"),
-                  bw = d.createElement("script");
-                bv && (bw.nonce = bv);
-                bw.innerHTML = bt;
-                bw.onload = () => {
-                  d.head.removeChild(bw)
-                };
-                d.head.appendChild(bw)
-              } catch (bx) {
-                console.error(`Error executing script: ${bt}\n`, bx)
-              }
-            }));
-            Promise.allSettled((br.f || []).map((by => fetch(by[0], by[1]))))
-          }
-          bs()
-        }));
-        zaraz._p({
-          "e": ["(function(w,d){})(window,document)"]
-        });
-      })(window, document)
+      })(window, document);
     } catch (e) {
       throw fetch("/cdn-cgi/zaraz/t"), e;
-    };
-  </script>
-</head>
-
-<body>
-
-  <form action="?act=check-login-admin" method="post" class="login-form">
-    <h1 class="login-title">Sliver Ring</h1>
-
-<<<<<<< HEAD
-    <div class="input-box">
-      <i class='bx bxs-user'></i>
-      <input type="email" placeholder="Hãy nhập vào email" id="email" name="email">
-    </div>
-    <div class="input-box">
-      <i class='bx bxs-lock-alt'></i>
-      <input type="password" placeholder="Hãy nhập vào password" id="password" name="password">
-    </div>
-=======
-  .background {
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-  }
-
-  .background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-  }
-
-  .shape:first-child {
-    background: linear-gradient(#1845ad,
-        #23a2f6);
-    left: -80px;
-    top: -80px;
-  }
-
-  .shape:last-child {
-    background: linear-gradient(to right,
-        #ff512f,
-        #f09819);
-    right: -30px;
-    bottom: -80px;
-  }
-
-  form {
-    height: 520px;
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.13);
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    padding: 50px 35px;
-  }
-
-  form * {
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-  }
-
-  form h3 {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-  }
-
-  label {
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-
-  input {
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-  }
-
-  ::placeholder {
-    color: #e5e5e5;
-  }
-
-  button {
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .social {
-    margin-top: 30px;
-    display: flex;
-  }
-
-  .social div {
-    background: red;
-    width: 150px;
-    border-radius: 3px;
-    padding: 5px 10px 10px 5px;
-    background-color: rgba(255, 255, 255, 0.27);
-    color: #eaf0fb;
-    text-align: center;
-  }
-
-  .social div:hover {
-    background-color: rgba(255, 255, 255, 0.47);
-  }
-
-  .social .fb {
-    margin-left: 25px;
-  }
-
-  .social i {
-    margin-right: 4px;
-  }
-
-  .error-message {
-    margin: 1em 0;
-    color: #ff512f;
-  }
-</style>
-<style>
-  .register-btn {
-    font-size: 12px;
-    /* Kích thước chữ nhỏ hơn */
-    padding: 8px 16px;
-    /* Điều chỉnh khoảng cách bên trong nút */
-    background-color: #f1f1f1;
-    /* Màu nền nhạt hơn */
-    color: #333;
-    /* Màu chữ */
-    border: 1px solid #ccc;
-    /* Đường viền nhẹ */
-    border-radius: 4px;
-    /* Bo góc */
-    cursor: pointer;
-  }
-
-  .register-btn:hover {
-    background-color: #ddd;
-    /* Hiệu ứng khi hover */
-  }
-</style>
-
-
-<body class="hold-transition login-page">
-  <div class="background">
-    <?php if (isset($_SESSION['eror'])) { ?>
-      <p class="text-danger"><?= $_SESSION['error'] ?></p>
-    <?php } else { ?>
-      <p class="login-box-msg"> Vui lòng đăng nhập</p>
-
-    <?php } ?>
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-  <form action="?act=check-login-admin" method="post">
-
-    <label for="email">Username</label>
-    <input type="gmail" placeholder="Email or Phone" id="email" name="email">
-
-    <label for="password">Password</label>
-    <input type="password" placeholder="Password" id="password" name="password">
-    <div class="error-message">
-      <?php
-      if ($_SESSION && $_SESSION['flash']) {
-        echo $_SESSION['flash'];
-      }
-      ?>
->>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
-
-    <div class="remember-forgot-box">
-      <label for="remember">
-        <input type="checkbox" id="remember">
-        Remember me
-      </label>
-      <a href="#">Forgot Password?</a>
-    </div>
-
-
-<<<<<<< HEAD
-    <button class="login-btn">Login</button>
-
-    <p class="register">
-      Don't have an account?
-      <a href="#">Register</a>
-    </p>
-=======
-    <button style="margin-top: 50px;" type="submit">Đăng nhập</button>
-    <button class="register-btn">
-      <a href="?act=dang-ky" >Đăng ký</a>
-    </button>
-
->>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
-    <div class="err"></div>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $email = $_POST['email'] ?? '';
-      $password = $_POST['password'] ?? '';
-
-      // Kiểm tra thông tin đăng nhập
-      if ($email == 'chiennvph51500@gmail.com' && $password == '123456') {
-        echo "Đăng nhập thành công!";
-        header("Location: ?act=dashboard");
-        exit();
-      } else {
-        echo "Sai thông tin đăng nhập. Vui lòng thử lại.";
-      }
     }
-    ?>
-  </form>
-
+  </script>
 </body>
 
 </html>

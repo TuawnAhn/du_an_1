@@ -114,21 +114,13 @@ match ($act) {
     'xoa-danh-gia' => (new SanPhamController())->deleteDanhgia(),
 
     //Quan li trang thai don hang
-<<<<<<< HEAD
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
     'form-them-trang-thai-don-hang'   => (new TrangThaiDonHangController())->create(),
     'them-trang-thai-don-hang'        => (new TrangThaiDonHangController())->store(),
     // 'form-sua-trang-thai-don-hang'    => (new TrangThaiDonHangController())->edit(),
     'sua-trang-thai-don-hang'         => (new TrangThaiDonHangController())->update(),
     'xoa-trang-thai-don-hang'         => (new TrangThaiDonHangController())->destroy(),
-=======
-    'trang-thai-don-hangs' => (new TrangThaiDonHangController())->index(),
-    'form-them-trang-thai-don-hang' => (new TrangThaiDonHangController())->create(),
-    'them-trang-thai-don-hang' => (new TrangThaiDonHangController())->store(),
-    'form-sua-trang-thai-don-hang' => (new TrangThaiDonHangController())->edit(),
-    'sua-trang-thai-don-hang' => (new TrangThaiDonHangController())->update(),
-    'xoa-trang-thai-don-hang' => (new TrangThaiDonHangController())->destroy(),
->>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
+
 
     //Quan li don hang
     'don-hangs' => (new DonHangController())->index(),
@@ -139,8 +131,6 @@ match ($act) {
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
-<<<<<<< HEAD
-=======
     // Quản lý tài khaonr Quản trị
     'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
     'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
@@ -149,28 +139,6 @@ match ($act) {
     'login-admin' => (new TaiKhoanController())->formLogin(),
     'check-login-admin' => (new TaiKhoanController())->login(),
     'logout-admin' => (new TaiKhoanController())->logout(),
-
-
-
->>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
-    // Quản lý tài khaonr Quản trị
-    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
-    'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
-    'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
-    //
-    'login-admin' => (new TaiKhoanController())->formLogin(),
-    'check-login-admin' => (new TaiKhoanController())->login(),
-<<<<<<< HEAD
-    'logout-admin' => (new TaiKhoanController())->logout(),
-
-    //Thống kê 
-
-=======
-
-
-
-
-    //Thống kê 
 
 
     //
@@ -179,9 +147,4 @@ match ($act) {
     //
     'dang-ky' => (new DangKiController())->formDangKi(),
     'check-dang-ky' => (new DangKiController())->dangky(),
->>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
-
-    //
-    'login' => (new HomeController())->formLogin(),
-    'check-login' => (new HomeController())->postlogin(),
 };
