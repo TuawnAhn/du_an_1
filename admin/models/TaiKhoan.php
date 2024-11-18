@@ -49,6 +49,7 @@ class TaiKhoan
             $stmt->execute(['email' => $email]);
             $user = $stmt->fetch();
             if ($user && $user['mat_khau'] == $mat_khau) {
+<<<<<<< HEAD
                 if ($user['chuc_vu_id'] == 1) {
                     if ($user['trang_thai'] == 1) {
                         return $user;
@@ -61,6 +62,16 @@ class TaiKhoan
             } else {
                 echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=login-admin;'</script>";
                 exit();
+=======
+                if ($user['trang_thai'] == 1) {
+                    return $user;
+                } else {
+                    return "Tài khoản bị cấm";
+                }
+
+            } else {
+                return "Bạn nhập sai thông tin mật khẩu tài khoản";
+>>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
             }
         } catch (Exception $e) {
             //throw $th;

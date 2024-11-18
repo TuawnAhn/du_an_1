@@ -17,6 +17,7 @@ require_once 'controllers/DonHangController.php';
 require_once 'controllers/TrangThaiDonHangController.php';
 require_once 'controllers/BaoCaoThongKeController.php';
 require_once 'controllers/TaiKhoanController.php';
+require_once 'controllers/DangKiController.php';
 
 
 
@@ -34,6 +35,7 @@ require_once 'models/SanPham.php';
 require_once 'models/DonHang.php';
 require_once 'models/TrangThaiDonHang.php';
 require_once 'models/TaiKhoan.php';
+require_once 'models/DangKi.php';
 
 
 
@@ -48,86 +50,97 @@ match ($act) {
     // Dashboards
     '/' => (new BaoCaoThongKeController())->home(),
 
-    'dashboard'                    => (new DashboardController())->index(),
+    'dashboard' => (new DashboardController())->index(),
 
     //Quan li danh muc
-    'danh-mucs'            => (new DanhMucController())->index(),
-    'form-them-danh-muc'   => (new DanhMucController())->create(),
-    'them-danh-muc'        => (new DanhMucController())->store(),
-    'form-sua-danh-muc'    => (new DanhMucController())->edit(),
-    'sua-danh-muc'         => (new DanhMucController())->update(),
-    'xoa-danh-muc'         => (new DanhMucController())->destroy(),
+    'danh-mucs' => (new DanhMucController())->index(),
+    'form-them-danh-muc' => (new DanhMucController())->create(),
+    'them-danh-muc' => (new DanhMucController())->store(),
+    'form-sua-danh-muc' => (new DanhMucController())->edit(),
+    'sua-danh-muc' => (new DanhMucController())->update(),
+    'xoa-danh-muc' => (new DanhMucController())->destroy(),
 
     //Quan li banner
-    'banners'              => (new BannerController())->index(),
-    'form-them-banner'     => (new BannerController())->create(),
-    'them-banner'          => (new BannerController())->store(),
-    'form-sua-banner'      => (new BannerController())->edit(),
-    'sua-banner'           => (new BannerController())->update(),
-    'xoa-banner'           => (new BannerController())->destroy(),
+    'banners' => (new BannerController())->index(),
+    'form-them-banner' => (new BannerController())->create(),
+    'them-banner' => (new BannerController())->store(),
+    'form-sua-banner' => (new BannerController())->edit(),
+    'sua-banner' => (new BannerController())->update(),
+    'xoa-banner' => (new BannerController())->destroy(),
 
     //Quan li tin tuc
 
-    'tin-tucs'                  => (new TinTucController())->index(),
-    'form-them-tin-tuc'         => (new TinTucController())->create(),
-    'them-tin-tuc'              => (new TinTucController())->store(),
-    'form-sua-tin-tuc'          => (new TinTucController())->edit(),
-    'sua-tin-tuc'               => (new TinTucController())->update(),
-    'xoa-tin-tuc'               => (new TinTucController())->destroy(),
+    'tin-tucs' => (new TinTucController())->index(),
+    'form-them-tin-tuc' => (new TinTucController())->create(),
+    'them-tin-tuc' => (new TinTucController())->store(),
+    'form-sua-tin-tuc' => (new TinTucController())->edit(),
+    'sua-tin-tuc' => (new TinTucController())->update(),
+    'xoa-tin-tuc' => (new TinTucController())->destroy(),
 
     //Quan li lien he
-    'lien-he'                  => (new LienHeController())->index(),
-    'form-them-lien-he'         => (new LienHeController())->create(),
-    'them-lien-he'              => (new LienHeController())->store(),
-    'form-sua-lien-he'          => (new LienHeController())->edit(),
-    'sua-lien-he'               => (new LienHeController())->update(),
-    'xoa-lien-he'               => (new LienHeController())->destroy(),
+    'lien-he' => (new LienHeController())->index(),
+    'form-them-lien-he' => (new LienHeController())->create(),
+    'them-lien-he' => (new LienHeController())->store(),
+    'form-sua-lien-he' => (new LienHeController())->edit(),
+    'sua-lien-he' => (new LienHeController())->update(),
+    'xoa-lien-he' => (new LienHeController())->destroy(),
 
     //Quan li Nguoi Dung
-    'nguoi-dungs'              => (new NguoiDungController())->index(),
-    'form-them-nguoi-dung'     => (new NguoiDungController())->create(),
-    'them-nguoi-dung'          => (new NguoiDungController())->store(),
-    'form-sua-nguoi-dung'      => (new NguoiDungController())->edit(),
-    'sua-nguoi-dung'           => (new NguoiDungController())->update(),
-    'xoa-nguoi-dung'           => (new NguoiDungController())->destroy(),
+    'nguoi-dungs' => (new NguoiDungController())->index(),
+    'form-them-nguoi-dung' => (new NguoiDungController())->create(),
+    'them-nguoi-dung' => (new NguoiDungController())->store(),
+    'form-sua-nguoi-dung' => (new NguoiDungController())->edit(),
+    'sua-nguoi-dung' => (new NguoiDungController())->update(),
+    'xoa-nguoi-dung' => (new NguoiDungController())->destroy(),
 
     //Quan li khuyen mai
-    'khuyen-mais'            => (new KhuyenMaiController())->index(),
-    'form-them-khuyen-mai'   => (new KhuyenMaiController())->create(),
-    'them-khuyen-mai'        => (new KhuyenMaiController())->store(),
-    'form-sua-khuyen-mai'    => (new KhuyenMaiController())->edit(),
-    'sua-khuyen-mai'         => (new KhuyenMaiController())->update(),
-    'xoa-khuyen-mai'         => (new KhuyenMaiController())->destroy(),
+    'khuyen-mais' => (new KhuyenMaiController())->index(),
+    'form-them-khuyen-mai' => (new KhuyenMaiController())->create(),
+    'them-khuyen-mai' => (new KhuyenMaiController())->store(),
+    'form-sua-khuyen-mai' => (new KhuyenMaiController())->edit(),
+    'sua-khuyen-mai' => (new KhuyenMaiController())->update(),
+    'xoa-khuyen-mai' => (new KhuyenMaiController())->destroy(),
 
 
     //Quan li san pham
-    'san-phams'            => (new SanPhamController())->index(),
-    'form-them-san-pham'   => (new SanPhamController())->create(),
-    'them-san-pham'        => (new SanPhamController())->store(),
-    'form-sua-san-pham'    => (new SanPhamController())->edit(),
-    'sua-san-pham'         => (new SanPhamController())->update(),
-    'xoa-san-pham'         => (new SanPhamController())->destroy(),
-    'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
-    'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
-    'xoa-danh-gia'        => (new SanPhamController())->deleteDanhgia(),
+    'san-phams' => (new SanPhamController())->index(),
+    'form-them-san-pham' => (new SanPhamController())->create(),
+    'them-san-pham' => (new SanPhamController())->store(),
+    'form-sua-san-pham' => (new SanPhamController())->edit(),
+    'sua-san-pham' => (new SanPhamController())->update(),
+    'xoa-san-pham' => (new SanPhamController())->destroy(),
+    'chi-tiet-san-pham' => (new SanPhamController())->DetailSanPham(),
+    'xoa-binh-luan' => (new SanPhamController())->deleteReview(),
+    'xoa-danh-gia' => (new SanPhamController())->deleteDanhgia(),
 
     //Quan li trang thai don hang
+<<<<<<< HEAD
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
     'form-them-trang-thai-don-hang'   => (new TrangThaiDonHangController())->create(),
     'them-trang-thai-don-hang'        => (new TrangThaiDonHangController())->store(),
     // 'form-sua-trang-thai-don-hang'    => (new TrangThaiDonHangController())->edit(),
     'sua-trang-thai-don-hang'         => (new TrangThaiDonHangController())->update(),
     'xoa-trang-thai-don-hang'         => (new TrangThaiDonHangController())->destroy(),
+=======
+    'trang-thai-don-hangs' => (new TrangThaiDonHangController())->index(),
+    'form-them-trang-thai-don-hang' => (new TrangThaiDonHangController())->create(),
+    'them-trang-thai-don-hang' => (new TrangThaiDonHangController())->store(),
+    'form-sua-trang-thai-don-hang' => (new TrangThaiDonHangController())->edit(),
+    'sua-trang-thai-don-hang' => (new TrangThaiDonHangController())->update(),
+    'xoa-trang-thai-don-hang' => (new TrangThaiDonHangController())->destroy(),
+>>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
 
     //Quan li don hang
-    'don-hangs'            => (new DonHangController())->index(),
-    'form-sua-don-hang'    => (new DonHangController())->edit(),
-    'sua-don-hang'         => (new DonHangController())->update(),
-    'chi-tiet-don-hangs'   => (new DonHangController())->detail(),
+    'don-hangs' => (new DonHangController())->index(),
+    'form-sua-don-hang' => (new DonHangController())->edit(),
+    'sua-don-hang' => (new DonHangController())->update(),
+    'chi-tiet-don-hangs' => (new DonHangController())->detail(),
     // Route cho tìm kiếm
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
+<<<<<<< HEAD
+=======
     // Quản lý tài khaonr Quản trị
     'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
     'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
@@ -137,8 +150,36 @@ match ($act) {
     'check-login-admin' => (new TaiKhoanController())->login(),
     'logout-admin' => (new TaiKhoanController())->logout(),
 
+
+
+>>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
+    // Quản lý tài khaonr Quản trị
+    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
+    'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
+    'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
+    //
+    'login-admin' => (new TaiKhoanController())->formLogin(),
+    'check-login-admin' => (new TaiKhoanController())->login(),
+<<<<<<< HEAD
+    'logout-admin' => (new TaiKhoanController())->logout(),
+
     //Thống kê 
 
+=======
+
+
+
+
+    //Thống kê 
+
+
+    //
+    'login' => (new HomeController())->formLogin(),
+    'check-login' => (new HomeController())->postlogin(),
+    //
+    'dang-ky' => (new DangKiController())->formDangKi(),
+    'check-dang-ky' => (new DangKiController())->dangky(),
+>>>>>>> 3076a7f2b07bd3516d43609489b8061665414db2
 
     //
     'login' => (new HomeController())->formLogin(),

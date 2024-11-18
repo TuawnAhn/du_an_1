@@ -69,12 +69,15 @@ class TaiKhoanController
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = $this->modelTaiKhoan->checkLogin($email, $password);
-      
             if (gettype($user) != 'string') {
                 if ($user['email'] == $email) {
                     $_SESSION['user_admin'] = $user;
                     $_SESSION['flash'] = false;
-                    header("Location: ?act=dashboard");
+                    if ($user['chuc_vu_id'] == 1) {
+                        header("Location: ?act=dashboard");
+                    } else {
+                        header("Location: ?act=danh-mucs");
+                    }
                     exit();
                 }
 
@@ -86,8 +89,9 @@ class TaiKhoanController
 
         }
     }
-    public function logout(){
-        if(isset($_SESSION['user_admin'])){
+    public function logout()
+    {
+        if (isset($_SESSION['user_admin'])) {
             unset($_SESSION['user_admin']);
             header("Location: ?act=login-admin");
             exit();
