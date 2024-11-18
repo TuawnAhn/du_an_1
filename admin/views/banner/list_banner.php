@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
@@ -94,7 +93,7 @@
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
                                                                 <td><?= $banner['title'] ?></td>
-                                                                <td><img src="<?= $banner['hinh_anh'] ?>" width="70" alt=""></td>
+                                                                <td><img src="<?= $banner['hinh_anh'] ?>" width="70" alt="70"></td>
                                                                 <td><?= $banner['lien_ket'] ?></td>
                                                                 <td>
                                                                     <?php
