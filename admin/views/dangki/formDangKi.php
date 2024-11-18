@@ -9,10 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-  <script data-cfasync="false" nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
+  <script data-cfasync="false"
+    nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
     try {
-      (function (w, d) {
-        ! function (ne, nf, ng, nh) {
+      (function(w, d) {
+        ! function(ne, nf, ng, nh) {
           if (ne.zaraz) console.error("zaraz is loaded twice");
           else {
             ne[ng] = ne[ng] || {};
@@ -24,8 +25,8 @@
             ne.zaraz._v = "5823";
             ne.zaraz._n = "7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2";
             ne.zaraz.q = [];
-            ne.zaraz._f = function (ni) {
-              return async function () {
+            ne.zaraz._f = function(ni) {
+              return async function() {
                 var nj = Array.prototype.slice.call(arguments);
                 ne.zaraz.q.push({
                   m: ni,
@@ -51,9 +52,9 @@
               ne[ng].o = (new Date).getTimezoneOffset();
               if (ne.dataLayer)
                 for (const no of Object.entries(Object.entries(dataLayer).reduce(((np, nq) => ({
-                  ...np[1],
-                  ...nq[1]
-                })), {}))) zaraz.set(no[0], no[1], {
+                    ...np[1],
+                    ...nq[1]
+                  })), {}))) zaraz.set(no[0], no[1], {
                   scope: "page"
                 });
               ne[ng].q = [];
@@ -248,26 +249,19 @@
   }
 </style>
 <style>
-  .register-btn {
-    font-size: 12px;
-    /* Kích thước chữ nhỏ hơn */
-    padding: 8px 16px;
-    /* Điều chỉnh khoảng cách bên trong nút */
-    background-color: #f1f1f1;
-    /* Màu nền nhạt hơn */
-    color: #333;
-    /* Màu chữ */
-    border: 1px solid #ccc;
-    /* Đường viền nhẹ */
-    border-radius: 4px;
-    /* Bo góc */
-    cursor: pointer;
-  }
+    .register-btn {
+        font-size: 12px; /* Kích thước chữ nhỏ hơn */
+        padding: 8px 16px; /* Điều chỉnh khoảng cách bên trong nút */
+        background-color: #f1f1f1; /* Màu nền nhạt hơn */
+        color: #333; /* Màu chữ */
+        border: 1px solid #ccc; /* Đường viền nhẹ */
+        border-radius: 4px; /* Bo góc */
+        cursor: pointer;
+    }
 
-  .register-btn:hover {
-    background-color: #ddd;
-    /* Hiệu ứng khi hover */
-  }
+    .register-btn:hover {
+        background-color: #ddd; /* Hiệu ứng khi hover */
+    }
 </style>
 
 
@@ -282,44 +276,28 @@
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
-  <form action="?act=check-login-admin" method="post">
+  <form action="?act=check-dang-ky" method="post">
 
-    <label for="email">Username</label>
+    <label for="email">Email</label>
     <input type="gmail" placeholder="Email or Phone" id="email" name="email">
 
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password" name="password">
-    <div class="error-message">
-      <?php
-      if ($_SESSION && $_SESSION['flash']) {
-        echo $_SESSION['flash'];
-      }
-      ?>
+    
+    
+    
 
-    </div>
+    <label for="password">Họ tên</label>
+    <input type="text" placeholder="Họ tên" id="password" name="ho_ten">
 
+    <label for="so_dien_thoai">Số điện thoại</label>
+    <input type="text" placeholder="Số điện thoại" id="so_dien_thoai" name="so_dien_thoai">
 
-    <button style="margin-top: 50px;" type="submit">Đăng nhập</button>
-    <button class="register-btn">
-      <a href="?act=dang-ky" >Đăng ký</a>
-    </button>
+    
+
+    <button style="margin-top: 50px;" type="submit">OK</button>
 
     <div class="err"></div>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $email = $_POST['email'] ?? '';
-      $password = $_POST['password'] ?? '';
-
-      // Kiểm tra thông tin đăng nhập
-      if ($email == 'chiennvph51500@gmail.com' && $password == '123456') {
-        echo "Đăng nhập thành công!";
-        header("Location: ?act=dashboard");
-        exit();
-      } else {
-        echo "Sai thông tin đăng nhập. Vui lòng thử lại.";
-      }
-    }
-    ?>
 
   </form>
   <script src="./assets/plugins/jquery/jquery.min.js"></script>
