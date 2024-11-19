@@ -109,6 +109,32 @@ class SanPham
         }
     }
 
+    public function searchByName($ten)
+    {
+        try {
+            // Câu lệnh SQL sử dụng tham số :ten để bảo mật
+            $sql= 'SELECT san_phams.*,danh_mucs.ten_danh_muc 
+                    FROM san_phams 
+                    INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
+                    WHERE san_phams.ten LIKE :ten';
+    
+            $stmt = $this->conn->prepare($sql);
+    
+            // Thêm dấu % vào biến $ten để tìm kiếm gần đúng
+            $ten = '%' . $ten . '%';
+    
+            // Gắn tham số vào câu lệnh
+            $stmt->bindParam(':ten', $ten, PDO::PARAM_STR);
+    
+            $stmt->execute();
+    
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+        }
+    }
+    
+
     //Cap nhat du lieu
     public function updateData($id, $ten, $img, $gia_nhap, $gia_ban, $gia_km, $trang_thai, $mo_ta, $so_luong, $date, $danh_muc_id)
     {

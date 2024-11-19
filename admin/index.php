@@ -102,6 +102,7 @@ match ($act) {
 
     //Quan li san pham
     'san-phams'            => (new SanPhamController())->index(),
+    'tim-kiem-san-pham'   => (new SanPhamController())->search(),
     'form-them-san-pham'   => (new SanPhamController())->create(),
     'them-san-pham'        => (new SanPhamController())->store(),
     'form-sua-san-pham'    => (new SanPhamController())->edit(),

@@ -241,7 +241,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <?php foreach ($listSanPham as $index => $sanPham): ?>
+                                                                <?php foreach ($timKiemSanPham as $index => $sanPham): ?>
                                                                     <tr>
                                                                         <td class="fw-medium"><?= $index + 1 ?></td>
                                                                         <td><img src="<?= $sanPham['img'] ?>" alt="product" width="150" height="80"></td>
