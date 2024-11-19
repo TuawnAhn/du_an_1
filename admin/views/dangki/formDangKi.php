@@ -249,19 +249,26 @@
   }
 </style>
 <style>
-    .register-btn {
-        font-size: 12px; /* Kích thước chữ nhỏ hơn */
-        padding: 8px 16px; /* Điều chỉnh khoảng cách bên trong nút */
-        background-color: #f1f1f1; /* Màu nền nhạt hơn */
-        color: #333; /* Màu chữ */
-        border: 1px solid #ccc; /* Đường viền nhẹ */
-        border-radius: 4px; /* Bo góc */
-        cursor: pointer;
-    }
+  .register-btn {
+    font-size: 12px;
+    /* Kích thước chữ nhỏ hơn */
+    padding: 8px 16px;
+    /* Điều chỉnh khoảng cách bên trong nút */
+    background-color: #f1f1f1;
+    /* Màu nền nhạt hơn */
+    color: #333;
+    /* Màu chữ */
+    border: 1px solid #ccc;
+    /* Đường viền nhẹ */
+    border-radius: 4px;
+    /* Bo góc */
+    cursor: pointer;
+  }
 
-    .register-btn:hover {
-        background-color: #ddd; /* Hiệu ứng khi hover */
-    }
+  .register-btn:hover {
+    background-color: #ddd;
+    /* Hiệu ứng khi hover */
+  }
 </style>
 
 
@@ -283,9 +290,9 @@
 
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password" name="password">
-    
-    
-    
+
+
+
 
     <label for="password">Họ tên</label>
     <input type="text" placeholder="Họ tên" id="password" name="ho_ten">
@@ -293,7 +300,7 @@
     <label for="so_dien_thoai">Số điện thoại</label>
     <input type="text" placeholder="Số điện thoại" id="so_dien_thoai" name="so_dien_thoai">
 
-    
+
 
     <button style="margin-top: 50px;" type="submit">OK</button>
 

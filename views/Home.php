@@ -332,8 +332,8 @@ require_once('views/layout/header.php'); ?>
                                                                             <div class="rating">
                                                                                 <div class="star star-0"></div><span class="count">(0 review)</span>
                                                                             </div>
-                                                                            <h3 class="product-title"><a href="shop-details.html">Medium Flat Hoops</a></h3>
-                                                                            <span class="price">$100.00</span>
+                                                                            <h3 class="product-title"><a href="shop-details.html"><?= $sanPham['ten'] ?></a></h3>
+                                                                            <span class="price"><?= $sanPham['gia_ban'] ?></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>

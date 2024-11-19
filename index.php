@@ -7,10 +7,12 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once './controllers/HomeController.php';
 require_once './controllers/BannerController.php';
+require_once './controllers/SanPhamController.php';
 
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
 require_once './models/Banner.php';
+require_once './models/SanPham.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -22,4 +24,6 @@ match ($act) {
     // Trang chủ
     'home'                 => (new HomeController())->home(),
     'home'               => (new BannerController())->banner(),
+
+    'danhsachsanpham'      => (new SanPhamController())->index(),
 };

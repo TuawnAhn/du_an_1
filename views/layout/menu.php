@@ -116,7 +116,7 @@
                                         <li class="level-0">
                                             <a href="?act=home"><span class="menu-item-text">Trang chủ</span></a>
                                         <li class="level-0 menu-item menu-item-has-children">
-                                            <a href="shop-grid-left.html"><span class="menu-item-text">Shop</span></a>
+                                            <a href="?act=danhsachsanpham"><span class="menu-item-text">Shop</span></a>
                                             <ul class="sub-menu">
                                                 <li class="level-1 menu-item menu-item-has-children">
                                                     <a href="shop-grid-left.html"><span class="menu-item-text">Vòng - Lắc</span></a>
