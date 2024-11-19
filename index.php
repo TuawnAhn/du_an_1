@@ -8,22 +8,30 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/HomeController.php';
 require_once './controllers/BannerController.php';
 require_once './controllers/SanPhamController.php';
+require_once './controllers/ChiTietSanPhamController.php';
 
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
 require_once './models/Banner.php';
 require_once './models/SanPham.php';
+require_once './models/ChiTietSanPham.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
+$id = $_GET['id'] ?? null; // Lấy ID từ URL, nếu không có thì gán giá trị null
 
-
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
-
+// Xử lý match
 match ($act) {
     // Trang chủ
     'home'                 => (new HomeController())->home(),
-    'home'               => (new BannerController())->banner(),
+    'banner'               => (new BannerController())->banner(),
 
-    'danhsachsanpham'      => (new SanPhamController())->index(),
+    // Danh sách sản phẩm
+    'danhsachsanpham'      => (new SanPhamController())->sanpham(),
+
+    // Chi tiết sản phẩm
+    'chitietsanpham'       => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
+
+        // Mặc định
+    default                => print("Hành động không hợp lệ."),
 };

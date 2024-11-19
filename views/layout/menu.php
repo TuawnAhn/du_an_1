@@ -1,4 +1,4 @@
-<header id="site-header" class="site-header header-v1 color-white">
+<header id="site-header" class="site-header header-v1 color-black">
     <div class="header-mobile">
         <div class="section-padding">
             <div class="section-container">
@@ -11,7 +11,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 header-center">
                         <div class="site-logo">
                             <a href="?act=home">
-                                <img width="400" height="79" src="media/logo-white.png" alt="Sliver Ring – Jewelry Store" />
+                                <img width="400" height="79" src="media/logo.png" alt="Sliver Ring – Jewelry Store" />
                             </a>
                         </div>
                     </div>
@@ -119,111 +119,9 @@
                                             <a href="?act=danhsachsanpham"><span class="menu-item-text">Shop</span></a>
                                             <ul class="sub-menu">
                                                 <li class="level-1 menu-item menu-item-has-children">
-                                                    <a href="shop-grid-left.html"><span class="menu-item-text">Vòng - Lắc</span></a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="shop-grid-left.html"><span class="menu-item-text">Vòng - lắc tay</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-list-left.html"><span class="menu-item-text">Khuyên mũi</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Charm Pandora</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level-1 menu-item menu-item-has-children">
-                                                    <a href="shop-grid-left.html"><span class="menu-item-text">Nhẫn</span></a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="shop-grid-left.html"><span class="menu-item-text">Nhẫn bạc</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-list-left.html"><span class="menu-item-text">Nhẫn đá quý</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Nhận ngọc trai</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level-1 menu-item menu-item-has-children">
-                                                    <a href="shop-grid-left.html"><span class="menu-item-text">Dây chuyển</span></a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="shop-grid-left.html"><span class="menu-item-text">Dây chuyển kèm mặt</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-list-left.html"><span class="menu-item-text">Mặt dây chuyền</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Dây chuyển trơn</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level-1 menu-item menu-item-has-children">
-                                                    <a href="shop-grid-left.html"><span class="menu-item-text">Bông tai</span></a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="shop-grid-left.html"><span class="menu-item-text">Bạc</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-list-left.html"><span class="menu-item-text">Đá quý</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Vàng</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Ngọc Trai</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level-1 menu-item menu-item-has-children">
-                                                    <a href="shop-grid-left.html"><span class="menu-item-text">Khuyên xỏ</span></a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="shop-grid-left.html"><span class="menu-item-text">Khuyên rốn</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-list-left.html"><span class="menu-item-text">Khuyên mũi</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Khuyên môi</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Khuyên tai</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level-1 menu-item menu-item-has-children">
-                                                    <a href="shop-grid-left.html"><span class="menu-item-text">Vòng - Lắc</span></a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="shop-grid-left.html"><span class="menu-item-text">Vòng - lắc tay</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-list-left.html"><span class="menu-item-text">Khuyên mũi</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Charm Pandora</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level-1 menu-item menu-item-has-children">
-                                                    <a href="shop-grid-left.html"><span class="menu-item-text">Phụ kiện</span></a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="shop-grid-left.html"><span class="menu-item-text">Hộp đựng trang sức</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-list-left.html"><span class="menu-item-text">Hộp quà tặng</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Vệ sinh trang sức</span></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-grid-right.html"><span class="menu-item-text">Phụ kiện khác</span></a>
-                                                        </li>
-                                                    </ul>
+                                                    <?php foreach ($listDanhMuc as $key => $header): ?>
+                                                        <a href="shop-grid-left.html"><span class="menu-item-text"><?= $header['ten_danh_muc'] ?></span></a>
+                                                    <?php endforeach ?>
                                                 </li>
                                             </ul>
                                         </li>

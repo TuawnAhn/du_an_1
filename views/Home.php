@@ -4,7 +4,6 @@ require_once('views/layout/header.php'); ?>
 <body class="home">
     <div id="page" class="hfeed page-wrapper">
         <?php require_once('views/layout/menu.php'); ?>
-
         <div id="site-main" class="site-main">
             <div id="main-content" class="main-content">
                 <div id="primary" class="content-area">

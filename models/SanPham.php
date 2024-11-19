@@ -22,4 +22,18 @@ class SanPham
             echo 'Loi: ' . $e->getMessage();
         }
     }
+    public function getAllDanhMuc()
+    {
+        try {
+            $sql = "SELECT * FROM danh_mucs";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
+    }
 }
