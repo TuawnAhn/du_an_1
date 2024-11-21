@@ -1,6 +1,6 @@
 <?php
 class BannerController
-{ 
+{
     // ket noiden file model
     public $modelBanner;
 
@@ -8,15 +8,15 @@ class BannerController
     {
         $this->modelBanner = new Banner();
     }
-    public function index() {
+    public function index()
+    {
         //Lay ra du lieu banner
         $banners = $this->modelBanner->getAll();
         require_once "./views/banner/list_banner.php";
-        
-    } 
+    }
     public function create()
     {
-        
+
         require_once "./views/banner/create_banner.php";
     }
 
@@ -35,29 +35,17 @@ class BannerController
             if (empty($lien_ket)) {
                 $errors['lien_ket'] = 'Liên kết không được để trống';
             }
-            
+
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'Trạng thái không được để trống';
             }
-            if (isset($_FILES['hinh_anh']) && $_FILES['hinh_anh']['error'] === UPLOAD_ERR_OK) {
-                $uploadDir = 'imgs/uploads'; // Thư mục lưu ảnh
-                if (!is_dir($uploadDir)) {
-                    mkdir($uploadDir, 0777, true);
-                }
-                
-                // Tạo đường dẫn lưu ảnh
-                $uploadFile = $uploadDir.basename($_FILES['hinh_anh']['name']);
-                if (!move_uploaded_file($_FILES['hinh_anh']['tmp_name'], $uploadFile)) {
-                    $errors['hinh_anh'] = 'Không thể tải lên ảnh';
-                } else {
-                    $hinh_anh = $uploadFile;
-                }
-            } else {
-                $errors['hinh_anh'] = 'Vui lòng chọn một file ảnh hợp lệ';
-            }
+
+            $hinh_anh = $_FILES['hinh_anh'];
+            $file_thumb = uploadFile($hinh_anh, './uploads/');
+
             //them du lieu
             if (empty($errors)) {
-                $this->modelBanner->postBanner($title, $hinh_anh, $lien_ket, $trang_thai);
+                $this->modelBanner->postBanner($title, $file_thumb, $lien_ket, $trang_thai);
                 unset($_SESSION['errors']);
                 header("Location: ?act=banners");
             } else {
@@ -104,7 +92,7 @@ class BannerController
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0777, true);
                 }
-    
+
                 // Tạo đường dẫn lưu ảnh
                 $uploadFile = $uploadDir . basename($hinh_anh['name']);
                 if (!move_uploaded_file($hinh_anh['tmp_name'], $uploadFile)) {
@@ -115,7 +103,7 @@ class BannerController
             } else {
                 // Nếu không có ảnh mới, giữ ảnh cũ
                 $banner = $this->modelBanner->getDetailData($id);
-                $hinh_anh= $banner['hinh_anh'];  // Giữ ảnh cũ trong cơ sở dữ liệu
+                $hinh_anh = $banner['hinh_anh'];  // Giữ ảnh cũ trong cơ sở dữ liệu
             }
             if (empty($errors)) {
                 $this->modelBanner->updateBanner($id, $title, $hinh_anh, $lien_ket,  $trang_thai);
@@ -140,5 +128,5 @@ class BannerController
             header("Location: ?act=banners");
             exit();
         }
-    } 
+    }
 }

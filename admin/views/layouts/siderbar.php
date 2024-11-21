@@ -252,19 +252,17 @@
                                 <li class="nav-item">
                                     <a href="?act=don-hangs" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
                                 </li>
-<<<<<<< HEAD
-=======
+
                                 <li class="nav-item">
                                     <a href="?act=form-them-don-hang" class="nav-link" data-key="t-nestable-list">Thêm
                                         mới</a>
                                 </li>
->>>>>>> 42ca197e6f26fd4e42fe2cf544b4631b9209dede
                             </ul>
                         </div>
                     </li>
 
                     <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>Quản lý tài khoản</p>
@@ -290,8 +288,27 @@
                                 </a>
                             </li>
                         </ul>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebarTaiKhoan" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarTaiKhoan">
+                            <i class="ri-user-fill"></i> <span data-key="t-advance-ui">Quản lý tài khoản </span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarTaiKhoan">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="?act=" class="nav-link" data-key="t-sweet-alerts">Tài khoản quản trị</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=" class="nav-link" data-key="t-nestable-list">Tài khoản khách hàng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?act=" class="nav-link" data-key="t-nestable-list">Quản lý tài khoản cá nhân</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
-                   
+
                 </ul>
             </div>
             <!-- Sidebar -->

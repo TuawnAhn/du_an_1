@@ -61,13 +61,13 @@ class TrangThaiDonHangController
             }
         }
     }
-    public function edit()
-    {
-        $id = $_GET['id'];
-        $donhangs = $this->modelDonHang->getDetailData($id);
+    // public function edit()
+    // {
+    //     $id = $_GET['id'];
+    //     $donhangs = $this->modelDonHang->getDetailData($id);
 
-        require_once "./views/trangthaidonhang/edit_trang_thai_don_hang.php";
-    }
+    //     require_once "./views/trangthaidonhang/edit_trang_thai_don_hang.php";
+    // }
 
     public function update()
     {
@@ -122,4 +122,3 @@ class TrangThaiDonHangController
         }
     }
 }
-

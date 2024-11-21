@@ -79,74 +79,68 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="ho_ten_nguoi_nhan" class="form-label">Tên người nhận</label>
-                                                            <input type="text" class="form-control"  name="ho_ten_nguoi_nhan" value="<?= $donhangs['ho_ten_nguoi_nhan'] ?>">
+                                                            <input type="text" class="form-control" name="ho_ten_nguoi_nhan"
+                                                                value="<?= isset($donhangs['ho_ten_nguoi_nhan']) ? $donhangs['ho_ten_nguoi_nhan'] : '' ?>">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['ho_ten_nguoi_nhan']) ? $_SESSION['errors']['ho_ten_nguoi_nhan'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
+
                                                     <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="sdt_nguoi_nhan" class="form-label">Số điện thoại</label>
-                                                            <input type="text" class="form-control"  name="sdt_nguoi_nhan" value="<?= $donhangs['sdt_nguoi_nhan'] ?>">
+                                                            <input type="text" class="form-control" name="sdt_nguoi_nhan" value="<?= $donhangs['sdt_nguoi_nhan'] ?>">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['sdt_nguoi_nhan']) ? $_SESSION['errors']['sdt_nguoi_nhan'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
                                                     <!--end col-->
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="email_nguoi_nhan" class="form-label">Email</label>
-                                                            <input type="email" class="form-control"  name="email_nguoi_nhan" value="<?= $donhangs['email_nguoi_nhan'] ?>">
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['email_nguoi_nhan']) ? $_SESSION['errors']['email_nguoi_nhan'] : '' ?>
-                                                            </span>
-                                                        </div>
-                                                    </div>
                                                     <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="dia_chi_nguoi_nhan" class="form-label">Địa chỉ</label>
-                                                            <input type="text" class="form-control"  name="dia_chi_nguoi_nhan" value="<?= $donhangs['dia_chi_nguoi_nhan'] ?>">
+                                                            <input type="text" class="form-control" name="dia_chi_nguoi_nhan" value="<?= $donhangs['dia_chi_nguoi_nhan'] ?>">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['dia_chi_nguoi_nhan']) ? $_SESSION['errors']['dia_chi_nguoi_nhan'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
                                                     <!--end col-->
-                                                  
+
                                                     <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="trang_thai_don_hang_id" class="form-label">Trạng thái đơn hàng</label>
                                                             <select class="form-select" name="trang_thai_don_hang_id">
-                                                                <?php foreach($listTrangThaiDonHang as $trangThai) : ?> 
-                                                                <option
-                                                                <?php
-                                                                     if($donhangs['trang_thai_don_hang_id'] > $trangThai['id']  
-                                                                        || $donhangs['trang_thai_don_hang_id'] == 5
-                                                                        || $donhangs['trang_thai_don_hang_id'] == 6
-                                                                        || $donhangs['trang_thai_don_hang_id'] == 7)
-                                                                     {
-                                                                        echo 'disabled';
-                                                                     }
-                                                                ?>
-                                                                 <?= $trangThai['id'] == $donhangs['trang_thai_don_hang_id'] ? 'selected' : '' ?>
-                                                                value="<?= $trangThai['id']; ?>">
-                                                                       <?= $trangThai['trang_thai_don_hang']; ?>
-                                                                </option>
-                                                                
-                                                                <?php endforeach?>
+                                                                <?php foreach ($listTrangThaiDonHang as $trangThai) : ?>
+                                                                    <option
+                                                                        <?php
+                                                                        if (
+                                                                            $donhangs['trang_thai_don_hang_id'] > $trangThai['id']
+                                                                            || $donhangs['trang_thai_don_hang_id'] == 1
+                                                                            || $donhangs['trang_thai_don_hang_id'] == 2
+                                                                            || $donhangs['trang_thai_don_hang_id'] == 3
+                                                                        ) {
+                                                                            echo 'disabled';
+                                                                        }
+                                                                        ?>
+                                                                        <?= $trangThai['id'] == $donhangs['trang_thai_don_hang_id'] ? 'selected' : '' ?>
+                                                                        value="<?= $trangThai['id']; ?>">
+                                                                        <?= $trangThai['trang_thai_don_hang']; ?>
+                                                                    </option>
+
+                                                                <?php endforeach ?>
                                                             </select>
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['trang_thai_don_hang_id']) ? $_SESSION['errors']['trang_thai_don_hang_id'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    
-                                                  
+
+
                                                     <!-- end col -->
                                                     <div class="col-lg-12">
                                                         <div class="text-center">

@@ -200,7 +200,7 @@
                                     <title>News List</title>
                                     <link rel="stylesheet" href="styles.css">
                                 </head>
-
+                                
                                 <body>
                                       <div class="h-100">
                                             <div class="card">
@@ -208,7 +208,7 @@
                                                 <h4 class="card-title mb-0 flex-grow-1">Danh sách sản phẩm</h4>
                                                 
                                                 <form method="GET" action="?act=san-phams">
-                                                    <input type="hidden" name="act" value="tim-kiem-san-pham">
+                                                <input type="hidden" name="act" value="tim-kiem-san-pham">
                                                 <input type="text" name="tukhoa" placeholder="Tìm sản phẩm...">
                                                 <button type="submit" name="timkiem">Tìm kiếm</button>
 

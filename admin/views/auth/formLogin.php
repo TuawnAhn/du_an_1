@@ -9,8 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-  <script data-cfasync="false"
-    nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
+  <script data-cfasync="false" nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
     try {
       (function(w, d) {
         ! function(ne, nf, ng, nh) {
@@ -248,6 +247,29 @@
     color: #ff512f;
   }
 </style>
+<style>
+  .register-btn {
+    font-size: 12px;
+    /* Kích thước chữ nhỏ hơn */
+    padding: 8px 16px;
+    /* Điều chỉnh khoảng cách bên trong nút */
+    background-color: #f1f1f1;
+    /* Màu nền nhạt hơn */
+    color: #333;
+    /* Màu chữ */
+    border: 1px solid #ccc;
+    /* Đường viền nhẹ */
+    border-radius: 4px;
+    /* Bo góc */
+    cursor: pointer;
+  }
+
+  .register-btn:hover {
+    background-color: #ddd;
+    /* Hiệu ứng khi hover */
+  }
+</style>
+
 
 <body class="hold-transition login-page">
   <div class="background">
@@ -278,6 +300,10 @@
 
 
     <button style="margin-top: 50px;" type="submit">Đăng nhập</button>
+    <button class="register-btn">
+      <a href="?act=dang-ky">Đăng ký</a>
+    </button>
+
     <div class="err"></div>
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

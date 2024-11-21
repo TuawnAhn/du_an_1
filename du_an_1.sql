@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 17, 2024 at 12:46 AM
+-- Generation Time: Nov 18, 2024 at 09:15 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `banners` (
   `id` int NOT NULL,
   `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `hinh_anh` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `hinh_anh` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `lien_ket` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `trang_thai` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -40,9 +40,42 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `title`, `hinh_anh`, `lien_ket`, `trang_thai`) VALUES
-(1, 'Dây chuyền đẹp', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'lili.vn', 2),
-(15, 'áda', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'sd', 1),
-(18, 'thht', 'https://lili.vn/wp-content/uploads/2022/09/Day-chuyen-doi-bac-dinh-da-CZ-hinh-ca-voi-va-buom-Brenna-LILI_123985_4.jpg', 'đâsđấ', 1);
+(25, 'Black Friday', './uploads/17318855981-4.jpg', 'Black Friday', 1),
+(26, 'Black Friday', './uploads/17318856111-5.jpg', 'Black Friday', 1),
+(27, 'Black Friday', './uploads/17318856771-6.jpg', 'Black Friday', 1),
+(28, 'Black Friday', './uploads/17319132981-7.jpg', 'Black Friday', 1),
+(29, 'Black Friday', './uploads/17319133081-8.jpg', 'Black Friday', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `binh_luans`
+--
+
+CREATE TABLE `binh_luans` (
+  `id` int NOT NULL,
+  `san_pham_id` int NOT NULL,
+  `ten_nguoi_binh_luan` varchar(255) NOT NULL,
+  `noi_dung` text NOT NULL,
+  `ngay_binh_luan` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `binh_luans`
+--
+
+INSERT INTO `binh_luans` (`id`, `san_pham_id`, `ten_nguoi_binh_luan`, `noi_dung`, `ngay_binh_luan`) VALUES
+(11, 13, 'Nguyễn Văn A', 'Sản phẩm này rất tốt, tôi rất thích chất lượng của nó!', '2024-11-17 01:10:34'),
+(12, 13, 'thinhj', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:10:34'),
+(17, 9, 'Trần Thị B', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:45:55'),
+(18, 13, 'Lê Minh C', 'Chất lượng sản phẩm vượt ngoài mong đợi, tôi rất hài lòng.', '2024-11-17 01:45:55'),
+(19, 14, 'Phan Quốc D', 'Sản phẩm này có thể cải thiện thêm chút về thiết kế, nhưng rất ổn.', '2024-11-17 01:45:55'),
+(20, 15, 'Vũ Thị E', 'Không thích lắm, mong sản phẩm sẽ tốt hơn trong tương lai.', '2024-11-17 01:45:55'),
+(22, 8, 'Nguyễn Văn A', 'Sản phẩm này rất tốt, tôi rất thích chất lượng của nó!', '2024-11-17 01:56:29'),
+(23, 13, 'Trần Thị B', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:56:29'),
+(24, 14, 'Lê Minh C', 'Chất lượng sản phẩm vượt ngoài mong đợi, tôi rất hài lòng.', '2024-11-17 01:56:29'),
+(25, 15, 'Phan Quốc D', 'Sản phẩm này có thể cải thiện thêm chút về thiết kế, nhưng rất ổn.', '2024-11-17 01:56:29'),
+(26, 31, 'Vũ Thị E', 'Không thích lắm, mong sản phẩm sẽ tốt hơn trong tương lai.', '2024-11-17 01:56:29');
 
 -- --------------------------------------------------------
 
@@ -132,7 +165,7 @@ CREATE TABLE `don_hangs` (
 INSERT INTO `don_hangs` (`id`, `ma_don_hang`, `nguoi_dung_id`, `ho_ten_nguoi_nhan`, `sdt_nguoi_nhan`, `email_nguoi_nhan`, `dia_chi_nguoi_nhan`, `ngay_dat_hang`, `phuong_thuc_thanh_toan_id`, `trang_thai_don_hang_id`, `trang_thai`) VALUES
 (4, 'DH001', 1, 'Nguyễn Văn A', '0123456789', 'vana@example.com', '123 Đường A, Quận B, TP.C', '2024-11-17 10:00:00', 1, 1, 1),
 (5, 'DH002', 1, 'Trần Thị B', '0987654321', 'thib@example.com', '456 Đường X, Quận Y, TP.Z', '2024-11-12 11:00:00', 2, 5, 2),
-(6, 'DH003', 1, 'Lê Văn C', '0932112233', NULL, '789 Đường L, Quận M, TP.N', '2024-11-12 12:00:00', 2, 7, 1);
+(6, 'DH003', 1, 'Lê Văn C', '0932112233', NULL, '789 Đường L, Quận M, TP.MMM', '2024-11-12 12:00:00', 2, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -188,7 +221,7 @@ INSERT INTO `khuyen_mais` (`id`, `ten_khuyen_mai`, `mo_ta`, `giam_gia`, `ngay_ba
 (3, 'Black Friday', 'Giảm giá lớn nhân dịp Black Friday', '50.00', '2024-11-30', '2024-11-29', 2),
 (4, 'Tết Nguyên Đán', 'Khuyến mãi đặc biệt mừng Tết Nguyên Đán', '30.00', '2025-01-10', '2025-02-10', 1),
 (5, 'Giảm giá 8/8', 'Giảm ngay 50.000 cho đơn từ 200.000 khi mua sắm tại các danh mục Nhẫn Đính Kim Cương', '50.00', '2024-11-01', '2024-11-10', 1),
-(7, 'Giảm giá cuối năm', 'Khuyến mãi giảm giá lên đến 70% vào dịp cuối năm', '70.00', '2024-11-15', '2024-11-22', 1);
+(7, 'Giảm giá cuối năm', 'Khuyến mãi giảm giá lên đến 70% vào dịp cuối năm', '70.00', '2024-11-15', '2024-11-22', 2);
 
 -- --------------------------------------------------------
 
@@ -258,12 +291,13 @@ CREATE TABLE `san_phams` (
 --
 
 INSERT INTO `san_phams` (`id`, `ten`, `img`, `gia_ban`, `gia_km`, `mo_ta`, `so_luong`, `date`, `trang_thai`, `gia_nhap`, `danh_muc_id`) VALUES
-(8, 'aaaaaaaaaaa', './uploads/1731319111_taoanhdep_cover_marketing_61385.png', '10000', '20000', 'aaa', 2, '2024-11-06', 1, '56785', 3),
-(9, 'aaaaaaaaaaa', './uploads/1731318245_Screenshot 2024-09-20 165738.png', '10000', '20000', 'aaa', 150, '2024-11-06', 1, '42345', 4),
-(13, 'aaaaaaaaaaa', './uploads/1731302601_th (13).jpg', '10000', '20000', 's', 2, '2024-11-10', 2, '89679', 5),
-(14, 'aaaaaaaaaaa', './uploads/1731556148_64451024_1314853245331472_240455474938380288_n.jpg', '10000', '20000', 'asadá', 1, '2024-11-10', 1, '34675', 3),
-(15, 'fawfasf', './uploads/1731556759_233703160_1992416827575107_6782043107933747975_n.jpg', '120000', '4234', '12323123', 12, '2024-11-10', 1, '1233333', 5),
-(31, 'fawfasf', './uploads/1731662349z4659802612872_9ce6e870fd6d431e36d4a08fffb84f0a.jpg', '120000', '32000', '', 123, '2024-11-15', 1, '1413424', 1);
+(8, 'aaaaaaaaaaa', './uploads/1731885925sp1.jpg', '10000', '20000', 'aaa', 2, '2024-11-06', 1, '56785', 3),
+(9, 'aaaaaaaaaaa', './uploads/1731885957sp2.jpg', '10000', '20000', 'aaa', 150, '2024-11-06', 1, '42345', 4),
+(13, 'aaaaaaaaaaa', './uploads/1731885969sp3.jpg', '10000', '20000', 's', 2, '2024-11-10', 2, '89679', 5),
+(14, 'aaaaaaaaaaa', './uploads/1731886034sp4.jpg', '10000', '20000', 'asadá', 1, '2024-11-10', 1, '34675', 3),
+(15, 'fawfasf', './uploads/1731886049sp5.jpg', '120000', '4234', '12323123', 12, '2024-11-10', 1, '1233333', 5),
+(31, 'fawfasf', './uploads/1731886088sp6.jpg', '120000', '32000', '', 123, '2024-11-15', 1, '1413424', 1),
+(32, 'fawfasf', './uploads/1731886143sp7.jpg', '120000', '32000', 'dqdqưdqưdqư', 123, '2024-11-18', 1, '1413424', 1);
 
 -- --------------------------------------------------------
 
@@ -291,7 +325,8 @@ CREATE TABLE `tai_khoans` (
 
 INSERT INTO `tai_khoans` (`id`, `ho_ten`, `anh_dai_dien`, `ngay_sinh`, `email`, `so_dien_thoai`, `gioi_tinh`, `dia_chi`, `mat_khau`, `chuc_vu_id`, `trang_thai`) VALUES
 (1, 'nguyenvanchien', '', '2024-11-07', 'chiennvph51500@gmail.com', 338506483, 1, 'so 1 ha noi', 123456, 1, '1'),
-(2, 'chiennnguynvan', '', '2024-11-19', 'chienn@gmail.com', 338506458, 1, 'xp vip', 123456, 2, '2');
+(2, 'chiennnguynvan', '', '2024-11-19', 'chienn@gmail.com', 338506458, 1, 'xp vip', 123456, 2, '2'),
+(3, 'Tuấn Anh', '', '2024-01-01', 'anhntph51526@gmail.com', 325687430, 1, '', 123456, 2, '1');
 
 -- --------------------------------------------------------
 
@@ -374,6 +409,13 @@ INSERT INTO `trang_thai_don_hangs` (`id`, `trang_thai_don_hang`, `ngay_tao`, `tr
 --
 ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `binh_luans`
+--
+ALTER TABLE `binh_luans`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `san_pham_id` (`san_pham_id`);
 
 --
 -- Indexes for table `chi_tiet_don_hangs`
@@ -466,7 +508,13 @@ ALTER TABLE `trang_thai_don_hangs`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `binh_luans`
+--
+ALTER TABLE `binh_luans`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `chi_tiet_don_hangs`
@@ -520,13 +568,13 @@ ALTER TABLE `phuong_thuc_thanh_toans`
 -- AUTO_INCREMENT for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tai_khoans`
 --
 ALTER TABLE `tai_khoans`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_lienhe`
@@ -549,6 +597,12 @@ ALTER TABLE `trang_thai_don_hangs`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `binh_luans`
+--
+ALTER TABLE `binh_luans`
+  ADD CONSTRAINT `binh_luans_ibfk_1` FOREIGN KEY (`san_pham_id`) REFERENCES `san_phams` (`id`);
 
 --
 -- Constraints for table `chi_tiet_don_hangs`

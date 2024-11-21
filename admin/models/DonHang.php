@@ -55,7 +55,7 @@ class DonHang
 
 
 
-    
+
     public function getDetailData($id)
     {
         try {
@@ -118,20 +118,19 @@ class DonHang
 
 
 
-    public function updateData($id, $ho_ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan,  $trang_thai_don_hang_id)
+    public function updateData($id, $ho_ten_nguoi_nhan, $sdt_nguoi_nhan,  $dia_chi_nguoi_nhan,  $trang_thai_don_hang_id)
     {
         try {
-            $sql = "UPDATE don_hangs SET  ho_ten_nguoi_nhan = :ho_ten_nguoi_nhan, sdt_nguoi_nhan = :sdt_nguoi_nhan, email_nguoi_nhan = :email_nguoi_nhan, dia_chi_nguoi_nhan = :dia_chi_nguoi_nhan,  trang_thai_don_hang_id = :trang_thai_don_hang_id WHERE id = :id";
+            $sql = "UPDATE don_hangs SET  ho_ten_nguoi_nhan = :ho_ten_nguoi_nhan, sdt_nguoi_nhan = :sdt_nguoi_nhan,  dia_chi_nguoi_nhan = :dia_chi_nguoi_nhan,  trang_thai_don_hang_id = :trang_thai_don_hang_id WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':ho_ten_nguoi_nhan', $ho_ten_nguoi_nhan);
             $stmt->bindParam(':sdt_nguoi_nhan', $sdt_nguoi_nhan);
-            $stmt->bindParam(':email_nguoi_nhan', $email_nguoi_nhan);
             $stmt->bindParam(':dia_chi_nguoi_nhan', $dia_chi_nguoi_nhan);
             $stmt->bindParam(':trang_thai_don_hang_id', $trang_thai_don_hang_id);
-           
+
 
             $stmt->execute();
 
@@ -140,7 +139,4 @@ class DonHang
             echo 'Lỗi' . $e->getMessage();
         }
     }
-
-
-    
 }
