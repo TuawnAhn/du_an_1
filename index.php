@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
@@ -6,8 +6,11 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 
 // Require toàn bộ file Controllers
 require_once './controllers/HomeController.php';
+require_once './controllers/BannerController.php';
 
 // Require toàn bộ file Models
+require_once './models/SanPham.php';
+require_once './models/Banner.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -17,5 +20,6 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Trang chủ
-    '/'                 => (new HomeController())->index(),
+    'home'                 => (new HomeController())->home(),
+    'home'               => (new BannerController())->banner(),
 };

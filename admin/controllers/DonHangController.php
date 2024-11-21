@@ -44,17 +44,15 @@ class DonHangController
         require_once './views/donhang/chiTietDonHang.php';
     }
 
-
-
-    public function edit()
+      public function edit()
     {
         $id = $_GET['id_don_hang'];
         $donhangs = $this->modelDonHang->getDetailDonHang($id);
         $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
-        if($donhangs){
+        if ($donhangs) {
             require_once "./views/donhang/edit_don_hang.php";
             deleteSessionError();
-        }else{
+        } else {
             header("Location: ?act=don-hangs");
             exit();
         }
@@ -65,7 +63,7 @@ class DonHangController
             $id = $_POST['id_don_hang'];
             $ma_don_hang = $_POST['ma_don_hang'];
             $trang_thai_don_hang_id = $_POST['trang_thai_don_hang_id'];
-           
+
 
             // var_dump();
 
@@ -84,18 +82,18 @@ class DonHangController
                 $errors['trang_thai_don_hang_id'] = 'Trạng thái đơn hàng không được để trống';
             }
             if (empty($errors)) {
-                $this->modelDonHang->updateData($id, $ma_don_hang, $trang_thai_don_hang_id);
+                $this->modelDonHang->updateData($id,$ma_don_hang, $trang_thai_don_hang_id);
                 unset($_SESSION['errors']);
                 header("Location: ?act=don-hangs");
             } else {
-                $_SESSION['errors'] = $errors;           
+                $_SESSION['errors'] = $errors;
                 header("Location: ?act=sua-don-hang&id_don_hang");
                 exit();
             }
         }
     }
 
-   
+
     public function search()
     {
         // Kiểm tra xem có dữ liệu tìm kiếm hay không
@@ -111,4 +109,3 @@ class DonHangController
         require_once "./views/donhang/list_don_hang.php";
     }
 }
-

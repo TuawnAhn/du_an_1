@@ -171,7 +171,7 @@ class SanPham
     public function getDanhGia($san_pham_id)
     {
         try {
-            
+
             $sql = "SELECT * FROM danh_gias WHERE san_pham_id = :san_pham_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':san_pham_id', $san_pham_id);
@@ -197,13 +197,13 @@ class SanPham
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
-  
+
 
     // Thêm đánh giá mới
-    
+
 
     // Xóa đánh giá
-  
+
 
 
 

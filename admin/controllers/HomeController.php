@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class HomeController
 {
@@ -19,12 +19,16 @@ class HomeController
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = $this->modelTaiKhoan->checkLogin($email, $password);
-      
+
             if (gettype($user) != 'string') {
                 if ($user['email'] == $email) {
                     $_SESSION['user_client'] = $user;
                     $_SESSION['flash'] = false;
-                    header("Location: ?act=dashboard");
+                    if ($user['chuc_vu_id'] == 1) {
+                        header("Location: ?act=dashboard");
+                    } else {
+                        header("Location: ?act=client");
+                    }
                     exit();
                 }
 

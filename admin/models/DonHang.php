@@ -55,7 +55,7 @@ class DonHang
 
 
 
-    
+
     public function getDetailData($id)
     {
         try {
@@ -118,17 +118,23 @@ class DonHang
 
 
 
-    public function updateData($id, $ma_don_hang, $trang_thai_don_hang_id)
+
+  
+
+    public function updateData($id, $ma_don_hang , $trang_thai_don_hang_id)
     {
         try {
-            $sql = "UPDATE don_hangs SET  ma_don_hang = :ma_don_hang,  trang_thai_don_hang_id = :trang_thai_don_hang_id WHERE id = :id";
+            $sql = "UPDATE don_hangs SET   ma_don_hang= :ma_don_hang , trang_thai_don_hang_id = :trang_thai_don_hang_id WHERE id = :id";
+
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->bindParam(':id', $id);
+
             $stmt->bindParam(':ma_don_hang', $ma_don_hang);
+            
             $stmt->bindParam(':trang_thai_don_hang_id', $trang_thai_don_hang_id);
-           
+
 
             $stmt->execute();
 
@@ -137,7 +143,4 @@ class DonHang
             echo 'Lỗi' . $e->getMessage();
         }
     }
-
-
-    
 }
