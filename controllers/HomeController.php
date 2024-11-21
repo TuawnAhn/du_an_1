@@ -13,6 +13,10 @@ class HomeController
     {
         $listSanPham = $this->modelSanPham->getAllSanPham();
         $listBanner = $this->modelBanner->getAllBanner();
+        $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
+        $listMota = $this->modelSanPham->getAllMota();
+        // var_dump($listMota);
+
         // var_dump($listBanner);
 
         require_once "./views/Home.php";

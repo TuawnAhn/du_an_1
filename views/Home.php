@@ -20,7 +20,7 @@ require_once('views/layout/header.php'); ?>
                                                 </div>
                                                 <div class="item-info horizontal-start vertical-middle">
                                                     <div class="content">
-                                                        <h2 class="title-slider">Khám phá <br>thế giới trang sức</h2>
+                                                        <h2 class="title-slider"><?= $listMota['mo_ta']; ?><br>thế giới trang sức</h2>
                                                         <a class="button-slider button button-white button-outline thick-border" href="shop-grid-left.html">Khám phá ngay</a>
                                                     </div>
                                                 </div>
@@ -112,7 +112,7 @@ require_once('views/layout/header.php'); ?>
                                 <div class="block block-product-cats slider round-border">
                                     <div class="block-widget-wrap">
                                         <div class="block-title">
-                                            <h2>Top danh mục hàng đầu</h2>
+                                            <h2>Top sản phẩm hàng đầu</h2>
                                         </div>
                                         <div class="block-content">
                                             <div class="product-cats-list slick-wrap">
@@ -306,7 +306,7 @@ require_once('views/layout/header.php'); ?>
                                                                             <div class="hot">Hot</div>
                                                                         </div>
                                                                         <div class="product-thumb-hover">
-                                                                            <a href="shop-details.html">
+                                                                            <a href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
                                                                                 <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="post-image" alt="">
                                                                                 <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="hover-image back" alt="">
                                                                             </a>
