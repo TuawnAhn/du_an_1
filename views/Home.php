@@ -4,7 +4,6 @@ require_once('views/layout/header.php'); ?>
 <body class="home">
     <div id="page" class="hfeed page-wrapper">
         <?php require_once('views/layout/menu.php'); ?>
-
         <div id="site-main" class="site-main">
             <div id="main-content" class="main-content">
                 <div id="primary" class="content-area">
@@ -31,7 +30,7 @@ require_once('views/layout/header.php'); ?>
                                 </div>
                             </div>
                         </section>
-
+                       
                         <section class="section section-padding m-b-70">
                             <div class="section-container large">
                                 <!-- Block Banners (Layout 1) -->
@@ -332,8 +331,8 @@ require_once('views/layout/header.php'); ?>
                                                                             <div class="rating">
                                                                                 <div class="star star-0"></div><span class="count">(0 review)</span>
                                                                             </div>
-                                                                            <h3 class="product-title"><a href="shop-details.html">Medium Flat Hoops</a></h3>
-                                                                            <span class="price">$100.00</span>
+                                                                            <h3 class="product-title"><a href="shop-details.html"><?= $sanPham['ten'] ?></a></h3>
+                                                                            <span class="price"><?= $sanPham['gia_ban'] ?></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -535,7 +534,7 @@ require_once('views/layout/header.php'); ?>
                                 </div>
                             </div>
                         </section>
-
+                        <?php require_once('views/layout/lienhe.php'); ?>
                         <section class="section section-padding top-border p-t-10 p-b-10 m-b-0">
                             <div class="section-container">
                                 <!-- Block Image -->

@@ -43,7 +43,6 @@ class DangKy
             $stmt->bindParam(':gioi_tinh', $gioi_tinh);
             $stmt->bindParam(':dia_chi', $dia_chi);
             $stmt->execute();
-
         } catch (Exception $e) {
             //throw $th;
             echo 'Lỗi' . $e->getMessage();

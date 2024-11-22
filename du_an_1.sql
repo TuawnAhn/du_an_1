@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 18, 2024 at 09:15 AM
+-- Generation Time: Nov 19, 2024 at 11:56 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -109,11 +109,27 @@ INSERT INTO `chi_tiet_don_hangs` (`id`, `don_hang_id`, `san_pham_id`, `so_luong`
 
 CREATE TABLE `chi_tiet_san_phams` (
   `id` int NOT NULL,
-  `ten` varchar(255) NOT NULL,
-  `ma_san_pham` varchar(11) NOT NULL,
-  `tinh_trang` int NOT NULL,
-  `so_luong_kho` int NOT NULL
+  `san_pham_id` int NOT NULL,
+  `ma_san_pham` varchar(50) NOT NULL,
+  `mo_ta_chi_tiet` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `so_luong_ton` int NOT NULL,
+  `trang_thai` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `chi_tiet_san_phams`
+--
+
+INSERT INTO `chi_tiet_san_phams` (`id`, `san_pham_id`, `ma_san_pham`, `mo_ta_chi_tiet`, `so_luong_ton`, `trang_thai`) VALUES
+(1, 8, 'SP008', 'Nhẫn bạc nữ đính kim cương Moissanite Aidan là một món trang sức sang trọng, thiết kế tinh tế với kim cương Moissanite cao cấp, nổi bật với độ sáng lấp lánh và độ bền vượt trội. Được chế tác từ bạc 925, chiếc nhẫn này không chỉ là một món đồ trang sức mà còn là biểu tượng của tình yêu vĩnh cửu và sự tinh tế. Với thiết kế hiện đại, nhẫn bạc nữ Aidan sẽ làm nổi bật vẻ đẹp tự nhiên của bạn, phù hợp với những dịp quan trọng như đính hôn, cưới hỏi hay các buổi tiệc sang trọng. Sản phẩm có sự kết hợp hoàn hảo giữa tính thời trang và chất lượng tuyệt vời, chắc chắn sẽ là lựa chọn lý tưởng cho những ai yêu thích sự hoàn hảo.', 2, 1),
+(2, 9, 'SP009', 'Dây chuyền bạc nữ đính đá CZ cá tiên là một sản phẩm thanh lịch, nhẹ nhàng nhưng đầy lôi cuốn. Với thiết kế tinh tế, dây chuyền này không chỉ là một món trang sức mà còn là một biểu tượng của sự may mắn và thịnh vượng. Được làm từ bạc cao cấp, sản phẩm có độ sáng bóng và bền đẹp theo thời gian. Phần mặt dây chuyền được đính đá CZ hình cá tiên, một biểu tượng cho sự khởi đầu mới và sự đổi mới. Đá CZ được lựa chọn kỹ càng, cắt mài tỉ mỉ để tạo ra những phản xạ ánh sáng hoàn hảo, khiến món trang sức này nổi bật mỗi khi bạn di chuyển. Đây là lựa chọn lý tưởng cho những cô gái yêu thích phong cách nhẹ nhàng nhưng cũng muốn mình thật nổi bật và ấn tượng trong mắt người khác.', 150, 1),
+(3, 13, 'SP013', 'Lắc tay bạc nam mắt xích đơn giản nhưng đầy cá tính Cuban Saint được thiết kế dành riêng cho phái mạnh, với phong cách mạnh mẽ và hiện đại. Lắc tay này được làm từ bạc 925 cao cấp, với những mắt xích liên kết chặt chẽ, tạo nên sự chắc chắn và độ bền vượt trội. Đây là món trang sức lý tưởng cho những ai yêu thích sự đơn giản nhưng vẫn muốn tạo dấu ấn cá nhân. Lắc tay Cuban Saint không chỉ là món trang sức mà còn là biểu tượng của phong cách sống tự do và sự nổi bật.', 2, 2),
+(4, 14, 'SP014', 'Bông tai bạc nữ đính đá CZ cỏ 4 lá, phù hợp cho mọi cô gái yêu thích sự nhẹ nhàng và thanh thoát. Thiết kế bông tai này kết hợp giữa sự hiện đại và vẻ đẹp tự nhiên, với đá CZ hình cỏ 4 lá tượng trưng cho may mắn và thịnh vượng. Bông tai được làm từ bạc cao cấp, có độ sáng bóng tuyệt vời và bền đẹp theo thời gian. Đây là món trang sức không thể thiếu trong bộ sưu tập của những cô gái yêu thích sự tinh tế và may mắn.', 1, 1),
+(5, 15, 'SP015', 'Bông tai bạc Ý S925 nữ mạ bạch kim đính đá CZ hình trái tim là một món trang sức tinh tế, phù hợp cho những dịp đặc biệt. Được làm từ bạc Ý S925 cao cấp, bông tai này có lớp mạ bạch kim mang đến độ sáng bóng bền lâu. Đá CZ hình trái tim được cắt mài tinh xảo, mang lại hiệu ứng ánh sáng lấp lánh, làm nổi bật vẻ đẹp của người đeo. Đây là lựa chọn lý tưởng cho những cô gái yêu thích sự nhẹ nhàng, thanh thoát nhưng vẫn muốn tạo ấn tượng mạnh mẽ.', 12, 1),
+(6, 31, 'SP031', 'Nhẫn bạc nữ đính đá CZ hoa bướm là món trang sức lãng mạn và nữ tính, được thiết kế tinh tế với những viên đá CZ hình hoa bướm lấp lánh. Chiếc nhẫn này mang đến sự tươi mới và duyên dáng cho người đeo, thích hợp cho những dịp đặc biệt hay làm quà tặng ý nghĩa. Được làm từ bạc cao cấp, nhẫn bạc nữ đính đá CZ hoa bướm chắc chắn sẽ làm bạn nổi bật và thu hút sự chú ý mỗi khi xuất hiện.', 123, 1),
+(7, 32, 'SP032', 'Dây chuyền bạc nữ liền mặt mạ vàng đính đá CZ hình trái tim mang đến sự sang trọng và quý phái cho người đeo. Thiết kế dây chuyền này kết hợp giữa sự mềm mại của mặt dây trái tim và ánh sáng lấp lánh của đá CZ, tạo nên một món trang sức hoàn hảo cho những cô gái yêu thích sự thanh lịch và quyến rũ. Với lớp mạ vàng cao cấp, sản phẩm có độ bền vượt trội và sáng bóng lâu dài. Đây là món quà tuyệt vời cho những dịp quan trọng trong cuộc đời bạn.', 123, 1),
+(8, 33, 'SP033', 'Lắc chân bạc nữ đính đá CZ hình cỏ 4 lá Mildred, tạo nên phong cách trẻ trung và năng động. Lắc chân này được thiết kế với sự kết hợp giữa đá CZ lấp lánh và bạc cao cấp, mang đến sự nhẹ nhàng nhưng đầy cuốn hút. Đá CZ hình cỏ 4 lá tượng trưng cho may mắn, là biểu tượng của sự khởi đầu mới và thịnh vượng. Lắc chân bạc nữ Mildred là lựa chọn lý tưởng cho những ai yêu thích sự nổi bật và khác biệt.', 12, 1),
+(9, 34, 'SP034', 'Dây chuyền bạc nữ liền mặt mạ vàng đính đá CZ, phong cách hiện đại và sang trọng. Mặt dây chuyền được đính đá CZ lấp lánh, tạo nên sự nổi bật và quyến rũ cho người đeo. Với lớp mạ vàng bền bỉ, dây chuyền này không chỉ có độ sáng bóng tuyệt vời mà còn giữ được vẻ đẹp lâu dài theo thời gian. Đây là lựa chọn lý tưởng cho những ai yêu thích sự tinh tế và sang trọng.', 50, 1);
 
 -- --------------------------------------------------------
 
@@ -133,9 +149,8 @@ CREATE TABLE `danh_mucs` (
 
 INSERT INTO `danh_mucs` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
 (1, 'Vòng-Lắc', 1),
-(2, 'Nhẫn', 1),
+(2, 'Phụ kiện ', 1),
 (3, 'Dây chuyền', 1),
-(4, 'Bông taiiiiiiiiiii', 2),
 (5, 'Bông tai', 1);
 
 -- --------------------------------------------------------
@@ -193,7 +208,11 @@ INSERT INTO `hinh_anh_san_phams` (`id`, `san_pham_id`, `album_hinh_anh`) VALUES
 (7, 29, './uploads/1731593926IMG-1159.jpg'),
 (8, 31, './uploads/1731662349IMG-0380.jpg'),
 (9, 31, './uploads/1731662349IMG-1159.jpg'),
-(10, 31, './uploads/1731662349snapedit_1728291327469.jpg');
+(10, 31, './uploads/1731662349snapedit_1728291327469.jpg'),
+(11, 35, './uploads/17320603534.jpg'),
+(12, 35, './uploads/173206035315.jpg'),
+(13, 35, './uploads/173206035315-2.jpg'),
+(14, 35, './uploads/1732060353cat-6-2.jpg');
 
 -- --------------------------------------------------------
 
@@ -291,13 +310,16 @@ CREATE TABLE `san_phams` (
 --
 
 INSERT INTO `san_phams` (`id`, `ten`, `img`, `gia_ban`, `gia_km`, `mo_ta`, `so_luong`, `date`, `trang_thai`, `gia_nhap`, `danh_muc_id`) VALUES
-(8, 'aaaaaaaaaaa', './uploads/1731885925sp1.jpg', '10000', '20000', 'aaa', 2, '2024-11-06', 1, '56785', 3),
-(9, 'aaaaaaaaaaa', './uploads/1731885957sp2.jpg', '10000', '20000', 'aaa', 150, '2024-11-06', 1, '42345', 4),
-(13, 'aaaaaaaaaaa', './uploads/1731885969sp3.jpg', '10000', '20000', 's', 2, '2024-11-10', 2, '89679', 5),
-(14, 'aaaaaaaaaaa', './uploads/1731886034sp4.jpg', '10000', '20000', 'asadá', 1, '2024-11-10', 1, '34675', 3),
-(15, 'fawfasf', './uploads/1731886049sp5.jpg', '120000', '4234', '12323123', 12, '2024-11-10', 1, '1233333', 5),
-(31, 'fawfasf', './uploads/1731886088sp6.jpg', '120000', '32000', '', 123, '2024-11-15', 1, '1413424', 1),
-(32, 'fawfasf', './uploads/1731886143sp7.jpg', '120000', '32000', 'dqdqưdqưdqư', 123, '2024-11-18', 1, '1413424', 1);
+(8, 'Nhẫn bạc nữ đính kim cương Moissanite Aidan', './uploads/1731885925sp1.jpg', '4300000', '20000', 'Mẫu nhẫn bạc nữ sang trọng, được đính kim cương Moissanite tỏa sáng, phù hợp cho các dịp đặc biệt, giúp tôn vinh vẻ đẹp của người sở hữu.\r\n\r\n', 2, '2024-11-06', 1, '56785', 3),
+(9, 'Dây chuyền bạc nữ đính đá CZ cá tiên', './uploads/1731885957sp2.jpg', '2300000', '20000', 'Dây chuyền bạc nữ thiết kế thanh thoát, đính đá CZ hình cá tiên, mang đến vẻ đẹp nhẹ nhàng nhưng cũng không kém phần nổi bật.', 150, '2024-11-06', 1, '42345', 3),
+(13, 'Lắc tay bạc nam mắt xích đơn giản ngầu Cuban Saint Laurent Paris', './uploads/1731885969sp3.jpg', '3926000', '20000', 'Lắc tay bạc nam thiết kế mắt xích đơn giản, mạnh mẽ nhưng tinh tế, phù hợp với phong cách nam tính, đặc biệt cho những ai yêu thích sự năng động.', 2, '2024-11-10', 1, '89679', 5),
+(14, 'Bông tai bạc nữ đính đá CZ cỏ 4 lá', './uploads/1731886034sp4.jpg', '10000', '20000', 'Bông tai bạc Ý mạ bạch kim, đính đá CZ hình thù độc đáo, thích hợp cho những cô nàng yêu thích sự sang trọng và khác biệt.', 1, '2024-11-10', 1, '34675', 3),
+(15, 'Bông tai bạc Ý S925 nữ mạ bạch kim đính đá CZ hình trái tim', './uploads/1731886049sp5.jpg', '120000', '4234', 'Bông tai bạc Ý mạ bạch kim, đính đá CZ hình thù độc đáo, thích hợp cho những cô nàng yêu thích sự sang trọng và khác biệt.', 12, '2024-11-10', 1, '1233333', 5),
+(31, 'Nhẫn bạc nữ đính đá CZ hoa bướm', './uploads/1731886088sp6.jpg', '120000', '32000', 'Mẫu nhẫn bạc nữ sang trọng, được đính kim cương Moissanite tỏa sáng, phù hợp cho các dịp đặc biệt, giúp tôn vinh vẻ đẹp của người sở hữu.\r\n', 123, '2024-11-15', 1, '1413424', 1),
+(32, 'Dây chuyền bạc nữ liền mặt mạ vàng đính đá CZ trái tim Double ', './uploads/1731886143sp7.jpg', '120000', '32000', 'Dây chuyền bạc nữ thiết kế thanh thoát, đính đá CZ hình cá tiên, mang đến vẻ đẹp nhẹ nhàng nhưng cũng không kém phần nổi bật.', 123, '2024-11-18', 1, '1413424', 1),
+(33, 'Lắc chân bạc nữ đính đá CZ hình cỏ 4 lá Mildred', './uploads/1731927755cat-5.jpg', '810000', '800000', 'Bông tai bạc nữ kiểu dáng tinh tế, đính đá CZ hình cỏ 4 lá mang đến may mắn và sự duyên dáng cho người sử dụng.', 12, '2024-11-03', 1, '1000000', 1),
+(34, 'Dây chuyền bạc nữ liền mặt mạ vàng đính đá CZ trái tim Double', './uploads/17319293338.jpg', '2100000', '1900000', 'Lắc tay bạc nam thiết kế mắt xích đơn giản, mạnh mẽ nhưng tinh tế, phù hợp với phong cách nam tính, đặc biệt cho những ai yêu thích sự năng động.', 50, '2024-11-07', 1, '1000000', 1),
+(35, 'Bông tai bạc Ý S925 nữ mạ bạch kim đính đá CZ hình trái tim', './uploads/17320603534.jpg', '3000000', '2500000', 'Bông tai bạc Ý mạ bạch kim, đính đá CZ hình thù độc đáo, thích hợp cho những cô nàng yêu thích sự sang trọng và khác biệt.', 120, '2024-11-20', 1, '2300000', 5);
 
 -- --------------------------------------------------------
 
@@ -326,7 +348,9 @@ CREATE TABLE `tai_khoans` (
 INSERT INTO `tai_khoans` (`id`, `ho_ten`, `anh_dai_dien`, `ngay_sinh`, `email`, `so_dien_thoai`, `gioi_tinh`, `dia_chi`, `mat_khau`, `chuc_vu_id`, `trang_thai`) VALUES
 (1, 'nguyenvanchien', '', '2024-11-07', 'chiennvph51500@gmail.com', 338506483, 1, 'so 1 ha noi', 123456, 1, '1'),
 (2, 'chiennnguynvan', '', '2024-11-19', 'chienn@gmail.com', 338506458, 1, 'xp vip', 123456, 2, '2'),
-(3, 'Tuấn Anh', '', '2024-01-01', 'anhntph51526@gmail.com', 325687430, 1, '', 123456, 2, '1');
+(3, 'Tuấn Anh', '', '2024-01-01', 'anhntph51526@gmail.com', 325687430, 1, '', 123456, 2, '1'),
+(5, 'dsád', '', '2024-01-01', 'tanh24@gmail.com', 9321312, 1, '', 123456, 2, '1'),
+(6, 'dsád', '', '2024-01-01', 'anhntph5152666@gmail.com', 93213213, 1, '', 123456, 2, '1');
 
 -- --------------------------------------------------------
 
@@ -429,7 +453,9 @@ ALTER TABLE `chi_tiet_don_hangs`
 -- Indexes for table `chi_tiet_san_phams`
 --
 ALTER TABLE `chi_tiet_san_phams`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ma_san_pham` (`ma_san_pham`),
+  ADD KEY `san_pham_id` (`san_pham_id`);
 
 --
 -- Indexes for table `danh_mucs`
@@ -474,7 +500,8 @@ ALTER TABLE `phuong_thuc_thanh_toans`
 -- Indexes for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_san_phams_danh_mucs` (`danh_muc_id`);
 
 --
 -- Indexes for table `tai_khoans`
@@ -526,13 +553,13 @@ ALTER TABLE `chi_tiet_don_hangs`
 -- AUTO_INCREMENT for table `chi_tiet_san_phams`
 --
 ALTER TABLE `chi_tiet_san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `danh_mucs`
 --
 ALTER TABLE `danh_mucs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `don_hangs`
@@ -544,7 +571,7 @@ ALTER TABLE `don_hangs`
 -- AUTO_INCREMENT for table `hinh_anh_san_phams`
 --
 ALTER TABLE `hinh_anh_san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `khuyen_mais`
@@ -568,13 +595,13 @@ ALTER TABLE `phuong_thuc_thanh_toans`
 -- AUTO_INCREMENT for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tai_khoans`
 --
 ALTER TABLE `tai_khoans`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_lienhe`
@@ -612,11 +639,23 @@ ALTER TABLE `chi_tiet_don_hangs`
   ADD CONSTRAINT `chi_tiet_don_hangs_ibfk_2` FOREIGN KEY (`san_pham_id`) REFERENCES `san_phams` (`id`);
 
 --
+-- Constraints for table `chi_tiet_san_phams`
+--
+ALTER TABLE `chi_tiet_san_phams`
+  ADD CONSTRAINT `chi_tiet_san_phams_ibfk_1` FOREIGN KEY (`san_pham_id`) REFERENCES `san_phams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `don_hangs`
 --
 ALTER TABLE `don_hangs`
   ADD CONSTRAINT `FK_phuong_thuc` FOREIGN KEY (`phuong_thuc_thanh_toan_id`) REFERENCES `phuong_thuc_thanh_toans` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `FK_trang_thai` FOREIGN KEY (`trang_thai_don_hang_id`) REFERENCES `trang_thai_don_hangs` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `san_phams`
+--
+ALTER TABLE `san_phams`
+  ADD CONSTRAINT `FK_san_phams_danh_mucs` FOREIGN KEY (`danh_muc_id`) REFERENCES `danh_mucs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

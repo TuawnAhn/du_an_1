@@ -58,9 +58,7 @@
                       <div class="mt-3 mt-lg-0">
                         <form action="javascript:void(0);">
                           <div class="row g-3 mb-0 align-items-center">
-                            <div class="col-auto">
-                              <button type="button" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Add Product</button>
-                            </div>
+                           
                             <!--end col-->
                             <div class="col-auto">
                               <button type="button" class="btn btn-soft-info btn-icon waves-effect material-shadow-none waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
@@ -76,261 +74,149 @@
                 </div>
                 <!--end row-->
 <div class="row">
-                  <div class="col-xl-3 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                      <div class="card-body">
-                        <div class="d-flex align-items-center">
-                          <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Doanh Thu</p>
-                          </div>
-                          <div class="flex-shrink-0">
-                            <h5 class="text-success fs-14 mb-0">
-                              <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
-                            </h5>
-                          </div>
-                        </div>
-                        <div class="d-flex align-items-end justify-content-between mt-4">
-                          <div>
-                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo  $revenue['revenue'];  ?>"></span>k </h4>
-                            <a href="#" class="text-decoration-underline">Xem chi tiết</a>
-                          </div>
-                          <div class="avatar-sm flex-shrink-0">
-                            <span class="avatar-title bg-success-subtle rounded fs-3">
-                              <i class="bx bx-dollar-circle text-success"></i>
-                            </span>
-                          </div>
-                        </div>
-                      </div><!-- end card body -->
-                    </div><!-- end card -->
-                  </div><!-- end col -->
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card card-animate">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1 overflow-hidden">
+                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Doanh Thu</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <h5 class="text-success fs-14 mb-0">
+                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
+                        </h5>
+                    </div>
+                </div>
+                <div class="d-flex align-items-end justify-content-between mt-4">
+                    <div>
+                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $revenue['revenue']; ?>"></span>k </h4>
+                        <a href="#" class="text-decoration-underline">Xem chi tiết</a>
+                    </div>
+                    <div class="avatar-sm flex-shrink-0">
+                        <span class="avatar-title bg-success-subtle rounded fs-3">
+                            <i class="bx bx-dollar-circle text-success"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                  <div class="col-xl-3 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                      <div class="card-body">
-                        <div class="d-flex align-items-center">
-                          <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">ĐƠN Hàng</p>
-                          </div>
-                          <div class="flex-shrink-0">
-                            <h5 class="text-danger fs-14 mb-0">
-                              <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                            </h5>
-                          </div>
-                        </div>
-                        <div class="d-flex align-items-end justify-content-between mt-4">
-                          <div>
-                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo  $totalDH['completed_orders'];  ?>"></span></h4>
-                            <a href="#" class="text-decoration-underline">Xem chi tiết</a>
-                          </div>
-                          <div class="avatar-sm flex-shrink-0">
-<span class="avatar-title bg-info-subtle rounded fs-3">
-                              <i class="bx bx-shopping-bag text-info"></i>
-                            </span>
-                          </div>
-                        </div>
-                      </div><!-- end card body -->
-                    </div><!-- end card -->
-                  </div><!-- end col -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card card-animate">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1 overflow-hidden">
+                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Đơn Hàng</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <h5 class="text-danger fs-14 mb-0">
+                            <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                        </h5>
+                    </div>
+                </div>
+                <div class="d-flex align-items-end justify-content-between mt-4">
+                    <div>
+                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $totalDH['completed_orders']; ?>"></span></h4>
+                        <a href="#" class="text-decoration-underline">Xem chi tiết</a>
+                    </div>
+                    <div class="avatar-sm flex-shrink-0">
+                        <span class="avatar-title bg-info-subtle rounded fs-3">
+                            <i class="bx bx-shopping-bag text-info"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                  <div class="col-xl-3 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                      <div class="card-body">
-                        <div class="d-flex align-items-center">
-                          <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Người dùng</p>
-                          </div>
-                          <div class="flex-shrink-0">
-                            <h5 class="text-success fs-14 mb-0">
-                              <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
-                            </h5>
-                          </div>
-                        </div>
-                        <div class="d-flex align-items-end justify-content-between mt-4">
-                          <div>
-                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo  $totalUser['total_users'];  ?>"></span> </h4>
-                            <a href="#" class="text-decoration-underline">Xem chi tiết</a>
-                          </div>
-                          <div class="avatar-sm flex-shrink-0">
-                            <span class="avatar-title bg-warning-subtle rounded fs-3">
-                              <i class="bx bx-user-circle text-warning"></i>
-                            </span>
-                          </div>
-                        </div>
-                      </div><!-- end card body -->
-                    </div><!-- end card -->
-                  </div><!-- end col -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card card-animate">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1 overflow-hidden">
+                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Người Dùng</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <h5 class="text-success fs-14 mb-0">
+                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
+                        </h5>
+                    </div>
+                </div>
+                <div class="d-flex align-items-end justify-content-between mt-4">
+                    <div>
+                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $totalUser['total_users']; ?>"></span></h4>
+                        <a href="#" class="text-decoration-underline">Xem chi tiết</a>
+                    </div>
+                    <div class="avatar-sm flex-shrink-0">
+                        <span class="avatar-title bg-warning-subtle rounded fs-3">
+                            <i class="bx bx-user-circle text-warning"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                  <div class="col-xl-3 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                      <div class="card-body">
-                        <div class="d-flex align-items-center">
-                          <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Lợi Nhuận</p>
-                          </div>
-                          <div class="flex-shrink-0">
-                            <h5 class="text-muted fs-14 mb-0">
-                              <?php // In kết quả phần trăm tăng trưởng
-                              // echo number_format($growthPercentage, 2) . '%';
-                              ?>
-                            </h5>
-                          </div>
-                        </div>
-                        <div class="d-flex align-items-end justify-content-between mt-4">
-<div>
-                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo  $loiNhuan['profit'];  ?>"></span>k </h4>
-                            <a href="#" class="text-decoration-underline">Xem chi tiết</a>
-                          </div>
-                          <div class="avatar-sm flex-shrink-0">
-                            <span class="avatar-title bg-primary-subtle rounded fs-3">
-                              <i class="bx bx-wallet text-primary"></i>
-                            </span>
-                          </div>
-                        </div>
-                      </div><!-- end card body -->
-                    </div><!-- end card -->
-                  </div><!-- end col -->
-                </div> <!-- end row-->
+    <div class="col-xl-3 col-md-6">
+    <div class="card card-animate">
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <div class="flex-grow-1 overflow-hidden">
+                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Lợi nhuận</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <h5 class="text-success fs-14 mb-0">
+                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
+                    </h5>
+                </div>
+            </div>
+            <div class="d-flex align-items-end justify-content-between mt-4">
+                <div>
+                    <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $revenue['revenue']; ?>"></span>k </h4>
+                    <a href="#" class="text-decoration-underline">Xem chi tiết</a>
+                </div>
+                <div class="avatar-sm flex-shrink-0">
+                    <span class="avatar-title bg-success-subtle rounded fs-3">
+                        <i class="bx bx-dollar-circle text-success"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <div class="row">
-                  <div class="col-xl-12">
-                    <div class="card">
-                      <div class="card-header border-0 align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Biểu đồ thống kê</h4>
-                        <div>
-                          <button type="button" class="btn btn-soft-secondary material-shadow-none btn-sm">
-                            ALL
-                          </button>
-                          <button type="button" class="btn btn-soft-secondary material-shadow-none btn-sm">
-                            1M
-                          </button>
-                          <button type="button" class="btn btn-soft-secondary material-shadow-none btn-sm">
-                            6M
-                          </button>
-                          <button type="button" class="btn btn-soft-primary material-shadow-none btn-sm">
-                            1Y
-                          </button>
-                        </div>
-                      </div><!-- end card header -->
+<!-- Repeat similar block for total orders, users, and profit -->
 
-                      <div class="card-header p-0 border-0 bg-light-subtle">
-                        <div class="row g-0 text-center">
-                          <div class="col-6 col-sm-3">
-                            <div class="p-3 border border-dashed border-start-0">
-                              <h5 class="mb-1"><span class="counter-value" data-target="<?php echo  $totalDH['completed_orders'];  ?>"></span></h5>
-                              <p class="text-muted mb-0">Đơn hàng</p>
-                            </div>
-                          </div>
-                          <!--end col-->
-                          <div class="col-6 col-sm-3">
-                            <div class="p-3 border border-dashed border-start-0">
-                              <h5 class="mb-1"><span class="counter-value" data-target="<?php echo  $revenue['revenue'];  ?>"></span>k</h5>
-                              <p class="text-muted mb-0">Doanh thu</p>
-                            </div>
-                          </div>
-                          <!--end col-->
-<div class="col-6 col-sm-3">
-                            <div class="p-3 border border-dashed border-start-0">
-                              <h5 class="mb-1"><span class="counter-value" data-target="<?php echo  $totalUser['total_users'];  ?>"></span></h5>
-                              <p class="text-muted mb-0">Người dùng</p>
-                            </div>
-                          </div>
-                          <!--end col-->
-                          <div class="col-6 col-sm-3">
-                            <div class="p-3 border border-dashed border-start-0 border-end-0">
-                              <h5 class="mb-1 text-success"><span class="counter-value" data-target="<?php echo number_format($growthPercentage, 2); ?>">0</span>%</h5>
-                              <p class="text-muted mb-0">Lợi nhuận</p>
-                            </div>
-                          </div>
-                          <!--end col-->
-                        </div>
-                      </div><!-- end card header -->
+<!-- Chart Section -->
+<!-- <div class="card-body p-0 pb-2">
+    <div class="w-100">
+        <div id="bieu-do" class="apex-charts" dir="ltr"></div>
+        <script>
+            var options = {
+                series: [{
+                    name: "Lợi nhuận",
+                    data: <?= $bieudoArray ?>
+                }],
+                chart: {
+                    height: 350,
+                    type: 'line',
+                    zoom: { enabled: false }
+                },
+                dataLabels: { enabled: false },
+                stroke: { width: [5], curve: 'smooth' },
+                title: { text: 'Lợi Nhuận Theo Tháng', align: 'left' },
+                xaxis: { categories: <?= $bieudoArrayMoth ?> },
+                tooltip: { shared: true, intersect: false },
+                grid: { borderColor: '#f1f1f1' }
+            };
 
-                      <div class="card-body p-0 pb-2">
-                        <div class="w-100">
-                          <div class="d-flex align-items-center p-5">
-
-
-
-                          </div>
-                          <div id="bieu-do" data-colors='["--vz-primary", "--vz-success", "--vz-danger"]' data-colors-minimal='["--vz-light", "--vz-primary", "--vz-info"]' data-colors-saas='["--vz-success", "--vz-info", "--vz-danger"]' data-colors-modern='["--vz-warning", "--vz-primary", "--vz-success"]' data-colors-interactive='["--vz-info", "--vz-primary", "--vz-danger"]' data-colors-creative='["--vz-warning", "--vz-primary", "--vz-danger"]' data-colors-corporate='["--vz-light", "--vz-primary", "--vz-secondary"]' data-colors-galaxy='["--vz-secondary", "--vz-primary", "--vz-primary-rgb, 0.50"]' data-colors-classic='["--vz-light", "--vz-primary", "--vz-secondary"]' data-colors-vintage='["--vz-success", "--vz-primary", "--vz-secondary"]' class="apex-charts" dir="ltr"></div>
-                          <script>
-                            var options = {
-                              series: [{
-                                  name: "Lợi nhuận",
-                                  data: <?= $bieudoArray ?>
-                                }
-
-                              ],
-                              chart: {
-                                height: 350,
-                                type: 'line',
-                                zoom: {
-                                  enabled: false
-                                },
-                              },
-                              dataLabels: {
-                                enabled: false
-                              },
-                              stroke: {
-                                width: [5, 7, 5],
-                                curve: 'straight',
-                                dashArray: [0, 8, 5]
-                              },
-                              title: {
-text: 'Page Statistics',
-                                align: 'left'
-                              },
-                              legend: {
-                                tooltipHoverFormatter: function(val, opts) {
-                                  return val + ' - <strong>' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + '</strong>'
-                                }
-                              },
-                              markers: {
-                                size: 0,
-                                hover: {
-                                  sizeOffset: 6
-                                }
-                              },
-                              xaxis: {
-                                categories: <?= $bieudoArrayMoth ?>,
-                              },
-                              tooltip: {
-                                y: [{
-                                    title: {
-                                      formatter: function(val) {
-                                        return val + " (mins)"
-                                      }
-                                    }
-                                  },
-                                  {
-                                    title: {
-                                      formatter: function(val) {
-                                        return val + " per session"
-                                      }
-                                    }
-                                  },
-                                  {
-                                    title: {
-                                      formatter: function(val) {
-                                        return val;
-                                      }
-                                    }
-                                  }
-                                ]
-                              },
-                              grid: {
-                                borderColor: '#f1f1f1',
-                              }
-                            };
-
-                            var chart = new ApexCharts(document.querySelector("#bieu-do"), options);
-                            chart.render();
-                          </script>
-                        </div>
+            var chart = new ApexCharts(document.querySelector("#bieu-do"), options);
+            chart.render();
+        </script>
+    </div> -->
+</div>
                       </div><!-- end card body -->
                     </div><!-- end card -->
                   </div><!-- end col -->
@@ -388,58 +274,10 @@ text: 'Page Statistics',
                     </div> <!-- .card-->
                   </div> <!-- .col-->
 
-                  <div class="col-xl-8">
-                    <div class="card">
-                      <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Sản phẩm bán chạy</h4>
-                        <div class="flex-shrink-0">
-                          <button type="button" class="btn btn-soft-info btn-sm material-shadow-none">
-                            <i class="ri-file-list-3-line align-middle"></i> Generate Report
-                          </button>
-</div>
-                      </div><!-- end card header -->
+                 
 
-                      <div class="card-body">
-                        <div class="table-responsive table-card">
-                          <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                            <thead class="text-muted table-light">
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Tên sản phẩm</th>
-                                <th scope="col">Đã bán</th>
-                                <!-- <th scope="col">Amount</th>
-                                <th scope="col">Vendor</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Rating</th> -->
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2112</a>
-                                </td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                      <img src="https://mevn-public.s3-ap-southeast-1.amazonaws.com/marketenterprise.vn/wp-images/2020/06/12113245/Screen-Shot-2020-06-12-at-11.31.30-AM.png" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                    </div>
-                                    <div class="flex-grow-1">Alex Smith</div>
-                                  </div>
-                                </td>
-                                <td>9999</td>
-                                <!-- <td>
-                                  <span class="text-success">$109.00</span>
-                                </td>
-                                <td>Zoetic Fashion</td>
-                                <td>
-                                  <span class="badge bg-success-subtle text-success">Paid</span>
-                                </td>
-                                <td>
-                                  <h5 class="fs-14 fw-medium mb-0">5.0<span class="text-muted fs-11 ms-1">(61 votes)</span></h5>
-                                </td> -->
-                              </tr><!-- end tr -->
-
-                            </tbody><!-- end tbody -->
+                    
+                           
                           </table><!-- end table -->
                         </div>
                       </div>

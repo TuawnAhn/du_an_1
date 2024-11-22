@@ -1,126 +1,96 @@
 <?php
 class ThongKe
 {
-  public $conn;
+    public $conn;
 
-  // Kết nối cơ sở dữ liệu
-  public function __construct()
-  {
-    $this->conn = connectDB();
-  }
-
-  // Lấy tổng doanh thu theo trạng thái
-  public function getRevenueByStatus()
-  {
-    try {
-      $sql = "SELECT SUM(IFNULL(tong_tien, 0)) AS revenue FROM don_hangs WHERE trang_thai_don_hang = 7 ";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-      return $stmt->fetch();
-      // return (float) ($result['revenue'] ?? 0);
-    } catch (PDOException $e) {
-      echo "Error: " . $e->getMessage();
-      return 0;
+    // Database connection
+    public function __construct()
+    {
+        $this->conn = connectDB();
     }
-  }
 
-  // Lấy tổng đơn hàng đã hoàn thành
-
-  public function getTotalDh()
-  {
-    try {
-      $sql = "SELECT COUNT(*) AS completed_orders FROM don_hangs JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang = trang_thai_don_hangs.id WHERE trang_thai_don_hangs.id = 7;";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-      return $stmt->fetch();
-      // return (float) ($result['revenue'] ?? 0);
-    } catch (PDOException $e) {
-      echo "Error: " . $e->getMessage();
-      return 0;
+    // Get total revenue by status
+    public function getRevenueByStatus()
+    {
+        try {
+            $sql = "SELECT SUM(IFNULL(tong_tien, 0)) AS revenue FROM don_hangs WHERE trang_thai_don_hang_id = 7";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return ['revenue' => 0]; // Return a default value
+        }
     }
-  }
 
-
-
-  public function getTotalUser()
-  {
-    try {
-      $sql = "SELECT COUNT(*) AS total_users FROM nguoi_dungs WHERE vai_tro = 'User';";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-      return $stmt->fetch();
-      // return (float) ($result['revenue'] ?? 0);
-    } catch (PDOException $e) {
-      echo "Error: " . $e->getMessage();
-      return 0;
+    // Get total completed orders
+    public function getTotalDh()
+    {
+        try {
+            $sql = "SELECT COUNT(*) AS completed_orders FROM don_hangs WHERE trang_thai_don_hang_id = 7";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return ['completed_orders' => 0]; // Default value
+        }
     }
-  }
 
-
-  //Lợi nhuận = (Giá bán - Giá nhập) * Số lượng còn lại
-
-  public function getLoiNhuan()
-  {
-    try {
-      $sql = "SELECT SUM((gia_ban - gia_nhap) * so_luong) AS profit
-FROM san_phams
-WHERE trang_thai = 1;
-";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-      return $stmt->fetch();
-      // return (float) ($result['revenue'] ?? 0);
-    } catch (PDOException $e) {
-      echo "Error: " . $e->getMessage();
-      return 0;
+    // Get total users
+    public function getTotalUser()
+    {
+        try {
+            $sql = "SELECT COUNT(*) AS total_users FROM nguoi_dungs WHERE vai_tro = 'User'";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return ['total_users' => 0]; // Default value
+        }
     }
-  }
 
-// Lợi nhuận theo tháng
-  public function getMoth()
-  {
-      try {
-          $sql = "SELECT
-                      YEAR(ngay_nhap) AS year,
-                      MONTH(ngay_nhap) AS month,
-                      SUM((gia_ban - gia_nhap) * so_luong) AS monthly_profit
-                  FROM san_phams
-                  WHERE trang_thai = 1
-                  GROUP BY YEAR(ngay_nhap), MONTH(ngay_nhap)
-                  ORDER BY year, month;";
+    // Calculate profit
+    public function getLoiNhuan()
+    {
+        try {
+            $sql = "SELECT SUM((gia_ban - gia_nhap) * so_luong) AS profit FROM san_phams WHERE trang_thai = 1";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return ['profit' => 0]; // Default value
+        }
+    }
 
-          // Prepare and execute the query
-          $stmt = $this->conn->prepare($sql);
-          $stmt->execute();
+    // Get monthly profits
+    public function getMoth()
+    {
+        try {
+            $sql = "SELECT YEAR(ngay_nhap) AS year, MONTH(ngay_nhap) AS month, SUM((gia_ban - gia_nhap) * so_luong) AS monthly_profit FROM san_phams WHERE trang_thai = 1 GROUP BY YEAR(ngay_nhap), MONTH(ngay_nhap) ORDER BY year, month;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return []; // Return empty array on error
+        }
+    }
 
-          // Fetch all the results as an associative array
-          return $stmt->fetchAll(PDO::FETCH_ASSOC);
-      } catch (PDOException $e) {
-          // Handle errors
-          echo "Error: " . $e->getMessage();
-          return [];
-      }
-  }
-
-
-  public function totalSp()
-  {
-      try {
-$sql = " SELECT dmsp.ten_danh_muc, COUNT(SP.id) as totalSp FROM `san_phams` as SP INNER JOIN danh_mucs as dmsp ON SP.danh_muc_id = dmsp.id GROUP BY dmsp.id";
-
-          // Prepare and execute the query
-          $stmt = $this->conn->prepare($sql);
-          $stmt->execute();
-
-          // Fetch all the results as an associative array
-          return $stmt->fetchAll(PDO::FETCH_ASSOC);
-      } catch (PDOException $e) {
-          // Handle errors
-          echo "Error: " . $e->getMessage();
-          return [];
-      }
-  }
-
-
-
+    // Get total products by category
+    public function totalSp()
+    {
+        try {
+            $sql = "SELECT dmsp.ten_danh_muc, COUNT(SP.id) as totalSp FROM san_phams as SP INNER JOIN danh_mucs as dmsp ON SP.danh_muc_id = dmsp.id GROUP BY dmsp.id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return []; // Return empty array on error
+        }
+    }
 }
+?>

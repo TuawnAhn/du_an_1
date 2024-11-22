@@ -75,13 +75,13 @@ class TaiKhoanController
                     if ($user['chuc_vu_id'] == 1) {
                         header("Location: ?act=dashboard");
                     } else {
-                        header("Location: ?act=home");
+                        header("Location: ?act=lien-he");
                     }
                     exit();
                 }
             } else {
                 $_SESSION['flash'] = $user;
-                header("Location: http://localhost/DA1-Sliver%20Ring/?act=home");
+                header("Location: ?act=login-admin");
                 exit();
             }
         }
