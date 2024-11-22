@@ -182,7 +182,7 @@
                                                 <div class="products-list grid">
                                                     <div class="row">
                                                         
-                                                        <?php foreach ($listSanPham as $key => $sanPham): ?>
+                                                        <?php foreach ($listSanPhamById as $key => $sanPham): ?>
                                                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                                                 <div class="products-entry clearfix product-wapper">
                                                                     <div class="products-thumb">

@@ -7,18 +7,7 @@
         <div id="site-main" class="site-main">
             <div id="main-content" class="main-content">
                 <div id="primary" class="content-area">
-                    <div id="title" class="page-title">
-                        <div class="section-container">
-                            <div class="content-title-heading">
-                                <h1 class="text-title-heading">
-                                    Sản phẩm
-                                </h1>
-                            </div>
-                            <div class="breadcrumbs">
-                                <a href="?act=home">Trang chủ</a><span class="delimiter"></span><a href="?act=danhsachsanpham">Shop</a><span class="delimiter"></span>Sản phẩm
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div id="content" class="site-content" role="main">
                         <div class="section-padding">
@@ -30,24 +19,18 @@
                                             <div class="block-title">
                                                 <h2>Danh mục</h2>
                                             </div>
-                                               
+
                                             <?php foreach ($listDanhMuc as $key => $danhMuc) : ?>
                                                 <div class="block-content">
                                                     <div class="product-cats-list">
                                                         <ul>
                                                             <li class="current">
-                                                                <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
-                                                                    <?= $danhMuc['ten_danh_muc'] ?>
-                                                                    
-                                                                </a>
+                                                                <a href="shop-grid-left.html"><?= $danhMuc['ten_danh_muc'] ?><span class="count">9</span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <?php endforeach; ?>
-                                                
-                                           
-
+                                            <?php endforeach; ?>
                                         </div>
 
                                         <!-- Block Product Filter -->
@@ -181,8 +164,7 @@
                                             <div class="tab-pane fade show active" id="layout-grid" role="tabpanel">
                                                 <div class="products-list grid">
                                                     <div class="row">
-                                                        
-                                                        <?php foreach ($listSanPham as $key => $sanPham): ?>
+                                                        <?php foreach ($timKiemSanPham as $key => $sanPham): ?>
                                                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                                                 <div class="products-entry clearfix product-wapper">
                                                                     <div class="products-thumb">

@@ -152,13 +152,15 @@
 <div class="search-overlay">
     <div class="close-search"></div>
     <div class="wrapper-search">
-        <form role="search" method="get" class="search-from ajax-search" action="#">
-            <a href="#" class="search-close"></a>
+        <form role="search" method="GET" class="search-from ajax-search" action="?act=home">
+            
             <div class="search-box">
-                <button id="searchsubmit" class="btn" type="submit">
+            <input type="hidden" name="act" value="tim-kiem-san-pham">
+            <input type="text"  value="" name="tukhoa"  placeholder="Nhãy nhập vào tên sản phẩm...">
+                <button id="searchsubmit" class="btn" type="submit" name="timkiem">
                     <i class="icon-search"></i>
                 </button>
-                <input type="text" autocomplete="off" value="" name="s" class="input-search s" placeholder="Nhãy nhập vào tên sản phẩm...">
+                
                 <div class="content-menu_search">
                     <label>Đề xuất</label>
                     <ul id="menu_search" class="menu">
