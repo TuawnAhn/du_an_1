@@ -151,6 +151,7 @@
 
                                     <div class="col-xl-9 col-lg-9 col-md-12 col-12">
                                         <div class="products-topbar clearfix">
+                                            
                                             <div class="products-topbar-left">
                                                 
                                             </div>
@@ -1109,12 +1110,7 @@
     </div>
 
     <!-- Page Loader -->
-    <div class="page-preloader">
-        <div class="loader">
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+   
 
     <!-- Dependency Scripts -->
     <script src="libs/popper/js/popper.min.js"></script>

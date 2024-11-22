@@ -145,9 +145,7 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Mô tả</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#additional-information" role="tab">Thông tin khác</a>
-                                                </li>
+                                
                                                 <li class="nav-item">
                                                     <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Đánh giá (1)</a>
                                                 </li>
@@ -191,37 +189,92 @@
                                                             </ol>
                                                         </div>
                                                         <div id="review-form">
-                                                            <div id="respond" class="comment-respond">
-                                                                <span id="reply-title" class="comment-reply-title">Thêm đánh giá</span>
-                                                                <form action="#" method="post" id="comment-form" class="comment-form">
-                                                                    <p class="comment-notes">
-                                                                        <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span>
-                                                                    </p>
-                                                                    <div class="comment-form-rating">
-                                                                        <label for="rating">Your rating</label>
-                                                                        <p class="stars">
-                                                                            <span>
-                                                                                <a class="star-1" href="#">1</a><a class="star-2" href="#">2</a><a class="star-3" href="#">3</a><a class="star-4" href="#">4</a><a class="star-5" href="#">5</a>
-                                                                            </span>
+                                                                <div id="respond" class="comment-respond">
+                                                                    <form action="#" method="post" id="comment-form" class="comment-form">
+                                                                        <p class="comment-notes">
+                                                                            <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span>
                                                                         </p>
-                                                                    </div>
-                                                                    <p class="comment-form-comment">
-                                                                        <textarea id="comment" name="comment" placeholder="Đánh giá của bạn *" cols="45" rows="8" aria-required="true" required=""></textarea>
-                                                                    </p>
-                                                                    <div class="content-info-reviews">
-                                                                        <p class="comment-form-author">
-                                                                            <input id="author" name="author" placeholder="Tên của bạn *" type="text" value="" size="30" aria-required="true" required="">
+                                                                        <div class="comment-form-rating">
+                                                                            <label for="rating">Đánh giá của bạn</label>
+                                                                            <p class="starss">
+                                                                                <span>
+                                                                                    <a class="star-1" href="#" data-rating="1">★</a>
+                                                                                    <a class="star-2" href="#" data-rating="2">★</a>
+                                                                                    <a class="star-3" href="#" data-rating="3">★</a>
+                                                                                    <a class="star-4" href="#" data-rating="4">★</a>
+                                                                                    <a class="star-5" href="#" data-rating="5">★</a>
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <p class="comment-form-comment">
+                                                                            <textarea id="comment" name="comment" placeholder="Đánh giá của bạn *" cols="45" rows="8" aria-required="true" required=""></textarea>
                                                                         </p>
-                                                                        <p class="comment-form-email">
-                                                                            <input id="email" name="email" placeholder="Email của bạn *" type="email" value="" size="30" aria-required="true" required="">
-                                                                        </p>
-                                                                        <p class="form-submit">
-                                                                            <input name="submit" type="submit" id="submit" class="submit" value="Submit">
-                                                                        </p>
-                                                                    </div>
-                                                                </form><!-- #respond -->
+                                                                        <div class="content-info-reviews">
+                                                                           
+                                                                            <p class="comment-form-email">
+                                                                                <input id="email" name="email" placeholder="Email của bạn *" type="email" value="" size="30" aria-required="true" required="">
+                                                                            </p>
+                                                                            <p class="form-submit">
+                                                                                <input name="submit" type="submit" id="submit" class="submit" value="Submit">
+                                                                            </p>
+                                                                        </div>
+                                                                        <!-- Input ẩn để lưu giá trị sao -->
+                                                                        <input type="hidden" id="rating" name="rating" value="">
+                                                                    </form><!-- #respond -->
+                                                                </div>
                                                             </div>
-                                                        </div>
+
+                                                            <style>
+                                                                /* Mặc định màu của các sao */
+                                                                .starss a {
+                                                                    text-decoration: none;
+                                                                    color: gray; /* Màu xám cho sao chưa chọn */
+                                                                    font-size: 30px; /* Kích thước sao */
+                                                                    margin-right: 5px; /* Khoảng cách giữa các sao */
+                                                                }
+
+                                                                /* Khi sao được chọn (có lớp 'active') */
+                                                                .starss a.active {
+                                                                    color: gold; /* Màu vàng khi sao được chọn */
+                                                                }
+
+                                                                /* Khi hover (di chuột lên sao) */
+                                                                .starss a:hover{
+                                                                
+                                                                    color: gold; /* Màu vàng khi hover lên sao */
+                                                                }
+                                                            </style>
+
+                                                            <script>
+                                                                // JavaScript để xử lý sự kiện chọn sao
+                                                                const starss = document.querySelectorAll('.starss a');
+                                                                const ratingInput = document.getElementById('rating');
+
+                                                                starss.forEach(star => {
+                                                                    star.addEventListener('click', function(e) {
+                                                                        e.preventDefault(); // Ngừng hành động mặc định của thẻ <a> (không reload trang)
+
+                                                                        // Xóa lớp active khỏi tất cả các sao
+                                                                        starss.forEach(star => star.classList.remove('active'));
+
+                                                                        // Lấy giá trị sao được chọn
+                                                                        const selectedRating = parseInt(this.getAttribute('data-rating'));
+
+                                                                        // Thêm lớp active cho tất cả các sao có giá trị <= sao đã chọn
+                                                                        starss.forEach(star => {
+                                                                            const starRating = parseInt(star.getAttribute('data-rating'));
+                                                                            if (starRating <= selectedRating) {
+                                                                                star.classList.add('active');
+                                                                            }
+                                                                        });
+
+                                                                        // Cập nhật giá trị sao vào input ẩn
+                                                                        ratingInput.value = selectedRating;
+                                                                    });
+                                                                });
+                                                            </script>
+
+
                                                         <div class="clear"></div>
                                                     </div>
                                                 </div>
