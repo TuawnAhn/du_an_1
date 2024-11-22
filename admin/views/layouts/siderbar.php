@@ -297,13 +297,13 @@
                         <div class="collapse menu-dropdown" id="sidebarTaiKhoan">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="?act=" class="nav-link" data-key="t-sweet-alerts">Tài khoản quản trị</a>
+                                    <a href="?act=list-tai-khoan-quan-tri" class="nav-link" data-key="t-sweet-alerts">Tài khoản quản trị</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="?act=" class="nav-link" data-key="t-nestable-list">Tài khoản khách hàng</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="?act=" class="nav-link" data-key="t-nestable-list">Quản lý tài khoản cá nhân</a>
+                                    <a href="?act=form-sua-thong-tin-ca-nhan" class="nav-link" data-key="t-nestable-list">Quản lý tài khoản cá nhân</a>
                                 </li>
                             </ul>
                         </div>

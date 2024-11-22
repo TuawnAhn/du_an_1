@@ -131,10 +131,16 @@ match ($act) {
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
-    // Quản lý tài khaonr Quản trị
+    // Quản lý tài khoản Quản trị
     'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
     'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
     'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
+    'form-sua-quan-tri' => (new TaiKhoanController())->formEditQuanTri(),
+    'sua-quan-tri' => (new TaiKhoanController())->postEditQuanTri(),
+    'reset-password' => (new TaiKhoanController())->resetPassword(),
+       
+
+
     //
     'login-admin' => (new TaiKhoanController())->formLogin(),
     'check-login-admin' => (new TaiKhoanController())->login(),
@@ -147,4 +153,9 @@ match ($act) {
     //
     'dang-ky' => (new DangKiController())->formDangKi(),
     'check-dang-ky' => (new DangKiController())->dangky(),
+    // quản lí tài khoản cá nhân 
+    'form-sua-thong-tin-ca-nhan' => (new TaiKhoanController())->formEditCaNhanQuanTri(),
+    'sua-thong-tin-ca-nhan' => (new TaiKhoanController())->postEditCaNhanQuanTri(),
+    'sua-mat-khau-ca-nhan' => (new TaiKhoanController())->postEditMatKhauCaNhan(),
+
 };
