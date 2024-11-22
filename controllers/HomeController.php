@@ -24,7 +24,7 @@ class HomeController
 
 
         // var_dump($listBanner);
-      
+        // require_once "./views/sanpham/tim_kiem_san_pham.php";
         require_once "./views/Home.php";
     }
     public function index() {}

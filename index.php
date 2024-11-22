@@ -31,7 +31,7 @@ match ($act) {
 
     'tim-kiem-san-pham'       => (new SanPhamController())->search(),
     'banner'                     => (new BannerController())->banner(),
-    'tin-tuc'                   =>(new TinTucController())->tintuc(),
+    'tin-tuc'                   => (new TinTucController())->tintuc(),
 
     // Danh sách sản phẩm
     'danhsachsanpham'      => (new SanPhamController())->sanpham(),

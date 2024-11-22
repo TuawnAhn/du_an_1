@@ -8,7 +8,7 @@
                         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 header-left">
                             <div class="site-logo">
                                 <a href="?act=home">
-                                    <img width="1000" height="1140" src="media/logo-sliver1.png" alt="Mojuri – Jewelry Store HTML Template" />
+                                    <img width="1000" height="1140" src="media/logo-sliver1.png" alt="Mojuri – Jewelry Store" />
                                 </a>
                             </div>
                         </div>

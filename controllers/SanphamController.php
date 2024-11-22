@@ -44,7 +44,7 @@ class SanPhamController
             // Nhận tên sản phẩm từ form tìm kiếm
             $ten = $_GET['tukhoa'];
     
-            // Nếu có từ khóa tìm kiếm
+            // Nếu có từlistDanhMuc khóa tìm kiếm
             if (isset($ten)) {
                 // Gọi phương thức tìm kiếm từ model
                 $timKiemSanPham = $this->modelSanPham->searchByName($ten);

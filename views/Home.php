@@ -12,7 +12,7 @@ require_once('views/layout/header.php'); ?>
                             <!--Banner -->
                             <div class="block block-sliders auto-height color-white nav-center">
                                 <div class="slick-sliders" data-autoplay="true" data-dots="true" data-nav="true" data-columns4="1" data-columns3="1" data-columns2="1" data-columns1="1" data-columns1440="1" data-columns="1">
-                                    <?php foreach ($listBanner as $key => $banners): ?>
+                                    <?php foreach ($listBanner as $key => $banners): ?> 
                                         <div class="item slick-slide">
                                             <div class="item-content">
                                                 <div class="content-image">
@@ -20,7 +20,7 @@ require_once('views/layout/header.php'); ?>
                                                 </div>
                                                 <div class="item-info horizontal-start vertical-middle">
                                                     <div class="content">
-                                                        <h2 class="title-slider"><?= $listMota['mo_ta']; ?><br>thế giới trang sức</h2>
+                                                        <h2 class="title-slider"><?= $banners['title']; ?><br></h2>
                                                         <a class="button-slider button button-white button-outline thick-border" href="shop-grid-left.html">Khám phá ngay</a>
                                                     </div>
                                                 </div>
@@ -278,46 +278,46 @@ require_once('views/layout/header.php'); ?>
                                     </div>
 
 
-                                                        <br>
-                                                        <br>
+                                    <br>
+                                    <br>
                                     <div class="block-title">
-                                            <h2>TIN TỨC</h2>
-                                        </div>
-                                        <div class="block-content">
-                                            <div class="content-product-list slick-wrap">
-                                                <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">
-                                                    <?php foreach ($TinTucs as $key => $tintuc): ?>
+                                        <h2>TIN TỨC</h2>
+                                    </div>
+                                    <div class="block-content">
+                                        <div class="content-product-list slick-wrap">
+                                            <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">
+                                                <?php foreach ($TinTucs as $key => $tintuc): ?>
 
-                                                        <div clas s="item-product slick-slide">
-                                                            <div class="items">
-                                                                <div class="products-entry clearfix product-wapper">
-                                                                    <div class="products-thumb">
-                                                                        <div class="product-lable">
-                                                                            <div class="hot">Hot</div>
-                                                                        </div>
-                                                                        <div class="product-thumb-hover">
-                                                                            <a href="?act=tin-tuc&id=<?=$tintuc['id']?>">
-                                                                                <img width="600" height="600" src="<?= $tintuc['img'] ?>" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="<?= $tintuc['img'] ?>" class="hover-image back" alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                        
+                                                    <div clas s="item-product slick-slide">
+                                                        <div class="items">
+                                                            <div class="products-entry clearfix product-wapper">
+                                                                <div class="products-thumb">
+                                                                    <div class="product-lable">
+                                                                        <div class="hot">Hot</div>
                                                                     </div>
-                                                                    <div class="products-content">
-                                                                        <div class="contents">
-                                                                            
-                                                                            <h2 class="product-title"><a href="?act=tin-tuc&id=<?=$tintuc['id']?>"><?= $tintuc['title'] ?></a></h2>
-                                                
-                                                                           
-                                                                        </div>
+                                                                    <div class="product-thumb-hover">
+                                                                        <a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>">
+                                                                            <img width="600" height="600" src="<?= 'http://localhost/DA1-Sliver_Ring' . $tintuc['img'] ?>" class="post-image" alt="">
+                                                                            <img width="600" height="600" src="<?= 'http://localhost/DA1-Sliver_Ring' . $tintuc['img'] ?>" class="hover-image back" alt="">
+                                                                        </a>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="products-content">
+                                                                    <div class="contents">
+
+                                                                        <h2 class="product-title"><a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>"><?= $tintuc['title'] ?></a></h2>
+
+
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    <?php endforeach ?>
-                                                </div>
+                                                    </div>
+                                                <?php endforeach ?>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>
