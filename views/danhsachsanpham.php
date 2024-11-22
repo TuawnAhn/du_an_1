@@ -30,18 +30,24 @@
                                             <div class="block-title">
                                                 <h2>Danh mục</h2>
                                             </div>
-
+                                               
                                             <?php foreach ($listDanhMuc as $key => $danhMuc) : ?>
                                                 <div class="block-content">
                                                     <div class="product-cats-list">
                                                         <ul>
                                                             <li class="current">
-                                                                <a href="shop-grid-left.html"><?= $danhMuc['ten_danh_muc'] ?><span class="count">9</span></a>
+                                                                <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
+                                                                    <?= $danhMuc['ten_danh_muc'] ?>
+                                                                    
+                                                                </a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            <?php endforeach; ?>
+                                                <?php endforeach; ?>
+                                                
+                                           
+
                                         </div>
 
                                         <!-- Block Product Filter -->
@@ -145,10 +151,9 @@
 
                                     <div class="col-xl-9 col-lg-9 col-md-12 col-12">
                                         <div class="products-topbar clearfix">
+                                            
                                             <div class="products-topbar-left">
-                                                <div class="products-count">
-                                                    Hiển thị tất cả 9 kết quả
-                                                </div>
+                                                
                                             </div>
                                             <div class="products-topbar-right">
                                                 <div class="products-sort dropdown">
@@ -177,6 +182,7 @@
                                             <div class="tab-pane fade show active" id="layout-grid" role="tabpanel">
                                                 <div class="products-list grid">
                                                     <div class="row">
+                                                        
                                                         <?php foreach ($listSanPham as $key => $sanPham): ?>
                                                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                                                 <div class="products-entry clearfix product-wapper">
@@ -803,24 +809,26 @@
     <div class="search-overlay">
         <div class="close-search"></div>
         <div class="wrapper-search">
-            <form role="search" method="get" class="search-from ajax-search" action="#">
-                <a href="#" class="search-close"></a>
-                <div class="search-box">
-                    <button id="searchsubmit" class="btn" type="submit">
-                        <i class="icon-search"></i>
-                    </button>
-                    <input type="text" autocomplete="off" value="" name="s" class="input-search s" placeholder="Search...">
-                    <div class="content-menu_search">
-                        <label>Suggested</label>
-                        <ul id="menu_search" class="menu">
-                            <li><a href="#">Earrings</a></li>
-                            <li><a href="#">Necklaces</a></li>
-                            <li><a href="#">Bracelets</a></li>
-                            <li><a href="#">Jewelry Box</a></li>
-                        </ul>
-                    </div>
+        <form role="search" method="GET" class="search-from ajax-search" action="?act=home">
+            
+            <div class="search-box">
+            <input type="hidden" name="act" value="tim-kiem-san-pham">
+            <input type="text"  value="" name="tukhoa"  placeholder="Nhãy nhập vào tên sản phẩm...">
+                <button id="searchsubmit" class="btn" type="submit" name="timkiem">
+                    <i class="icon-search"></i>
+                </button>
+                
+                <div class="content-menu_search">
+                    <label>Đề xuất</label>
+                    <ul id="menu_search" class="menu">
+                        <li><a href="#">Bông tai</a></li>
+                        <li><a href="#">Dây chuyền</a></li>
+                        <li><a href="#">Nhẫn</a></li>
+                        <li><a href="#">Hộp đựng trang sức</a></li>
+                    </ul>
                 </div>
-            </form>
+            </div>
+        </form>
         </div>
     </div>
 
@@ -1097,12 +1105,7 @@
     </div>
 
     <!-- Page Loader -->
-    <div class="page-preloader">
-        <div class="loader">
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+   
 
     <!-- Dependency Scripts -->
     <script src="libs/popper/js/popper.min.js"></script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 19, 2024 at 11:56 PM
+-- Generation Time: Nov 22, 2024 at 08:03 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -65,17 +65,17 @@ CREATE TABLE `binh_luans` (
 --
 
 INSERT INTO `binh_luans` (`id`, `san_pham_id`, `ten_nguoi_binh_luan`, `noi_dung`, `ngay_binh_luan`) VALUES
-(11, 13, 'Nguyễn Văn A', 'Sản phẩm này rất tốt, tôi rất thích chất lượng của nó!', '2024-11-17 01:10:34'),
-(12, 13, 'thinhj', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:10:34'),
-(17, 9, 'Trần Thị B', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:45:55'),
-(18, 13, 'Lê Minh C', 'Chất lượng sản phẩm vượt ngoài mong đợi, tôi rất hài lòng.', '2024-11-17 01:45:55'),
+(11, 32, 'Nguyễn Văn A', 'Sản phẩm này rất tốt, tôi rất thích chất lượng của nó!', '2024-11-17 01:10:34'),
+(12, 31, 'thinhj', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:10:34'),
+(17, 33, 'Trần Thị B', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:45:55'),
+(18, 34, 'Lê Minh C', 'Chất lượng sản phẩm vượt ngoài mong đợi, tôi rất hài lòng.', '2024-11-17 01:45:55'),
 (19, 14, 'Phan Quốc D', 'Sản phẩm này có thể cải thiện thêm chút về thiết kế, nhưng rất ổn.', '2024-11-17 01:45:55'),
 (20, 15, 'Vũ Thị E', 'Không thích lắm, mong sản phẩm sẽ tốt hơn trong tương lai.', '2024-11-17 01:45:55'),
 (22, 8, 'Nguyễn Văn A', 'Sản phẩm này rất tốt, tôi rất thích chất lượng của nó!', '2024-11-17 01:56:29'),
-(23, 13, 'Trần Thị B', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:56:29'),
+(23, 9, 'Trần Thị B', 'Mua về dùng rất tiện lợi, sẽ giới thiệu cho bạn bè.', '2024-11-17 01:56:29'),
 (24, 14, 'Lê Minh C', 'Chất lượng sản phẩm vượt ngoài mong đợi, tôi rất hài lòng.', '2024-11-17 01:56:29'),
-(25, 15, 'Phan Quốc D', 'Sản phẩm này có thể cải thiện thêm chút về thiết kế, nhưng rất ổn.', '2024-11-17 01:56:29'),
-(26, 31, 'Vũ Thị E', 'Không thích lắm, mong sản phẩm sẽ tốt hơn trong tương lai.', '2024-11-17 01:56:29');
+(25, 13, 'Phan Quốc D', 'Sản phẩm này có thể cải thiện thêm chút về thiết kế, nhưng rất ổn.', '2024-11-17 01:56:29'),
+(26, 15, 'Vũ Thị E', 'Không thích lắm, mong sản phẩm sẽ tốt hơn trong tương lai.', '2024-11-17 01:56:29');
 
 -- --------------------------------------------------------
 
@@ -200,19 +200,28 @@ CREATE TABLE `hinh_anh_san_phams` (
 
 INSERT INTO `hinh_anh_san_phams` (`id`, `san_pham_id`, `album_hinh_anh`) VALUES
 (1, 24, ''),
-(2, 28, './uploads/1731593916279749712_530299182020173_5296107756670684214_n.jpg'),
-(3, 28, './uploads/1731593916IMG-0380.jpg'),
-(4, 28, './uploads/1731593916IMG-1159.jpg'),
-(5, 29, './uploads/1731593926279749712_530299182020173_5296107756670684214_n.jpg'),
-(6, 29, './uploads/1731593926IMG-0380.jpg'),
-(7, 29, './uploads/1731593926IMG-1159.jpg'),
+(2, 8, './uploads/1731593916279749712_530299182020173_5296107756670684214_n.jpg'),
+(3, 8, './uploads/1731593916IMG-0380.jpg'),
+(4, 9, './uploads/1731593916IMG-1159.jpg'),
+(5, 9, './uploads/1731593926279749712_530299182020173_5296107756670684214_n.jpg'),
+(6, 13, './uploads/1731593926IMG-0380.jpg'),
+(7, 13, './uploads/1731593926IMG-1159.jpg'),
 (8, 31, './uploads/1731662349IMG-0380.jpg'),
 (9, 31, './uploads/1731662349IMG-1159.jpg'),
 (10, 31, './uploads/1731662349snapedit_1728291327469.jpg'),
 (11, 35, './uploads/17320603534.jpg'),
 (12, 35, './uploads/173206035315.jpg'),
 (13, 35, './uploads/173206035315-2.jpg'),
-(14, 35, './uploads/1732060353cat-6-2.jpg');
+(14, 35, './uploads/1732060353cat-6-2.jpg'),
+(15, 32, './uploads/1732221352z5813686910931_d3ce92166d6767a58b39cf4b7bbc6b9e.jpg'),
+(16, 32, './uploads/1732221352z5813686912371_695aff3f7de997d6815f15333abc4307.jpg'),
+(17, 32, './uploads/1732221352z5813686924085_d50f9872d19c49d04dee69cc25103764.jpg'),
+(18, 33, './uploads/1732221589z5813686903377_6b7e8e673026f290cf49effc0e149c16.jpg'),
+(19, 33, './uploads/1732221589z5813686910931_d3ce92166d6767a58b39cf4b7bbc6b9e.jpg'),
+(20, 33, './uploads/1732221589z5813686912371_695aff3f7de997d6815f15333abc4307.jpg'),
+(21, 38, './uploads/1732223849z5813686885981_a7a2fb0a6f5dd60e3947077659f8a318.jpg'),
+(22, 38, './uploads/1732223849z5813686897173_85a08b42250204b5fe8f28b3941e9872.jpg'),
+(23, 38, './uploads/1732223849z5813686903377_6b7e8e673026f290cf49effc0e149c16.jpg');
 
 -- --------------------------------------------------------
 
@@ -319,7 +328,8 @@ INSERT INTO `san_phams` (`id`, `ten`, `img`, `gia_ban`, `gia_km`, `mo_ta`, `so_l
 (32, 'Dây chuyền bạc nữ liền mặt mạ vàng đính đá CZ trái tim Double ', './uploads/1731886143sp7.jpg', '120000', '32000', 'Dây chuyền bạc nữ thiết kế thanh thoát, đính đá CZ hình cá tiên, mang đến vẻ đẹp nhẹ nhàng nhưng cũng không kém phần nổi bật.', 123, '2024-11-18', 1, '1413424', 1),
 (33, 'Lắc chân bạc nữ đính đá CZ hình cỏ 4 lá Mildred', './uploads/1731927755cat-5.jpg', '810000', '800000', 'Bông tai bạc nữ kiểu dáng tinh tế, đính đá CZ hình cỏ 4 lá mang đến may mắn và sự duyên dáng cho người sử dụng.', 12, '2024-11-03', 1, '1000000', 1),
 (34, 'Dây chuyền bạc nữ liền mặt mạ vàng đính đá CZ trái tim Double', './uploads/17319293338.jpg', '2100000', '1900000', 'Lắc tay bạc nam thiết kế mắt xích đơn giản, mạnh mẽ nhưng tinh tế, phù hợp với phong cách nam tính, đặc biệt cho những ai yêu thích sự năng động.', 50, '2024-11-07', 1, '1000000', 1),
-(35, 'Bông tai bạc Ý S925 nữ mạ bạch kim đính đá CZ hình trái tim', './uploads/17320603534.jpg', '3000000', '2500000', 'Bông tai bạc Ý mạ bạch kim, đính đá CZ hình thù độc đáo, thích hợp cho những cô nàng yêu thích sự sang trọng và khác biệt.', 120, '2024-11-20', 1, '2300000', 5);
+(35, 'Bông tai bạc Ý S925 nữ mạ bạch kim đính đá CZ hình trái tim', './uploads/17320603534.jpg', '3000000', '2500000', 'Bông tai bạc Ý mạ bạch kim, đính đá CZ hình thù độc đáo, thích hợp cho những cô nàng yêu thích sự sang trọng và khác biệt.', 120, '2024-11-20', 1, '2300000', 5),
+(38, 'fawfasf', './uploads/1732223849z5813686912371_695aff3f7de997d6815f15333abc4307.jpg', '120000', '32000', '', 1, '2024-11-22', 1, '1413424', 2);
 
 -- --------------------------------------------------------
 
@@ -395,7 +405,11 @@ CREATE TABLE `tin_tucs` (
 --
 
 INSERT INTO `tin_tucs` (`id`, `title`, `content`, `img`, `date`) VALUES
-(2, '11 Cách Chọn Mua Trang Sức Làm Quà Tặng Phù Hợp Và Ý Nghĩa Cho Nữ', 'Sự lựa chọn món quà trang sức đúng đắn có thể mang đến nhiều ý nghĩa tuyệt ạn yêu quý.', 'https://lili.vn/wp-content/uploads/2022/07/Nhan-bac-nu-dinh-kim-cuong-Moissanite-Aidan-LILI_335168_5.jpg', '2024-11-14');
+(10, '11 Cách Chọn Mua Trang Sức Làm Quà Tặng Phù Hợp Và Ý Nghĩa Cho Nữ', 'Sự lựa chọn món quà trang sức đúng đắn có thể mang đến nhiều ý nghĩa tuyệt ạn yêu quý.', '../uploads/7.jpg', '2024-10-31'),
+(11, 'Xu hướng nhẫn cưới 2024: Thiết kế độc đáo, giá cả phải chăng', 'Bài viết sẽ giới thiệu các mẫu nhẫn cưới mới nhất, những xu hướng thiết kế được ưa chuộng, chất liệu và giá cả. Ngoài ra, bài viết có thể đưa ra những gợi ý để bạn chọn được chiếc nhẫn cưới ưng ý.', '../uploads/7-2.jpg', '2024-11-01'),
+(13, ' Top 5 cửa hàng vàng bạc đá quý uy tín tại Hà Nội/TP. Hồ Chí Minh', 'Bài viết sẽ cập nhật chi tiết giá vàng SJC, DOJI, PNJ và các thương hiệu khác trong ngày. Ngoài ra, bài viết có thể phân tích nguyên nhân tăng giảm giá vàng, dự báo xu hướng thị trường và tư vấn cho người mua.', '../uploads/13.jpg', '2024-11-23'),
+(14, 'Khuyến Mãi Lớn Khi Mua Nhẫn Đẹp Tại Silver Ring', 'Silver Ring hân hạnh giới thiệu bộ sưu tập nhẫn mới nhất với thiết kế tinh tế, chất liệu cao cấp và giá cả hấp dẫn. Đây là cơ hội tuyệt vời để sở hữu những mẫu nhẫn độc đáo, phù hợp với mọi phong cách và sự kiện.', '../uploads/11-2.jpg', '2024-11-08'),
+(15, 'BST Nhẫn Cưới Mới – Biểu Tượng Tình Yêu Vĩnh Cửu', 'Silver Ring ra mắt bộ sưu tập nhẫn cưới 2024, được thiết kế tinh xảo và đầy ý nghĩa, dành riêng cho các cặp đôi chuẩn bị bước vào cuộc sống hôn nhân.', '../uploads/8.jpg', '2024-11-09');
 
 -- --------------------------------------------------------
 
@@ -571,7 +585,7 @@ ALTER TABLE `don_hangs`
 -- AUTO_INCREMENT for table `hinh_anh_san_phams`
 --
 ALTER TABLE `hinh_anh_san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `khuyen_mais`
@@ -595,7 +609,7 @@ ALTER TABLE `phuong_thuc_thanh_toans`
 -- AUTO_INCREMENT for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tai_khoans`
@@ -613,7 +627,7 @@ ALTER TABLE `tbl_lienhe`
 -- AUTO_INCREMENT for table `tin_tucs`
 --
 ALTER TABLE `tin_tucs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `trang_thai_don_hangs`

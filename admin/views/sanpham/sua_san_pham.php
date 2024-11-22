@@ -132,7 +132,7 @@
                                                             <!-- Hiển thị ảnh hiện tại nếu có -->
                                                             <?php if (!empty($SanPham['img'])): ?>
                                                                 <div>
-                                                                    <img src="<?= $SanPham['img'] ?>" alt="Hình ảnh hiện tại" style="max-width: 50px;">
+                                                                    <img src="<?= 'http://localhost/DA1-Sliver_Ring' . $SanPham['img'] ?>" alt="Hình ảnh hiện tạii" style="max-width: 50px;">
                                                                 </div>
                                                             <?php endif; ?>
                                                             <input type="file" class="form-control" id="img" name="img">

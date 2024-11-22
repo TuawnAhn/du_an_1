@@ -41,11 +41,24 @@
                                                     <span class="text-danger"><?= !empty($_SESSION['errors']['title']) ? $_SESSION['errors']['title'] : '' ?></span>
                                                 </div>
                                                 
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="content" class="form-label">Mô Tả</label>
-                                                    <textarea id="content" name="content" class="form-control" rows="4" placeholder="Nhập mô tả"></textarea>
-                                                    <span class="text-danger"><?= !empty($_SESSION['errors']['content']) ? $_SESSION['errors']['content'] : '' ?></span>
-                                                </div>
+                                                <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="" class="form-label">Nội dung</label>
+                                                            <textarea name="content" id="editor" class="ckeditor-classic"></textarea>
+                                                            <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+                                                            <script>
+                                                                // Khởi tạo CKEditor cho textarea
+                                                                ClassicEditor
+                                                                    .create(document.querySelector('#editor'))
+                                                                    .catch(error => {
+                                                                        console.error(error);
+                                                                    });
+                                                            </script>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['content']) ? $_SESSION['errors']['content'] : '' ?>
+                                                            </span>
+                                                        </div>
+                                                    </div>
 
                                                 <div class="col-md-6 mb-3">
                                                     <label for="img" class="form-label">Hình Ảnh</label>

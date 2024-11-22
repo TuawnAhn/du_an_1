@@ -107,7 +107,24 @@
                                     <td><img src="<?= $TinTuc['img'] ?>" alt="News Image" width="100" height="100"></td>
                                     <td class="text-wrap"><?= $TinTuc['title'] ?></td>
                                     <td><?= $TinTuc['date'] ?></td>
-                                    <td class="text-wrap"><?= $TinTuc['content'] ?></td>
+                                    <td>
+                                                                <?php
+                                                                // Lấy nội dung
+                                                                $noi_dung = $TinTuc['content'];
+
+                                                                // Giới hạn số từ
+                                                                $maxWords = 10;
+                                                                $words = explode(' ', $noi_dung); // Tách chuỗi thành mảng các từ
+
+                                                                if (count($words) > $maxWords) {
+                                                                    // Nếu số từ vượt quá giới hạn, lấy 20 từ đầu tiên và thêm "..."
+                                                                    echo implode(' ', array_slice($words, 0, $maxWords)) . '...';
+                                                                } else {
+                                                                    // Nếu số từ nhỏ hơn hoặc bằng giới hạn, hiển thị toàn bộ nội dung
+                                                                    echo $noi_dung;
+                                                                }
+                                                                ?>
+                                                            </td>
                                     <td>
                                         <div class="hstack gap-3 flex-wrap">
                                             <a href="?act=form-sua-tin-tuc&tin_tuc_id=<?= $TinTuc['id'] ?>"

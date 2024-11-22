@@ -12,7 +12,7 @@ require_once('views/layout/header.php'); ?>
                             <!--Banner -->
                             <div class="block block-sliders auto-height color-white nav-center">
                                 <div class="slick-sliders" data-autoplay="true" data-dots="true" data-nav="true" data-columns4="1" data-columns3="1" data-columns2="1" data-columns1="1" data-columns1440="1" data-columns="1">
-                                    <?php foreach ($listBanner as $key => $banners): ?>
+                                    <?php foreach ($listBanner as $key => $banners): ?> 
                                         <div class="item slick-slide">
                                             <div class="item-content">
                                                 <div class="content-image">
@@ -20,7 +20,7 @@ require_once('views/layout/header.php'); ?>
                                                 </div>
                                                 <div class="item-info horizontal-start vertical-middle">
                                                     <div class="content">
-                                                        <h2 class="title-slider">Khám phá <br>thế giới trang sức</h2>
+                                                        <h2 class="title-slider"><?= $banners['title']; ?><br></h2>
                                                         <a class="button-slider button button-white button-outline thick-border" href="shop-grid-left.html">Khám phá ngay</a>
                                                     </div>
                                                 </div>
@@ -112,97 +112,30 @@ require_once('views/layout/header.php'); ?>
                                 <div class="block block-product-cats slider round-border">
                                     <div class="block-widget-wrap">
                                         <div class="block-title">
-                                            <h2>Top danh mục hàng đầu</h2>
+                                            <h2>Top sản phẩm hàng đầu</h2>
                                         </div>
-                                        <div class="block-content">
-                                            <div class="product-cats-list slick-wrap">
-                                                <div class="slick-sliders content-category" data-dots="0" data-slidestoscroll="true" data-nav="1" data-columns4="2" data-columns3="3" data-columns2="3" data-columns1="5" data-columns1440="5" data-columns="5">
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-1.jpg" alt="Bracelets">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Vòng</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-2.jpg" alt="Charms">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Khuyên xỏ</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-3.jpg" alt="Earrings">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Bông tai</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-4.jpg" alt="Necklaces">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Dây chuyền</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-5.jpg" alt="Rings">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Nhẫn</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-1.jpg" alt="Bracelets">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Lắc</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
+                                        <div class="block block-product-cats">
+                                            <div class="block-title">
+                                                <h2>Danh mục</h2>
+                                            </div>
+                                               
+                                            <?php foreach ($listDanhMuc as $key => $danhMuc) : ?>
+                                                <div class="block-content">
+                                                    <div class="product-cats-list">
+                                                        <ul>
+                                                            <li class="current">
+                                                                <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
+                                                                    <?= $danhMuc['ten_danh_muc'] ?>
+                                                                    
+                                                                </a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                <?php endforeach; ?>
+                                                
+                                           
+
                                         </div>
                                     </div>
                                 </div>
@@ -306,7 +239,7 @@ require_once('views/layout/header.php'); ?>
                                                                             <div class="hot">Hot</div>
                                                                         </div>
                                                                         <div class="product-thumb-hover">
-                                                                            <a href="shop-details.html">
+                                                                            <a href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
                                                                                 <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="post-image" alt="">
                                                                                 <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="hover-image back" alt="">
                                                                             </a>
@@ -340,6 +273,48 @@ require_once('views/layout/header.php'); ?>
                                                         </div>
                                                     <?php endforeach ?>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <br>
+                                    <br>
+                                    <div class="block-title">
+                                        <h2>TIN TỨC</h2>
+                                    </div>
+                                    <div class="block-content">
+                                        <div class="content-product-list slick-wrap">
+                                            <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">
+                                                <?php foreach ($TinTucs as $key => $tintuc): ?>
+
+                                                    <div clas s="item-product slick-slide">
+                                                        <div class="items">
+                                                            <div class="products-entry clearfix product-wapper">
+                                                                <div class="products-thumb">
+                                                                    <div class="product-lable">
+                                                                        <div class="hot">Hot</div>
+                                                                    </div>
+                                                                    <div class="product-thumb-hover">
+                                                                        <a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>">
+                                                                            <img width="600" height="600" src="<?= 'http://localhost/DA1-Sliver_Ring' . $tintuc['img'] ?>" class="post-image" alt="">
+                                                                            <img width="600" height="600" src="<?= 'http://localhost/DA1-Sliver_Ring' . $tintuc['img'] ?>" class="hover-image back" alt="">
+                                                                        </a>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="products-content">
+                                                                    <div class="contents">
+
+                                                                        <h2 class="product-title"><a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>"><?= $tintuc['title'] ?></a></h2>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach ?>
                                             </div>
                                         </div>
                                     </div>
