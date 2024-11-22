@@ -14,7 +14,8 @@ class SanPham
     public function getAll()
     {
         try {
-            $sql = 'SELECT san_phams.*,danh_mucs.ten_danh_muc FROM san_phams INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id';
+            $sql = 'SELECT san_phams.*,danh_mucs.ten_danh_muc, chi_tiet_san_phams.mo_ta_chi_tiet FROM san_phams INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
+            LEFT JOIN chi_tiet_san_phams ON san_phams.id = chi_tiet_san_phams.san_pham_id';
 
             $stmt = $this->conn->prepare($sql);
 

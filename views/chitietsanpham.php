@@ -16,7 +16,7 @@
                                 </h1>
                             </div>
                             <div class="breadcrumbs">
-                                <a href="index.html">Trang chủ</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span> Chi tiết sản phẩm
+                                <a href="?act=home">Trang chủ</a><span class="delimiter"></span><a href="?act=danhsachsanpham">Shop</a><span class="delimiter"></span> Chi tiết sản phẩm
                             </div>
                         </div>
                     </div>
@@ -31,23 +31,27 @@
                                                 <div class="row">
                                                     <div class="col-md-2">
                                                         <div class="content-thumbnail-scroll">
-                                                            <div class="image-thumbnail slick-carousel slick-vertical">
-                                                                <!-- Hiển thị các ảnh sản phẩm -->
-                                                                <div class="img-item slick-slide">
-                                                                    <span class="img-thumbnail-scroll">
-                                                                        <img width="600" height="600" src="<?= $chiTietSanPham['album_hinh_anh']; ?>" alt="">
-                                                                    </span>
-                                                                </div>
-                                                                <!-- Bạn có thể lặp lại phần này nếu có nhiều ảnh khác -->
+                                                            <div class="image-thumbnail slick-carousel slick-vertical" data-asnavfor=".image-additional" data-centermode="true" data-focusonselect="true" data-columns4="5" data-columns3="4" data-columns2="4" data-columns1="4" data-columns="4" data-nav="true" data-vertical="&quot;true&quot;" data-verticalswiping="&quot;true&quot;">
+                                                                <?php foreach ($albumHinhAnh as $key => $album) : ?>
+                                                                    <div class="img-item slick-slide">
+                                                                        <span class="img-thumbnail-scroll">
+                                                                            <img width="600" height="600" src="<?= $album['album_hinh_anh']; ?>" alt="">
+                                                                        </span>
+                                                                    </div>
+                                                                <?php endforeach; ?>
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <div class="scroll-image main-image">
-                                                            <div class="image-additional slick-carousel">
+                                                            <div class="image-additional slick-carousel"
+                                                                data-asnavfor=".image-thumbnail" data-fade="true"
+                                                                data-columns4="1" data-columns3="1" data-columns2="1"
+                                                                data-columns1="1" data-columns="1" data-nav="true">
                                                                 <div class="img-item slick-slide">
-                                                                    <img width="900" height="900" src="
-                                                                    <?= $chiTietSanPham['img']; ?>" alt="">
+                                                                    <img width="900" height="900"
+                                                                        src="<?= $chiTietSanPham['img']; ?>" alt="" title="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -64,7 +68,7 @@
                                                 <div class="rating">
                                                     <div class="star star-5"></div>
                                                     <div class="review-count">
-                                                        (3<span> reviews</span>)
+                                                        (3<span> đánh giá</span>)
                                                     </div>
                                                 </div>
                                                 <div class="description">
@@ -104,17 +108,17 @@
                                                             <button type="button" class="minus">-</button>
                                                         </div>
                                                         <div class="btn-add-to-cart">
-                                                            <a href="#" tabindex="0">Add to cart</a>
+                                                            <a href="#" tabindex="0">Thêm giỏ hàng</a>
                                                         </div>
                                                     </div>
                                                     <div class="btn-quick-buy" data-title="Wishlist">
-                                                        <button class="product-btn">Buy It Now</button>
+                                                        <button class="product-btn">Mua ngay</button>
                                                     </div>
                                                     <div class="btn-wishlist" data-title="Wishlist">
-                                                        <button class="product-btn">Add to wishlist</button>
+                                                        <button class="product-btn">Thêm vào danh sách yêu thích</button>
                                                     </div>
                                                     <div class="btn-compare" data-title="Compare">
-                                                        <button class="product-btn">Compare</button>
+                                                        <button class="product-btn">So sánh</button>
                                                     </div>
                                                 </div>
                                                 <div class="product-meta">
@@ -145,7 +149,7 @@
                                                     <a class="nav-link" data-toggle="tab" href="#additional-information" role="tab">Thông tin khác</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (1)</a>
+                                                    <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Đánh giá (1)</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
@@ -175,12 +179,12 @@
                                                                                 <div class="rating small">
                                                                                     <div class="star star-5"></div>
                                                                                 </div>
-                                                                                <div class="review-author">Nguyễn Tuấn ANh</div>
+                                                                                <div class="review-author"><?= $listBinhLuan['ten_nguoi_binh_luan']; ?></div>
                                                                                 <div class="review-time"><?php echo date('F d, Y'); ?></div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="description">
-                                                                            <p> Trang web có thiết kế tinh tế, phù hợp với sản phẩm nhẫn. </p>
+                                                                            <p> <?= $listBinhLuan['noi_dung']; ?> </p>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -236,215 +240,49 @@
                                             <div class="block-content">
                                                 <div class="content-product-list slick-wrap">
                                                     <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="3" data-columns1="3" data-columns1440="4" data-columns="4">
-                                                        <div class="item-product slick-slide">
-                                                            <div class="items">
-                                                                <div class="products-entry clearfix product-wapper">
-                                                                    <div class="products-thumb">
-                                                                        <div class="product-lable">
-                                                                            <div class="hot">Hot</div>
+                                                        <?php foreach ($listSanPhamCungDanhMuc as $key => $sanPhamLienQuan) : ?>
+
+                                                            <div clas s="item-product slick-slide">
+                                                                <div class="items">
+                                                                    <div class="products-entry clearfix product-wapper">
+                                                                        <div class="products-thumb">
+                                                                            <div class="product-lable">
+                                                                                <div class="hot">Hot</div>
+                                                                            </div>
+                                                                            <div class="product-thumb-hover">
+                                                                                <a href="?act=chitietsanpham&id=<?= $sanPhamLienQuan['id'] ?>">
+                                                                                    <img width="600" height="600" src="<?= $sanPhamLienQuan['img'] ?>" class="post-image" alt="">
+                                                                                    <img width="600" height="600" src="<?= $sanPhamLienQuan['img'] ?>" class="hover-image back" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="product-button">
+                                                                                <div class="btn-add-to-cart" data-title="Add to cart">
+                                                                                    <a rel="nofollow" href="#" class="product-btn button">Thêm vào giỏ hàng</a>
+                                                                                </div>
+                                                                                <div class="btn-wishlist" data-title="Wishlist">
+                                                                                    <button class="product-btn">Thêm vào danh sách yêu thích</button>
+                                                                                </div>
+                                                                                <div class="btn-compare" data-title="Compare">
+                                                                                    <button class="product-btn">So sánh</button>
+                                                                                </div>
+                                                                                <span class="product-quickview" data-title="Quick View">
+                                                                                    <a href="#" class="quickview quickview-button">Xem nhanh <i class="icon-search"></i></a>
+                                                                                </span>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="product-thumb-hover">
-                                                                            <a href="shop-details.html">
-                                                                                <img width="600" height="600" src="media/product/13.jpg" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="media/product/13-2.jpg" class="hover-image back" alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="product-button">
-                                                                            <div class="btn-add-to-cart" data-title="Add to cart">
-                                                                                <a rel="nofollow" href="#" class="product-btn button">Add to cart</a>
+                                                                        <div class="products-content">
+                                                                            <div class="contents">
+                                                                                <div class="rating">
+                                                                                    <div class="star star-0"></div><span class="count">(0 review)</span>
+                                                                                </div>
+                                                                                <h3 class="product-title"><a href="shop-details.html"><?= $sanPhamLienQuan['ten'] ?></a></h3>
+                                                                                <span class="price"><?= $sanPhamLienQuan['gia_ban'] ?></span>
                                                                             </div>
-                                                                            <div class="btn-wishlist" data-title="Wishlist">
-                                                                                <button class="product-btn">Add to wishlist</button>
-                                                                            </div>
-                                                                            <div class="btn-compare" data-title="Compare">
-                                                                                <button class="product-btn">Compare</button>
-                                                                            </div>
-                                                                            <span class="product-quickview" data-title="Quick View">
-                                                                                <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="products-content">
-                                                                        <div class="contents text-center">
-                                                                            <h3 class="product-title"><a href="shop-details.html">Medium Flat Hoops</a></h3>
-                                                                            <div class="rating">
-                                                                                <div class="star star-5"></div>
-                                                                            </div>
-                                                                            <span class="price">$100.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-product slick-slide">
-                                                            <div class="items">
-                                                                <div class="products-entry clearfix product-wapper">
-                                                                    <div class="products-thumb">
-                                                                        <div class="product-lable">
-                                                                            <div class="hot">Hot</div>
-                                                                        </div>
-                                                                        <div class="product-thumb-hover">
-                                                                            <a href="shop-details.html">
-                                                                                <img width="600" height="600" src="media/product/2.jpg" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="media/product/2-2.jpg" class="hover-image back" alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="product-button">
-                                                                            <div class="btn-add-to-cart" data-title="Add to cart">
-                                                                                <a rel="nofollow" href="#" class="product-btn button">Add to cart</a>
-                                                                            </div>
-                                                                            <div class="btn-wishlist" data-title="Wishlist">
-                                                                                <button class="product-btn">Add to wishlist</button>
-                                                                            </div>
-                                                                            <div class="btn-compare" data-title="Compare">
-                                                                                <button class="product-btn">Compare</button>
-                                                                            </div>
-                                                                            <span class="product-quickview" data-title="Quick View">
-                                                                                <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="products-content">
-                                                                        <div class="contents text-center">
-                                                                            <h3 class="product-title"><a href="shop-details.html">Bold Pearl Hoop Earrings</a></h3>
-                                                                            <div class="rating">
-                                                                                <div class="star star-4"></div>
-                                                                            </div>
-                                                                            <span class="price">$200.00</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="item-product slick-slide">
-                                                            <div class="items">
-                                                                <div class="products-entry clearfix product-wapper">
-                                                                    <div class="products-thumb">
-                                                                        <div class="product-lable">
-                                                                            <div class="hot">Hot</div>
-                                                                        </div>
-                                                                        <div class="product-thumb-hover">
-                                                                            <a href="shop-details.html">
-                                                                                <img width="600" height="600" src="media/product/3.jpg" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="media/product/3-2.jpg" class="hover-image back" alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="product-button">
-                                                                            <div class="btn-add-to-cart" data-title="Add to cart">
-                                                                                <a rel="nofollow" href="#" class="product-btn button">Add to cart</a>
-                                                                            </div>
-                                                                            <div class="btn-wishlist" data-title="Wishlist">
-                                                                                <button class="product-btn">Add to wishlist</button>
-                                                                            </div>
-                                                                            <div class="btn-compare" data-title="Compare">
-                                                                                <button class="product-btn">Compare</button>
-                                                                            </div>
-                                                                            <span class="product-quickview" data-title="Quick View">
-                                                                                <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="products-content">
-                                                                        <div class="contents text-center">
-                                                                            <h3 class="product-title"><a href="shop-details.html">Twin Hoops</a></h3>
-                                                                            <div class="rating">
-                                                                                <div class="star star-0"></div>
-                                                                            </div>
-                                                                            <span class="price">$150.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-product slick-slide">
-                                                            <div class="items">
-                                                                <div class="products-entry clearfix product-wapper">
-                                                                    <div class="products-thumb">
-                                                                        <div class="product-lable">
-                                                                            <div class="onsale">-33%</div>
-                                                                        </div>
-                                                                        <div class="product-thumb-hover">
-                                                                            <a href="shop-details.html">
-                                                                                <img width="600" height="600" src="media/product/4.jpg" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="media/product/4-2.jpg" class="hover-image back" alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="product-button">
-                                                                            <div class="btn-add-to-cart" data-title="Add to cart">
-                                                                                <a rel="nofollow" href="#" class="product-btn button">Add to cart</a>
-                                                                            </div>
-                                                                            <div class="btn-wishlist" data-title="Wishlist">
-                                                                                <button class="product-btn">Add to wishlist</button>
-                                                                            </div>
-                                                                            <div class="btn-compare" data-title="Compare">
-                                                                                <button class="product-btn">Compare</button>
-                                                                            </div>
-                                                                            <span class="product-quickview" data-title="Quick View">
-                                                                                <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="products-content">
-                                                                        <div class="contents text-center">
-                                                                            <h3 class="product-title"><a href="shop-details.html">Yilver And Turquoise Earrings</a></h3>
-                                                                            <div class="rating">
-                                                                                <div class="star star-5"></div>
-                                                                            </div>
-                                                                            <span class="price">
-                                                                                <del aria-hidden="true"><span>$150.00</span></del>
-                                                                                <ins><span>$100.00</span></ins>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-product slick-slide">
-                                                            <div class="items">
-                                                                <div class="products-entry clearfix product-wapper">
-                                                                    <div class="products-thumb">
-                                                                        <div class="product-lable">
-                                                                            <div class="onsale">-7%</div>
-                                                                        </div>
-                                                                        <div class="product-thumb-hover">
-                                                                            <a href="shop-details.html">
-                                                                                <img width="600" height="600" src="media/product/5.jpg" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="media/product/5-2.jpg" class="hover-image back" alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="product-button">
-                                                                            <div class="btn-add-to-cart" data-title="Add to cart">
-                                                                                <a rel="nofollow" href="#" class="product-btn button">Add to cart</a>
-                                                                            </div>
-                                                                            <div class="btn-wishlist" data-title="Wishlist">
-                                                                                <button class="product-btn">Add to wishlist</button>
-                                                                            </div>
-                                                                            <div class="btn-compare" data-title="Compare">
-                                                                                <button class="product-btn">Compare</button>
-                                                                            </div>
-                                                                            <span class="product-quickview" data-title="Quick View">
-                                                                                <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
-                                                                            </span>
-                                                                        </div>
-                                                                        <div class="product-stock">
-                                                                            <span class="stock">Out Of Stock</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="products-content">
-                                                                        <div class="contents text-center">
-                                                                            <h3 class="product-title"><a href="shop-details.html">Amp Pendant Light Large</a></h3>
-                                                                            <div class="rating">
-                                                                                <div class="star star-4"></div>
-                                                                            </div>
-                                                                            <span class="price">
-                                                                                <del aria-hidden="true"><span>$150.00</span></del>
-                                                                                <ins><span>$140.00</span></ins>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <?php endforeach; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -633,7 +471,7 @@
     </div>
 
     <!-- Wishlist -->
-    <div class="wishlist-popup">
+    <!-- <div class="wishlist-popup">
         <div class="wishlist-popup-inner">
             <div class="wishlist-popup-content">
                 <div class="wishlist-popup-content-top">
@@ -715,10 +553,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Compare -->
-    <div class="compare-popup">
+    <!-- <div class="compare-popup">
         <div class="compare-popup-inner">
             <div class="compare-table">
                 <div class="compare-table-inner">
@@ -830,15 +668,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Page Loader -->
-    <div class="page-preloader">
+    <!-- <div class="page-preloader">
         <div class="loader">
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Dependency Scripts -->
     <script src="libs/popper/js/popper.min.js"></script>

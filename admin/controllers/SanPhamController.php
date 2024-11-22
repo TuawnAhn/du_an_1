@@ -13,6 +13,7 @@ class SanPhamController
     public function index()
     {
         $listSanPham = $this->modelSanPham->getAll();
+
         require_once './views/sanpham/list_san_pham.php';
     }
     public function create()
@@ -221,7 +222,7 @@ class SanPhamController
     public function getDanhGia($san_pham_id)
     {
         $danhgia = $this->modelSanPham->getDanhGia($san_pham_id);
-        
+
         return $danhgia;
     }
     public function deleteReview()

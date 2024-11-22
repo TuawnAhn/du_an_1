@@ -244,7 +244,10 @@
                                                                 <?php foreach ($listSanPham as $index => $sanPham): ?>
                                                                     <tr>
                                                                         <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                        <td><img src="<?= $sanPham['img'] ?>" alt="product" width="150" height="80"></td>
+                                                                        <td><img src="<?= 'http://localhost/DA1-Sliver_Ring' . $sanPham['img'] ?>" alt="product" width="150" height="80"
+                                                                                onerror="this.onerror=null;this.src='https://d1hjkbq40fs2x4.cloudfront.net/2017-08-21/files/landscape-photography_1645-t.jpg';">
+                                                                        </td>
+
                                                                         <td class="text-wrap"><?= $sanPham['ten'] ?></td>
                                                                         <td class="text-wrap"><?= $sanPham['mo_ta'] ?></td>
                                                                         <td class="text-wrap"><?= $sanPham['gia_nhap'] ?> VND</td>
@@ -278,8 +281,8 @@
                                                                                     </button>
                                                                                 </form>
                                                                                 <a href="?act=chi-tiet-san-pham&san_pham_id=<?= $sanPham['id'] ?>" class="link-primary fs-15 me-2" title="View">
-                                                                            <i class="ri-eye-line"></i>
-                                                                        </a>
+                                                                                    <i class="ri-eye-line"></i>
+                                                                                </a>
                                                                             </div>
                                                                         </td>
                                                                     </tr>

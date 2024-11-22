@@ -66,6 +66,7 @@ class SanPham
         }
     }
 
+
     public function getSanPhamByDanhMucId($danhMucId)
 {
     try {
@@ -87,4 +88,19 @@ class SanPham
     }
 }
 
+
+    public function getAllMota()
+    {
+        try {
+            $sql = "SELECT * FROM san_phams";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo 'Loi: ' . $e->getMessage();
+        }
+    }
 }
