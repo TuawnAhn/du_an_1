@@ -28,10 +28,10 @@ match ($act) {
     // Trang chủ
     'home'                       => (new HomeController())->home(),
 
-    'home'                    => (new BannerController())->banner(),
+    // 'bannẻ'                    => (new BannerController())->banner(),
     'tim-kiem-san-pham'       => (new SanPhamController())->search(),
     'banner'                     => (new BannerController())->banner(),
-    'tin-tuc'                   =>(new TinTucController())->tintuc(),
+    'tin-tuc'                   => (new TinTucController())->tintuc(),
 
     // Danh sách sản phẩm
     'danhsachsanpham'      => (new SanPhamController())->sanpham(),
