@@ -1,19 +1,24 @@
 <?php
-class TinTucController{
+class TinTucController
+{
 
     public $modelTinTuc;
 
-    public function __construct(){ 
+    public function __construct()
+    {
         $this->modelTinTuc = new TinTuc();
     }
 
-    public function home(){
-        
+    public function home()
+    {
+
         $TinTucs = $this->modelTinTuc->getAllTinTuc();
-        require_once 'views/tintuc/tintuc.php';
+        var_dump($TinTucs);
+        // require_once 'views/Home.php';
     }
 
-    public function tintuc() {
+    public function tintuc()
+    {
         // Lấy ID từ URL
         $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -29,7 +34,4 @@ class TinTucController{
         // Hiển thị view chi tiết bài viết
         require_once 'views/tintuc/tintuc.php';
     }
-
-   
 }
-?>
