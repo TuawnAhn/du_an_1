@@ -4,7 +4,6 @@ require_once('views/layout/header.php'); ?>
 <body class="home">
     <div id="page" class="hfeed page-wrapper">
         <?php require_once('views/layout/menu.php'); ?>
-
         <div id="site-main" class="site-main">
             <div id="main-content" class="main-content">
                 <div id="primary" class="content-area">
@@ -344,6 +343,48 @@ require_once('views/layout/header.php'); ?>
                                             </div>
                                         </div>
                                     </div>
+
+
+                                                        <br>
+                                                        <br>
+                                    <div class="block-title">
+                                            <h2>TIN TỨC</h2>
+                                        </div>
+                                        <div class="block-content">
+                                            <div class="content-product-list slick-wrap">
+                                                <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">
+                                                    <?php foreach ($TinTucs as $key => $tintuc): ?>
+
+                                                        <div clas s="item-product slick-slide">
+                                                            <div class="items">
+                                                                <div class="products-entry clearfix product-wapper">
+                                                                    <div class="products-thumb">
+                                                                        <div class="product-lable">
+                                                                            <div class="hot">Hot</div>
+                                                                        </div>
+                                                                        <div class="product-thumb-hover">
+                                                                            <a href="?act=tin-tuc&id=<?=$tintuc['id']?>">
+                                                                                <img width="600" height="600" src="<?= $tintuc['img'] ?>" class="post-image" alt="">
+                                                                                <img width="600" height="600" src="<?= $tintuc['img'] ?>" class="hover-image back" alt="">
+                                                                            </a>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div class="products-content">
+                                                                        <div class="contents">
+                                                                            
+                                                                            <h2 class="product-title"><a href="?act=tin-tuc&id=<?=$tintuc['id']?>"><?= $tintuc['title'] ?></a></h2>
+                                                
+                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php endforeach ?>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </section>

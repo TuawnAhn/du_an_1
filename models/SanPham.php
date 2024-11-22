@@ -23,6 +23,7 @@ class SanPham
         }
     }
 
+
     public function searchByName($ten)
     {
         try {
@@ -47,10 +48,13 @@ class SanPham
             echo 'Lỗi: ' . $e->getMessage();
         }
     }
-    public function getAll()
+ 
+
+    public function getAllDanhMuc()
     {
         try {
-            $sql = 'SELECT san_phams.*,danh_mucs.ten_danh_muc FROM san_phams INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id';
+            $sql = "SELECT * FROM danh_mucs";
+
 
             $stmt = $this->conn->prepare($sql);
 
@@ -61,4 +65,26 @@ class SanPham
             echo 'Lỗi' . $e->getMessage();
         }
     }
+
+    public function getSanPhamByDanhMucId($danhMucId)
+{
+    try {
+        // Câu truy vấn chỉ lấy sản phẩm trong danh mục cụ thể
+        $sql = "SELECT * 
+                FROM san_phams 
+                WHERE danh_muc_id = :danh_muc_id";
+
+        $stmt = $this->conn->prepare($sql);
+
+        // Gắn tham số vào câu lệnh
+        $stmt->bindParam(':danh_muc_id', $danhMucId, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        echo 'Lỗi: ' . $e->getMessage();
+    }
+}
+
 }
