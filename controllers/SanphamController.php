@@ -22,6 +22,7 @@ class SanPhamController
             if (isset($iddm)) {
                 // Gọi phương thức tìm kiếm từ model
                 $listSanPhamById = $this->modelSanPham->getSanPhamByDanhMucId($danhMucId);
+                
             } else {
                 // Nếu không có từ khóa, hiển thị tất cả sản phẩm
                 $listSanPhamById = $this->modelSanPham->getAllSanPham();
@@ -47,9 +48,11 @@ class SanPhamController
             if (isset($ten)) {
                 // Gọi phương thức tìm kiếm từ model
                 $timKiemSanPham = $this->modelSanPham->searchByName($ten);
+                $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
             } else {
                 // Nếu không có từ khóa, hiển thị tất cả sản phẩm
                 $timKiemSanPham = $this->modelSanPham->getAllSanPham();
+                $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
             }
     
             // Gửi danh sách sản phẩm tới view

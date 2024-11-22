@@ -28,7 +28,7 @@ match ($act) {
     // Trang chủ
     'home'                       => (new HomeController())->home(),
 
-    'home'                    => (new BannerController())->banner(),
+
     'tim-kiem-san-pham'       => (new SanPhamController())->search(),
     'banner'                     => (new BannerController())->banner(),
     'tin-tuc'                   =>(new TinTucController())->tintuc(),
