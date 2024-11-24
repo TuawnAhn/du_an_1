@@ -30,7 +30,7 @@ require_once('views/layout/header.php'); ?>
                                 </div>
                             </div>
                         </section>
-
+                       
                         <section class="section section-padding m-b-70">
                             <div class="section-container large">
                                 <!-- Block Banners (Layout 1) -->
@@ -114,95 +114,28 @@ require_once('views/layout/header.php'); ?>
                                         <div class="block-title">
                                             <h2>Top sản phẩm hàng đầu</h2>
                                         </div>
-                                        <div class="block-content">
-                                            <div class="product-cats-list slick-wrap">
-                                                <div class="slick-sliders content-category" data-dots="0" data-slidestoscroll="true" data-nav="1" data-columns4="2" data-columns3="3" data-columns2="3" data-columns1="5" data-columns1440="5" data-columns="5">
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-1.jpg" alt="Bracelets">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Vòng</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-2.jpg" alt="Charms">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Khuyên xỏ</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-3.jpg" alt="Earrings">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Bông tai</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-4.jpg" alt="Necklaces">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Dây chuyền</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-5.jpg" alt="Rings">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Nhẫn</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item item-product-cat slick-slide">
-                                                        <div class="item-product-cat-content">
-                                                            <a href="shop-grid-left.html">
-                                                                <div class="item-image animation-horizontal">
-                                                                    <img width="258" height="258" src="media/product/cat-1.jpg" alt="Bracelets">
-                                                                </div>
-                                                            </a>
-                                                            <div class="product-cat-content-info">
-                                                                <h2 class="item-title">
-                                                                    <a href="shop-grid-left.html">Lắc</a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
+                                        <div class="block block-product-cats">
+                                            <div class="block-title">
+                                                <h2>Danh mục</h2>
+                                            </div>
+                                               
+                                            <?php foreach ($listDanhMuc as $key => $danhMuc) : ?>
+                                                <div class="block-content">
+                                                    <div class="product-cats-list">
+                                                        <ul>
+                                                            <li class="current">
+                                                                <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
+                                                                    <?= $danhMuc['ten_danh_muc'] ?>
+                                                                    
+                                                                </a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                <?php endforeach; ?>
+                                                
+                                           
+
                                         </div>
                                     </div>
                                 </div>
@@ -576,7 +509,7 @@ require_once('views/layout/header.php'); ?>
                                 </div>
                             </div>
                         </section>
-
+                        <?php require_once('views/layout/lienhe.php'); ?>
                         <section class="section section-padding top-border p-t-10 p-b-10 m-b-0">
                             <div class="section-container">
                                 <!-- Block Image -->

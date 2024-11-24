@@ -151,6 +151,7 @@
 
                                     <div class="col-xl-9 col-lg-9 col-md-12 col-12">
                                         <div class="products-topbar clearfix">
+                                            
                                             <div class="products-topbar-left">
                                                 
                                             </div>
@@ -216,7 +217,7 @@
                                                                                 <div class="star star-0"></div><span class="count">(0 review)</span>
                                                                             </div>
                                                                             <h3 class="product-title"><a href="shop-details.html"><?= $sanPham['ten'] ?></a></h3>
-                                                                            <span class="price"><?= $sanPham['gia_ban'] ?>đ</span>
+                                                                            <span class="price"><?= number_format($sanPham['gia_ban'], 0, ',', '.') ?>đ</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -642,14 +643,9 @@
                                             </div>
                                         </div>
 
-                                        <nav class="pagination">
-                                            <ul class="page-numbers">
-                                                <li><a class="prev page-numbers" href="#">Previous</a></li>
-                                                <li><span aria-current="page" class="page-numbers current">1</span></li>
-                                                <li><a class="page-numbers" href="#">2</a></li>
-                                                <li><a class="page-numbers" href="#">3</a></li>
-                                                <li><a class="next page-numbers" href="#">Next</a></li>
-                                            </ul>
+                                       <!-- Phân Trang -->
+                                       <nav class="pagination">
+                                       <?php require_once 'views/layout/pagination.php'; ?>
                                         </nav>
                                     </div>
                                 </div>
@@ -1109,12 +1105,7 @@
     </div>
 
     <!-- Page Loader -->
-    <div class="page-preloader">
-        <div class="loader">
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+   
 
     <!-- Dependency Scripts -->
     <script src="libs/popper/js/popper.min.js"></script>

@@ -25,12 +25,15 @@
                                                     <div class="product-cats-list">
                                                         <ul>
                                                             <li class="current">
-                                                                <a href="shop-grid-left.html"><?= $danhMuc['ten_danh_muc'] ?><span class="count">9</span></a>
+                                                                <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
+                                                                    <?= $danhMuc['ten_danh_muc'] ?>
+                                                                    
+                                                                </a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            <?php endforeach; ?>
+                                                <?php endforeach; ?>
                                         </div>
 
                                         <!-- Block Product Filter -->
@@ -1091,12 +1094,7 @@
     </div>
 
     <!-- Page Loader -->
-    <div class="page-preloader">
-        <div class="loader">
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+   
 
     <!-- Dependency Scripts -->
     <script src="libs/popper/js/popper.min.js"></script>

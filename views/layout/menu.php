@@ -166,8 +166,16 @@
                                             </ul>
                                         </li>
                                         <li class="level-0 menu-item">
+<<<<<<< HEAD
+                                            <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
+=======
                                             <a href="page-contact.html"><span class="menu-item-text">Liên hệ</span></a>
+>>>>>>> c7d79360feb2f4293ba7b2031d08177456484b43
                                         </li>
+                                       
+                                    </ul>
+                                    <ul>
+                                   
                                     </ul>
                                 </nav>
                             </div>
