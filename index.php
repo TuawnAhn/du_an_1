@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
 require_once './commons/function.php'; // Hàm hỗ trợ
@@ -10,6 +10,7 @@ require_once './controllers/BannerController.php';
 require_once './controllers/SanPhamController.php';
 require_once './controllers/ChiTietSanPhamController.php';
 require_once './controllers/TinTucController.php';
+require_once './controllers/TaiKhoanController.php';
 
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
@@ -17,6 +18,9 @@ require_once './models/Banner.php';
 require_once './models/SanPham.php';
 require_once './models/ChiTietSanPham.php';
 require_once './models/TinTuc.php';
+require_once './models/TaiKhoan.php';
+
+error_reporting(E_ERROR | E_PARSE);
 
 
 // Route
@@ -39,7 +43,10 @@ match ($act) {
 
     // Chi tiết sản phẩm
     'chitietsanpham'       => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
-
-        // Mặc định
+    'check-login-admin' => (new TaiKhoanController())->login(),
+    'form-sua-thong-tin-ca-nhan' => (new TaiKhoanController())->formEditCaNhanQuanTri(),
+    'sua-thong-tin-ca-nhan' => (new TaiKhoanController())->postEditCaNhanQuanTri(),
+    'sua-mat-khau-ca-nhan' => (new TaiKhoanController())->postEditMatKhauCaNhan(),
+    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
     default                => print("Hành động không hợp lệ."),
 };

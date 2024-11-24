@@ -49,7 +49,6 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Dashboards
     '/' => (new BaoCaoThongKeController())->home(),
-
     'dashboard' => (new DashboardController())->index(),
 
     //Quan li danh muc
@@ -103,18 +102,6 @@ match ($act) {
 
 
     //Quan li san pham
-
-    'san-phams'            => (new SanPhamController())->index(),
-    'tim-kiem-san-pham'   => (new SanPhamController())->search(),
-    'form-them-san-pham'   => (new SanPhamController())->create(),
-    'them-san-pham'        => (new SanPhamController())->store(),
-    'form-sua-san-pham'    => (new SanPhamController())->edit(),
-    'sua-san-pham'         => (new SanPhamController())->update(),
-    'xoa-san-pham'         => (new SanPhamController())->destroy(),
-    'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
-    'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
-    'xoa-danh-gia'        => (new SanPhamController())->deleteDanhgia(),
-
     'san-phams' => (new SanPhamController())->index(),
     'form-them-san-pham' => (new SanPhamController())->create(),
     'them-san-pham' => (new SanPhamController())->store(),
@@ -124,7 +111,6 @@ match ($act) {
     'chi-tiet-san-pham' => (new SanPhamController())->DetailSanPham(),
     'xoa-binh-luan' => (new SanPhamController())->deleteReview(),
     'xoa-danh-gia' => (new SanPhamController())->deleteDanhgia(),
-
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
