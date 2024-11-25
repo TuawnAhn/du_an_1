@@ -4,27 +4,69 @@ require_once('views/layout/header.php'); ?>
 <body class="home">
     <div id="page" class="hfeed page-wrapper">
         <?php require_once('views/layout/menu.php'); ?>
-        <br>
+        <br><br>
         <h2 style="text-align:center">Khuyến Mãi, Ưu Đãi HOT Nhất Tại Silver Ring</h2>
 
-<h3>Ưu đãi tháng 11</h3>
-<div class="row">
-<?php foreach($danhSachKhuyenMai as $KhuyenMaiItem) { ?>
-    <div class="col-lg-3 col-md-6 col-sm-12 mb-4"> <!-- Added mb-4 for spacing -->
-        <div class="card text-center shadow" style="height: 250px;">
-            <p class="card-img-top mx-auto mt-3">Silver Ring</p>
-            <div class="card-body d-flex flex-column justify-content-between">
-                <h5 class="card-title"><?= $KhuyenMaiItem['ten_khuyen_mai'] ?></h5>
-                <p class="card-text text-muted">Hạn sử dụng: <?= $KhuyenMaiItem['ngay_ket_thuc'] ?></p>
-                <div class="d-flex justify-content-between align-items-center border p-2 rounded bg-light">
-                    <span>MÃ: <strong id="promo-code-<?= $KhuyenMaiItem['ma_khuyen_mai'] ?>"><?= $KhuyenMaiItem['ma_khuyen_mai'] ?></strong></span>
-                    <button class="btn btn-success btn-sm" onclick="copyCode('<?= $KhuyenMaiItem['ma_khuyen_mai'] ?>')">Sao chép mã</button>
+<h3 style="text-align:center">Ưu đãi tháng 11</h3><br>
+<div class="container">
+    <div class="row">
+        <?php foreach($danhSachKhuyenMai as $KhuyenMaiItem) { ?>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4"> <!-- 3 cards in a row -->
+                <div class="card text-center shadow position-relative" style="height: 250px; border: 1px solid #ccc;">
+                    <p class="card-img-top mx-auto mt-3">Silver Ring</p>
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title"><?= $KhuyenMaiItem['ten_khuyen_mai'] ?></h5>
+                        <p class="card-text text-muted">Hạn sử dụng: <?= $KhuyenMaiItem['ngay_ket_thuc'] ?></p>
+                        <!-- Hidden promo code -->
+                        <span class="d-none" id="promo-code-<?= $KhuyenMaiItem['ma_khuyen_mai'] ?>"><?= $KhuyenMaiItem['ma_khuyen_mai'] ?></span>
+                    </div>
+                    <!-- Copy button positioned at the top right -->
+                    <button class="btn btn-success btn-sm position-absolute top-0 end-0 m-2" onclick="copyCode('<?= $KhuyenMaiItem['ma_khuyen_mai'] ?>')">Sao chép mã</button>
                 </div>
             </div>
-        </div>
+        <?php } ?>
     </div>
-<?php } ?>
+</div>
+<br>
+<style>
+   .card {
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+    border-radius: 5px; /* Rounded corners */
+}
 
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+
+.card-img-top {
+    font-size: 1.5rem; /* Adjust font size for the image title */
+    font-weight: bold; /* Make the title bold */
+    color: #333; /* Dark color for better contrast */
+}
+
+.card-title {
+    font-size: 1.25rem; /* Adjust the title size */
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.card-text {
+    font-size: 0.9rem; /* Slightly smaller font for text */
+}
+
+.btn-success {
+    background-color: #28a745; /* Bootstrap success color */
+    border: none; /* Remove default border */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.bg-light {
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+</style>
 <script>
 function copyCode(code) {
     // Create a temporary input element
@@ -314,7 +356,7 @@ function copyCode(code) {
                                 </div>
                             </div>
                         </section>
-                        <?php require_once('views/layout/lienhe.php'); ?>
+                       
                         <section class="section section-padding top-border p-t-10 p-b-10 m-b-0">
                             <div class="section-container">
                                 <!-- Block Image -->

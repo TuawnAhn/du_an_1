@@ -509,7 +509,7 @@ require_once('views/layout/header.php'); ?>
                                 </div>
                             </div>
                         </section>
-                        <?php require_once('views/layout/lienhe.php'); ?>
+                  
                         <section class="section section-padding top-border p-t-10 p-b-10 m-b-0">
                             <div class="section-container">
                                 <!-- Block Image -->

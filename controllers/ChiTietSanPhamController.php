@@ -22,4 +22,7 @@ class ChiTietSanPhamController
 
         require_once './views/chitietsanpham.php';
     }
+    public function addGioHang(){
+        
+    }
 }

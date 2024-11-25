@@ -74,43 +74,20 @@
                                                 <div class="description">
                                                     <p><?= $chiTietSanPham['mo_ta']; ?></p>
                                                 </div>
-                                                <div class="variations">
-                                                    <table cellspacing="0">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="label">Size</td>
-                                                                <td class="attributes">
-                                                                    <ul class="text">
-                                                                        <li><span>L</span></li>
-                                                                        <li><span>M</span></li>
-                                                                        <li><span>S</span></li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="label">Color</td>
-                                                                <td class="attributes">
-                                                                    <ul class="colors">
-                                                                        <li><span class="color-1"></span></li>
-                                                                        <li><span class="color-2"></span></li>
-                                                                        <li><span class="color-3"></span></li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                               <form action="act=them-gio-hang" method="POST">
                                                 <div class="buttons">
                                                     <div class="add-to-cart-wrap">
                                                         <div class="quantity">
+                                                            <input type="hidden" name="san_pham_id" value="<?= $chiTietSanPham['id'] ?>">
                                                             <button type="button" class="plus">+</button>
-                                                            <input type="number" class="qty" value="1">
+                                                            <input type="number" class="qty" name="so_luong" value="1">
                                                             <button type="button" class="minus">-</button>
                                                         </div>
                                                         <div class="btn-add-to-cart">
                                                             <a href="#" tabindex="0">Thêm giỏ hàng</a>
                                                         </div>
                                                     </div>
+                                                    </form>
                                                     <div class="btn-quick-buy" data-title="Wishlist">
                                                         <button class="product-btn">Mua ngay</button>
                                                     </div>

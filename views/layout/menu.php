@@ -146,7 +146,7 @@
                                                     <a href="page-about.html"><span class="menu-item-text">Về chúng tôi</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="page-contact.html"><span class="menu-item-text">Liên hệ</span></a>
+                                                    <a href="?act=lien-he"><span class="menu-item-text">Liên hệ</span></a>
                                                 </li>
                                                 <li>
                                                     <a href="page-faq.html"><span class="menu-item-text">Câu hỏi thường gặp</span></a>
@@ -157,13 +157,11 @@
                                             </ul>
                                         </li>
                                         <li class="level-0 menu-item">
-<<<<<<< HEAD
+
                                             <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
-=======
-                                            <a href="page-contact.html"><span class="menu-item-text">Liên hệ</span></a>
->>>>>>> c7d79360feb2f4293ba7b2031d08177456484b43
+                              
                                         </li>
-                                       
+                                      
                                     </ul>
                                     <ul>
                                    

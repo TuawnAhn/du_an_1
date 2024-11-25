@@ -19,7 +19,7 @@ class HomeController
         $TinTucs = $this->modelTinTuc->getAllTinTuc();
 
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
-        $listMota = $this->modelSanPham->getAllMota();
+        // $listMota = $this->modelSanPham->getAllMota();
         // var_dump($listMota);
 
 

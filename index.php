@@ -9,25 +9,24 @@ require_once './controllers/HomeController.php';
 require_once './controllers/BannerController.php';
 require_once './controllers/SanPhamController.php';
 require_once './controllers/ChiTietSanPhamController.php';
-<<<<<<< HEAD
+
 require_once './controllers/LienHeController.php';
 require_once './controllers/KhuyenMaiController.php';
-=======
+
 require_once './controllers/TinTucController.php';
 
->>>>>>> c7d79360feb2f4293ba7b2031d08177456484b43
+
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
 require_once './models/Banner.php';
 require_once './models/SanPham.php';
 require_once './models/ChiTietSanPham.php';
-<<<<<<< HEAD
+
 require_once './models/LienHe.php';
 require_once './models/KhuyenMai.php';
-=======
+
 require_once './models/TinTuc.php';
 
->>>>>>> c7d79360feb2f4293ba7b2031d08177456484b43
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -49,7 +48,7 @@ match ($act) {
 
     // Chi tiết sản phẩm
     'chitietsanpham'       => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
-
+    'them-gio-hang'      => (new ChiTietSanPhamController())->addGioHang(), 
     // Lien he
     'lien-he'  => (new LienHeController())->view(),
     'add-lien-he'  => (new LienHeController())->store(),

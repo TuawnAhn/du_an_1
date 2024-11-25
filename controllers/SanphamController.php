@@ -21,10 +21,10 @@ class SanPhamController
 
         // Lấy danh mục sản phẩm
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
-<<<<<<< HEAD
+
 
         // Yêu cầu view danh sách sản phẩm
-=======
+
         $danhMucId = $_GET['iddm'] ?? 0; // Lấy id danh mục từ URL
         if (isset($_GET['iddm'])) {
             // Nhận tên sản phẩm từ form tìm kiếm
@@ -47,13 +47,10 @@ class SanPhamController
         
      
         // var_dump($danhmucs);
->>>>>>> c7d79360feb2f4293ba7b2031d08177456484b43
+
         require_once './views/danhsachsanpham.php';
         require_once 'views/sanpham/tim_kiem_san_pham.php';
     }
-<<<<<<< HEAD
-}
-=======
     public function search()
     {
         if (isset($_GET['tukhoa'])) {
@@ -79,4 +76,8 @@ class SanPhamController
 
 
 }
->>>>>>> c7d79360feb2f4293ba7b2031d08177456484b43
+
+
+
+
+
