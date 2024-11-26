@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Cập nhật thông tin đơn hàng | Sliver Ring</title>
+    <title>Thêm danh mục sản phẩm | Sliver Ring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -21,10 +21,8 @@
 </head>
 
 <body>
-
     <!-- Begin page -->
     <div id="layout-wrapper">
-
         <!-- HEADER -->
         <?php
         require_once "views/layouts/header.php";
@@ -48,12 +46,12 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lí thông tin đơn hàng </h4>
+                                <h4 class="mb-sm-0">Quản lí Tài khoản Quản trị viên</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Thông tin đơn hàng</li>
+                                        <li class="breadcrumb-item active">Tài khoản QUản trị viên</li>
                                     </ol>
                                 </div>
 
@@ -67,71 +65,50 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Cập nhật thông tin đơn hàng - <?= $donhangs['ma_don_hang'] ?></h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Sửa tài khoản<? $quanTri['ho_ten']; ?></h4>
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=sua-don-hang" method="POST">
-                                                <input type="hidden" name="id_don_hang" value="<?= $donhangs['id'] ?>">
-                                                <div class="row">
-                                                    <!--end col-->
-                                                    
-                                                    <!--end col-->
-                                                  
+                                            <form action="?act=sua-quan-tri" method="post">
+                                                <input type="hidden" name="quan_tri_id" value="<?= $quanTri['id']; ?>">
+                                            <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-
-                                                            <label for="ma_don_hang" class="form-label">Mã đơn hàng</label>
-                                                            <input type="text" class="form-control"  name="ma_don_hang" value="<?= $donhangs['ma_don_hang'] ?>">
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['ma_don_hang']) ? $_SESSION['errors']['ma_don_hang'] : '' ?>
-
-                                                           
+                                                            <label for="ten" class="form-label">Họ Tên</label>
+                                                            <input type="text" class="form-control" id="ho_ten" name="ho_ten" value="<?= $quanTri['ho_ten']; ?> " placeholder="Nhập họ tên">
+                                                            <span class="text-danger"><?= !empty($_SESSION['errors']['ho_ten']) ? $_SESSION['errors']['ho_ten'] : '' ?></span>
                                                         </div>
-                                                    </div>
+                                                        <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="ten" class="form-label">Email</label>
+                                                            <input type="email" class="form-control" id="email" name="email" value="<?= $quanTri['email']; ?> " placeholder="Nhập email">
+                                                            <span class="text-danger"><?= !empty($_SESSION['errors']['email']) ? $_SESSION['errors']['email'] : '' ?></span>
+                                                        </div>
 
+                                                        <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="ten" class="form-label">Số điện thoai</label>
+                                                            <input type="text" class="form-control" id="so_dien_thoai" name="so_dien_thoai" value="<?= $quanTri['so_dien_thoai']; ?> " placeholder="Nhập Số điện thoại">
+                                                            <span class="text-danger"><?= !empty($_SESSION['errors']['so_dien_thoai']) ? $_SESSION['errors']['so_dien_thoai'] : '' ?></span>
+                                                        </div>
 
-                                                    
-                                                  
-
-
-
+                                                      
+                                                        
                                                     <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="trang_thai_don_hang_id" class="form-label">Trạng thái đơn hàng</label>
-                                                            <select class="form-select" name="trang_thai_don_hang_id">
-                                                                <?php foreach ($listTrangThaiDonHang as $trangThai) : ?>
-                                                                    <option
-                                                                        <?php
-                                                                        if (
-                                                                            $donhangs['trang_thai_don_hang_id'] > $trangThai['id']
-                                                                            || $donhangs['trang_thai_don_hang_id'] == 5
-                                                                            || $donhangs['trang_thai_don_hang_id'] == 6
-                                                                            || $donhangs['trang_thai_don_hang_id'] == 7
-                                                                        ) {
-                                                                            echo 'disabled';
-                                                                        }
-                                                                        ?>
-                                                                        <?= $trangThai['id'] == $donhangs['trang_thai_don_hang_id'] ? 'selected' : '' ?>
-                                                                        value="<?= $trangThai['id']; ?>">
-                                                                        <?= $trangThai['trang_thai_don_hang']; ?>
-                                                                    </option>
-
-                                                                <?php endforeach ?>
+                                                            <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                            <select class="form-select" name="trang_thai">
+                                                                <option <?= $quanTri['trang_thai'] == 1? 'selected': ''?> value="1">Hiển thị</option>
+                                                                <option <?= $quanTri['trang_thai'] !== 1? 'selected': ''?> value="2">Ẩn</option>
                                                             </select>
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['trang_thai_don_hang_id']) ? $_SESSION['errors']['trang_thai_don_hang_id'] : '' ?>
-                                                            </span>
                                                         </div>
                                                     </div>
-
-
-                                                    <!-- end col -->
+                                                    <!--end col-->
                                                     <div class="col-lg-12">
                                                         <div class="text-center">
-                                                            <button type="submit" class="btn btn-primary">Sửa thong tin</button>
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
                                                         </div>
                                                     </div>
                                                     <!--end col-->

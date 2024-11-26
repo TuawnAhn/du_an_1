@@ -45,21 +45,16 @@
                                         </div>
 
                                         <!-- Block Product Filter -->
-                                        <div class="block block-product-filter">
-                                            <div class="block-title">
-                                                <h2>Giá</h2>
-                                            </div>
-                                            <div class="block-content">
-                                                <div id="slider-range" class="price-filter-wrap">
-                                                    <div class="filter-item price-filter">
-                                                        <div class="layout-slider">
-                                                            <input id="price-filter" name="price" value="0;100" />
-                                                        </div>
-                                                        <div class="layout-slider-settings"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="filter-form">
+                                            <form method="GET" action="index.php?controller=sanpham&action=filterByPrice">
+                                                <label for="min_price">Giá thấp nhất:</label>
+                                                <input type="number" id="min_price" name="min_price" value="0" required />
+                                                <label for="max_price">Giá cao nhất:</label>
+                                                <input type="number" id="max_price" name="max_price" value="1000000" required />
+                                                <button type="submit">Lọc</button>
+                                            </form>
                                         </div>
+
 
                                         <!-- Block Product Filter -->
                                         <div class="block block-product-filter clearfix">
@@ -145,6 +140,7 @@
 
                                     <div class="col-xl-9 col-lg-9 col-md-12 col-12">
                                         <div class="products-topbar clearfix">
+
                                             <div class="products-topbar-left">
                                                 <div class="products-count">
                                                     Hiển thị tất cả 9 kết quả
@@ -211,7 +207,7 @@
                                                                                 <div class="star star-0"></div><span class="count">(0 review)</span>
                                                                             </div>
                                                                             <h3 class="product-title"><a href="shop-details.html"><?= $sanPham['ten'] ?></a></h3>
-                                                                            <span class="price"><?= $sanPham['gia_ban'] ?>đ</span>
+                                                                            <span class="price"><?= number_format($sanPham['gia_ban'], 0, ',', '.') ?>đ</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -637,14 +633,9 @@
                                             </div>
                                         </div>
 
+                                        <!-- Phân Trang -->
                                         <nav class="pagination">
-                                            <ul class="page-numbers">
-                                                <li><a class="prev page-numbers" href="#">Previous</a></li>
-                                                <li><span aria-current="page" class="page-numbers current">1</span></li>
-                                                <li><a class="page-numbers" href="#">2</a></li>
-                                                <li><a class="page-numbers" href="#">3</a></li>
-                                                <li><a class="next page-numbers" href="#">Next</a></li>
-                                            </ul>
+                                            <?php require_once 'views/layout/pagination.php'; ?>
                                         </nav>
                                     </div>
                                 </div>
@@ -961,12 +952,7 @@
     </div>
 
     <!-- Page Loader -->
-    <div class="page-preloader">
-        <div class="loader">
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+
 
     <!-- Dependency Scripts -->
     <script src="libs/popper/js/popper.min.js"></script>

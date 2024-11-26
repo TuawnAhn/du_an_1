@@ -86,29 +86,25 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($listQuanTri as $index => $quanTri): ?>
+                                                        <?php foreach ($listQuanTri as $key => $quanTri): ?>
                                                             <tr>
-                                                                <td class="fw-medium"><?= $index + 1 ?></td>
+                                                                <td class="fw-medium"><?= $key + 1 ?></td>
                                                                 <td><?= $quanTri['ho_ten'] ?></td>
                                                                 <td><?= $quanTri['email'] ?></td>
                                                                 <td><?= $quanTri['so_dien_thoai'] ?></td>
                                                                 <td><?= $quanTri['trang_thai'] ==1? 'Active ':'Inactive' ?></td>
-                                                                
                                                                 <td>
-                                                                    <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=form-sua-quan-tri&id=<?= $quanTri['id'] ?>"
-                                                                            class="link-success fs-15"><i
-                                                                                class="ri-edit-2-line"></i></a>
+                                                                <a href="<?= '?act=form-sua-quan-tri&id_quan_tri=' .$quanTri['id'] ?>">
+                                                                    <button class="btn-btn-danger">Sửa</button>
+                                                                </a>
 
-                                                                        <form action="?act=xoa-quan-tri" method="post"
-                                                                            onsubmit="return confirm('Bạn có chắc muốn xóa danh mục này?');">
-                                                                            <input type="hidden" name="danh_muc_id" value="<?= $quanTri['id'] ?>">
-                                                                            <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
-                                                                                <i class="ri-delete-bin-line"></i>
-                                                                            </button>
-                                                                        </form>
-                                                                    </div>
+                                                                <a href="<?= '?act=reset-password&id_quan_tri=' .$quanTri['id'] ?>"
+                                                                onclick="return confirm('Bạn muốn reset pass không?')">
+                                                                
+                                                                    <button class="btn-btn-danger">Reset</button>
+                                                                </a>
                                                                 </td>
+                                                                
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>

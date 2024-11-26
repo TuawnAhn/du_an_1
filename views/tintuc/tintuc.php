@@ -20,9 +20,7 @@
             width: 100%;
         }
         
-        .news-detail-container{
-            text-align: center;
-        }
+      
 
         .image {
             width: 800px;

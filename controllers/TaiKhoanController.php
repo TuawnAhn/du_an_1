@@ -80,7 +80,7 @@ class TaiKhoanController
                 }
             } else {
                 $_SESSION['flash'] = $user;
-                header("Location: /du_an_1/?act=home");
+                header("Location: ?act=login-admin");
                 exit();
             }
         }
@@ -144,8 +144,7 @@ class TaiKhoanController
     public function formEditCaNhanQuanTri()
     {
         $email = $_SESSION['user_admin'];
-        $thongTin = $this->modelTaiKhoan->getAllTaiKhoanformEmail($email);
-        // var_dump($thongTin);die;
+        $thongTin = $this->modelTaiKhoan->getAllTaiKhoanformEmail($email['id']);
         require_once './views/taikhoan/canhan/editCaNhan.php';
     }
     public function postEditMatKhauCaNhan()
@@ -199,13 +198,6 @@ class TaiKhoanController
 
         }
 
-
-
-
-
-
-
-
     }
     public function resetPassword()
     {
@@ -220,8 +212,41 @@ class TaiKhoanController
             die;
         }
     }
-public function postEditCaNhanQuanTri(){
-    require_once './views/taikhoan/canhan/postEditCaNhanQuanTri';
-}
+   
+    public function postEditCaNhanQuanTri()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = $_POST['id'];
+            $ho_ten = $_POST['ho_ten'];
+            $email = $_POST['email'];
+            $so_dien_thoai = $_POST['so_dien_thoai'];
 
+            // var_dump();
+
+            $errors = [];
+
+            if (empty($ho_ten)) {
+                $errors['ho_ten'] = 'Họ tên không được để trống';
+            }
+
+            if (empty($email)) {
+                $errors['email'] = 'Email nguoi nhan không được để trống';
+            }
+
+            if (empty($so_dien_thoai)) {
+                $errors['so_dien_thoai'] = 'Vui lòng điền số điện thoại';
+            }
+
+
+            if (empty($errors)) {
+                $this->modelTaiKhoan->updateCaNhanQuanTri($id ,$ho_ten, $email, $so_dien_thoai);
+                unset($_SESSION['errors']);
+                header("Location: ?act=form-sua-thong-tin-ca-nhan");
+            } else {
+                $_SESSION['errors'] = $errors;
+                header("Location: ?act=form-sua-thong-tin-ca-nhan");
+                exit();
+            }
+        }
+    }
 }

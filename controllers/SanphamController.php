@@ -1,18 +1,28 @@
 <?php
 class SanPhamController
 {
-
-    //Ket noi den file model
     public $modelSanPham;
 
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
     }
+
     public function sanpham()
     {
-        $listSanPham = $this->modelSanPham->getAllSanPham();
+        // Lấy số sản phẩm mỗi trang và trang hiện tại từ URL
+        $item_per_page = !empty($_GET['per_page']) ? (int)$_GET['per_page'] : 16;
+        $current_page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        // Lấy sản phẩm từ model
+        $listSanPham = $this->modelSanPham->getAllSanPham($item_per_page, $current_page);
+        $totalProducts = $this->modelSanPham->getTotalProducts();
+        $totalPages = ceil($totalProducts / $item_per_page); // Tính số trang
+
+        // Lấy danh mục sản phẩm
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
+
+        // Yêu cầu view danh sách sản phẩm
         $danhMucId = $_GET['iddm'] ?? 0; // Lấy id danh mục từ URL
         if (isset($_GET['iddm'])) {
             // Nhận tên sản phẩm từ form tìm kiếm
@@ -35,8 +45,10 @@ class SanPhamController
 
         // var_dump($danhmucs);
         require_once './views/danhsachsanpham.php';
-        require_once 'views/sanpham/tim_kiem_san_pham.php';
+        // require_once 'views/sanpham/tim_kiem_san_pham.php';
     }
+
+
     public function search()
     {
         if (isset($_GET['tukhoa'])) {
@@ -58,5 +70,17 @@ class SanPhamController
 
             require_once './views/sanpham/tim_kiem_san_pham.php';
         }
+    }
+    public function filterByPrice()
+    {
+        $minPrice = isset($_GET['min_price']) ? (int)$_GET['min_price'] : 0;
+        $maxPrice = isset($_GET['max_price']) ? (int)$_GET['max_price'] : 100000000;
+
+        $products = $this->modelSanPham->getProductsByPriceRange($minPrice, $maxPrice);
+
+        $var_dump($products);
+        die();
+
+        require_once 'views/danhsachsanpham.php';
     }
 }
