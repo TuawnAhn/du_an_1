@@ -1,4 +1,6 @@
 <header id="site-header" class="site-header header-v1 color-black">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
 
     <div class="header-desktop">
         <div class="header-wrapper">
@@ -166,11 +168,9 @@
                                             </ul>
                                         </li>
                                         <li class="level-0 menu-item">
-<<<<<<< HEAD
                                             <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
-=======
+
                                             <a href="page-contact.html"><span class="menu-item-text">Liên hệ</span></a>
->>>>>>> c7d79360feb2f4293ba7b2031d08177456484b43
                                         </li>
                                        
                                     </ul>
@@ -331,8 +331,8 @@
 
                                 <!-- Wishlist -->
                                 <div class="wishlist-box">
-                                    <a href="?act=form-sua-thong-tin-ca-nhan">Đổi mật khẩu</a>
-                                </div>
+    <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
+</div>
                             </div>
                         </div>
                     </div>

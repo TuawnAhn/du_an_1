@@ -49,12 +49,11 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
-<<<<<<< HEAD
+
     '/' => (new BaoCaoThongKeController())->home(),
-=======
+
     'thong-ke' => (new BaoCaoThongKeController())->home(),
 
->>>>>>> 3370b6296e5dd0c49626bf8933a426087c82119a
     'dashboard' => (new DashboardController())->index(),
 
     //Quan li danh muc
@@ -136,7 +135,6 @@ match ($act) {
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
-<<<<<<< HEAD
 
 // Quản lý tài khaonr Quản trị
 'list-tai-khoan-quan-tri'=> (new TaiKhoanController())->danhSachQuanTri(),
@@ -151,11 +149,11 @@ match ($act) {
 
 
 
-=======
+
     // Quản lý tài khoản Quản trị
-    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
-    'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
-    'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
+    // 'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
+    // 'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
+    // 'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
     'form-sua-quan-tri' => (new TaiKhoanController())->formEditQuanTri(),
     'sua-quan-tri' => (new TaiKhoanController())->postEditQuanTri(),
     'reset-password' => (new TaiKhoanController())->resetPassword(),
@@ -163,10 +161,9 @@ match ($act) {
 
 
     //
-    'login-admin' => (new TaiKhoanController())->formLogin(),
-    'check-login-admin' => (new TaiKhoanController())->login(),
-    'logout-admin' => (new TaiKhoanController())->logout(),
->>>>>>> c7d79360feb2f4293ba7b2031d08177456484b43
+    // 'login-admin' => (new TaiKhoanController())->formLogin(),
+    // 'check-login-admin' => (new TaiKhoanController())->login(),
+    // 'logout-admin' => (new TaiKhoanController())->logout(),
 
 
     //
