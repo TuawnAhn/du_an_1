@@ -122,23 +122,15 @@
         <hr>
         <h3>Đổi mật khẩu</h3>
 
-
-        <?php if (isset($_SESSION['error'])) { ?>
-          <div class="error">
-
-            <?php echo $_SESSION['error']['old_pass'] ?>
-            <?php echo $_SESSION['error']['confirm_pass'] ?>
-
-          </div>
-
-        <?php } ?>
-
-        <?php if (isset($_SESSION['success'])) { ?>
-          <div class="success">
-            <?php echo $_SESSION['success'] ?>
-          </div>
-
-        <?php } ?>
+        <?php if (isset($_SESSION['error']) || isset($_SESSION['success'])) { ?>
+  <div class="<?= isset($_SESSION['error']) ? 'error' : 'success' ?>">
+    <?php if (isset($_SESSION['error'])) { ?>
+      <?php echo $_SESSION['error']['old_pass'] ?? ''; ?>
+      <?php echo $_SESSION['error']['confirm_pass'] ?? ''; ?>
+    <?php } ?>
+    
+  </div>
+<?php } ?>
 
         <form action="?act=sua-mat-khau-ca-nhan" method="post">
           <div class="form-group">

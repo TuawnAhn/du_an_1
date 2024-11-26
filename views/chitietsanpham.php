@@ -110,7 +110,7 @@
                                                                 <button type="button" class="minus">-</button>
                                                             </div>
                                                             <div class="btn-add-to-cart">
-                                                                <button tabindex="0">Thêm giỏ hàng</button>
+                                                                <a tabindex="0">Thêm giỏ hàng</a>
                                                             </div>
                                                         </div>
                                                         <div class="btn-quick-buy" data-title="Wishlist">

@@ -8,6 +8,23 @@ class SanPham
         $this->conn = connectDB();
     }
 
+
+    // public function getAllSanPham()
+    // {
+    //     try {
+    //         $sql = "SELECT san_phams.*,danh_mucs.ten_danh_muc FROM san_phams INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id";
+
+    //         $stmt = $this->conn->prepare($sql);
+
+    //         $stmt->execute();
+
+    //         return $stmt->fetchAll();
+    //     } catch (Exception $e) {
+    //         echo 'Loi: ' . $e->getMessage();
+    //     }
+    // }
+
+
     public function searchByName($ten)
     {
         try {
@@ -40,11 +57,10 @@ class SanPham
             $sql = "SELECT * FROM danh_mucs";
 
             $stmt = $this->conn->prepare($sql);
+
             $stmt->execute();
 
-            $stmt = $this->conn->prepare($sql);
-
-            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về kết quả dưới dạng mảng liên kết
+            return $stmt->fetchAll(); // Trả về kết quả dưới dạng mảng liên kết
         } catch (PDOException $e) {
             echo 'Lỗi: ' . $e->getMessage();
         }
@@ -124,21 +140,64 @@ class SanPham
         }
     }
 
-    public function getProductsByPriceRange($minPrice, $maxPrice)
+    public function getProductsByPriceRange($minPrice, $maxPrice, $item_per_page = 10, $current_page = 1)
     {
         try {
-            $sql = "SELECT * FROM san_phams WHERE gia_ban BETWEEN :minPrice AND :maxPrice";
+            // Tính toán offset
+            $offset = ($current_page - 1) * $item_per_page;
+
+            // Truy vấn sản phẩm với phân trang
+            $sql = "SELECT * FROM san_phams WHERE gia_ban BETWEEN :minPrice AND :maxPrice LIMIT :limit OFFSET :offset";
 
             $stmt = $this->conn->prepare($sql);
-
             $stmt->bindParam(':minPrice', $minPrice, PDO::PARAM_INT);
             $stmt->bindParam(':maxPrice', $maxPrice, PDO::PARAM_INT);
-
+            $stmt->bindParam(':limit', $item_per_page, PDO::PARAM_INT);
+            $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
             $stmt->execute();
 
-            return $stmt->fetchAll();
+            return $stmt->fetchAll(); // Trả về kết quả dưới dạng mảng liên kết
         } catch (Exception $e) {
-            echo 'Listring: ' . $e->getMessage();
+            echo 'Lỗi: ' . $e->getMessage();
+        }
+    }
+
+    // public function getAllSanPham($item_per_page = 16, $current_page = 1)
+    // {
+    //     try {
+    //         // Tính toán offset
+    //         $offset = ($current_page - 1) * $item_per_page;
+
+    //         // Truy vấn sản phẩm với phân trang
+    //         $sql = "SELECT san_phams.*, danh_mucs.ten_danh_muc 
+    //                 FROM san_phams 
+    //                 INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id 
+    //                 ORDER BY san_phams.id ASC 
+    //                 LIMIT :limit OFFSET :offset";
+
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->bindParam(':limit', $item_per_page, PDO::PARAM_INT);
+    //         $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    //         $stmt->execute();
+
+    //         return $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về kết quả dưới dạng mảng liên kết
+    //     } catch (Exception $e) {
+    //         echo 'Lỗi: ' . $e->getMessage();
+    //     }
+    // }
+    public function countProductsByPriceRange($minPrice, $maxPrice)
+    {
+        try {
+            $sql = "SELECT COUNT(*) as total FROM san_phams WHERE gia_ban BETWEEN :minPrice AND :maxPrice";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':minPrice', $minPrice, PDO::PARAM_INT);
+            $stmt->bindParam(':maxPrice', $maxPrice, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC)['total']; // Trả về tổng số sản phẩm
+        } catch (Exception $e) {
+            echo 'Lỗi: ' . $e->getMessage();
         }
     }
 }

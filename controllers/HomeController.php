@@ -23,7 +23,6 @@ class HomeController
 
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
         $listMota = $this->modelSanPham->getAllMota();
-        // var_dump($listMota);
 
 
         // var_dump($listBanner);

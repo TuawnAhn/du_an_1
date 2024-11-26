@@ -16,37 +16,41 @@ class SanPhamController
 
         // Lấy sản phẩm từ model
         $listSanPham = $this->modelSanPham->getAllSanPham($item_per_page, $current_page);
+        $products = $this->modelSanPham->getAllSanPham();
         $totalProducts = $this->modelSanPham->getTotalProducts();
         $totalPages = ceil($totalProducts / $item_per_page); // Tính số trang
 
         // Lấy danh mục sản phẩm
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
 
-        // Yêu cầu view danh sách sản phẩm
+        // Biến lưu tên file view sẽ được gọi
+        $viewFile = './views/danhsachsanpham.php';
+
+        // Kiểm tra nếu có id danh mục trong URL
         $danhMucId = $_GET['iddm'] ?? 0; // Lấy id danh mục từ URL
         if (isset($_GET['iddm'])) {
             // Nhận tên sản phẩm từ form tìm kiếm
             $iddm = $_GET['iddm'];
 
-            // Nếu có từ khóa tìm kiếm
-            if (isset($iddm)) {
-                // Gọi phương thức tìm kiếm từ model
-                $listSanPhamById = $this->modelSanPham->getSanPhamByDanhMucId($danhMucId);
-            } else {
-                // Nếu không có từ khóa, hiển thị tất cả sản phẩm
-                $listSanPhamById = $this->modelSanPham->getAllSanPham();
-            }
+            // Gọi phương thức tìm sản phẩm theo danh mục
+            $listSanPhamById = $this->modelSanPham->getSanPhamByDanhMucId($danhMucId);
 
-            // Gửi danh sách sản phẩm tới view
+            // Chuyển view sang danh mục sản phẩm
+            $viewFile = './views/sanpham/danh_muc_san_pham.php';
+        } elseif (isset($_GET['search'])) {
+            // Kiểm tra nếu có tìm kiếm từ form
+            $searchTerm = $_GET['search'];
+            // Gọi phương thức tìm sản phẩm theo từ khóa tìm kiếm
+            $listSanPhamBySearch = $this->modelSanPham->searchSanPham($searchTerm);
 
-            require_once './views/sanpham/danh_muc_san_pham.php';
+            // Chuyển view sang tìm kiếm sản phẩm
+            $viewFile = './views/sanpham/tim_kiem_san_pham.php';
         }
 
-
-        // var_dump($danhmucs);
-        require_once './views/danhsachsanpham.php';
-        // require_once 'views/sanpham/tim_kiem_san_pham.php';
+        // Gửi thông tin cho view
+        require_once $viewFile;
     }
+
 
 
     public function search()
@@ -76,11 +80,19 @@ class SanPhamController
         $minPrice = isset($_GET['min_price']) ? (int)$_GET['min_price'] : 0;
         $maxPrice = isset($_GET['max_price']) ? (int)$_GET['max_price'] : 100000000;
 
-        $products = $this->modelSanPham->getProductsByPriceRange($minPrice, $maxPrice);
+        // Thiết lập số sản phẩm mỗi trang và trang hiện tại
+        $item_per_page = 10; // hoặc giá trị mà bạn muốn
+        $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-        $var_dump($products);
-        die();
+        // Đếm tổng số sản phẩm trong khoảng giá
+        $totalProducts = $this->modelSanPham->countProductsByPriceRange($minPrice, $maxPrice);
+        $totalPages = ceil($totalProducts / $item_per_page); // Tính số trang
 
+        // Lấy danh sách sản phẩm trong khoảng giá và phân trang
+        $products = $this->modelSanPham->getProductsByPriceRange($minPrice, $maxPrice, $item_per_page, $current_page);
+        $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
+
+        // Gửi các biến đến view
         require_once 'views/danhsachsanpham.php';
     }
 }

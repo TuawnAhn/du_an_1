@@ -14,6 +14,7 @@ require_once './controllers/KhuyenMaiController.php';
 require_once './controllers/TinTucController.php';
 require_once './controllers/TaiKhoanController.php';
 
+
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
 require_once './models/Banner.php';
@@ -25,7 +26,8 @@ require_once './models/TinTuc.php';
 require_once './models/DonHang.php';
 require_once './models/TaiKhoan.php';
 
-error_reporting(E_ERROR | E_PARSE);
+// error_reporting(E_ERROR | E_PARSE);
+
 
 
 // Route
@@ -36,6 +38,8 @@ $id = $_GET['id'] ?? null; // Lấy ID từ URL, nếu không có thì gán giá
 match ($act) {
     // Trang chủ
     'home'                       => (new HomeController())->home(),
+
+    'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
 
 
     'tim-kiem-san-pham'       => (new SanPhamController())->search(),
@@ -69,5 +73,6 @@ match ($act) {
     //lọc sản phẩm
     'loc-san-pham-theo-gia' => (new SanPhamController())->filterByPrice(),
 
-    default                => print("Hành động không hợp lệ."),
+    // Mặc định
+    // default                => print("Hành động không hợp lệ."),
 };
