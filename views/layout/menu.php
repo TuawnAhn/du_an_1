@@ -228,13 +228,13 @@
                                 </div>
 
                                 <!-- Wishlist -->
-                                <div class="wishlist-box">
+                                <!-- <div class="wishlist-box">
                                     <a href="shop-wishlist.html"><i class="icon-heart"></i></a>
                                     <span class="count-wishlist">1</span>
-                                </div>
+                                </div> -->
 
                                 <!-- Cart -->
-                                <div class="mojuri-topcart dropdown light">
+                                <!-- <div class="mojuri-topcart dropdown light">
                                     <div class="dropdown mini-cart top-cart">
                                         <div class="remove-cart-shadow"></div>
                                         <a class="dropdown-toggle cart-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -283,7 +283,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

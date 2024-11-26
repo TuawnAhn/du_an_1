@@ -3,14 +3,16 @@ class HomeController
 {
     public $modelSanPham;
     public $modelBanner;
-
     public $modelTinTuc;
+
+    public $modelDonHang;
 
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
         $this->modelBanner = new Banner();
         $this->modelTinTuc = new TinTuc();
+        $this->modelDonHang = new DonHang();
     }
     public function home()
     {
@@ -26,6 +28,13 @@ class HomeController
         // var_dump($listBanner);
         // require_once "./views/sanpham/tim_kiem_san_pham.php";
         require_once "./views/Home.php";
+    }
+
+    public function chiTietMuahang()
+    {
+        $listChiTietDonHang = $this->modelDonHang->getAllChiTietDonHang();
+        // var_dump($listChiTietDonHang);
+        require_once "./views/chiTietDonHang.php";
     }
     public function index() {}
 }

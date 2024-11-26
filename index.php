@@ -17,6 +17,7 @@ require_once './models/Banner.php';
 require_once './models/SanPham.php';
 require_once './models/ChiTietSanPham.php';
 require_once './models/TinTuc.php';
+require_once './models/DonHang.php';
 
 
 // Route
@@ -39,6 +40,8 @@ match ($act) {
 
     // Chi tiết sản phẩm
     'chitietsanpham'       => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
+
+    'chitietdonhang'       => (new HomeController())->chiTietMuahang(),
 
         // Mặc định
     default                => print("Hành động không hợp lệ."),

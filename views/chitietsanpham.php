@@ -209,9 +209,6 @@
                                                                         <textarea id="comment" name="comment" placeholder="Đánh giá của bạn *" cols="45" rows="8" aria-required="true" required=""></textarea>
                                                                     </p>
                                                                     <div class="content-info-reviews">
-                                                                        <p class="comment-form-author">
-                                                                            <input id="author" name="author" placeholder="Tên của bạn *" type="text" value="" size="30" aria-required="true" required="">
-                                                                        </p>
                                                                         <p class="comment-form-email">
                                                                             <input id="email" name="email" placeholder="Email của bạn *" type="email" value="" size="30" aria-required="true" required="">
                                                                         </p>
@@ -296,7 +293,7 @@
             </div><!-- #main-content -->
         </div>
 
-        <footer id="site-footer" class="site-footer background four-columns">
+        <!-- <footer id="site-footer" class="site-footer background four-columns">
             <div class="footer">
                 <div class="section-padding">
                     <div class="section-container">
@@ -437,7 +434,8 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> -->
+        <?php require_once "views/layout/footer.php"; ?>
     </div>
 
     <!-- Back Top button -->
@@ -679,16 +677,6 @@
     </div> -->
 
     <!-- Dependency Scripts -->
-    <script src="libs/popper/js/popper.min.js"></script>
-    <script src="libs/jquery/js/jquery.min.js"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libs/slick/js/slick.min.js"></script>
-    <script src="libs/mmenu/js/jquery.mmenu.all.min.js"></script>
-    <script src="libs/slider/js/tmpl.js"></script>
-    <script src="libs/slider/js/jquery.dependClass-0.1.js"></script>
-    <script src="libs/slider/js/draggable-0.1.js"></script>
-    <script src="libs/slider/js/jquery.slider.js"></script>
-    <script src="libs/elevatezoom/js/jquery.elevatezoom.js"></script>
 
     <!-- Site Scripts -->
     <script src="assets/js/app.js"></script>

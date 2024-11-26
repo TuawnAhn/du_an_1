@@ -30,24 +30,18 @@
                                             <div class="block-title">
                                                 <h2>Danh mục</h2>
                                             </div>
-                                               
+
                                             <?php foreach ($listDanhMuc as $key => $danhMuc) : ?>
                                                 <div class="block-content">
                                                     <div class="product-cats-list">
                                                         <ul>
                                                             <li class="current">
-                                                                <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
-                                                                    <?= $danhMuc['ten_danh_muc'] ?>
-                                                                    
-                                                                </a>
+                                                                <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>"><?= $danhMuc['ten_danh_muc'] ?><span class="count">9</span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <?php endforeach; ?>
-                                                
-                                           
-
+                                            <?php endforeach; ?>
                                         </div>
 
                                         <!-- Block Product Filter -->
@@ -152,7 +146,9 @@
                                     <div class="col-xl-9 col-lg-9 col-md-12 col-12">
                                         <div class="products-topbar clearfix">
                                             <div class="products-topbar-left">
-                                                
+                                                <div class="products-count">
+                                                    Hiển thị tất cả 9 kết quả
+                                                </div>
                                             </div>
                                             <div class="products-topbar-right">
                                                 <div class="products-sort dropdown">
@@ -181,7 +177,6 @@
                                             <div class="tab-pane fade show active" id="layout-grid" role="tabpanel">
                                                 <div class="products-list grid">
                                                     <div class="row">
-                                                        
                                                         <?php foreach ($listSanPham as $key => $sanPham): ?>
                                                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                                                 <div class="products-entry clearfix product-wapper">
@@ -660,148 +655,7 @@
             </div><!-- #main-content -->
         </div>
 
-        <footer id="site-footer" class="site-footer background four-columns">
-            <div class="footer">
-                <div class="section-padding">
-                    <div class="section-container">
-                        <div class="block-widget-wrap">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6 column-1">
-                                    <div class="block block-menu m-b-20">
-                                        <h2 class="block-title">Liên hệ với chúng tôi</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <span>Trụ sở chính:</span> Trịnh Văn Bô - Nam Từ Liêm - Hà Nội
-                                                </li>
-                                                <li>
-                                                    <span>Điện thoại:</span> 01743 234500
-                                                </li>
-                                                <li>
-                                                    <span>Email:</span> <a href="mailto:support@mojuri.com">support@oulook.com</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="block block-social">
-                                        <ul class="social-link">
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 column-2">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">Dịch vụ khách hàng</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Liên hệ với chúng tôi</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Theo dõi đơn hàng của bạn</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Chăm sóc và sửa chữa sản phẩm</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Đặt lịch hẹn</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Câu hỏi thường gặp</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Vận chuyển và hoàn trả</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 column-3">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">Về chúng tôi</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">Về chúng tôi</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Câu hỏi thường gặp</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Nhà sản xuất của chúng tôi</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Sơ đồ trang web</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Điều khoản và điều kiện</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Chính sách bảo mật</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 column-4">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">Danh mục</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Bông tai</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Dây chuyền</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Vòng tay</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Nhẫn</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Hộp đựng trang sức</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Trâm</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="section-padding">
-                    <div class="section-container">
-                        <div class="block-widget-wrap">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="footer-left">
-                                        <p class="copyright">Bản quyền © 2024. Sliver Ring</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="footer-right">
-                                        <div class="block block-image">
-                                            <img width="309" height="32" src="media/payments.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php require_once './views/layout/footer.php'; ?>
     </div>
 
     <!-- Back Top button -->
@@ -813,26 +667,24 @@
     <div class="search-overlay">
         <div class="close-search"></div>
         <div class="wrapper-search">
-        <form role="search" method="GET" class="search-from ajax-search" action="?act=home">
-            
-            <div class="search-box">
-            <input type="hidden" name="act" value="tim-kiem-san-pham">
-            <input type="text"  value="" name="tukhoa"  placeholder="Nhãy nhập vào tên sản phẩm...">
-                <button id="searchsubmit" class="btn" type="submit" name="timkiem">
-                    <i class="icon-search"></i>
-                </button>
-                
-                <div class="content-menu_search">
-                    <label>Đề xuất</label>
-                    <ul id="menu_search" class="menu">
-                        <li><a href="#">Bông tai</a></li>
-                        <li><a href="#">Dây chuyền</a></li>
-                        <li><a href="#">Nhẫn</a></li>
-                        <li><a href="#">Hộp đựng trang sức</a></li>
-                    </ul>
+            <form role="search" method="get" class="search-from ajax-search" action="#">
+                <a href="#" class="search-close"></a>
+                <div class="search-box">
+                    <button id="searchsubmit" class="btn" type="submit">
+                        <i class="icon-search"></i>
+                    </button>
+                    <input type="text" autocomplete="off" value="" name="s" class="input-search s" placeholder="Search...">
+                    <div class="content-menu_search">
+                        <label>Suggested</label>
+                        <ul id="menu_search" class="menu">
+                            <li><a href="#">Earrings</a></li>
+                            <li><a href="#">Necklaces</a></li>
+                            <li><a href="#">Bracelets</a></li>
+                            <li><a href="#">Jewelry Box</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 
