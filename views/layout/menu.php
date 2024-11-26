@@ -1,4 +1,6 @@
 <header id="site-header" class="site-header header-v1 color-black">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
 
     <div class="header-desktop">
         <div class="header-wrapper">
@@ -167,14 +169,22 @@
                                             </ul>
                                         </li>
                                         <li class="level-0 menu-item">
+<<<<<<< HEAD
 
                                             <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
                               
                                         </li>
                                       
+=======
+                                            <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
+                                        </li>
+                                        <li class="level-0 menu-item">
+                                            <a href="?act=lien-he"><span class="menu-item-text">Liên hệ</span></a>
+                                        </li>
+>>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
                                     </ul>
                                     <ul>
-                                   
+
                                     </ul>
                                 </nav>
                             </div>
@@ -312,7 +322,8 @@
                                                 </div>
                                                 <div class="free-ship">
                                                     <div class="title-ship">Buy <strong>$400</strong> more to enjoy
-                                                        <strong>FREE Shipping</strong></div>
+                                                        <strong>FREE Shipping</strong>
+                                                    </div>
                                                     <div class="total-percent">
                                                         <div class="percent" style="width:20%"></div>
                                                     </div>
@@ -327,16 +338,17 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Wishlist -->
-                                <div class="wishlist-box">
-                                    <a href="?act=form-sua-thong-tin-ca-nhan">Đổi mật khẩu</a>
-                                </div>
                             </div>
+
+                            <!-- Wishlist -->
+                                <div class="wishlist-box">
+                                    <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </header>

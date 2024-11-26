@@ -55,7 +55,7 @@ class TaiKhoan
                     return "Tài khoản bị cấm";
                 }
             } else {
-                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=login-admin;'</script>";
+                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=login-admin'</script>";
                 exit();
             }
         } catch (Exception $e) {

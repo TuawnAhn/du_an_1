@@ -7,7 +7,7 @@
         <div id="site-main" class="site-main">
             <div id="main-content" class="main-content">
                 <div id="primary" class="content-area">
-                    
+
 
                     <div id="content" class="site-content" role="main">
                         <div class="section-padding">
@@ -27,118 +27,36 @@
                                                             <li class="current">
                                                                 <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
                                                                     <?= $danhMuc['ten_danh_muc'] ?>
-                                                                    
+
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <?php endforeach; ?>
+                                            <?php endforeach; ?>
                                         </div>
 
                                         <!-- Block Product Filter -->
-                                        <div class="block block-product-filter">
-                                            <div class="block-title">
-                                                <h2>Giá</h2>
+                                        <form method="GET" action="index.php">
+                                            <input type="hidden" name="act" value="loc-san-pham-theo-gia" />
+                                            <div class="mb-3">
+                                                <label for="min_price" class="form-label">Giá thấp nhất:</label>
+                                                <input type="number" id="min_price" name="min_price" class="form-control" value="<?= isset($_GET['min_price']) ? htmlspecialchars($_GET['min_price']) : 0 ?>" min="0" required />
                                             </div>
-                                            <div class="block-content">
-                                                <div id="slider-range" class="price-filter-wrap">
-                                                    <div class="filter-item price-filter">
-                                                        <div class="layout-slider">
-                                                            <input id="price-filter" name="price" value="0;100" />
-                                                        </div>
-                                                        <div class="layout-slider-settings"></div>
-                                                    </div>
-                                                </div>
+                                            <div class="mb-3">
+                                                <label for="max_price" class="form-label">Giá cao nhất:</label>
+                                                <input type="number" id="max_price" name="max_price" class="form-control" value="<?= isset($_GET['max_price']) ? htmlspecialchars($_GET['max_price']) : 1000000 ?>" min="0" required />
                                             </div>
-                                        </div>
-
-                                        <!-- Block Product Filter -->
-                                        <div class="block block-product-filter clearfix">
-                                            <div class="block-title">
-                                                <h2>Brands</h2>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary" style="background-color: #ff0000; border-color: #ff0000; margin-top: 10px">Tìm sản phẩm</button>
                                             </div>
-                                            <div class="block-content">
-                                                <ul class="filter-items image">
-                                                    <li><a href="shop-grid-left.html"><span><img src="media/brand/1.jpg" alt="Brand"></span></a></li>
-                                                    <li><a href="shop-grid-left.html"><span><img src="media/brand/2.jpg" alt="Brand"></span></a></li>
-                                                    <li><a href="shop-grid-left.html"><span><img src="media/brand/3.jpg" alt="Brand"></span></a></li>
-                                                    <li><a href="shop-grid-left.html"><span><img src="media/brand/4.jpg" alt="Brand"></span></a></li>
-                                                    <li><a href="shop-grid-left.html"><span><img src="media/brand/5.jpg" alt="Brand"></span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <!-- Block Products -->
-                                        <div class="block block-products">
-                                            <div class="block-title">
-                                                <h2>Sản phẩm đặc trưng</h2>
-                                            </div>
-                                            <div class="block-content">
-                                                <ul class="products-list">
-                                                    <li class="product-item">
-                                                        <a href="shop-details.html" class="product-image">
-                                                            <img src="media/product/1.jpg">
-                                                        </a>
-                                                        <div class="product-content">
-                                                            <h2 class="product-title">
-                                                                <a href="shop-details.html">
-                                                                    Medium Flat Hoops
-                                                                </a>
-                                                            </h2>
-                                                            <div class="rating">
-                                                                <div class="star star-5"></div>
-                                                            </div>
-                                                            <span class="price">
-                                                                <del aria-hidden="true"><span>$150.00</span></del>
-                                                                <ins><span>$100.00</span></ins>
-                                                            </span>
-                                                        </div>
-                                                    </li>
-                                                    <li class="product-item">
-                                                        <a href="shop-details.html" class="product-image">
-                                                            <img src="media/product/2.jpg">
-                                                        </a>
-                                                        <div class="product-content">
-                                                            <h2 class="product-title">
-                                                                <a href="shop-details.html">
-                                                                    Bold Pearl Hoop Earrings
-                                                                </a>
-                                                            </h2>
-                                                            <div class="rating">
-                                                                <div class="star star-0"></div>
-                                                            </div>
-                                                            <span class="price">$120.00</span>
-                                                        </div>
-                                                    </li>
-                                                    <li class="product-item">
-                                                        <a href="shop-details.html" class="product-image">
-                                                            <img src="media/product/3.jpg">
-                                                        </a>
-                                                        <div class="product-content">
-                                                            <h2 class="product-title">
-                                                                <a href="shop-details.html">
-                                                                    Twin Hoops
-                                                                </a>
-                                                            </h2>
-                                                            <div class="rating">
-                                                                <div class="star star-4"></div>
-                                                            </div>
-                                                            <span class="price">
-                                                                <del aria-hidden="true"><span>$200.00</span></del>
-                                                                <ins><span>$180.00</span></ins>
-                                                            </span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
 
                                     <div class="col-xl-9 col-lg-9 col-md-12 col-12">
                                         <div class="products-topbar clearfix">
                                             <div class="products-topbar-left">
-                                                
+
                                             </div>
                                             <div class="products-topbar-right">
                                                 <div class="products-sort dropdown">
@@ -798,26 +716,26 @@
     <div class="search-overlay">
         <div class="close-search"></div>
         <div class="wrapper-search">
-        <form role="search" method="GET" class="search-from ajax-search" action="?act=home">
-            
-            <div class="search-box">
-            <input type="hidden" name="act" value="tim-kiem-san-pham">
-            <input type="text"  value="" name="tukhoa"  placeholder="Nhãy nhập vào tên sản phẩm...">
-                <button id="searchsubmit" class="btn" type="submit" name="timkiem">
-                    <i class="icon-search"></i>
-                </button>
-                
-                <div class="content-menu_search">
-                    <label>Đề xuất</label>
-                    <ul id="menu_search" class="menu">
-                        <li><a href="#">Bông tai</a></li>
-                        <li><a href="#">Dây chuyền</a></li>
-                        <li><a href="#">Nhẫn</a></li>
-                        <li><a href="#">Hộp đựng trang sức</a></li>
-                    </ul>
+            <form role="search" method="GET" class="search-from ajax-search" action="?act=home">
+
+                <div class="search-box">
+                    <input type="hidden" name="act" value="tim-kiem-san-pham">
+                    <input type="text" value="" name="tukhoa" placeholder="Nhãy nhập vào tên sản phẩm...">
+                    <button id="searchsubmit" class="btn" type="submit" name="timkiem">
+                        <i class="icon-search"></i>
+                    </button>
+
+                    <div class="content-menu_search">
+                        <label>Đề xuất</label>
+                        <ul id="menu_search" class="menu">
+                            <li><a href="#">Bông tai</a></li>
+                            <li><a href="#">Dây chuyền</a></li>
+                            <li><a href="#">Nhẫn</a></li>
+                            <li><a href="#">Hộp đựng trang sức</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 
@@ -1094,7 +1012,7 @@
     </div>
 
     <!-- Page Loader -->
-   
+
 
     <!-- Dependency Scripts -->
     <script src="libs/popper/js/popper.min.js"></script>

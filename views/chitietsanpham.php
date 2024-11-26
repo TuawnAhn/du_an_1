@@ -74,6 +74,7 @@
                                                 <div class="description">
                                                     <p><?= $chiTietSanPham['mo_ta']; ?></p>
                                                 </div>
+<<<<<<< HEAD
                                               
                                                 <div class="buttons">
                                                     <div class="add-to-cart-wrap">
@@ -82,21 +83,55 @@
                                                             <button type="button" class="plus">+</button>
                                                             <input type="number" class="qty" value="1" name="so_luong">
                                                             <button type="button" class="minus">-</button>
-                                                        </div>
-                                                        <div class="btn-add-to-cart">
-                                                            <a href="#" tabindex="0">Thêm giỏ hàng</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="btn-quick-buy" data-title="Wishlist">
-                                                        <button class="product-btn">Mua ngay</button>
-                                                    </div>
-                                                    <div class="btn-wishlist" data-title="Wishlist">
-                                                        <button class="product-btn">Thêm vào danh sách yêu thích</button>
-                                                    </div>
-                                                    <div class="btn-compare" data-title="Compare">
-                                                        <button class="product-btn">So sánh</button>
-                                                    </div>
+=======
+                                                <div class="variations">
+                                                    <table cellspacing="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="label">Size</td>
+                                                                <td class="attributes">
+                                                                    <ul class="text">
+                                                                        <li><span>L</span></li>
+                                                                        <li><span>M</span></li>
+                                                                        <li><span>S</span></li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="label">Color</td>
+                                                                <td class="attributes">
+                                                                    <ul class="colors">
+                                                                        <li><span class="color-1"></span></li>
+                                                                        <li><span class="color-2"></span></li>
+                                                                        <li><span class="color-3"></span></li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
+                                                <form action="?act=them-gio-hang" method="post">
+                                                    <div class="buttons">
+                                                        <div class="add-to-cart-wrap">
+                                                            <div class="quantity">
+                                                                <button type="button" class="plus">+</button>
+                                                                <input type="hidden" name="san_pham_id" value="<?= $chiTietSanPham['id'] ?>">
+                                                                <input type="number" class="qty" value="1" name="so_luong">
+                                                                <button type="button" class="minus">-</button>
+                                                            </div>
+                                                            <div class="btn-add-to-cart">
+                                                                <a tabindex="0">Thêm giỏ hàng</a>
+                                                            </div>
+>>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
+                                                        </div>
+                                                        <div class="btn-quick-buy" data-title="Wishlist">
+                                                            <button class="product-btn">Mua ngay</button>
+                                                        </div>
+                                                        <div class="btn-wishlist" data-title="Wishlist">
+                                                            <button class="product-btn">Thêm vào danh sách yêu thích</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                                 <div class="product-meta">
                                                     <span class="sku-wrapper">Mã đơn hàng: <span class="sku"><?= $chiTietSanPham['ma_san_pham']; ?></span></span>
                                                     <span class="posted-in">Danh mục: <a href="shop-grid-left.html" rel="tag"><?= $chiTietSanPham['ten_danh_muc']; ?></a></span>
@@ -121,7 +156,7 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Mô tả</a>
                                                 </li>
-                                
+
                                                 <li class="nav-item">
                                                     <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Đánh giá (1)</a>
                                                 </li>
@@ -172,6 +207,7 @@
                                                         </div>
 
                                                         <div id="review-form">
+<<<<<<< HEAD
                                                                 <div id="respond" class="comment-respond">
                                                                 <form action="?act=them-binh-luan" method="post" id="comment-form" class="comment-form">
     <p class="comment-notes">
@@ -208,8 +244,44 @@
     </div>
 </form>
                                                                 </div>
+=======
+                                                            <div id="respond" class="comment-respond">
+                                                                <form action="#" method="post" id="comment-form" class="comment-form">
+                                                                    <p class="comment-notes">
+                                                                        <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span>
+                                                                    </p>
+>>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
                                                             </div>
+                                                            <p class="comment-form-comment">
+                                                                <textarea id="comment" name="comment" placeholder="Đánh giá của bạn *" cols="45" rows="8" aria-required="true" required=""></textarea>
+                                                            </p>
+                                                            <div class="content-info-reviews">
+                                                                <p class="comment-form-email">
+                                                                    <input id="email" name="email" placeholder="Email của bạn *" type="email" value="" size="30" aria-required="true" required="">
+                                                                </p>
+                                                                <p class="form-submit">
+                                                                    <input name="submit" type="submit" id="submit" class="submit" value="Submit">
+                                                                </p>
+                                                            </div>
+                                                            </form><!-- #respond -->
+                                                            <div class="comment-form-rating">
+                                                                <label for="rating">Đánh giá của bạn</label>
+                                                                <p class="starss">
+                                                                    <span>
+                                                                        <a class="star-1" href="#" data-rating="1">★</a>
+                                                                        <a class="star-2" href="#" data-rating="2">★</a>
+                                                                        <a class="star-3" href="#" data-rating="3">★</a>
+                                                                        <a class="star-4" href="#" data-rating="4">★</a>
+                                                                        <a class="star-5" href="#" data-rating="5">★</a>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                            <p class="comment-form-comment">
+                                                                <textarea id="comment" name="comment" placeholder="Đánh giá của bạn *" cols="45" rows="8" aria-required="true" required=""></textarea>
+                                                            </p>
+                                                            <div class="content-info-reviews">
 
+<<<<<<< HEAD
                                                             <style>
                                                                 /* Container for the comment form */
                                                                     .comment-form-container {
@@ -283,111 +355,138 @@
                                                                     font-size: 30px; /* Kích thước sao */
                                                                     margin-right: 5px; /* Khoảng cách giữa các sao */
                                                                 }
+=======
+                                                                <p class="comment-form-email">
+                                                                    <input id="email" name="email" placeholder="Email của bạn *" type="email" value="" size="30" aria-required="true" required="">
+                                                                </p>
+                                                                <p class="form-submit">
+                                                                    <input name="submit" type="submit" id="submit" class="submit" value="Submit">
+                                                                </p>
+                                                            </div>
+                                                            <!-- Input ẩn để lưu giá trị sao -->
+                                                            <input type="hidden" id="rating" name="rating" value="">
+                                                            </form><!-- #respond -->
+                                                        </div>
+>>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
 
-                                                                /* Khi sao được chọn (có lớp 'active') */
-                                                                .starss a.active {
-                                                                    color: gold; /* Màu vàng khi sao được chọn */
-                                                                }
-
-                                                                /* Khi hover (di chuột lên sao) */
-                                                                .starss a:hover{
-                                                                
-                                                                    color: gold; /* Màu vàng khi hover lên sao */
-                                                                }
-                                                            </style>
-
-                                                            <script>
-                                                                // JavaScript để xử lý sự kiện chọn sao
-                                                                const starss = document.querySelectorAll('.starss a');
-                                                                const ratingInput = document.getElementById('rating');
-
-                                                                starss.forEach(star => {
-                                                                    star.addEventListener('click', function(e) {
-                                                                        e.preventDefault(); // Ngừng hành động mặc định của thẻ <a> (không reload trang)
-
-                                                                        // Xóa lớp active khỏi tất cả các sao
-                                                                        starss.forEach(star => star.classList.remove('active'));
-
-                                                                        // Lấy giá trị sao được chọn
-                                                                        const selectedRating = parseInt(this.getAttribute('data-rating'));
-
-                                                                        // Thêm lớp active cho tất cả các sao có giá trị <= sao đã chọn
-                                                                        starss.forEach(star => {
-                                                                            const starRating = parseInt(star.getAttribute('data-rating'));
-                                                                            if (starRating <= selectedRating) {
-                                                                                star.classList.add('active');
-                                                                            }
-                                                                        });
-
-                                                                        // Cập nhật giá trị sao vào input ẩn
-                                                                        ratingInput.value = selectedRating;
-                                                                    });
-                                                                });
-                                                            </script>
-
-
-                                                        <div class="clear"></div>
                                                     </div>
+                                                    <style>
+                                                        /* Mặc định màu của các sao */
+                                                        .starss a {
+                                                            text-decoration: none;
+                                                            color: gray;
+                                                            /* Màu xám cho sao chưa chọn */
+                                                            font-size: 30px;
+                                                            /* Kích thước sao */
+                                                            margin-right: 5px;
+                                                            /* Khoảng cách giữa các sao */
+                                                        }
+
+                                                        /* Khi sao được chọn (có lớp 'active') */
+                                                        .starss a.active {
+                                                            color: gold;
+                                                            /* Màu vàng khi sao được chọn */
+                                                        }
+
+                                                        /* Khi hover (di chuột lên sao) */
+                                                        .starss a:hover {
+
+                                                            color: gold;
+                                                            /* Màu vàng khi hover lên sao */
+                                                        }
+                                                    </style>
+
+                                                    <script>
+                                                        // JavaScript để xử lý sự kiện chọn sao
+                                                        const starss = document.querySelectorAll('.starss a');
+                                                        const ratingInput = document.getElementById('rating');
+
+                                                        starss.forEach(star => {
+                                                            star.addEventListener('click', function(e) {
+                                                                e.preventDefault(); // Ngừng hành động mặc định của thẻ <a> (không reload trang)
+
+                                                                // Xóa lớp active khỏi tất cả các sao
+                                                                starss.forEach(star => star.classList.remove('active'));
+
+                                                                // Lấy giá trị sao được chọn
+                                                                const selectedRating = parseInt(this.getAttribute('data-rating'));
+
+                                                                // Thêm lớp active cho tất cả các sao có giá trị <= sao đã chọn
+                                                                starss.forEach(star => {
+                                                                    const starRating = parseInt(star.getAttribute('data-rating'));
+                                                                    if (starRating <= selectedRating) {
+                                                                        star.classList.add('active');
+                                                                    }
+                                                                });
+
+                                                                // Cập nhật giá trị sao vào input ẩn
+                                                                ratingInput.value = selectedRating;
+                                                            });
+                                                        });
+                                                    </script>
+
+
+                                                    <div class="clear"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="product-related">
-                                <div class="section-padding">
-                                    <div class="section-container p-l-r">
-                                        <div class="block block-products slider">
-                                            <div class="block-title">
-                                                <h2>Sản phẩm liên quan</h2>
-                                            </div>
-                                            <div class="block-content">
-                                                <div class="content-product-list slick-wrap">
-                                                    <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="3" data-columns1="3" data-columns1440="4" data-columns="4">
-                                                        <?php foreach ($listSanPhamCungDanhMuc as $key => $sanPhamLienQuan) : ?>
+                        </div>
+                        <div class="product-related">
+                            <div class="section-padding">
+                                <div class="section-container p-l-r">
+                                    <div class="block block-products slider">
+                                        <div class="block-title">
+                                            <h2>Sản phẩm liên quan</h2>
+                                        </div>
+                                        <div class="block-content">
+                                            <div class="content-product-list slick-wrap">
+                                                <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="3" data-columns1="3" data-columns1440="4" data-columns="4">
+                                                    <?php foreach ($listSanPhamCungDanhMuc as $key => $sanPhamLienQuan) : ?>
 
-                                                            <div clas s="item-product slick-slide">
-                                                                <div class="items">
-                                                                    <div class="products-entry clearfix product-wapper">
-                                                                        <div class="products-thumb">
-                                                                            <div class="product-lable">
-                                                                                <div class="hot">Hot</div>
-                                                                            </div>
-                                                                            <div class="product-thumb-hover">
-                                                                                <a href="?act=chitietsanpham&id=<?= $sanPhamLienQuan['id'] ?>">
-                                                                                    <img width="600" height="600" src="<?= $sanPhamLienQuan['img'] ?>" class="post-image" alt="">
-                                                                                    <img width="600" height="600" src="<?= $sanPhamLienQuan['img'] ?>" class="hover-image back" alt="">
-                                                                                </a>
-                                                                            </div>
-                                                                            <div class="product-button">
-                                                                                <div class="btn-add-to-cart" data-title="Add to cart">
-                                                                                    <a rel="nofollow" href="#" class="product-btn button">Thêm vào giỏ hàng</a>
-                                                                                </div>
-                                                                                <div class="btn-wishlist" data-title="Wishlist">
-                                                                                    <button class="product-btn">Thêm vào danh sách yêu thích</button>
-                                                                                </div>
-                                                                                <div class="btn-compare" data-title="Compare">
-                                                                                    <button class="product-btn">So sánh</button>
-                                                                                </div>
-                                                                                <span class="product-quickview" data-title="Quick View">
-                                                                                    <a href="#" class="quickview quickview-button">Xem nhanh <i class="icon-search"></i></a>
-                                                                                </span>
-                                                                            </div>
+                                                        <div clas s="item-product slick-slide">
+                                                            <div class="items">
+                                                                <div class="products-entry clearfix product-wapper">
+                                                                    <div class="products-thumb">
+                                                                        <div class="product-lable">
+                                                                            <div class="hot">Hot</div>
                                                                         </div>
-                                                                        <div class="products-content">
-                                                                            <div class="contents">
-                                                                                <div class="rating">
-                                                                                    <div class="star star-0"></div><span class="count">(0 review)</span>
-                                                                                </div>
-                                                                                <h3 class="product-title"><a href="shop-details.html"><?= $sanPhamLienQuan['ten'] ?></a></h3>
-                                                                                <span class="price"><?= $sanPhamLienQuan['gia_ban'] ?></span>
+                                                                        <div class="product-thumb-hover">
+                                                                            <a href="?act=chitietsanpham&id=<?= $sanPhamLienQuan['id'] ?>">
+                                                                                <img width="600" height="600" src="<?= $sanPhamLienQuan['img'] ?>" class="post-image" alt="">
+                                                                                <img width="600" height="600" src="<?= $sanPhamLienQuan['img'] ?>" class="hover-image back" alt="">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="product-button">
+                                                                            <div class="btn-add-to-cart" data-title="Add to cart">
+                                                                                <a rel="nofollow" href="#" class="product-btn button">Thêm vào giỏ hàng</a>
                                                                             </div>
+                                                                            <div class="btn-wishlist" data-title="Wishlist">
+                                                                                <button class="product-btn">Thêm vào danh sách yêu thích</button>
+                                                                            </div>
+                                                                            <div class="btn-compare" data-title="Compare">
+                                                                                <button class="product-btn">So sánh</button>
+                                                                            </div>
+                                                                            <span class="product-quickview" data-title="Quick View">
+                                                                                <a href="#" class="quickview quickview-button">Xem nhanh <i class="icon-search"></i></a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="products-content">
+                                                                        <div class="contents">
+                                                                            <div class="rating">
+                                                                                <div class="star star-0"></div><span class="count">(0 review)</span>
+                                                                            </div>
+                                                                            <h3 class="product-title"><a href="shop-details.html"><?= $sanPhamLienQuan['ten'] ?></a></h3>
+                                                                            <span class="price"><?= $sanPhamLienQuan['gia_ban'] ?></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        <?php endforeach; ?>
-                                                    </div>
+                                                        </div>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -395,153 +494,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- #content -->
-                </div><!-- #primary -->
-            </div><!-- #main-content -->
-        </div>
-
-        <footer id="site-footer" class="site-footer background four-columns">
-            <div class="footer">
-                <div class="section-padding">
-                    <div class="section-container">
-                        <div class="block-widget-wrap">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6 column-1">
-                                    <div class="block block-menu m-b-20">
-                                        <h2 class="block-title">Contact Us</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <span>Head Office:</span> 26 Wyle Cop, Shrewsbury, Shropshire, SY1 1XD
-                                                </li>
-                                                <li>
-                                                    <span>Tel:</span> 01743 234500
-                                                </li>
-                                                <li>
-                                                    <span>Email:</span> <a href="mailto:support@mojuri.com">support@mojuri.com</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="block block-social">
-                                        <ul class="social-link">
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 column-2">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">Customer Services</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Contact Us</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Track Your Order</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Product Care & Repair</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Book an Appointment</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Frequently Asked Questions</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Shipping & Returns</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 column-3">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">About Us</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">About Us</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">FAQ</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Our Producers</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Sitemap</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Terms & Conditions</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Privacy Policy</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 column-4">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">Catalog</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Earrings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Necklaces</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Bracelets</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Rings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Jewelry Box</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Studs</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="section-padding">
-                    <div class="section-container">
-                        <div class="block-widget-wrap">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="footer-left">
-                                        <p class="copyright">Copyright © 2023. All Right Reserved</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="footer-right">
-                                        <div class="block block-image">
-                                            <img width="309" height="32" src="media/payments.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+                </div><!-- #content -->
+            </div><!-- #primary -->
+        </div><!-- #main-content -->
+    </div>
+
+    <?php require_once "views/layout/footer.php"; ?>
     </div>
 
     <!-- Back Top button -->
@@ -783,16 +742,6 @@
     </div> -->
 
     <!-- Dependency Scripts -->
-    <script src="libs/popper/js/popper.min.js"></script>
-    <script src="libs/jquery/js/jquery.min.js"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libs/slick/js/slick.min.js"></script>
-    <script src="libs/mmenu/js/jquery.mmenu.all.min.js"></script>
-    <script src="libs/slider/js/tmpl.js"></script>
-    <script src="libs/slider/js/jquery.dependClass-0.1.js"></script>
-    <script src="libs/slider/js/draggable-0.1.js"></script>
-    <script src="libs/slider/js/jquery.slider.js"></script>
-    <script src="libs/elevatezoom/js/jquery.elevatezoom.js"></script>
 
     <!-- Site Scripts -->
     <script src="assets/js/app.js"></script>
