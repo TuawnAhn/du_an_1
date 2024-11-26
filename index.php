@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
 require_once './commons/function.php'; // Hàm hỗ trợ
@@ -14,6 +14,7 @@ require_once './controllers/LienHeController.php';
 require_once './controllers/KhuyenMaiController.php';
 
 require_once './controllers/TinTucController.php';
+require_once './controllers/TaiKhoanController.php';
 
 
 // Require toàn bộ file Models
@@ -26,6 +27,9 @@ require_once './models/LienHe.php';
 require_once './models/KhuyenMai.php';
 
 require_once './models/TinTuc.php';
+require_once './models/TaiKhoan.php';
+
+error_reporting(E_ERROR | E_PARSE);
 
 
 // Route
@@ -36,7 +40,7 @@ $id = $_GET['id'] ?? null; // Lấy ID từ URL, nếu không có thì gán giá
 match ($act) {
     // Trang chủ
     'home'                       => (new HomeController())->home(),
-
+    'them-gio-hang'      => (new HomeController())->addGioHang(),  
 
     'tim-kiem-san-pham'       => (new SanPhamController())->search(),
     'banner'                     => (new BannerController())->banner(),
@@ -46,9 +50,20 @@ match ($act) {
     'danhsachsanpham'      => (new SanPhamController())->sanpham(),
     'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
 
-    // Chi tiết sản phẩm
+  
+    // // Chi tiết sản phẩm
     'chitietsanpham'       => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
-    'them-gio-hang'      => (new ChiTietSanPhamController())->addGioHang(), 
+    'them-binh-luan'            =>(new ChiTietSanPhamController())->thembinhluan(),
+    
+
+    'check-login-admin' => (new TaiKhoanController())->login(),
+    'form-sua-thong-tin-ca-nhan' => (new TaiKhoanController())->formEditCaNhanQuanTri(),
+    'sua-thong-tin-ca-nhan' => (new TaiKhoanController())->postEditCaNhanQuanTri(),
+    'sua-mat-khau-ca-nhan' => (new TaiKhoanController())->postEditMatKhauCaNhan(),
+    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
+
+
+
     // Lien he
     'lien-he'  => (new LienHeController())->view(),
     'add-lien-he'  => (new LienHeController())->store(),
@@ -59,5 +74,6 @@ match ($act) {
 
 
      // Mặc định
+
     default                => print("Hành động không hợp lệ."),
 };

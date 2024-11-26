@@ -59,20 +59,21 @@ class ChiTietSanPham
         }
     }
     public function getAllBinhLuan($san_pham_id)
-    {
-        try {
-            $sql = "
-            SELECT * FROM binh_luans
-            WHERE san_pham_id = :san_pham_id
-            ";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':san_pham_id', $san_pham_id);
-            $stmt->execute();
-            return $stmt->fetch();
-        } catch (Exception $e) {
-            echo 'Listring: ' . $e->getMessage();
-        }
+{
+    try {
+        $sql = "
+        SELECT * FROM binh_luans
+        WHERE san_pham_id = :san_pham_id
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':san_pham_id', $san_pham_id);
+        $stmt->execute();
+        return $stmt->fetchAll(); // Sử dụng fetchAll thay vì fetch
+    } catch (Exception $e) {
+        echo 'Lỗi: ' . $e->getMessage();
     }
+}
+
     public function getSanPhamCungDanhMuc($danh_muc_id)
     {
         try {
@@ -91,4 +92,28 @@ class ChiTietSanPham
             echo 'Listring: ' . $e->getMessage();
         }
     }
+
+    public function thembinhluan($san_pham_id, $ten_nguoi_binh_luan, $noi_dung, $ngay_binh_luan)
+{
+    try {
+        $sql = "INSERT INTO binh_luans (san_pham_id, ten_nguoi_binh_luan, noi_dung, ngay_binh_luan) 
+                VALUES (:san_pham_id, :ten_nguoi_binh_luan, :noi_dung, :ngay_binh_luan)";
+        $stmt = $this->conn->prepare($sql);
+
+        // Gắn giá trị tham số vào câu truy vấn
+        $stmt->bindParam(':san_pham_id', $san_pham_id);
+        $stmt->bindParam(':ten_nguoi_binh_luan', $ten_nguoi_binh_luan);
+        $stmt->bindParam(':noi_dung', $noi_dung);
+        $stmt->bindParam(':ngay_binh_luan', $ngay_binh_luan);
+
+        // Thực thi câu truy vấn
+        $stmt->execute();
+
+        return true;
+    } catch (PDOException $e) {
+        echo 'Lỗi: ' . $e->getMessage();
+    }
 }
+
+    }
+

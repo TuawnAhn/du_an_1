@@ -11,7 +11,7 @@ class SanPhamController
     public function sanpham()
     {
         // Lấy số sản phẩm mỗi trang và trang hiện tại từ URL
-        $item_per_page = !empty($_GET['per_page']) ? (int)$_GET['per_page'] : 16;
+        $item_per_page = !empty($_GET['per_page']) ? (int)$_GET['per_page'] : 9;
         $current_page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 
         // Lấy sản phẩm từ model

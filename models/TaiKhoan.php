@@ -55,7 +55,7 @@ class TaiKhoan
                     return "Tài khoản bị cấm";
                 }
             } else {
-                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=login-admin;'</script>";
+                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=home'</script>";
                 exit();
             }
         } catch (Exception $e) {
@@ -140,6 +140,31 @@ class TaiKhoan
 
             $stmt->execute();
 
+            return true;
+        } catch (PDOException $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
+    }
+
+public function updateCaNhanQuanTri($id, $ho_ten,$email,$so_dien_thoai)
+    {
+
+        try {
+            $sql = 'UPDATE tai_khoans 
+            SET ho_ten =:ho_ten,
+            email=:email,
+            so_dien_thoai=:so_dien_thoai
+            WHERE id=:id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':ho_ten', $ho_ten);
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
+
+            $stmt->execute();
+            var_dump($id, $ho_ten);
             return true;
         } catch (PDOException $e) {
             echo 'Lỗi' . $e->getMessage();

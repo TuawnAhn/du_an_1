@@ -3,7 +3,7 @@ class HomeController
 {
     public $modelSanPham;
     public $modelBanner;
-
+    public $modelTaiKhoan;
     public $modelTinTuc;
 
     public function __construct()
@@ -11,6 +11,7 @@ class HomeController
         $this->modelSanPham = new SanPham();
         $this->modelBanner = new Banner();
         $this->modelTinTuc = new TinTuc();
+        $this->modelTaiKhoan = new TaiKhoan();
     }
     public function home()
     {
@@ -28,4 +29,14 @@ class HomeController
         require_once "./views/Home.php";
     }
     public function index() {}
+    public function addGioHang(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_SESSION['user_client'])){
+                $email = $this->modelTaiKhoan->getAllTaiKhoanformEmail($_SESSION['user_client']);
+            }else{
+                var_dump('Chua dang nhap');die;
+            }
+            
+    }
+}
 }

@@ -105,7 +105,7 @@
     <div class="form-group">
       <label class="col-md-3 control-label"></label>
       <div class="col-md-12">
-        <input type="submit" class="btn btn-primary" value="Save Changes">
+        <input type="submit" class="btn btn-primary" value="Submit">
         </form>
       </div>
     </div>
@@ -114,9 +114,8 @@
 
             <?php if (isset($_SESSION['success'])) { ?>
               <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
+                <a class="panel-close close" data-dismiss="alert"></a>
                 <i class="fa fa-coffee"></i>
-                <?= $_SESSION['success']; ?>
               </div>
 
             <?php } ?>
@@ -148,7 +147,7 @@
               <div class="form-group">
                 <label class="col-md-3 control-label"></label>
                 <div class="col-md-12">
-                  <input type="submit" class="btn btn-primary" value="Save Changes">
+                  <input type="submit" class="btn btn-primary" value="Submit">
 
                 </div>
               </div>
