@@ -169,19 +169,16 @@
                                             </ul>
                                         </li>
                                         <li class="level-0 menu-item">
-<<<<<<< HEAD
+
 
                                             <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
                               
                                         </li>
                                       
-=======
-                                            <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
-                                        </li>
-                                        <li class="level-0 menu-item">
-                                            <a href="?act=lien-he"><span class="menu-item-text">Liên hệ</span></a>
-                                        </li>
->>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
+
+                                       
+                                        
+
                                     </ul>
                                     <ul>
 
@@ -277,10 +274,11 @@
                                 <div class="mojuri-topcart dropdown light">
                                     <div class="dropdown mini-cart top-cart">
                                         <div class="remove-cart-shadow"></div>
-                                        <a class="dropdown-toggle cart-icon" href="#" role="button"
+                                        <a class="dropdown-toggle cart-icon" href="?act=them-gio-hang" role="button"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <div class="icons-cart"><i class="icon-large-paper-bag"></i><span
-                                                    class="cart-count">2</span></div>
+                                            <div  class="icons-cart"><i class="icon-large-paper-bag"></i>
+                                                   </div>
+                                                    
                                         </a>
                                         <div class="dropdown-menu cart-popup">
                                             <div class="cart-empty-wrap">
@@ -304,17 +302,7 @@
                                                         <div class="quantity">Qty: 1</div>
                                                         <div class="price">$150.00</div>
                                                     </li>
-                                                    <li class="mini-cart-item">
-                                                        <a href="#" class="remove" title="Remove this item"><i
-                                                                class="icon_close"></i></a>
-                                                        <a href="shop-details.html" class="product-image"><img
-                                                                width="600" height="600" src="media/product/1.jpg"
-                                                                alt=""></a>
-                                                        <a href="shop-details.html" class="product-name">Medium Flat
-                                                            Hoops</a>
-                                                        <div class="quantity">Qty: 1</div>
-                                                        <div class="price">$100.00</div>
-                                                    </li>
+                                                   
                                                 </ul>
                                                 <div class="total-cart">
                                                     <div class="title-total">Total: </div>

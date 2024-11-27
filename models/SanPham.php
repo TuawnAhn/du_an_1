@@ -8,8 +8,8 @@ class SanPham
         $this->conn = connectDB();
     }
 
-<<<<<<< HEAD
-=======
+
+
 
     // public function getAllSanPham()
     // {
@@ -25,7 +25,7 @@ class SanPham
     //         echo 'Loi: ' . $e->getMessage();
     //     }
     // }
->>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
+
 
 
     public function searchByName($ten)
@@ -55,25 +55,16 @@ class SanPham
 
 
     public function getAllDanhMuc()
-<<<<<<< HEAD
+
 {
-    try {
-        $sql = "SELECT * FROM danh_mucs";
+   
 
-
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-
-
-            $stmt = $this->conn->prepare($sql);
-
-=======
     {
         try {
             $sql = "SELECT * FROM danh_mucs";
 
             $stmt = $this->conn->prepare($sql);
->>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
+
 
             $stmt->execute();
 
@@ -120,15 +111,9 @@ class SanPham
             echo 'Loi: ' . $e->getMessage();
         }
     }
-<<<<<<< HEAD
 
-public function getAllSanPham($item_per_page = 9, $current_page = 1)
-{
-    try {
-        // Tính toán offset
-        $offset = ($current_page - 1) * $item_per_page;
-=======
->>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
+
+
 
     public function getAllSanPham($item_per_page = 16, $current_page = 1)
     {

@@ -54,10 +54,6 @@ match ($act) {
 
     'thong-ke' => (new BaoCaoThongKeController())->home(),
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
     'dashboard' => (new DashboardController())->index(),
 
     //Quan li danh muc
@@ -126,15 +122,7 @@ match ($act) {
 
  
 
-    'san-phams' => (new SanPhamController())->index(),
-    'form-them-san-pham' => (new SanPhamController())->create(),
-    'them-san-pham' => (new SanPhamController())->store(),
-    'form-sua-san-pham' => (new SanPhamController())->edit(),
-    'sua-san-pham' => (new SanPhamController())->update(),
-    'xoa-san-pham' => (new SanPhamController())->destroy(),
-    'chi-tiet-san-pham' => (new SanPhamController())->DetailSanPham(),
-    'xoa-binh-luan' => (new SanPhamController())->deleteReview(),
-    'xoa-danh-gia' => (new SanPhamController())->deleteDanhgia(),
+   
 
 
     //Quan li trang thai don hang
@@ -155,10 +143,6 @@ match ($act) {
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
 
 // Quản lý tài khaonr Quản trị
 'list-tai-khoan-quan-tri'=> (new TaiKhoanController())->danhSachQuanTri(),
@@ -169,8 +153,8 @@ match ($act) {
 'check-login-admin' => (new TaiKhoanController()) ->login(),
 'logout-admin' => (new TaiKhoanController()) ->logout(),
 
-<<<<<<< HEAD
-=======
+
+
 
 
 
@@ -180,7 +164,7 @@ match ($act) {
     // 'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
     // 'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
     // 'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
->>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
+
     'form-sua-quan-tri' => (new TaiKhoanController())->formEditQuanTri(),
     'sua-quan-tri' => (new TaiKhoanController())->postEditQuanTri(),
     'reset-password' => (new TaiKhoanController())->resetPassword(),
@@ -188,14 +172,14 @@ match ($act) {
 
 
     //
-<<<<<<< HEAD
+
    
 
-=======
+
     // 'login-admin' => (new TaiKhoanController())->formLogin(),
     // 'check-login-admin' => (new TaiKhoanController())->login(),
     // 'logout-admin' => (new TaiKhoanController())->logout(),
->>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
+
 
 
     //
