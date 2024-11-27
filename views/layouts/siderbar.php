@@ -86,7 +86,7 @@
                 <ul class="navbar-nav" id="navbar-nav">
                     <li class="menu-title"><span data-key="t-menu">Quản lý</span></li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="?act=dashboard">
+                        <a class="nav-link menu-link" href="?act=thong-ke">
                             <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Trang chủ</span>
                         </a>
 
@@ -183,7 +183,7 @@
                         </div>
                     </li>
 
-
+        
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarKhuyenMai" data-bs-toggle="collapse" role="button"
                             aria-expanded="false" aria-controls="sidebarKhuyenMai">
@@ -253,10 +253,6 @@
                                     <a href="?act=don-hangs" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a href="?act=form-them-don-hang" class="nav-link" data-key="t-nestable-list">Thêm
-                                        mới</a>
-                                </li>
                             </ul>
                         </div>
                     </li>

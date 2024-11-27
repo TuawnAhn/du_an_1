@@ -12,7 +12,7 @@ require_once('views/layout/header.php'); ?>
                             <!--Banner -->
                             <div class="block block-sliders auto-height color-white nav-center">
                                 <div class="slick-sliders" data-autoplay="true" data-dots="true" data-nav="true" data-columns4="1" data-columns3="1" data-columns2="1" data-columns1="1" data-columns1440="1" data-columns="1">
-                                    <?php foreach ($listBanner as $key => $banners): ?> 
+                                    <?php foreach ($listBanner as $key => $banners): ?>
                                         <div class="item slick-slide">
                                             <div class="item-content">
                                                 <div class="content-image">
@@ -21,7 +21,7 @@ require_once('views/layout/header.php'); ?>
                                                 <div class="item-info horizontal-start vertical-middle">
                                                     <div class="content">
                                                         <h2 class="title-slider"><?= $banners['title']; ?><br></h2>
-                                                        <a class="button-slider button button-white button-outline thick-border" href="shop-grid-left.html">Khám phá ngay</a>
+                                                        <a class="button-slider button button-white button-outline thick-border" href="?act=danhsachsanpham">Khám phá ngay</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -30,7 +30,7 @@ require_once('views/layout/header.php'); ?>
                                 </div>
                             </div>
                         </section>
-                       
+
                         <section class="section section-padding m-b-70">
                             <div class="section-container large">
                                 <!-- Block Banners (Layout 1) -->
@@ -118,7 +118,7 @@ require_once('views/layout/header.php'); ?>
                                             <div class="block-title">
                                                 <h2>Danh mục</h2>
                                             </div>
-                                               
+
                                             <?php foreach ($listDanhMuc as $key => $danhMuc) : ?>
                                                 <div class="block-content">
                                                     <div class="product-cats-list">
@@ -126,15 +126,15 @@ require_once('views/layout/header.php'); ?>
                                                             <li class="current">
                                                                 <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
                                                                     <?= $danhMuc['ten_danh_muc'] ?>
-                                                                    
+
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <?php endforeach; ?>
-                                                
-                                           
+                                            <?php endforeach; ?>
+
+
 
                                         </div>
                                     </div>
@@ -205,7 +205,7 @@ require_once('views/layout/header.php'); ?>
                                                 </div>
                                             </div>
                                             <div class="intro-btn">
-                                                <a href="shop-grid-left.html" class="button button-black button-arrow animation-horizontal">Tìm hiểu thêm</a>
+                                                <a href="?act=danhsachsanpham" class="button button-black button-arrow animation-horizontal">Tìm hiểu thêm</a>
                                             </div>
                                         </div>
                                     </div>
@@ -344,7 +344,7 @@ require_once('views/layout/header.php'); ?>
                                                                         <div class="banner-image-description">
                                                                             Vòng cổ và bông tai ngọc trai nước ngọt
                                                                         </div>
-                                                                        <a class="button button-outline thick-border border-white button-arrow" href="shop-grid-left.html">Khám phá</a>
+                                                                        <a class="button button-outline thick-border border-white button-arrow" href="?act=danhsachsanpham">Khám phá</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -368,7 +368,7 @@ require_once('views/layout/header.php'); ?>
                                                                         <div class="banner-image-description">
                                                                             Vòng cổ và bông tai ngọc trai nước ngọt
                                                                         </div>
-                                                                        <a class="button button-outline thick-border border-white button-arrow" href="shop-grid-left.html">Khám phá</a>
+                                                                        <a class="button button-outline thick-border border-white button-arrow" href="?act=danhsachsanpham">Khám phá</a>
                                                                     </div>
                                                                 </div>
                                                             </div>

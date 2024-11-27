@@ -169,10 +169,14 @@
                                         </li>
                                         <li class="level-0 menu-item">
                                             <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
-
-                                            <a href="page-contact.html"><span class="menu-item-text">Liên hệ</span></a>
                                         </li>
+<<<<<<< HEAD
 
+=======
+                                        <li class="level-0 menu-item">
+                                            <a href="?act=lien-he"><span class="menu-item-text">Liên hệ</span></a>
+                                        </li>
+>>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
                                     </ul>
                                     <ul>
 
@@ -270,16 +274,25 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
 
                                 <!-- Wishlist -->
                                 <div class="wishlist-box">
                                     <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
                                 </div>
+=======
+>>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
                             </div>
+
+                            <!-- Wishlist -->
+                                <div class="wishlist-box">
+                                    <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </header>
