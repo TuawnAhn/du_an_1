@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-  <script data-cfasync="false" nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
+  <script data-cfasync="false"
+    nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
     try {
       (function(w, d) {
         ! function(ne, nf, ng, nh) {
@@ -107,41 +108,71 @@
   </script>
 </head>
 
-<style>
-  /* Giao diện toàn trang */
+<style media="screen">
+  *,
+  *:before,
+  *:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
   body {
-    background-color: #1e3a8a; /* Màu nền xanh nước biển đậm */
-    font-family: 'Poppins', sans-serif;
+    background-color: #080710;
   }
 
-  /* Hình nền phía sau */
-  .background .shape:first-child {
-    background: linear-gradient(#2563eb, #1e40af); /* Gradient xanh nước biển */
+  .background {
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
   }
 
-  .background .shape:last-child {
-    background: linear-gradient(to right, #60a5fa, #3b82f6); /* Gradient xanh nhạt */
+  .background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
   }
 
-  /* Form đăng nhập */
+  .shape:first-child {
+    background: linear-gradient(#1845ad,
+        #23a2f6);
+    left: -80px;
+    top: -80px;
+  }
+
+  .shape:last-child {
+    background: linear-gradient(to right,
+        #ff512f,
+        #f09819);
+    right: -30px;
+    bottom: -80px;
+  }
+
   form {
     height: 520px;
     width: 400px;
-    background-color: rgba(30, 58, 138, 0.13); /* Form trong suốt với tông xanh nước biển */
+    background-color: rgba(255, 255, 255, 0.13);
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(30, 58, 138, 0.2);
-    box-shadow: 0 0 40px rgba(30, 58, 138, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
   }
 
   form * {
-    color: #ffffff; /* Chữ màu trắng */
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
     letter-spacing: 0.5px;
+    outline: none;
+    border: none;
   }
 
   form h3 {
@@ -168,58 +199,75 @@
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
-    color: #ffffff; /* Chữ màu trắng */
   }
 
   ::placeholder {
-    color: #cbd5e1; /* Màu placeholder xám nhạt */
+    color: #e5e5e5;
   }
 
   button {
     width: 100%;
-    background-color: #2563eb; /* Màu xanh nước biển đậm */
-    color: #ffffff; /* Chữ màu trắng */
+    background-color: #ffffff;
+    color: #080710;
     padding: 15px 0;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
   }
 
-  button:hover {
-    background-color: #1e40af; /* Màu xanh đậm hơn khi hover */
+  .social {
+    margin-top: 30px;
+    display: flex;
   }
 
-  /* Nút đăng ký */
-  .register-btn {
-    display: inline-block; /* Tách riêng nút Đăng ký */
-    margin-top: 20px;
-    font-size: 14px;
-    padding: 10px 20px;
-    background-color: #60a5fa; /* Màu xanh nhạt */
-    color: #ffffff; /* Chữ màu trắng */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none; /* Xóa gạch chân */
+  .social div {
+    background: red;
+    width: 150px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background-color: rgba(255, 255, 255, 0.27);
+    color: #eaf0fb;
     text-align: center;
-    transition: background-color 0.3s;
+  }
+
+  .social div:hover {
+    background-color: rgba(255, 255, 255, 0.47);
+  }
+
+  .social .fb {
+    margin-left: 25px;
+  }
+
+  .social i {
+    margin-right: 4px;
+  }
+
+  .error-message {
+    margin: 1em 0;
+    color: #ff512f;
+  }
+</style>
+<style>
+  .register-btn {
+    font-size: 12px;
+    /* Kích thước chữ nhỏ hơn */
+    padding: 8px 16px;
+    /* Điều chỉnh khoảng cách bên trong nút */
+    background-color: #f1f1f1;
+    /* Màu nền nhạt hơn */
+    color: #333;
+    /* Màu chữ */
+    border: 1px solid #ccc;
+    /* Đường viền nhẹ */
+    border-radius: 4px;
+    /* Bo góc */
+    cursor: pointer;
   }
 
   .register-btn:hover {
-    background-color: #2563eb; /* Màu xanh đậm khi hover */
-  }
-
-  .register-btn a {
-    text-decoration: none; /* Xóa gạch chân */
-    color: #ffffff; /* Chữ màu trắng */
-  }
-
-  /* Thông báo lỗi */
-  .error-message {
-    margin: 1em 0;
-    color: #ef4444; /* Màu đỏ nổi bật */
+    background-color: #ddd;
+    /* Hiệu ứng khi hover */
   }
 </style>
 
@@ -235,30 +283,28 @@
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
-  <form action="?act=check-login-admin" method="post">
+  <form action="?act=check-dang-ky" method="post">
 
-    <label for="email">Username</label>
+    <label for="email">Email</label>
     <input type="gmail" placeholder="Email or Phone" id="email" name="email">
 
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password" name="password">
-    <div class="error-message">
-      <?php
-      if ($_SESSION && $_SESSION['flash']) {
-        echo $_SESSION['flash'];
-      }
-      ?>
-
-    </div>
 
 
-    <button style="margin-top: 50px;" type="submit">Đăng nhập</button>
-    <button class="register-btn">
-      <a href="?act=dang-ky">Đăng ký</a>
-    </button>
+
+
+    <label for="password">Họ tên</label>
+    <input type="text" placeholder="Họ tên" id="password" name="ho_ten">
+
+    <label for="so_dien_thoai">Số điện thoại</label>
+    <input type="text" placeholder="Số điện thoại" id="so_dien_thoai" name="so_dien_thoai">
+
+
+
+    <button style="margin-top: 50px;" type="submit">OK</button>
 
     <div class="err"></div>
-
 
   </form>
   <script src="./assets/plugins/jquery/jquery.min.js"></script>

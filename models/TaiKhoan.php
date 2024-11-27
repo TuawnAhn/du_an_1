@@ -2,6 +2,7 @@
 class TaiKhoan
 {
     public $conn;
+    public $modelTaiKhoan;
 
     //Ket noi csdl
     public function __construct()
@@ -55,11 +56,10 @@ class TaiKhoan
                     return "Tài khoản bị cấm";
                 }
             } else {
-                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=home'</script>";
+                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=login'</script>";
                 exit();
             }
         } catch (Exception $e) {
-            //throw $th;
             echo 'Lỗi' . $e->getMessage();
             return $e->getMessage();
         }

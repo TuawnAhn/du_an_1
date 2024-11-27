@@ -3,6 +3,7 @@ class HomeController
 {
     public $modelSanPham;
     public $modelBanner;
+    public $modelTaiKhoan;
 
     public $modelTinTuc;
 
@@ -11,6 +12,7 @@ class HomeController
         $this->modelSanPham = new SanPham();
         $this->modelBanner = new Banner();
         $this->modelTinTuc = new TinTuc();
+        $this->modelTaiKhoan=new TaiKhoan();
     }
     public function home()
     {
@@ -28,4 +30,32 @@ class HomeController
         require_once "./views/Home.php";
     }
     public function index() {}
-}
+
+public function formLogin()
+    {
+        require_once './views/auth/formLogin.php';
+        // deleteSessionError();
+    }
+    public function postLogin()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $user = $this->modelTaiKhoan->checkLogin($email, $password);
+            if (gettype($user) != 'string') {
+                if ($user['email'] == $email) {
+                    $_SESSION['user_client'] = $user;
+                  
+                    
+                        header("Location: /du_an_1/?act=home");
+                        exit();
+                   
+                
+            } else {
+                $_SESSION['flash'] = $user;
+                header("Location: ?act=login");
+                exit();
+            }
+        }}}
+    }
+    
