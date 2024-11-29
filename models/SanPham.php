@@ -115,7 +115,7 @@ class SanPham
 
 
 
-    public function getAllSanPham($item_per_page = 16, $current_page = 1)
+    public function getAllSanPham($item_per_page = 9, $current_page = 1)
     {
         try {
             // Tính toán offset

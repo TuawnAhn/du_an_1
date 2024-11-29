@@ -137,34 +137,19 @@
                                         <li class="level-0 menu-item menu-item-has-children">
                                             <a href="#"><span class="menu-item-text">Trang</span></a>
                                             <ul class="sub-menu">
+                                              
                                                 <li>
-                                                    <a href="page-login.html"><span class="menu-item-text">Đăng nhập /
+                                                    <a href="?act=login"><span class="menu-item-text">Đăng nhập /
                                                             Đăng ký</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-forgot-password.html"><span
-                                                            class="menu-item-text">Quên mật khẩu</span></a>
                                                 </li>
                                                 <li>
                                                     <a href="page-my-account.html"><span class="menu-item-text">Tài
                                                             khoản của tôi</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="page-about.html"><span class="menu-item-text">Về chúng
-                                                            tôi</span></a>
-                                                </li>
-                                                <li>
                                                <a href="?act=lien-he"><span class="menu-item-text">Liên hệ</span></a>
 
 
-                                                </li>
-                                                <li>
-                                                    <a href="page-faq.html"><span class="menu-item-text">Câu hỏi thường
-                                                            gặp</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-404.html"><span class="menu-item-text">Page
-                                                            404</span></a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -174,11 +159,6 @@
                                             <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
                               
                                         </li>
-                                      
-
-                                       
-                                        
-
                                     </ul>
                                     <ul>
 
@@ -195,74 +175,15 @@
                                 </div>
 
                                 <!-- Login -->
-                                <div class="login-header icon">
-                                    <a class="active-login" href="#"><i class="icon-user"></i></a>
-                                    <div class="form-login-register">
-                                        <div class="box-form-login">
-                                            <div class="active-login"></div>
-                                            <div class="box-content">
-                                                <div class="form-login active">
-                                                    <form action="?act=check-login-admin" id="login_ajax" method="post"
-                                                        class="login">
-                                                        <h2>Sign in</h2>
-                                                        <p class="status"></p>
-                                                        <div class="content">
-                                                            <div class="username">
-                                                                <input type="text" required="required"
-                                                                    class="input-text" name="email" id="username"
-                                                                    placeholder="Your name" />
-                                                            </div>
-                                                            <div class="password">
-                                                                <input class="input-text" required="required"
-                                                                    type="password" name="password" id="password"
-                                                                    placeholder="Password" />
-                                                            </div>
-                                                            <div class="rememberme-lost">
-                                                                <div class="rememberme">
-                                                                    <input name="rememberme" type="checkbox"
-                                                                        id="rememberme" value="forever" />
-                                                                    <label for="rememberme" class="inline">Remember
-                                                                        me</label>
-                                                                </div>
-                                                                <div class="lost_password">
-                                                                    <a href="forgot-password.html">Lost your
-                                                                        password?</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="button-login">
-                                                                <input type="submit" class="button" name="login"
-                                                                    value="Login" />
-                                                            </div>
-                                                            <div class="button-next-reregister">Create An Account</div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="form-register">
-                                                    <form method="post" class="register">
-                                                        <h2>REGISTER</h2>
-                                                        <div class="content">
-                                                            <div class="email">
-                                                                <input type="email" class="input-text"
-                                                                    placeholder="Email" name="email" id="reg_email"
-                                                                    value="" />
-                                                            </div>
-                                                            <div class="password">
-                                                                <input type="password" class="input-text"
-                                                                    placeholder="Password" name="password"
-                                                                    id="reg_password" />
-                                                            </div>
-                                                            <div class="button-register">
-                                                                <input type="submit" class="button" name="register"
-                                                                    value="Register" />
-                                                            </div>
-                                                            <div class="button-next-login">Already has an account</div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <?php if (isset($_SESSION['user'])) { ?>
+
+                                    <a href="/du_an_1/?act=logout"><?php echo $_SESSION['user']['email'] ?></a>
+                                <?php } else { ?>
+                                    <div class="login-header icon">
+                                        <a href="/du_an_1/?act=login"><i class="icon-user"></i></a>
                                     </div>
-                                </div>
+                                <?php } ?>
+
 
                                 <!-- Wishlist -->
                                 <div class="wishlist-box">
@@ -274,7 +195,8 @@
                                 <div class="mojuri-topcart dropdown light">
                                     <div class="dropdown mini-cart top-cart">
                                         <div class="remove-cart-shadow"></div>
-                                        <a class="dropdown-toggle cart-icon" href="?act=them-gio-hang" role="button"
+                                      
+                                        <a class="dropdown-toggle cart-icon" href="#" role="button"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <div  class="icons-cart"><i class="icon-large-paper-bag"></i>
                                                    </div>
@@ -317,7 +239,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="buttons">
-                                                    <a href="shop-cart.html"
+                                                    <a href="?act=gio-hang"
                                                         class="button btn view-cart btn-primary">View cart</a>
                                                     <a href="shop-checkout.html"
                                                         class="button btn checkout btn-default">Check out</a>
@@ -326,12 +248,15 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Wishlist -->
+                                <!-- Wishlist -->
                                 <div class="wishlist-box">
                                     <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
                                 </div>
+                            </div>
+
+                            <!-- Wishlist -->
+                                
                         </div>
                     </div>
                 </div>

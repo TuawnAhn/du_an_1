@@ -1,231 +1,192 @@
-<!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
-    data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+<?php require_once './views/layouts/header.php'; ?>
 
-<head>
-    <meta charset="utf-8" />
-    <title>Quản lý Chi Tiết Sản Phẩm | Silver Ring</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Admin Product Detail Page" name="description" />
-    <meta content="Themesbrand" name="author" />
-
-    <!-- CSS -->
-    <?php require_once "views/layouts/libs_css.php"; ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-</head>
-
-<body>
-    <!-- Begin page -->
-    <div id="layout-wrapper">
-        <!-- HEADER -->
-        <?php require_once "views/layouts/header.php"; ?>
-        <?php require_once "views/layouts/siderbar.php"; ?>
-
-        <div class="vertical-overlay"></div>
-        <div class="main-content">
-            <div class="page-content">
-                <div class="container-fluid">
-                    <!-- Tiêu đề trang -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Quản lý Chi Tiết Sản Phẩm - <?= $SanPham['ten'] ?></h4>
-                                <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="?act=products">Danh sách Sản Phẩm</a></li>
-                                        <li class="breadcrumb-item active">Chi Tiết Sản Phẩm</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
+<?php require_once './views/layouts/menu.php'; ?>
+<main><br><br><br><br>
+  <div class="mb-4 pb-4"></div>
+  <section class="shop-checkout container">
+    <div class="checkout-steps">
+      <a href="<?= '?act=gio-hang' ?>" class="checkout-steps__item active">
+        <span class="checkout-steps__item-number">01</span>
+        <span class="checkout-steps__item-title">
+          <span>Giỏ hàng</span>
+          <em></em>
+        </span>
+      </a>
+      <a href="shop_checkout.html" class="checkout-steps__item">
+        <span class="checkout-steps__item-number">02</span>
+        <span class="checkout-steps__item-title">
+          <span>Thanh toán và vận chuyển</span>
+        </span>
+      </a>
+      <a href="shop_order_complete.html" class="checkout-steps__item">
+        <span class="checkout-steps__item-number">03</span>
+        <span class="checkout-steps__item-title">
+          <span>Confirmation</span>
+        </span>
+      </a>
+    </div>
+    <div class="shopping-cart mb-5">
+      <div class="cart-table__wrapper">
+        <!-- <form action=" " method="POST" class="position-relative bg-body"> -->
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Ảnh sản phẩm</th>
+                <th></th>
+                <th>Giá tiền</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+                <th></th>
+              </tr>
+            </thead>
+            
+              <tbody>
+              <?php
+                $tongGioHang = 0;
+                foreach ($chiTietGioHang as $sanPham) :
+              ?>
+                <tr>
+                  <td>
+                    <div class="shopping-cart__product-item">
+                      <a href="<?= "?act=chi-tiet-san-pham&id_san_pham=" . $sanPham['san_pham_id'] ?>"><img loading="lazy" src="<?= $sanPham['img'] ?>" width="100" height="110" alt="" class="pc__img"></a>
                     </div>
-
-                    <!-- Thông tin sản phẩm -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <?php if (!empty($SanPham['img'])): ?>
-                                    <div>
-                                        <img src="<?= $SanPham['img'] ?>" alt="Hình ảnh hiện tại" style="width: 600px; height: 800px; ">
-
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h1><?= $SanPham['ten'] ?></h1>
-                                    <h5><strong>Mã sản phẩm:</strong> <?= $SanPham['ten'] ?></h5>
-                                    <h3 class="text-danger"><?= number_format($SanPham['gia_ban'], 0, ',', '.') ?> VND</h3>
-                                    <h5 class="text-danger"><del><?= number_format($SanPham['gia_km'], 0, ',', '.') ?> VND</del></h5>
-                                    <hr>
-                                    <p><strong>Danh mục:</strong> <?= $SanPham['danh_muc_id'] == 1 ? 'Vòng-Lắc' : 'Nhẫn' ?></p>
-                                    <p><strong>Số lượng trong kho:</strong> <?= $SanPham['so_luong'] ?></p>
-                                    <p><strong>Tình trạng:</strong> <?= $SanPham['trang_thai'] ? 'Còn hàng' : 'Hết hàng' ?></p>
-
-
-                                    <!-- Thao tác quản lý -->
-                                    <hr>
-                                    <a href="?act=form-sua-san-pham&san_pham_id=<?= $SanPham['id'] ?>" class="btn btn-warning"><i class="ri-edit-2-line"></i> Chỉnh sửa</a>
-                                    <a href="?act=xoa-san-pham&san_pham_id=<?= $SanPham['id'] ?>" class="btn btn-danger"><i class="ri-delete-bin-6-line"></i> Xóa</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Thông tin chi tiết sản phẩm -->
-                        <div class="row mt-4">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header bg-dark text-white">
-                                        <h5 class="card-title mb-0" style="color: white;">Mô tả Chi Tiết Sản Phẩm</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <?php if (empty($danhgiaSanPham)) : ?>
-                                            <p>Chưa có mô tả cho sản phẩm này.</p>
-                                        <?php else : ?>
-                                            <?php foreach ($listSanPham as $mota): ?>
-                                                <div class="media mb-4">
-                                                    <img class="mr-3 rounded-circle" src="<?= $danhgia['user_avatar'] ?>" alt="User avatar" width="50">
-                                                    <div class="media-body">
-                                                        <p><?= $mota['mo_ta_chi_tiet'] ?></p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Đánh giá sản phẩm -->
-                        <div class="row mt-4">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header bg-info text-white">
-                                        <h5 class="card-title mb-0">Đánh Giá Sản Phẩm</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <?php if (empty($danhgia)) : ?>
-                                            <p>Chưa có đánh giá cho sản phẩm </p>
-                                        <?php else : ?>
-                                            <?php foreach ($danhgia as $danhGia): ?>
-                                                <div class="media mb-4">
-                                                    <!-- Avatar người dùng -->
-
-
-                                                    <div class="media-body">
-                                                        <!-- Tên người dùng và ngày đánh giá -->
-                                                        <h6 class="mt-0"><?= htmlspecialchars($danhGia['ten_nguoi_danh_gia']) ?> <small class="text-muted"><?= date("d/m/Y", strtotime($danhGia['ngay_danh_gia'])) ?></small></h6>
-
-                                                        <!-- Hiển thị đánh giá sao -->
-                                                        <div class="rating">
-                                                            <?php
-                                                            $rating = $danhGia['rating'];
-                                                            // Lặp qua các sao được đánh giá
-                                                            for ($i = 1; $i <= 5; $i++):
-                                                                if ($i <= $rating): ?>
-                                                                    <span class="fa fa-star checked"></span>
-                                                                <?php else: ?>
-                                                                    <span class="fa fa-star"></span>
-                                                            <?php endif;
-                                                            endfor; ?>
-                                                        </div>
-                                                        <br>
-                                                        <br>
-
-                                                        <a href="?act=xoa-danh-gia&id=<?= $danhGia['id'] ?>" class="text-danger" onclick="return confirm('Bạn có chắc muốn xóa đánh giá này không?')">
-                                                            <i class="ri-delete-bin-6-line"></i> Xóa đánh giá
-                                                        </a>
-
-
-
-
-
-
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Bình luận sản phẩm- Tuấn Anh làm -->
-                        <div class="row mt-4">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header bg-secondary text-white">
-                                        <h5 class="card-title mb-0" style="color: white;">Bình Luận Sản Phẩm</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <?php if (empty($binhLuan)) : ?>
-                                            <p>Chưa có bình luận cho sản phẩm này.</p>
-                                        <?php else : ?>
-                                            <?php foreach ($binhLuan as $binhluan): ?>
-                                                <div class="media mb-4">
-                                                    <div class="media-body">
-                                                        <h6 class="mt-0"><?= $binhluan['ten_nguoi_binh_luan'] ?>
-                                                            <small class="text-muted"><?= date("d/m/Y H:i", strtotime($binhluan['ngay_binh_luan'])) ?></small>
-                                                        </h6>
-                                                        <p><?= $binhluan['noi_dung'] ?></p>
-                                                        <!-- Chỉ áp dụng class text-danger cho liên kết Xóa -->
-                                                        <a href="?act=xoa-binh-luan&id=<?= $binhluan['id'] ?>" class="text-danger" onclick="return confirm('Bạn có chắc muốn xóa bình luận này không?')">
-                                                            <i class="ri-delete-bin-6-line"></i> Xóa bình luận
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                  </td>
+                  <td>
+                    <div class="shopping-cart__product-item__detail">
+                      <h4><a href=""><?= $sanPham['ten'] ?></a></h4>
                     </div>
-                </div>
+                  </td>
 
-                <!-- Footer -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script> © Silver Ring.
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                  <td>
+                    <span class="shopping-cart__product-price">
+                      <?php if ($sanPham['gia_km']) { ?>
+                        <span style="color: red;"> <?= number_format($sanPham['gia_km'], 0, ',', '.') ?>đ</span><br>
+                        <span><del><?= number_format($sanPham['gia_ban'], 0, ',', '.') ?>đ</del></span>
+                      <?php } else { ?>
+                        <span> <?= number_format($sanPham['gia_ban'], 0, ',', '.') ?>đ</span>
+                      <?php } ?>
+                    </span>
+                  </td>
+                  <td>
+                    <div class="qty-control position-relative">
+                      <input type="number" name="so_luong[<?= $sanPham['san_pham_id'] ?>]" class="qty-control__number text-center" value="<?= $sanPham['so_luong'] ?>" min="1" data-gia="<?= $sanPham['gia_km'] ?? $sanPham['gia_ban'] ?>" data-san-pham-id="<?= $sanPham['san_pham_id'] ?>">
+                      <div class="qty-control__reduce">-</div>
+                      <div class="qty-control__increase">+</div>
+                    </div><!-- .qty-control -->
+                  </td>
+                  <td>
+                    <span class="shopping-cart__subtotal" id="subtotal-<?= $sanPham['san_pham_id'] ?>">
+                      <?php
+                      $tongtien = 0;
+                      if ($sanPham['gia_khuyen_mai']) {
+                        $tongtien = $sanPham['gia_khuyen_mai'] * $sanPham['so_luong'];
+                      } else {
+                        $tongtien = $sanPham['gia_ban'] * $sanPham['so_luong'];
+                      }
+                      $tongGioHang += $tongtien;
+                      echo number_format($tongtien, 0, ',', '.') . ' đ';
+                      ?>
+                    </span>
+                  </td>
+                  <td>
+                    <!-- <button onclick="return confirm('xoa')">Xoá</button> -->
+                      <form action="<?= '?act=xoa-san-pham-gio-hang' ?>" method="POST">
+                        <input type="hidden" name="san_pham_id" value="<?= $sanPham['san_pham_id'] ?>">
+                        <button type="submit" class=" btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')"><i class="bi bi-trash3-fill"></i></button>
+                      </form>
+                  </td>
+
+
+                </tr>
+            <?php endforeach ?>
+
+              </tbody>
+
+          </table>
+          <div class="cart-table-footer">
+            <button type="submit" class="btn btn-light">Cập nhật giỏ hàng</button>
+          </div>
+        <!-- </form> -->
+      </div>
+
+      <div class="shopping-cart__totals-wrapper">
+        <div class="sticky-content">
+          <div class="shopping-cart__totals">
+            <h3>Tổng tiền giỏ hàng</h3>
+            <table class="cart-totals">
+              <tbody>
+                <tr>
+                  <th>Tổng tiền sản phẩm</th>
+                  <td> <?php echo number_format($tongGioHang, 0, ',', '.') ?> đ </td>
+                </tr>
+                <tr>
+                  <th>Vận chuyển</th>
+                  <td>
+                    <label class="form-check-label mb-2" for="free_shipping">
+                      <?php $phiship = 50000;
+                      if ($tongGioHang > 0) {
+                        echo number_format($phiship, 0, ',', '.') . ' đ';
+                      } else {
+                        echo "0 đ";
+                      }
+                      ?>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Tổng thanh toán</th>
+                  <td><?php $phiship = 50000;
+                      if ($tongGioHang > 0) {
+                        echo number_format($tongGioHang + $phiship, 0, ',', '.') . ' đ';
+                      } else {
+                        echo "0 đ";
+                      }
+                      ?> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mobile_fixed-btn_wrapper">
+            <div class="button-wrapper container">
+              <?php if ($tongGioHang > 0): ?>
+                <a href="?act=thanh-toan"><button class="btn btn-primary btn-checkout">Bắt đầu thanh toán</button></a>
+              <?php else: ?>
+                <button class="btn btn-primary btn-checkout" disabled>Không có sản phẩm trong giỏ hàng</button>
+              <?php endif; ?>
             </div>
+          </div>
+
         </div>
+      </div>
+    </div>
+  </section>
 
-        <?php require_once "views/layouts/libs_js.php"; ?>
-        <style>
-            /* CSS để hiển thị sao */
-            .rating {
-                display: inline-block;
-                color: #FFD700;
-                /* Màu vàng cho sao */
-            }
+  <style>
+    .shopping-cart__product-item img {
+      width: 150px;
+      /* Chiều rộng ảnh */
+      height: 150px;
+      /* Chiều cao ảnh */
+      object-fit: cover;
+      /* Cắt hoặc co dãn ảnh để vừa với khung */
+      display: block;
+      /* Đảm bảo ảnh không ảnh hưởng đến các phần tử khác */
+      margin: 0 auto;
+      /* Căn giữa ảnh trong phần tử cha */
+    }
 
-            .fa-star {
-                font-size: 18px;
-                color: #ddd;
-                /* Màu xám cho sao không được chọn */
-            }
+    .shopping-cart__product-item {
+      display: flex;
+      justify-content: center;
+      /* Căn giữa nội dung theo chiều ngang */
+      align-items: center;
+      /* Căn giữa nội dung theo chiều dọc */
+      text-align: center;
+      /* Đảm bảo nội dung văn bản căn giữa nếu có */
+      height: 110px;
+      /* Chiều cao của dòng để ảnh luôn vừa khung */
+    }
+  </style>
+</main>
 
-            .fa-star.checked {
-                color: #FFD700;
-                /* Màu vàng cho sao được chọn */
-            }
-        </style>
-</body>
-
-</html>s
+<?php require_once './views/layouts/footer.php'; ?>

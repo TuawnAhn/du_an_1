@@ -2,6 +2,7 @@
 class TaiKhoan
 {
     public $conn;
+    public $modelTaiKhoan;
 
     //Ket noi csdl
     public function __construct()
@@ -42,28 +43,27 @@ class TaiKhoan
         }
     }
     public function checkLogin($email, $mat_khau)
-    {
-        try {
-            $sql = "SELECT * FROM tai_khoans WHERE email=:email";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute(['email' => $email]);
-            $user = $stmt->fetch();
-            if ($user && $user['mat_khau'] == $mat_khau) {
-                if ($user['trang_thai'] == 1) {
-                    return $user;
-                } else {
-                    return "Tài khoản bị cấm";
-                }
+{
+    try {
+        $sql = "SELECT * FROM tai_khoans WHERE email=:email";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['email' => $email]);
+        $user = $stmt->fetch();
+        
+        if ($user && $user['mat_khau'] == $mat_khau) {
+            if ($user['trang_thai'] == 1) {
+                return $user; // Trả về thông tin người dùng
             } else {
-                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=home'</script>";
-                exit();
+                return "Tài khoản bị cấm";
             }
-        } catch (Exception $e) {
-            //throw $th;
-            echo 'Lỗi' . $e->getMessage();
-            return $e->getMessage();
+        } else {
+            return "Thông tin đăng nhập không chính xác"; // Thay vì echo
         }
+    } catch (Exception $e) {
+        echo 'Lỗi: ' . $e->getMessage();
+        return null;
     }
+}
     ///
     public function getDetailTaiKhoan($id)
     {
@@ -105,17 +105,17 @@ class TaiKhoan
     }
 
 
-    public function getAllTaiKhoanformEmail($id)
+    public function getAllTaiKhoanformEmail($email)
     {
         try {
-            $sql = "SELECT * FROM tai_khoans WHERE id = :id";
+            $sql = "SELECT * FROM tai_khoans WHERE email = :email";
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':email', $email);
 
             $stmt->execute([
-                ':id' => $id
+                ':email' => $email
             ]);
 
             return $stmt->fetch();

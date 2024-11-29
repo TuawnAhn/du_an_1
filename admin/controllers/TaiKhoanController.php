@@ -59,7 +59,6 @@ class TaiKhoanController
     public function formLogin()
     {
         require_once './views/auth/formLogin.php';
-        // deleteSessionError();
     }
     public function login()
     {

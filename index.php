@@ -18,25 +18,21 @@ require_once './controllers/KhuyenMaiController.php';
 
 require_once './controllers/TinTucController.php';
 require_once './controllers/TaiKhoanController.php';
+require_once './controllers/DangKiController.php';
 
 
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
 require_once './models/Banner.php';
-require_once './models/SanPham.php';
+require_once './models/TaiKhoan.php';
 require_once './models/ChiTietSanPham.php';
-
-
-require_once './models/LienHe.php';
-require_once './models/KhuyenMai.php';
 
 
 require_once './models/LienHe.php';
 require_once './models/KhuyenMai.php';
 require_once './models/GioHang.php';
 require_once './models/TinTuc.php';
-require_once './models/DonHang.php';
-require_once './models/TaiKhoan.php';
+require_once './models/DangKi.php';
 
 // error_reporting(E_ERROR | E_PARSE);
 
@@ -50,8 +46,10 @@ $id = $_GET['id'] ?? null; // Lấy ID từ URL, nếu không có thì gán giá
 match ($act) {
     // Trang chủ
     'home'                       => (new HomeController())->home(),
-     'gio-hang'    => (new HomeController())->gioHang(), 
-    'them-gio-hang'      => (new HomeController())->addGioHang(),  
+    'them-gio-hang'           => (new HomeController())->addGioHang(),
+  'gio-hang'                => (new HomeController())->gioHang(),
+  'cap-nhat-gio-hang'       => (new HomeController())->capNhatGioHang(),
+  'xoa-san-pham-gio-hang'   => (new HomeController())->xoaSanPhamGioHang(),
 
 
     'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
@@ -63,12 +61,19 @@ match ($act) {
     'tin-tuc'                   => (new TinTucController())->tintuc(),
 
     // Danh sách sản phẩm
-    'danhsachsanpham'      => (new SanPhamController())->sanpham(),
+
+    'danhsachsanpham' => (new SanPhamController())->sanpham(),
+   
+
+    // Chi tiết sản phẩm
+    'chitietsanpham' => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print ("ID sản phẩm không hợp lệ."),
+
+  
     // 'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
 
   
     // // Chi tiết sản phẩm
-    'chitietsanpham'       => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
+  
 
     'them-binh-luan'            =>(new ChiTietSanPhamController())->thembinhluan(),
     
@@ -86,11 +91,18 @@ match ($act) {
     'chitietdonhang'       => (new HomeController())->chiTietMuahang(),
 
     // Lien he
-    'lien-he'  => (new LienHeController())->view(),
-    'add-lien-he'  => (new LienHeController())->store(),
+    'lien-he' => (new LienHeController())->view(),
+    'add-lien-he' => (new LienHeController())->store(),
 
     // Khuyen mai
     'khuyen-mai' => (new KhuyenMaiController())->view(),
+    //
+    'login' => (new TaiKhoanController())->formLogin(),
+    'check-login' => (new TaiKhoanController())-> login(),
+    'logout' => (new TaiKhoanController())->logout(),
+
+    'dang-ky' => (new DangKiController())->formDangKi(),
+    'check-dang-ky' => (new DangKiController())->dangky(),
 
     //giỏ hàng
     // 'them-gio-hang' => (new HomeController())->addGioHang(),
@@ -101,9 +113,8 @@ match ($act) {
 
      // Mặc định
 
-    default                => print("Hành động không hợp lệ."),
+   
 
-    // Mặc định
-    // default                => print("Hành động không hợp lệ."),
-
+    default => print ("Hành động không hợp lệ."),
+   // default                => print("Hành động không hợp lệ."),
 };

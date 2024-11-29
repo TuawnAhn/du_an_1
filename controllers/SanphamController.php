@@ -59,7 +59,7 @@ class SanPhamController
         // var_dump($danhmucs);
 
         require_once './views/danhsachsanpham.php';
-        require_once 'views/sanpham/tim_kiem_san_pham.php';
+       
     
 
 
