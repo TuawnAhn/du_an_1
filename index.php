@@ -10,6 +10,7 @@ require_once './controllers/BannerController.php';
 require_once './controllers/SanPhamController.php';
 require_once './controllers/ChiTietSanPhamController.php';
 require_once './controllers/TinTucController.php';
+require_once './controllers/ThanhToanController.php';
 
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
@@ -17,6 +18,7 @@ require_once './models/Banner.php';
 require_once './models/SanPham.php';
 require_once './models/ChiTietSanPham.php';
 require_once './models/TinTuc.php';
+require_once './models/ThanhToan.php';
 
 
 // Route
@@ -27,11 +29,12 @@ $id = $_GET['id'] ?? null; // Lấy ID từ URL, nếu không có thì gán giá
 match ($act) {
     // Trang chủ
     'home'                       => (new HomeController())->home(),
-
+    'thanh-toan'               => (new ThanhToanController())->getAllData(),
 
     'tim-kiem-san-pham'       => (new SanPhamController())->search(),
     'banner'                     => (new BannerController())->banner(),
     'tin-tuc'                   => (new TinTucController())->tintuc(),
+    
 
     // Danh sách sản phẩm
     'danhsachsanpham'      => (new SanPhamController())->sanpham(),
@@ -39,7 +42,8 @@ match ($act) {
 
     // Chi tiết sản phẩm
     'chitietsanpham'       => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
+    'them-binh-luan'            =>(new ChiTietSanPhamController())->thembinhluan(),
 
         // Mặc định
-    default                => print("Hành động không hợp lệ."),
+
 };

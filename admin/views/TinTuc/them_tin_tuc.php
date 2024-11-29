@@ -55,7 +55,7 @@
                                                                     });
                                                             </script>
                                                             <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['content']) ? $_SESSION['errors']['content'] : '' ?>
+                                                                <?= !empty($_SESSION['errors']['content']) ? $_SESSION['errorsư']['content'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>

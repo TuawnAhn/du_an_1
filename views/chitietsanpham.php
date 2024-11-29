@@ -112,7 +112,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="btn-quick-buy" data-title="Wishlist">
-                                                        <button class="product-btn">Mua ngay</button>
+                                                        <a href="?act=thanh-toan"><button  class="product-btn">Mua ngay</button></a>
                                                     </div>
                                                     <div class="btn-wishlist" data-title="Wishlist">
                                                         <button class="product-btn">Thêm vào danh sách yêu thích</button>
@@ -147,17 +147,17 @@
                                                 </li>
                                 
                                                 <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Đánh giá (1)</a>
+                                                    <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Bình luận</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane fade show active" id="description" role="tabpanel">
-                                                    <p><?= $chiTietSanPham['mo_ta_chi_tiet']; ?></p>
-                                                </div>
-                                                <div class="tab-pane fade" id="additional-information" role="tabpanel">
-                                                    <table class="product-attributes">
-                                                        <tbody>
-                                                            <tr class="attribute-item">
+                                                    <p><?= $chiTietSanPham['mo_ta_chi_tiet']; ?></p>                                           
+                                                </div>                                         
+                                                <div class="tab-pane fade" id="additional-information" role="tabpanel">                                        
+                                                    <table class="product-attributes">                                         
+                                                        <tbody>                                        
+                                                            <tr class="attribute-item">                                        
                                                                 <th class="attribute-label">Color</th>
                                                                 <td class="attribute-value">Antique, Chestnut, Grullo</td>
                                                             </tr>
@@ -165,36 +165,45 @@
                                                     </table>
                                                 </div>
                                                 <div class="tab-pane fade" id="reviews" role="tabpanel">
+
                                                     <div id="reviews" class="product-reviews">
+
                                                         <div id="comments">
-                                                            <h2 class="reviews-title">1 đánh giá cho <span><?= $chiTietSanPham['ten']; ?></span></h2>
+                                                            <h2 class="reviews-title">Những bình luận cho <span><?= $chiTietSanPham['ten']; ?></span></h2>
                                                             <ol class="comment-list">
                                                                 <li class="review">
+
+                                                                    <?php foreach($listBinhLuan as $BinhLuan) : ?>
                                                                     <div class="content-comment-container">
                                                                         <div class="comment-container">
                                                                             <img src="media/testimonial/5.jpg" class="avatar" height="60" width="60" alt="">
                                                                             <div class="comment-text">
                                                                                 <div class="rating small">
-                                                                                    <div class="star star-5"></div>
+                                                                                    
                                                                                 </div>
-                                                                                <div class="review-author"><?= $listBinhLuan['ten_nguoi_binh_luan']; ?></div>
-                                                                                <div class="review-time"><?php echo date('F d, Y'); ?></div>
+                                                                                <div class="review-author"><?= $BinhLuan['ten_nguoi_binh_luan']; ?></div>
+                               <div class="review-time">
+    <?= date('m/d/Y H:i:s', strtotime($BinhLuan['ngay_binh_luan'])); ?>
+</div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="description">
-                                                                            <p> <?= $listBinhLuan['noi_dung']; ?> </p>
+                                                                            <p> <?= $BinhLuan['noi_dung']; ?> </p>
                                                                         </div>
+
                                                                     </div>
+                                                                    <?php endforeach; ?>
                                                                 </li>
                                                             </ol>
                                                         </div>
+
                                                         <div id="review-form">
                                                                 <div id="respond" class="comment-respond">
-                                                                    <form action="#" method="post" id="comment-form" class="comment-form">
-                                                                        <p class="comment-notes">
-                                                                            <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span>
-                                                                        </p>
-                                                                        <div class="comment-form-rating">
+                                                                <form action="?act=them-binh-luan" method="post" id="comment-form" class="comment-form">
+    <p class="comment-notes">
+        <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span>
+    </p>
+       <!-- <div class="comment-form-rating">
                                                                             <label for="rating">Đánh giá của bạn</label>
                                                                             <p class="starss">
                                                                                 <span>
@@ -205,26 +214,97 @@
                                                                                     <a class="star-5" href="#" data-rating="5">★</a>
                                                                                 </span>
                                                                             </p>
-                                                                        </div>
-                                                                        <p class="comment-form-comment">
-                                                                            <textarea id="comment" name="comment" placeholder="Đánh giá của bạn *" cols="45" rows="8" aria-required="true" required=""></textarea>
-                                                                        </p>
-                                                                        <div class="content-info-reviews">
-                                                                           
-                                                                            <p class="comment-form-email">
-                                                                                <input id="email" name="email" placeholder="Email của bạn *" type="email" value="" size="30" aria-required="true" required="">
-                                                                            </p>
-                                                                            <p class="form-submit">
-                                                                                <input name="submit" type="submit" id="submit" class="submit" value="Submit">
-                                                                            </p>
-                                                                        </div>
-                                                                        <!-- Input ẩn để lưu giá trị sao -->
-                                                                        <input type="hidden" id="rating" name="rating" value="">
-                                                                    </form><!-- #respond -->
+                                                                        </div> -->
+    <div class="comment-form-container">
+        <p class="comment-form-name">
+            <label class="name" for="name">Tên của bạn *</label>
+            <input class="input" type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
+        </p>
+
+        <div class="comment-form-comment">
+            <label for="comment">Bình luận của bạn *</label>
+            <textarea id="comment" name="comment" placeholder="Bình luận của bạn" cols="45" rows="8" aria-required="true" required></textarea>
+        </div>
+        <input type="hidden" name="san_pham_id" value="<?= $san_pham_id ?>">
+
+
+        <p class="form-submit">
+            <input name="submit" type="submit" id="submit" class="submit" value="Gửi">
+        </p>
+    </div>
+</form>
                                                                 </div>
                                                             </div>
 
                                                             <style>
+                                                                /* Container for the comment form */
+                                                                    .comment-form-container {
+                                                                        width: 100%;
+                                                                       
+                                                                        margin: 0 auto;
+                                                                        padding: 20px;
+                                                                        
+                                                                        border: 1px solid #ddd;
+                                                                        border-radius: 8px;
+                                                                    }
+                                                                    .name{
+                                                                        color: #fffff;
+                                                                    }
+                                                                    
+                                                                    .input{
+                                                                        width: 92%;
+                                                                        border-radius: 6px;
+                                                                        border: 1px solid #ccc;
+                                                                    }
+                                                            
+
+                                                                    /* Style for the textarea */
+                                                                    .comment-form-comment textarea {
+                                                                        width: 100%;
+                                                                        padding: 12px;
+                                                                        font-size: 16px;
+                                                                        border-radius: 6px;
+                                                                        border: 1px solid #ccc;
+                                                                        resize: vertical;
+                                                                        box-sizing: border-box;
+                                                                    }
+
+                                                                    /* Add some margin between the textarea and submit button */
+                                                                    .form-submit {
+                                                                        text-align: right;
+                                                                        margin-top: 15px;
+                                                                    }
+
+                                                                    /* Style for the submit button */
+                                                                    .form-submit .submit {
+                                                                        padding: 10px 20px;
+                                                                        font-size: 16px;
+                                                                        background-color: #4CAF50;
+                                                                        color: white;
+                                                                        border: none;
+                                                                        border-radius: 6px;
+                                                                        cursor: pointer;
+                                                                        transition: background-color 0.3s ease;
+                                                                    }
+
+                                                                    .form-submit .submit:hover {
+                                                                        background-color: #45a049;
+                                                                    }
+
+                                                                    /* Add responsiveness */
+                                                                    @media (max-width: 600px) {
+                                                                        .comment-form-container {
+                                                                            padding: 15px;
+                                                                        }
+                                                                        .comment-form-comment textarea {
+                                                                            font-size: 14px;
+                                                                            padding: 10px;
+                                                                        }
+                                                                        .form-submit .submit {
+                                                                            font-size: 14px;
+                                                                        }
+                                                                    }
+
                                                                 /* Mặc định màu của các sao */
                                                                 .starss a {
                                                                     text-decoration: none;

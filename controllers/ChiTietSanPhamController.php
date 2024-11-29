@@ -22,4 +22,27 @@ class ChiTietSanPhamController
 
         require_once './views/chitietsanpham.php';
     }
+
+    public function thembinhluan()
+    {
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $ten_nguoi_binh_luan=$_POST['name'];
+            $noi_dung = $_POST['comment'];
+            $ngay_binh_luan = date("Y-m-d H:i:s");
+            $san_pham_id = $_POST['san_pham_id'];
+
+            
+
+            $this->modelchiTietSanPham->thembinhluan($san_pham_id,$ten_nguoi_binh_luan,$noi_dung,$ngay_binh_luan);
+
+            header('Location:?act=chitietsanpham&id=' . $san_pham_id);
+exit();
+
+        
+        } else {
+            header('Location:?act=danhsachsanpham');
+            exit();
+        }
+        
+    }
 }
