@@ -105,8 +105,8 @@ class TaiKhoanController
     //
     public function formEditCaNhanQuanTri()
     {
-        $email = $_SESSION['user']['email'];
-        $thongTin = $this->modelTaiKhoan->getAllTaiKhoanformEmail($email['id']);
+        $email = $_SESSION['user'];
+        $thongTin = $this->modelTaiKhoan->getAllTaiKhoanformEmail($email['email']);
         require_once './views/taikhoan/canhan/editCaNhan.php';
     }
     public function postEditMatKhauCaNhan()
@@ -182,8 +182,8 @@ class TaiKhoanController
             $ho_ten = $_POST['ho_ten'];
             $email = $_POST['email'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
-
-            // var_dump();
+            $dia_chi = $_POST['dia_chi'];
+            ;
 
             $errors = [];
 
@@ -201,9 +201,9 @@ class TaiKhoanController
 
 
             if (empty($errors)) {
-                $this->modelTaiKhoan->updateCaNhanQuanTri($id, $ho_ten, $email, $so_dien_thoai);
+                $this->modelTaiKhoan->updateCaNhanQuanTri($id, $ho_ten, $email, $so_dien_thoai, $dia_chi);
                 unset($_SESSION['errors']);
-                header("Location: ?act=form-sua-thong-tin-ca-nhan");
+                echo "<script>alert('Cập nhật thành công');window.location.href='?act=form-sua-thong-tin-ca-nhan'</script>";
             } else {
                 $_SESSION['errors'] = $errors;
                 header("Location: ?act=form-sua-thong-tin-ca-nhan");
