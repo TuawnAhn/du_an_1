@@ -76,39 +76,26 @@
                                                 <input type="hidden" name="id_don_hang" value="<?= $donhangs['id'] ?>">
                                                 <div class="row">
                                                     <!--end col-->
+                                                    
+                                                    <!--end col-->
+                                                  
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="ho_ten_nguoi_nhan" class="form-label">Tên người nhận</label>
-                                                            <input type="text" class="form-control" name="ho_ten_nguoi_nhan"
-                                                                value="<?= isset($donhangs['ho_ten_nguoi_nhan']) ? $donhangs['ho_ten_nguoi_nhan'] : '' ?>">
+
+                                                            <label for="ma_don_hang" class="form-label">Mã đơn hàng</label>
+                                                            <input type="text" class="form-control"  name="ma_don_hang" value="<?= $donhangs['ma_don_hang'] ?>">
                                                             <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['ho_ten_nguoi_nhan']) ? $_SESSION['errors']['ho_ten_nguoi_nhan'] : '' ?>
-                                                            </span>
+                                                                <?= !empty($_SESSION['errors']['ma_don_hang']) ? $_SESSION['errors']['ma_don_hang'] : '' ?>
+
+                                                           
                                                         </div>
                                                     </div>
 
-                                                    <!--end col-->
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="sdt_nguoi_nhan" class="form-label">Số điện thoại</label>
-                                                            <input type="text" class="form-control" name="sdt_nguoi_nhan" value="<?= $donhangs['sdt_nguoi_nhan'] ?>">
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['sdt_nguoi_nhan']) ? $_SESSION['errors']['sdt_nguoi_nhan'] : '' ?>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <!--end col-->
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="dia_chi_nguoi_nhan" class="form-label">Địa chỉ</label>
-                                                            <input type="text" class="form-control" name="dia_chi_nguoi_nhan" value="<?= $donhangs['dia_chi_nguoi_nhan'] ?>">
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['errors']['dia_chi_nguoi_nhan']) ? $_SESSION['errors']['dia_chi_nguoi_nhan'] : '' ?>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
+
+                                                    
+                                                  
+
+
 
                                                     <!--end col-->
                                                     <div class="col-md-6">
@@ -120,9 +107,9 @@
                                                                         <?php
                                                                         if (
                                                                             $donhangs['trang_thai_don_hang_id'] > $trangThai['id']
-                                                                            || $donhangs['trang_thai_don_hang_id'] == 1
-                                                                            || $donhangs['trang_thai_don_hang_id'] == 2
-                                                                            || $donhangs['trang_thai_don_hang_id'] == 3
+                                                                            || $donhangs['trang_thai_don_hang_id'] == 5
+                                                                            || $donhangs['trang_thai_don_hang_id'] == 6
+                                                                            || $donhangs['trang_thai_don_hang_id'] == 7
                                                                         ) {
                                                                             echo 'disabled';
                                                                         }

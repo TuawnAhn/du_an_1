@@ -1,4 +1,6 @@
 <header id="site-header" class="site-header header-v1 color-black">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
 
     <div class="header-desktop">
         <div class="header-wrapper">
@@ -8,7 +10,8 @@
                         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 header-left">
                             <div class="site-logo">
                                 <a href="?act=home">
-                                    <img width="1000" height="1140" src="media/logo-sliver1.png" alt="Mojuri – Jewelry Store" />
+                                    <img width="1000" height="1140" src="media/logo-sliver1.png"
+                                        alt="Mojuri – Jewelry Store" />
                                 </a>
                             </div>
                         </div>
@@ -24,7 +27,8 @@
                                             <ul class="sub-menu">
                                                 <li class="level-1 menu-item menu-item-has-children">
                                                     <?php foreach ($listDanhMuc as $key => $header): ?>
-                                                        <a href="shop-grid-left.html"><span class="menu-item-text"><?= $header['ten_danh_muc'] ?></span></a>
+                                                        <a href="shop-grid-left.html"><span
+                                                                class="menu-item-text"><?= $header['ten_danh_muc'] ?></span></a>
                                                     <?php endforeach ?>
                                                 </li>
                                             </ul>
@@ -134,31 +138,48 @@
                                             <a href="#"><span class="menu-item-text">Trang</span></a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="page-login.html"><span class="menu-item-text">Đăng nhập / Đăng ký</span></a>
+                                                    <a href="page-login.html"><span class="menu-item-text">Đăng nhập /
+                                                            Đăng ký</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="page-forgot-password.html"><span class="menu-item-text">Quên mật khẩu</span></a>
+                                                    <a href="page-forgot-password.html"><span
+                                                            class="menu-item-text">Quên mật khẩu</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="page-my-account.html"><span class="menu-item-text">Tài khoản của tôi</span></a>
+                                                    <a href="page-my-account.html"><span class="menu-item-text">Tài
+                                                            khoản của tôi</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="page-about.html"><span class="menu-item-text">Về chúng tôi</span></a>
+                                                    <a href="page-about.html"><span class="menu-item-text">Về chúng
+                                                            tôi</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="page-contact.html"><span class="menu-item-text">Liên hệ</span></a>
+                                                    <a href="page-contact.html"><span class="menu-item-text">Liên
+                                                            hệ</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="page-faq.html"><span class="menu-item-text">Câu hỏi thường gặp</span></a>
+                                                    <a href="page-faq.html"><span class="menu-item-text">Câu hỏi thường
+                                                            gặp</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="page-404.html"><span class="menu-item-text">Page 404</span></a>
+                                                    <a href="page-404.html"><span class="menu-item-text">Page
+                                                            404</span></a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="level-0 menu-item">
-                                            <a href="page-contact.html"><span class="menu-item-text">Liên hệ</span></a>
+                                            <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
                                         </li>
+<<<<<<< HEAD
+
+=======
+                                        <li class="level-0 menu-item">
+                                            <a href="?act=lien-he"><span class="menu-item-text">Liên hệ</span></a>
+                                        </li>
+>>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
+                                    </ul>
+                                    <ul>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -172,60 +193,15 @@
                                 </div>
 
                                 <!-- Login -->
-                                <div class="login-header icon">
-                                    <a class="active-login" href="#"><i class="icon-user"></i></a>
-                                    <div class="form-login-register">
-                                        <div class="box-form-login">
-                                            <div class="active-login"></div>
-                                            <div class="box-content">
-                                                <div class="form-login active">
-                                                    <form id="login_ajax" method="post" class="login">
-                                                        <h2>Sign in</h2>
-                                                        <p class="status"></p>
-                                                        <div class="content">
-                                                            <div class="username">
-                                                                <input type="text" required="required" class="input-text" name="username" id="username" placeholder="Your name" />
-                                                            </div>
-                                                            <div class="password">
-                                                                <input class="input-text" required="required" type="password" name="password" id="password" placeholder="Password" />
-                                                            </div>
-                                                            <div class="rememberme-lost">
-                                                                <div class="rememberme">
-                                                                    <input name="rememberme" type="checkbox" id="rememberme" value="forever" />
-                                                                    <label for="rememberme" class="inline">Remember me</label>
-                                                                </div>
-                                                                <div class="lost_password">
-                                                                    <a href="forgot-password.html">Lost your password?</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="button-login">
-                                                                <input type="submit" class="button" name="login" value="Login" />
-                                                            </div>
-                                                            <div class="button-next-reregister">Create An Account</div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="form-register">
-                                                    <form method="post" class="register">
-                                                        <h2>REGISTER</h2>
-                                                        <div class="content">
-                                                            <div class="email">
-                                                                <input type="email" class="input-text" placeholder="Email" name="email" id="reg_email" value="" />
-                                                            </div>
-                                                            <div class="password">
-                                                                <input type="password" class="input-text" placeholder="Password" name="password" id="reg_password" />
-                                                            </div>
-                                                            <div class="button-register">
-                                                                <input type="submit" class="button" name="register" value="Register" />
-                                                            </div>
-                                                            <div class="button-next-login">Already has an account</div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <?php if (isset($_SESSION['user'])) { ?>
+
+                                    <a href="/du_an_1/?act=logout"><?php echo $_SESSION['user']['email'] ?></a>
+                                <?php } else { ?>
+                                    <div class="login-header icon">
+                                        <a href="/du_an_1/?act=login"><i class="icon-user"></i></a>
                                     </div>
-                                </div>
+                                <?php } ?>
+
 
                                 <!-- Wishlist -->
                                 <div class="wishlist-box">
@@ -237,31 +213,41 @@
                                 <div class="mojuri-topcart dropdown light">
                                     <div class="dropdown mini-cart top-cart">
                                         <div class="remove-cart-shadow"></div>
-                                        <a class="dropdown-toggle cart-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <div class="icons-cart"><i class="icon-large-paper-bag"></i><span class="cart-count">2</span></div>
+                                        <a class="dropdown-toggle cart-icon" href="#" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="icons-cart"><i class="icon-large-paper-bag"></i><span
+                                                    class="cart-count">2</span></div>
                                         </a>
                                         <div class="dropdown-menu cart-popup">
                                             <div class="cart-empty-wrap">
                                                 <ul class="cart-list">
                                                     <li class="empty">
                                                         <span>No products in the cart.</span>
-                                                        <a class="go-shop" href="shop-grid-left.html">GO TO SHOP<i aria-hidden="true" class="arrow_right"></i></a>
+                                                        <a class="go-shop" href="shop-grid-left.html">GO TO SHOP<i
+                                                                aria-hidden="true" class="arrow_right"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="cart-list-wrap">
                                                 <ul class="cart-list ">
                                                     <li class="mini-cart-item">
-                                                        <a href="#" class="remove" title="Remove this item"><i class="icon_close"></i></a>
-                                                        <a href="shop-details.html" class="product-image"><img width="600" height="600" src="media/product/3.jpg" alt=""></a>
+                                                        <a href="#" class="remove" title="Remove this item"><i
+                                                                class="icon_close"></i></a>
+                                                        <a href="shop-details.html" class="product-image"><img
+                                                                width="600" height="600" src="media/product/3.jpg"
+                                                                alt=""></a>
                                                         <a href="shop-details.html" class="product-name">Twin Hoops</a>
                                                         <div class="quantity">Qty: 1</div>
                                                         <div class="price">$150.00</div>
                                                     </li>
                                                     <li class="mini-cart-item">
-                                                        <a href="#" class="remove" title="Remove this item"><i class="icon_close"></i></a>
-                                                        <a href="shop-details.html" class="product-image"><img width="600" height="600" src="media/product/1.jpg" alt=""></a>
-                                                        <a href="shop-details.html" class="product-name">Medium Flat Hoops</a>
+                                                        <a href="#" class="remove" title="Remove this item"><i
+                                                                class="icon_close"></i></a>
+                                                        <a href="shop-details.html" class="product-image"><img
+                                                                width="600" height="600" src="media/product/1.jpg"
+                                                                alt=""></a>
+                                                        <a href="shop-details.html" class="product-name">Medium Flat
+                                                            Hoops</a>
                                                         <div class="quantity">Qty: 1</div>
                                                         <div class="price">$100.00</div>
                                                     </li>
@@ -271,24 +257,42 @@
                                                     <div class="total-price"><span>$250.00</span></div>
                                                 </div>
                                                 <div class="free-ship">
-                                                    <div class="title-ship">Buy <strong>$400</strong> more to enjoy <strong>FREE Shipping</strong></div>
+                                                    <div class="title-ship">Buy <strong>$400</strong> more to enjoy
+                                                        <strong>FREE Shipping</strong>
+                                                    </div>
                                                     <div class="total-percent">
                                                         <div class="percent" style="width:20%"></div>
                                                     </div>
                                                 </div>
                                                 <div class="buttons">
-                                                    <a href="shop-cart.html" class="button btn view-cart btn-primary">View cart</a>
-                                                    <a href="shop-checkout.html" class="button btn checkout btn-default">Check out</a>
+                                                    <a href="shop-cart.html"
+                                                        class="button btn view-cart btn-primary">View cart</a>
+                                                    <a href="shop-checkout.html"
+                                                        class="button btn checkout btn-default">Check out</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
+
+                                <!-- Wishlist -->
+                                <div class="wishlist-box">
+                                    <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
+                                </div>
+=======
+>>>>>>> 18df231de8c86b6c68c8b6ad0c83b41f88ae74e9
                             </div>
+
+                            <!-- Wishlist -->
+                                <div class="wishlist-box">
+                                    <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </header>

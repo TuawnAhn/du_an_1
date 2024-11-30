@@ -59,7 +59,6 @@ class TaiKhoanController
     public function formLogin()
     {
         require_once './views/auth/formLogin.php';
-        // deleteSessionError();
     }
     public function login()
     {
@@ -74,13 +73,13 @@ class TaiKhoanController
                     if ($user['chuc_vu_id'] == 1) {
                         header("Location: ?act=dashboard");
                     } else {
-                        header("Location: ?act=lien-he");
+                        header("Location: /du_an_1/?act=home");
                     }
                     exit();
                 }
             } else {
                 $_SESSION['flash'] = $user;
-                header("Location: ?act=login-admin");
+                header("Location: /du_an_1/?act=home");
                 exit();
             }
         }

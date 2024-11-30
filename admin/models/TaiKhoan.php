@@ -55,7 +55,7 @@ class TaiKhoan
                     return "Tài khoản bị cấm";
                 }
             } else {
-                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=login-admin;'</script>";
+                echo "<script>alert('Bạn nhập sai thông tin mật khẩu tài khoản'); window.location.href='?act=login-admin'</script>";
                 exit();
             }
         } catch (Exception $e) {
@@ -64,66 +64,66 @@ class TaiKhoan
             return $e->getMessage();
         }
     }
-///
-public function getDetailTaiKhoan($id)
-{
-    try {
-        $sql = "SELECT * FROM tai_khoans WHERE id = :id";
+    ///
+    public function getDetailTaiKhoan($id)
+    {
+        try {
+            $sql = "SELECT * FROM tai_khoans WHERE id = :id";
 
-        $stmt = $this->conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
 
-        $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':id', $id);
 
-        $stmt->execute([
-            ':id'=> $id
-        ]);
+            $stmt->execute([
+                ':id' => $id
+            ]);
 
-        return $stmt->fetch();
-    } catch (PDOException $e) {
-        echo 'Lỗi' . $e->getMessage();
+            return $stmt->fetch();
+        } catch (PDOException $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
     }
-}
 
-public function updateTaiKhoan($id, $ho_ten,$email,  $trang_thai, $so_dien_thoai)
-{
-    try {
-        $sql = "UPDATE tai_khoans SET ho_ten = :ho_ten,   trang_thai = :trang_thai,  email = :email, so_dien_thoai = :so_dien_thoai WHERE id = :id";
+    public function updateTaiKhoan($id, $ho_ten, $email, $trang_thai, $so_dien_thoai)
+    {
+        try {
+            $sql = "UPDATE tai_khoans SET ho_ten = :ho_ten,   trang_thai = :trang_thai,  email = :email, so_dien_thoai = :so_dien_thoai WHERE id = :id";
 
-        $stmt = $this->conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
 
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':ho_ten', $ho_ten);
-        $stmt->bindParam(':trang_thai', $trang_thai);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
-        $stmt->execute();
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':ho_ten', $ho_ten);
+            $stmt->bindParam(':trang_thai', $trang_thai);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
+            $stmt->execute();
 
-        return true;
-    } catch (PDOException $e) {
-        echo 'Lỗi' . $e->getMessage();
+            return true;
+        } catch (PDOException $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
     }
-}
 
 
     public function getAllTaiKhoanformEmail($id)
     {
         try {
             $sql = "SELECT * FROM tai_khoans WHERE id = :id";
-    
+
             $stmt = $this->conn->prepare($sql);
-    
+
             $stmt->bindParam(':id', $id);
-    
+
             $stmt->execute([
-                ':id'=> $id
+                ':id' => $id
             ]);
-    
+
             return $stmt->fetch();
         } catch (PDOException $e) {
             echo 'Lỗi' . $e->getMessage();
         }
     }
-    public function resetPassword( $id, $mat_khau)
+    public function resetPassword($id, $mat_khau)
     {
 
         try {
@@ -136,10 +136,10 @@ public function updateTaiKhoan($id, $ho_ten,$email,  $trang_thai, $so_dien_thoai
             $stmt->bindParam(':mat_khau', $mat_khau);
             $stmt->bindParam(':id', $id);
 
-          
+
 
             $stmt->execute();
-        
+
             return true;
         } catch (PDOException $e) {
             echo 'Lỗi' . $e->getMessage();

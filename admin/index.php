@@ -34,6 +34,7 @@ require_once 'models/KhuyenMai.php';
 require_once 'models/SanPham.php';
 require_once 'models/DonHang.php';
 require_once 'models/TrangThaiDonHang.php';
+require_once 'models/ThongKe.php';
 require_once 'models/TaiKhoan.php';
 require_once 'models/DangKi.php';
 
@@ -48,7 +49,10 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
+
     '/' => (new BaoCaoThongKeController())->home(),
+
+    'thong-ke' => (new BaoCaoThongKeController())->home(),
 
     'dashboard' => (new DashboardController())->index(),
 
@@ -103,18 +107,6 @@ match ($act) {
 
 
     //Quan li san pham
-
-    'san-phams'            => (new SanPhamController())->index(),
-    'tim-kiem-san-pham'   => (new SanPhamController())->search(),
-    'form-them-san-pham'   => (new SanPhamController())->create(),
-    'them-san-pham'        => (new SanPhamController())->store(),
-    'form-sua-san-pham'    => (new SanPhamController())->edit(),
-    'sua-san-pham'         => (new SanPhamController())->update(),
-    'xoa-san-pham'         => (new SanPhamController())->destroy(),
-    'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
-    'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
-    'xoa-danh-gia'        => (new SanPhamController())->deleteDanhgia(),
-
     'san-phams' => (new SanPhamController())->index(),
     'form-them-san-pham' => (new SanPhamController())->create(),
     'them-san-pham' => (new SanPhamController())->store(),
@@ -124,7 +116,6 @@ match ($act) {
     'chi-tiet-san-pham' => (new SanPhamController())->DetailSanPham(),
     'xoa-binh-luan' => (new SanPhamController())->deleteReview(),
     'xoa-danh-gia' => (new SanPhamController())->deleteDanhgia(),
-
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
@@ -144,10 +135,25 @@ match ($act) {
     'search' => (new DonHangController())->search(), // Giả sử bạn muốn xử lý tìm kiếm trong DonHangController
 
 
+
+// Quản lý tài khaonr Quản trị
+'list-tai-khoan-quan-tri'=> (new TaiKhoanController())->danhSachQuanTri(),
+'form-them-quan-tri'=> (new TaiKhoanController())->formAddQuanTri(),
+'them-quan-tri'=> (new TaiKhoanController())->postAddQuanTri(),
+//
+'login-admin' => (new TaiKhoanController()) ->formLogin(),
+'check-login-admin' => (new TaiKhoanController()) ->login(),
+'logout-admin' => (new TaiKhoanController()) ->logout(),
+
+
+
+
+
+
     // Quản lý tài khoản Quản trị
-    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
-    'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
-    'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
+    // 'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
+    // 'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
+    // 'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
     'form-sua-quan-tri' => (new TaiKhoanController())->formEditQuanTri(),
     'sua-quan-tri' => (new TaiKhoanController())->postEditQuanTri(),
     'reset-password' => (new TaiKhoanController())->resetPassword(),
@@ -155,9 +161,9 @@ match ($act) {
 
 
     //
-    'login-admin' => (new TaiKhoanController())->formLogin(),
-    'check-login-admin' => (new TaiKhoanController())->login(),
-    'logout-admin' => (new TaiKhoanController())->logout(),
+    // 'login-admin' => (new TaiKhoanController())->formLogin(),
+    // 'check-login-admin' => (new TaiKhoanController())->login(),
+    // 'logout-admin' => (new TaiKhoanController())->logout(),
 
 
     //

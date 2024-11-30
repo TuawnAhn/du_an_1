@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 22, 2024 at 08:03 AM
+-- Generation Time: Nov 22, 2024 at 11:47 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -151,7 +151,8 @@ INSERT INTO `danh_mucs` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
 (1, 'Vòng-Lắc', 1),
 (2, 'Phụ kiện ', 1),
 (3, 'Dây chuyền', 1),
-(5, 'Bông tai', 1);
+(5, 'Bông tai', 1),
+(53, 'Khuyên xỏ', 1);
 
 -- --------------------------------------------------------
 
@@ -573,7 +574,7 @@ ALTER TABLE `chi_tiet_san_phams`
 -- AUTO_INCREMENT for table `danh_mucs`
 --
 ALTER TABLE `danh_mucs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `don_hangs`

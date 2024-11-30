@@ -107,71 +107,41 @@
   </script>
 </head>
 
-<style media="screen">
-  *,
-  *:before,
-  *:after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
+<style>
+  /* Giao diện toàn trang */
   body {
-    background-color: #080710;
+    background-color: #1e3a8a; /* Màu nền xanh nước biển đậm */
+    font-family: 'Poppins', sans-serif;
   }
 
-  .background {
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
+  /* Hình nền phía sau */
+  .background .shape:first-child {
+    background: linear-gradient(#2563eb, #1e40af); /* Gradient xanh nước biển */
   }
 
-  .background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
+  .background .shape:last-child {
+    background: linear-gradient(to right, #60a5fa, #3b82f6); /* Gradient xanh nhạt */
   }
 
-  .shape:first-child {
-    background: linear-gradient(#1845ad,
-        #23a2f6);
-    left: -80px;
-    top: -80px;
-  }
-
-  .shape:last-child {
-    background: linear-gradient(to right,
-        #ff512f,
-        #f09819);
-    right: -30px;
-    bottom: -80px;
-  }
-
+  /* Form đăng nhập */
   form {
     height: 520px;
     width: 400px;
-    background-color: rgba(255, 255, 255, 0.13);
+    background-color: rgba(30, 58, 138, 0.13); /* Form trong suốt với tông xanh nước biển */
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    border: 2px solid rgba(30, 58, 138, 0.2);
+    box-shadow: 0 0 40px rgba(30, 58, 138, 0.6);
     padding: 50px 35px;
   }
 
   form * {
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
+    color: #ffffff; /* Chữ màu trắng */
     letter-spacing: 0.5px;
-    outline: none;
-    border: none;
   }
 
   form h3 {
@@ -198,75 +168,58 @@
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
+    color: #ffffff; /* Chữ màu trắng */
   }
 
   ::placeholder {
-    color: #e5e5e5;
+    color: #cbd5e1; /* Màu placeholder xám nhạt */
   }
 
   button {
     width: 100%;
-    background-color: #ffffff;
-    color: #080710;
+    background-color: #2563eb; /* Màu xanh nước biển đậm */
+    color: #ffffff; /* Chữ màu trắng */
     padding: 15px 0;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
 
-  .social {
-    margin-top: 30px;
-    display: flex;
+  button:hover {
+    background-color: #1e40af; /* Màu xanh đậm hơn khi hover */
   }
 
-  .social div {
-    background: red;
-    width: 150px;
-    border-radius: 3px;
-    padding: 5px 10px 10px 5px;
-    background-color: rgba(255, 255, 255, 0.27);
-    color: #eaf0fb;
-    text-align: center;
-  }
-
-  .social div:hover {
-    background-color: rgba(255, 255, 255, 0.47);
-  }
-
-  .social .fb {
-    margin-left: 25px;
-  }
-
-  .social i {
-    margin-right: 4px;
-  }
-
-  .error-message {
-    margin: 1em 0;
-    color: #ff512f;
-  }
-</style>
-<style>
+  /* Nút đăng ký */
   .register-btn {
-    font-size: 12px;
-    /* Kích thước chữ nhỏ hơn */
-    padding: 8px 16px;
-    /* Điều chỉnh khoảng cách bên trong nút */
-    background-color: #f1f1f1;
-    /* Màu nền nhạt hơn */
-    color: #333;
-    /* Màu chữ */
-    border: 1px solid #ccc;
-    /* Đường viền nhẹ */
-    border-radius: 4px;
-    /* Bo góc */
+    display: inline-block; /* Tách riêng nút Đăng ký */
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: #60a5fa; /* Màu xanh nhạt */
+    color: #ffffff; /* Chữ màu trắng */
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    text-decoration: none; /* Xóa gạch chân */
+    text-align: center;
+    transition: background-color 0.3s;
   }
 
   .register-btn:hover {
-    background-color: #ddd;
-    /* Hiệu ứng khi hover */
+    background-color: #2563eb; /* Màu xanh đậm khi hover */
+  }
+
+  .register-btn a {
+    text-decoration: none; /* Xóa gạch chân */
+    color: #ffffff; /* Chữ màu trắng */
+  }
+
+  /* Thông báo lỗi */
+  .error-message {
+    margin: 1em 0;
+    color: #ef4444; /* Màu đỏ nổi bật */
   }
 </style>
 
@@ -305,21 +258,7 @@
     </button>
 
     <div class="err"></div>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $email = $_POST['email'] ?? '';
-      $password = $_POST['password'] ?? '';
 
-      // Kiểm tra thông tin đăng nhập
-      if ($email == 'chiennvph51500@gmail.com' && $password == '123456') {
-        echo "Đăng nhập thành công!";
-        header("Location: ?act=dashboard");
-        exit();
-      } else {
-        echo "Sai thông tin đăng nhập. Vui lòng thử lại.";
-      }
-    }
-    ?>
 
   </form>
   <script src="./assets/plugins/jquery/jquery.min.js"></script>

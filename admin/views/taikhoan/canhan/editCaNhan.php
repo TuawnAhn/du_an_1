@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
   data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+  
 
 
 <!-- Mirrored from themesbrand.com/velzon/html/master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Oct 2024 07:29:52 GMT -->
@@ -105,7 +106,7 @@
     <div class="form-group">
       <label class="col-md-3 control-label"></label>
       <div class="col-md-12">
-        <input type="submit" class="btn btn-primary" value="Save Changes">
+        <input type="submit" class="btn btn-primary" value="Submit">
         </form>
       </div>
     </div>
@@ -114,9 +115,8 @@
 
             <?php if (isset($_SESSION['success'])) { ?>
               <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
+                <a class="panel-close close" data-dismiss="alert"></a>
                 <i class="fa fa-coffee"></i>
-                <?= $_SESSION['success']; ?>
               </div>
 
             <?php } ?>
@@ -148,7 +148,7 @@
               <div class="form-group">
                 <label class="col-md-3 control-label"></label>
                 <div class="col-md-12">
-                  <input type="submit" class="btn btn-primary" value="Save Changes">
+                  <input type="submit" class="btn btn-primary" value="Submit">
 
                 </div>
               </div>

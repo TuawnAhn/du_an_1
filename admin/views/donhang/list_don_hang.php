@@ -86,9 +86,6 @@
                                                         <tr>
                                                             <th scope="col">STT</th>
                                                             <th scope="col">Mã đơn hàng</th>
-                                                            <th scope="col">Tên người nhận</th>
-                                                            <th scope="col">Số điện thoại</th>
-                                                            <th scope="col">Địa chỉ</th>
                                                             <th scope="col">Ngày đặt hàng</th>
                                                             <th scope="col">Trạng thái đơn hàng</th>
                                                             <th scope="col">Hình thức thanh toán</th>
@@ -101,9 +98,6 @@
                                                             <tr>
                                                                 <th scope="row"><?= $key + 1; ?></th>
                                                                 <td><?= $donhang['ma_don_hang']; ?></td>
-                                                                <td><?= $donhang['ho_ten_nguoi_nhan']; ?></td>
-                                                                <td><?= $donhang['sdt_nguoi_nhan']; ?></td>
-                                                                <td><?= $donhang['dia_chi_nguoi_nhan']; ?></td>
                                                                 <td><?= $donhang['ngay_dat_hang']; ?></td>
                                                                 
                                                                 <td>
