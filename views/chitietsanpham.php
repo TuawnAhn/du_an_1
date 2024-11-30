@@ -74,12 +74,12 @@
                                                 <div class="description">
                                                     <p><?= $chiTietSanPham['mo_ta']; ?></p>
                                                 </div>
-                                              
+                                                             
                                                 <form action="?act=them-gio-hang" method="POST">
                                                 <div class="buttons">
                                                     <div class="add-to-cart-wrap">
                                                         <div class="quantity">
-                                                            <input type="hidden" name="san_pham_id" value="<?= $chiTietSanPham['id'] ?>">
+                                                            <input type="hidden" name="san_pham_id" value="<?= $chiTietSanPham['san_pham_id']; ?>">
                                                             <button type="button" class="plus">+</button>
                                                             <input type="number" class="qty" value="1" name="so_luong">
                                                             <button type="button" class="minus">-</button>
@@ -89,6 +89,7 @@
                                                             
                                                             </div>
                                                     </div>
+                                                    </form>
                                                     <style>.btn-add-to-cart {
   background-color: #C77B5C; /* Màu nền giống như nút */
   padding: 10px; /* Padding cho thanh ngoài */
@@ -116,16 +117,14 @@
   outline: none; /* Ẩn viền mặc định khi nút được chọn */
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Hiệu ứng nhấn */
 }</style>
-                                                    </form>
+                                                   
                                                     <div class="btn-quick-buy" data-title="Wishlist">
                                                         <button class="product-btn">Mua ngay</button>
                                                     </div>
                                                     <div class="btn-wishlist" data-title="Wishlist">
                                                         <button class="product-btn">Thêm vào danh sách yêu thích</button>
                                                     </div>
-                                                    <div class="btn-compare" data-title="Compare">
-                                                        <button class="product-btn">So sánh</button>
-                                                    </div>
+                                                  
                                                 </div>
                                                 <div class="product-meta">
                                                     <span class="sku-wrapper">Mã đơn hàng: <span class="sku"><?= $chiTietSanPham['ma_san_pham']; ?></span></span>
@@ -391,7 +390,7 @@
                                                                             </div>
                                                                             <div class="product-button">
                                                                                 <div class="btn-add-to-cart" data-title="Add to cart">
-                                                                                    <a rel="nofollow" href="#" class="product-btn button">Thêm vào giỏ hàng</a>
+                                                                                    <a rel="nofollow" href="?act=them-gio-hang" class="product-btn button">Thêm vào giỏ hàng</a>
                                                                                 </div>
                                                                                 <div class="btn-wishlist" data-title="Wishlist">
                                                                                     <button class="product-btn">Thêm vào danh sách yêu thích</button>

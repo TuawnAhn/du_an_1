@@ -106,7 +106,9 @@ class TaiKhoan
 
 
     public function getAllTaiKhoanformEmail($email)
+    
     {
+       
         try {
             $sql = "SELECT * FROM tai_khoans WHERE email = :email";
 

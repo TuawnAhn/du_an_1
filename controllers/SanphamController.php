@@ -15,7 +15,7 @@ class SanPhamController
         $current_page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 
         // Lấy sản phẩm từ model
-        $listSanPham = $this->modelSanPham->getAllSanPham($item_per_page, $current_page);
+        $listSanPham = $this->modelSanPham->getAlllSanPham($item_per_page, $current_page);
         $products = $this->modelSanPham->getAllSanPham();
         $totalProducts = $this->modelSanPham->getTotalProducts();
         $totalPages = ceil($totalProducts / $item_per_page); // Tính số trang

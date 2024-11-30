@@ -1,6 +1,9 @@
-<?php require_once './views/layouts/header.php'; ?>
+<?php
+require_once('views/layout/header.php'); ?>
 
-<?php require_once './views/layouts/menu.php'; ?>
+<body class="home">
+    <div id="page" class="hfeed page-wrapper">
+        <?php require_once('views/layout/menu.php'); ?>
 <main><br><br><br><br>
   <div class="mb-4 pb-4"></div>
   <section class="shop-checkout container">
@@ -12,7 +15,7 @@
           <em></em>
         </span>
       </a>
-      <a href="shop_checkout.html" class="checkout-steps__item">
+      <!-- <a href="shop_checkout.html" class="checkout-steps__item">
         <span class="checkout-steps__item-number">02</span>
         <span class="checkout-steps__item-title">
           <span>Thanh toán và vận chuyển</span>
@@ -23,7 +26,7 @@
         <span class="checkout-steps__item-title">
           <span>Confirmation</span>
         </span>
-      </a>
+      </a> -->
     </div>
     <div class="shopping-cart mb-5">
       <div class="cart-table__wrapper">
@@ -32,17 +35,17 @@
             <thead>
               <tr>
                 <th>Ảnh sản phẩm</th>
-                <th></th>
+                <th>Tên</th>
                 <th>Giá tiền</th>
                 <th>Số lượng</th>
                 <th>Tổng tiền</th>
-                <th></th>
+                <th>Hủy</th>
               </tr>
             </thead>
             
               <tbody>
               <?php
-                $tongGioHang = 0;
+             
                 foreach ($chiTietGioHang as $sanPham) :
               ?>
                 <tr>
@@ -108,7 +111,7 @@
           </div>
         <!-- </form> -->
       </div>
-
+<!-- <?php $tongGioHang=0; ?>
       <div class="shopping-cart__totals-wrapper">
         <div class="sticky-content">
           <div class="shopping-cart__totals">
@@ -159,7 +162,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <style>
     .shopping-cart__product-item img {
@@ -188,5 +191,5 @@
     }
   </style>
 </main>
-
-<?php require_once './views/layouts/footer.php'; ?>
+<br>
+<?php require_once './views/layout/footer.php'; ?>

@@ -105,7 +105,7 @@ class TaiKhoanController
     //
     public function formEditCaNhanQuanTri()
     {
-        $email = $_SESSION['user'];
+        $email = $_SESSION['user']['email'];
         $thongTin = $this->modelTaiKhoan->getAllTaiKhoanformEmail($email['id']);
         require_once './views/taikhoan/canhan/editCaNhan.php';
     }
@@ -211,6 +211,5 @@ class TaiKhoanController
             }
         }
     }
-
 
 }

@@ -138,10 +138,7 @@
                                             <a href="#"><span class="menu-item-text">Trang</span></a>
                                             <ul class="sub-menu">
                                               
-                                                <li>
-                                                    <a href="?act=login"><span class="menu-item-text">Đăng nhập /
-                                                            Đăng ký</span></a>
-                                                </li>
+                                             
                                                 <li>
                                                     <a href="page-my-account.html"><span class="menu-item-text">Tài
                                                             khoản của tôi</span></a>

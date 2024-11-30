@@ -105,17 +105,17 @@ class TaiKhoan
     }
 
 
-    public function getAllTaiKhoanformEmail($id)
+    public function getAllTaiKhoanformEmail($email)
     {
         try {
-            $sql = "SELECT * FROM tai_khoans WHERE id = :id";
+            $sql = "SELECT * FROM tai_khoans WHERE email = :email";
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':email', $email);
 
             $stmt->execute([
-                ':id' => $id
+                ':email' => $email
             ]);
 
             return $stmt->fetch();
