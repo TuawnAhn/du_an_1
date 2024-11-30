@@ -5,6 +5,7 @@ class HomeController
   
     public $modelSanPham;
     public $modelBanner;
+<<<<<<< Updated upstream
 
     public  $modelGioHang;
     public $modelTaiKhoan;
@@ -13,11 +14,21 @@ class HomeController
 
     public $modelDonHang;
 
+=======
+    public $modelTaiKhoan;
+
+
+    public $modelTinTuc;
+
+    public $modelDonHang;
+   
+>>>>>>> Stashed changes
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
         $this->modelBanner = new Banner();
         $this->modelTinTuc = new TinTuc();
+<<<<<<< Updated upstream
 
         $this->modelGioHang = new GioHang();
 
@@ -28,6 +39,12 @@ class HomeController
 
          $this->modelDonHang = new DonHang();
 
+=======
+        $this->modelTaiKhoan=new TaiKhoan();
+
+        $this->modelDonHang = new DonHang();
+        $this->modelTaiKhoan = new TaiKhoan();
+>>>>>>> Stashed changes
 
     }
     public function home()

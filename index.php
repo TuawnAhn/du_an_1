@@ -32,9 +32,17 @@ require_once './models/LienHe.php';
 require_once './models/KhuyenMai.php';
 require_once './models/GioHang.php';
 require_once './models/TinTuc.php';
+<<<<<<< Updated upstream
 require_once './models/DangKi.php';
 require_once './models/ThanhToan.php';
 require_once './models/DonHang.php';
+=======
+
+require_once './models/DangKi.php';
+
+require_once './models/DonHang.php';
+require_once './models/TaiKhoan.php';
+>>>>>>> Stashed changes
 
 // error_reporting(E_ERROR | E_PARSE);
 
@@ -68,13 +76,18 @@ match ($act) {
     'tin-tuc'                   => (new TinTucController())->tintuc(),
 
     // Danh sách sản phẩm
+<<<<<<< Updated upstream
 
     'danhsachsanpham' => (new SanPhamController())->sanpham(),
    
+=======
+    'danhsachsanpham' => (new SanPhamController())->sanpham(),
+>>>>>>> Stashed changes
 
     // Chi tiết sản phẩm
     'chitietsanpham' => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print ("ID sản phẩm không hợp lệ."),
 
+<<<<<<< Updated upstream
   
     // 'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
 
@@ -86,16 +99,24 @@ match ($act) {
     
 
 
+=======
+    
+
+    // Chi tiết sản phẩm
+>>>>>>> Stashed changes
     'check-login-admin' => (new TaiKhoanController())->login(),
     'form-sua-thong-tin-ca-nhan' => (new TaiKhoanController())->formEditCaNhanQuanTri(),
     'sua-thong-tin-ca-nhan' => (new TaiKhoanController())->postEditCaNhanQuanTri(),
     'sua-mat-khau-ca-nhan' => (new TaiKhoanController())->postEditMatKhauCaNhan(),
     'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
 
+<<<<<<< Updated upstream
 
 
 
     'chitietdonhang'       => (new HomeController())->chiTietMuahang(),
+=======
+>>>>>>> Stashed changes
 
     // Lien he
     'lien-he' => (new LienHeController())->view(),
@@ -117,6 +138,7 @@ match ($act) {
     //lọc sản phẩm
     'loc-san-pham-theo-gia' => (new SanPhamController())->filterByPrice(),
 
+<<<<<<< Updated upstream
 
      // Mặc định
 
@@ -125,3 +147,10 @@ match ($act) {
     default => print ("Hành động không hợp lệ."),
    // default                => print("Hành động không hợp lệ."),
 };
+=======
+    // Mặc định
+    default => print ("Hành động không hợp lệ."),
+
+    // default                => print("Hành động không hợp lệ."),
+};
+>>>>>>> Stashed changes
