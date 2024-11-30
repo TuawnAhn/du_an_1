@@ -275,7 +275,8 @@
                                                                                     <?= $BinhLuan['ten_nguoi_binh_luan']; ?>
                                                                                 </div>
                                                                                 <div class="review-time">
-                                                                                    <?php echo date('d-m-Y,H:i '); ?></div>
+                                                                                <?php echo date('d-m-Y, H:i', strtotime($BinhLuan['ngay_binh_luan'])); ?>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="description">
