@@ -11,7 +11,7 @@ class SanPhamController
     public function sanpham()
     {
         // Lấy số sản phẩm mỗi trang và trang hiện tại từ URL
-        $item_per_page = !empty($_GET['per_page']) ? (int)$_GET['per_page'] : 16;
+        $item_per_page = !empty($_GET['per_page']) ? (int)$_GET['per_page'] : 9;
         $current_page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 
         // Lấy sản phẩm từ model
@@ -23,10 +23,17 @@ class SanPhamController
         // Lấy danh mục sản phẩm
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
 
+
+
+        // Yêu cầu view danh sách sản phẩm
+
+
+
         // Biến lưu tên file view sẽ được gọi
         $viewFile = './views/danhsachsanpham.php';
 
         // Kiểm tra nếu có id danh mục trong URL
+
         $danhMucId = $_GET['iddm'] ?? 0; // Lấy id danh mục từ URL
         if (isset($_GET['iddm'])) {
             // Nhận tên sản phẩm từ form tìm kiếm
@@ -41,15 +48,26 @@ class SanPhamController
             // Kiểm tra nếu có tìm kiếm từ form
             $searchTerm = $_GET['search'];
             // Gọi phương thức tìm sản phẩm theo từ khóa tìm kiếm
-            $listSanPhamBySearch = $this->modelSanPham->searchSanPham($searchTerm);
+            // $listSanPhamBySearch = $this->modelSanPham->searchSanPham($searchTerm);
 
             // Chuyển view sang tìm kiếm sản phẩm
             $viewFile = './views/sanpham/tim_kiem_san_pham.php';
         }
 
+        
+     
+        // var_dump($danhmucs);
+
+        require_once './views/danhsachsanpham.php';
+       
+    
+
+
         // Gửi thông tin cho view
         require_once $viewFile;
-    }
+    
+}
+
 
 
 
@@ -95,4 +113,12 @@ class SanPhamController
         // Gửi các biến đến view
         require_once 'views/danhsachsanpham.php';
     }
+
 }
+
+
+
+
+
+
+

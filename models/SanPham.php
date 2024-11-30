@@ -8,21 +8,34 @@ class SanPham
         $this->conn = connectDB();
     }
 
+    public function getSanPhamById($id)
+    {
+        try {
+            $sql = 'SELECT * FROM san_phams WHERE id = :san_pham_id';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id' => $id]);
+            return $stmt->fetch(); // Trả về sản phẩm nếu tồn tại
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
 
-    // public function getAllSanPham()
-    // {
-    //     try {
-    //         $sql = "SELECT san_phams.*,danh_mucs.ten_danh_muc FROM san_phams INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id";
 
-    //         $stmt = $this->conn->prepare($sql);
+    public function getAllSanPham()
+    {
+        try {
+            $sql = "SELECT san_phams.*,danh_mucs.ten_danh_muc FROM san_phams INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id";
 
-    //         $stmt->execute();
+            $stmt = $this->conn->prepare($sql);
 
-    //         return $stmt->fetchAll();
-    //     } catch (Exception $e) {
-    //         echo 'Loi: ' . $e->getMessage();
-    //     }
-    // }
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo 'Loi: ' . $e->getMessage();
+        }
+    }
+
 
 
     public function searchByName($ten)
@@ -52,11 +65,16 @@ class SanPham
 
 
     public function getAllDanhMuc()
+
+{
+   
+
     {
         try {
             $sql = "SELECT * FROM danh_mucs";
 
             $stmt = $this->conn->prepare($sql);
+
 
             $stmt->execute();
 
@@ -65,7 +83,7 @@ class SanPham
             echo 'Lỗi: ' . $e->getMessage();
         }
     }
-
+}
 
     public function getSanPhamByDanhMucId($danhMucId)
     {
@@ -104,7 +122,10 @@ class SanPham
         }
     }
 
-    public function getAllSanPham($item_per_page = 16, $current_page = 1)
+
+
+
+    public function getAlllSanPham($item_per_page = 9, $current_page = 1)
     {
         try {
             // Tính toán offset
@@ -140,7 +161,7 @@ class SanPham
         }
     }
 
-    public function getProductsByPriceRange($minPrice, $maxPrice, $item_per_page = 10, $current_page = 1)
+    public function getProductsByPriceRange($minPrice, $maxPrice, $item_per_page = 9, $current_page = 1)
     {
         try {
             // Tính toán offset
@@ -200,4 +221,5 @@ class SanPham
             echo 'Lỗi: ' . $e->getMessage();
         }
     }
+    
 }

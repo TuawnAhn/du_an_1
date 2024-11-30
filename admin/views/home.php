@@ -91,7 +91,7 @@
                 <div class="d-flex align-items-end justify-content-between mt-4">
                     <div>
                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $revenue['revenue']; ?>"></span>k </h4>
-                        <a href="#" class="text-decoration-underline">Xem chi tiết</a>
+                        <a href="" class="text-decoration-underline">Xem chi tiết</a>
                     </div>
                     <div class="avatar-sm flex-shrink-0">
                         <span class="avatar-title bg-success-subtle rounded fs-3">
@@ -119,7 +119,7 @@
                 <div class="d-flex align-items-end justify-content-between mt-4">
                     <div>
                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $totalDH['completed_orders']; ?>"></span></h4>
-                        <a href="#" class="text-decoration-underline">Xem chi tiết</a>
+                        <a href="?act=don-hangs" class="text-decoration-underline">Xem chi tiết</a>
                     </div>
                     <div class="avatar-sm flex-shrink-0">
                         <span class="avatar-title bg-info-subtle rounded fs-3">
@@ -147,7 +147,7 @@
                 <div class="d-flex align-items-end justify-content-between mt-4">
                     <div>
                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<?php echo $totalUser['total_users']; ?>"></span></h4>
-                        <a href="#" class="text-decoration-underline">Xem chi tiết</a>
+                        <a href="?act=nguoi-dungs" class="text-decoration-underline">Xem chi tiết</a>
                     </div>
                     <div class="avatar-sm flex-shrink-0">
                         <span class="avatar-title bg-warning-subtle rounded fs-3">
@@ -187,17 +187,33 @@
     </div>
 </div>
 
-<!-- Repeat similar block for total orders, users, and profit -->
+ <!-- Repeat similar block for total orders, users, and profit 
+ <?php
+// Example function to fetch revenue data
+function getRevenueData() {
+    // This should be replaced with your actual database query
+    // For demonstration, we'll create dummy data
+    return [
+        'months' => ['August', 'Sep', 'Oct', 'Nov', 'Dec'],
+        'revenues' => [1000, 1500, 2000, 2500, 3000]
+    ];
+}
 
-<!-- Chart Section -->
-<!-- <div class="card-body p-0 pb-2">
+// Fetch the revenue data
+$data = getRevenueData();
+$bieudoArray = json_encode($data['revenues']); // Revenue data for the chart
+$bieudoArrayMoth = json_encode($data['months']); // Month names for the chart
+?>
+ 
+ Chart Section -->
+ <div class="card-body p-0 pb-2">
     <div class="w-100">
         <div id="bieu-do" class="apex-charts" dir="ltr"></div>
         <script>
             var options = {
                 series: [{
                     name: "Lợi nhuận",
-                    data: <?= $bieudoArray ?>
+                    data: <?= $bieudoArray ?> // Revenue data
                 }],
                 chart: {
                     height: 350,
@@ -207,7 +223,7 @@
                 dataLabels: { enabled: false },
                 stroke: { width: [5], curve: 'smooth' },
                 title: { text: 'Lợi Nhuận Theo Tháng', align: 'left' },
-                xaxis: { categories: <?= $bieudoArrayMoth ?> },
+                xaxis: { categories: <?= $bieudoArrayMoth ?> }, // Month names
                 tooltip: { shared: true, intersect: false },
                 grid: { borderColor: '#f1f1f1' }
             };
@@ -215,7 +231,7 @@
             var chart = new ApexCharts(document.querySelector("#bieu-do"), options);
             chart.render();
         </script>
-    </div> -->
+    </div>
 </div>
                       </div><!-- end card body -->
                     </div><!-- end card -->

@@ -1,407 +1,352 @@
-<?php require_once 'views/layout/header.php'; ?>
+<?php
+require_once('views/layout/header.php'); ?>
+<?php
+if (isset($_SESSION['thong_bao'])) {
+    echo '<div class="alert alert-success">' . $_SESSION['thong_bao'] . '</div>';
+    unset($_SESSION['thong_bao']); // Xóa thông báo sau khi hiển thị
+}
+?>
 
-<body class="shop">
+<style>
+    .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+
+        font-family: Arial, sans-serif;
+
+        color: #333;
+        line-height: 1.6;
+
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .checkout-form,
+    .order-summary {
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .checkout-form {
+        flex: 3;
+        margin-right: 20px;
+    }
+
+    h1,
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    .section {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 12px;
+        background: #000;
+        color: #fff;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .btn-submit:hover {
+        background: #333;
+    }
+
+    /* Tóm tắt đơn hàng */
+    .order-item,
+    .price-details {
+        margin-bottom: 15px;
+    }
+
+    .price-details p {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .price-details p:last-child {
+        font-weight: bold;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 10px 0;
+    }
+
+    /* Đáp ứng trên thiết bị di động */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .checkout-form {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    .order-summary {
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .order-summary h2 {
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .order-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+    }
+
+    .product-info {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .product-image img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 15px;
+        justify-content: center;
+    }
+
+    .product-details {
+        flex: 1;
+    }
+
+    .product-details h4 {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+        word-break: break-word;
+        /* Tự động xuống dòng khi vượt quá chiều dài */
+        display: inline-block;
+        max-width: 30ch;
+        /* Giới hạn tên sản phẩm hiển thị trong 10 ký tự */
+        white-space: normal;
+        /* Đảm bảo cho phép xuống dòng */
+        overflow-wrap: break-word;
+    }
+
+    .product-price span {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .product-price span[style="color: red;"] {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .product-subtotal {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 5px;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 10px 0;
+    }
+</style>
+
+<body class="home">
     <div id="page" class="hfeed page-wrapper">
-        <?php require_once 'views/layout/menu.php'; ?>
-        <style>
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-}
+        <?php require_once('views/layout/menu.php'); ?>
 
-.cart-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    background-color: white;
-}
+        <head>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        </head>
+        <main><br><br><br><br>
+            <div class="mb-4 pb-4"></div>
+            <div class="container">
+                <div class="checkout-form">
+                    <h1>THANH TOÁN</h1>
 
-/* Header Section */
-.cart-header {
-    flex: 1 1 60%;
-}
+                    <form action="?act=xu-li-thanh-toan" method="POST">
+                        <!-- Liên hệ -->
+                        <div class="section">
+                            <h2>LIÊN HỆ</h2>
+                            <input type="email" id="email_nguoi_nhan" name="email_nguoi_nhan"
+                                value="<?= $user['email'] ?>" placeholder="Địa chỉ email" required>
+                        </div>
 
-.cart-header p {
-    margin: 5px 0;
-    color: #333;
-}
+                        <!-- Địa chỉ -->
+                        <div class="section">
+                            <h2>ĐỊA CHỈ</h2>
+                            <input type="text" id="ho_ten_nguoi_nhan" name="ho_ten_nguoi_nhan"
+                                value="<?= $user['ho_ten'] ?>" placeholder="Họ và tên *" required>
+                            <input id="dia_chi_nguoi_nhan" name="dia_chi_nguoi_nhan" type="text"
+                                value="<?= $user['dia_chi'] ?>" placeholder="Địa chỉ người nhận *" required>
+                            <input id="sdt_nguoi_nhan" name="sdt_nguoi_nhan" value="<?= $user['so_dien_thoai'] ?>"
+                                type="text" placeholder="Số điện thoại *" required>
+                        </div>
 
-.cart-header h1 {
-    font-size: 24px;
-    color: #000;
-    margin: 10px 0;
-}
+                        <!-- Ghi chú -->
+                        <div class="section">
+                            <h2>GHI CHÚ</h2>
+                            <textarea name="ghi_chu" placeholder="Nhập ghi chú (nếu có)" rows="4"></textarea>
+                        </div>
 
-.cart-total {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 15px;
-}
+                        <!-- Hóa đơn -->
+                        <div class="section">
+                            <select name="phuong_thuc_thanh_toan_id" required>
+                                <option value="" disabled selected>Phương thức thanh toán</option>
+                                <option value="1">Thanh toán khi nhận hàng</option>
+                            </select>
+                        </div>
 
-.cart-note {
-    font-size: 14px;
-    color: #666;
-}
 
-/* Promotion Section */
-.promotion {
-    flex: 1 1 100%;
-    padding: 15px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-}
+                        <button type="submit" class="btn-submit">Đặt hàng</button>
 
-.promotion p {
-    margin: 5px 0;
-}
 
-.promotion a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Cart Item Section */
-.cart-item {
-    flex: 1 1 60%;
-    display: flex;
-    gap: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-}
-
-.cart-item img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-
-.item-details {
-    flex: 1;
-}
-
-.item-name {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.item-info {
-    font-size: 14px;
-    color: #666;
-}
-
-.item-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.item-price {
-    color: #e74c3c;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.remove-btn {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* Summary Section */
-.summary {
-    flex: 1 1 35%;
-    border: 1px solid #ddd;
-    padding: 15px;
-    background-color: #fff;
-}
-
-.summary h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.summary p {
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-.summary-total {
-    font-size: 18px;
-    color: #000;
-    margin-top: 20px;
-}
-
-.checkout-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.checkout-btn:hover {
-    background-color: #333;
-}
-
-        </style>
-
-<body>
-    <div class="cart-container">
-        <div class="cart-header">
-            <p>XIN CHÀO THANH HÀ</p>
-            <h1>GIỎ HÀNG CỦA BẠN</h1>
-            <p class="cart-total">TỔNG CỘNG (1 sản phẩm) <strong>2.160.000₫</strong></p>
-            <p class="cart-note">Các mặt hàng trong giỏ hàng của bạn không được bảo lưu — hãy kiểm tra ngay để đặt hàng.</p>
-        </div>
-
-        <div class="promotion">
-            <p><strong>🔥 BLACK FRIDAY 🔥</strong></p>
-            <p>Ưu đãi đến 50%, diễn ra ở online và cửa hàng adidas từ 22/11 đến 01/12/2024. Điều khoản & điều kiện*</p>
-            <a href="#">THÊM SẢN PHẨM</a>
-        </div>
-
-        <div class="cart-item">
-            <img src="https://via.placeholder.com/100" alt="Giày">
-            <div class="item-details">
-                <p class="item-name">GIÀY SAMBA OG</p>
-                <p class="item-info">CLOUD WHITE / HALO BLUE / OFF WHITE</p>
-                <p>KÍCH CỠ: 4 UK</p>
-                <div class="item-controls">
-                    <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    <p class="item-price"><s>2.700.000₫</s> <strong>2.160.000₫</strong></p>
                 </div>
-            </div>
-            <button class="remove-btn">X</button>
-        </div>
 
-        <div class="summary">
-            <h2>TÓM TẮT ĐƠN HÀNG</h2>
-            <p>1 sản phẩm</p>
-            <p>Giá gốc: 2.700.000₫</p>
-            <p>Giao hàng: Miễn phí</p>
-            <p>On Sale: -540.000₫</p>
-            <p class="summary-total"><strong>Tổng: 2.160.000₫</strong></p>
-            <button class="checkout-btn">THANH TOÁN</button>
-        </div>
-    </div>
-</body>
-
-
-
-
-
-
-
-
-
-        <footer id="site-footer" class="site-footer background four-columns">
-            <div class="footer">
-                <div class="section-padding">
-                    <div class="section-container">
-                        <div class="block-widget-wrap">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6 column-1">
-                                    <div class="block block-menu m-b-20">
-                                        <h2 class="block-title">Contact Us</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <span>Head Office:</span> 26 Wyle Cop, Shrewsbury, Shropshire, SY1 1XD
-                                                </li>
-                                                <li>
-                                                    <span>Tel:</span> 01743 234500
-                                                </li>
-                                                <li>
-                                                    <span>Email:</span> <a href="mailto:support@mojuri.com">support@mojuri.com</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="block block-social">
-                                        <ul class="social-link">
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                        </ul>
-                                    </div>
+                <!-- Đơn hàng -->
+                <div class="order-summary">
+                    <h2>ĐƠN HÀNG CỦA BẠN</h2>
+                    <?php
+                    $tongGioHang = 0;
+                    foreach ($chiTietGioHang as $sanPham):
+                        ?>
+                        <div class="order-item">
+                            <div class="product-info">
+                                <div class="product-image">
+                                    <a href="<?= "?act=chi-tiet-san-pham&id_san_pham=" . $sanPham['san_pham_id'] ?>">
+                                        <img loading="lazy" src="<?= $sanPham['img'] ?>" alt="" class="pc__img">
+                                    </a>
                                 </div>
-                                <div class="col-lg-3 col-md-6 column-2">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">Customer Services</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Contact Us</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Track Your Order</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Product Care & Repair</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Book an Appointment</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Frequently Asked Questions</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Shipping & Returns</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                <div class="product-details">
+                                    <h4>
+                                        <a href=""><?= $sanPham['ten'] ?></a>
+                                    </h4>
+                                    <div class="product-price">
+                                        <?php if ($sanPham['gia_km']) { ?>
+                                            <span
+                                                style="color: red;"><?= number_format($sanPham['gia_km'], 0, ',', '.') ?>đ</span><br>
+                                            <span><del><?= number_format($sanPham['gia_ban'], 0, ',', '.') ?>đ</del></span>
+                                        <?php } else { ?>
+                                            <span><?= number_format($sanPham['gia_ban'], 0, ',', '.') ?>đ</span>
+                                        <?php } ?>
+                                        <br>
+                                        <span>Số lượng: <?= $sanPham['so_luong'] ?></span>
                                     </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 column-3">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">About Us</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">About Us</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">FAQ</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Our Producers</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Sitemap</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Terms & Conditions</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Privacy Policy</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 column-4">
-                                    <div class="block block-menu">
-                                        <h2 class="block-title">Catalog</h2>
-                                        <div class="block-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Earrings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Necklaces</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Bracelets</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Rings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Jewelry Box</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-left.html">Studs</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <div class="product-subtotal">
+                                        <?php
+                                        $tongtien = $sanPham['gia_km'] ? $sanPham['gia_km'] * $sanPham['so_luong'] : $sanPham['gia_ban'] * $sanPham['so_luong'];
+                                        $tongGioHang += $tongtien;
+                                        echo "Tổng: " . number_format($tongtien, 0, ',', '.') . ' đ';
+                                        ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="section-padding">
-                    <div class="section-container">
-                        <div class="block-widget-wrap">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="footer-left">
-                                        <p class="copyright">Copyright © 2023. All Right Reserved</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="footer-right">
-                                        <div class="block block-image">
-                                            <img width="309" height="32" src="media/payments.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
+                        <hr>
+                    <?php endforeach ?>
+                    <div class="shopping-cart__totals-wrapper">
+                        <div class="sticky-content">
+                            <div class="shopping-cart__totals">
+                                <h3>Tổng tiền giỏ hàng</h3>
+                                <table class="cart-totals">
+                                    <tbody>
+                                        <tr>
+                                            <th>Tổng tiền sản phẩm</th>
+                                            <td> <?php echo number_format($tongGioHang, 0, ',', '.') ?> đ </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Vận chuyển</th>
+                                            <td>
+                                                <label class="form-check-label mb-2" for="free_shipping">
+                                                    <?php $phiship = 50000;
+                                                    if ($tongGioHang > 0) {
+                                                        echo number_format($phiship, 0, ',', '.') . ' đ';
+                                                    } else {
+                                                        echo "0 đ";
+                                                    }
+                                                    ?>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tổng thanh toán</th>
+                                            <input type="hidden" name="tong_tien" value="<?=$tongGioHang + $phiship ?>">
+                                            <td><?php $phiship = 50000;
+                                            if ($tongGioHang > 0) {
+                                                echo number_format($tongGioHang + $phiship, 0, ',', '.') . ' đ';
+                                            } else {
+                                                echo "0 đ";
+                                            }
+                                            ?> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
+
             </div>
-        </footer>
-    </div>
-
-    <!-- Back Top button -->
-    <div class="back-top button-show">
-        <i class="arrow_carrot-up"></i>
-    </div>
-
-    <!-- Search -->
-    <div class="search-overlay">
-        <div class="close-search"></div>
-        <div class="wrapper-search">
-            <form role="search" method="get" class="search-from ajax-search" action="#">
-                <a href="#" class="search-close"></a>
-                <div class="search-box">
-                    <button id="searchsubmit" class="btn" type="submit">
-                        <i class="icon-search"></i>
-                    </button>
-                    <input type="text" autocomplete="off" value="" name="s" class="input-search s" placeholder="Search...">
-                    <div class="content-menu_search">
-                        <label>Suggested</label>
-                        <ul id="menu_search" class="menu">
-                            <li><a href="#">Earrings</a></li>
-                            <li><a href="#">Necklaces</a></li>
-                            <li><a href="#">Bracelets</a></li>
-                            <li><a href="#">Jewelry Box</a></li>
-                        </ul>
-                    </div>
-                </div>
             </form>
-        </div>
-    </div>
-    <script src="libs/popper/js/popper.min.js"></script>
-    <script src="libs/jquery/js/jquery.min.js"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libs/slick/js/slick.min.js"></script>
-    <script src="libs/mmenu/js/jquery.mmenu.all.min.js"></script>
-    <script src="libs/slider/js/tmpl.js"></script>
-    <script src="libs/slider/js/jquery.dependClass-0.1.js"></script>
-    <script src="libs/slider/js/draggable-0.1.js"></script>
-    <script src="libs/slider/js/jquery.slider.js"></script>
-    <script src="libs/elevatezoom/js/jquery.elevatezoom.js"></script>
 
-    <!-- Site Scripts -->
-    <script src="assets/js/app.js"></script>
-</body>
 
-<!-- Mirrored from caketheme.com/html/mojuri/shop-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Nov 2024 11:03:01 GMT -->
-
-</html>
+        </main>
+        <br>
+        <?php require_once './views/layout/footer.php'; ?>

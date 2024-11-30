@@ -5,10 +5,13 @@ class ChiTietSanPhamController
     //Ket noi den file model
     public $modelchiTietSanPham;
     public $modelSanPham;
+
+    public $modelTaiKhoan;
     public function __construct()
     {
         $this->modelchiTietSanPham = new ChiTietSanPham();
         $this->modelSanPham = new SanPham();
+        $this->modelTaiKhoan=new TaiKhoan();
     }
     public function chitietsanpham($san_pham_id)
     {
@@ -25,8 +28,9 @@ class ChiTietSanPhamController
 
     public function thembinhluan()
     {
+        $user = $this->modelTaiKhoan->getAllTaiKhoanformEmail($_SESSION['user']['email']);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $ten_nguoi_binh_luan=$_POST['name'];
+            $ten_nguoi_binh_luan=$user['ho_ten'];
             $noi_dung = $_POST['comment'];
             $ngay_binh_luan = date("Y-m-d H:i:s");
             $san_pham_id = $_POST['san_pham_id'];

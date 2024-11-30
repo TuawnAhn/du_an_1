@@ -1,3 +1,9 @@
+<?php
+require_once('views/layout/header.php'); ?>
+   <?php require_once('views/layout/menu.php'); ?>
+   
+
+
 <main>
   <div class="mb-4 pb-4"></div>
   <div class="mb-4 pb-4"> </div>
@@ -16,10 +22,10 @@
           <h3 class="mb-5">Liên hệ chúng tôi</h3>
           <div class="form-floating my-4">
           <label for="contact_us_name">Họ tên</label>
-            <input type="text" class="form-control" name="ten" placeholder="Họ và tên khách hàng    ">
+            <input type="text" class="form-control" name="name" placeholder="Họ và tên khách hàng    ">
             
             <span class="text-danger">
-              <?= !empty($_SESSION['errors']['ten']) ? $_SESSION['errors']['ten'] : '' ?>
+              <?= !empty($_SESSION['errors']['name']) ? $_SESSION['errors']['name'] : '' ?>
             </span>
           </div>
           <div class="form-floating my-4">
@@ -47,7 +53,7 @@
           </div>
           <input type="hidden" name="ngay_gio" id="ngay_gio">
 
-          <input type="hidden" name="trang_thai" value="1">
+      
 
           <div class="my-4">
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -77,3 +83,4 @@
     document.getElementById("ngay_gio").value = formattedDate;
   });
 </script>
+<?php require_once('views/layout/footer.php'); ?>

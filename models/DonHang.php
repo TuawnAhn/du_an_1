@@ -39,4 +39,31 @@ class DonHang
             echo 'Lỗi: ' . $e->getMessage();
         }
     }
+
+    public function addDonHang($ho_ten_nguoi_nhan,$email_nguoi_nhan , $dia_chi_nguoi_nhan, $sdt_nguoi_nhan, $ghi_chu, $phuong_thuc_thanh_toan_id, $tong_tien, $ngay_dat_hang, $trang_thai_don_hang_id, $tai_khoan_id,$ma_don_hang){
+        try {
+            $sql = 'INSERT INTO don_hangs (ho_ten_nguoi_nhan,email_nguoi_nhan , dia_chi_nguoi_nhan, sdt_nguoi_nhan, ghi_chu, phuong_thuc_thanh_toan_id, tong_tien, ngay_dat_hang, trang_thai_don_hang_id, tai_khoan_id,ma_don_hang) 
+            VALUES (:ho_ten_nguoi_nhan,:email_nguoi_nhan , :dia_chi_nguoi_nhan, :sdt_nguoi_nhan, :ghi_chu, :phuong_thuc_thanh_toan_id, :tong_tien, :ngay_dat_hang, :trang_thai_don_hang_id, :tai_khoan_id, :ma_don_hang)';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([':ho_ten_nguoi_nhan' => $ho_ten_nguoi_nhan,
+                                    ':email_nguoi_nhan' => $email_nguoi_nhan,
+                                    ':dia_chi_nguoi_nhan' => $dia_chi_nguoi_nhan,
+                                    ':sdt_nguoi_nhan' => $sdt_nguoi_nhan,
+                                    ':ghi_chu' => $ghi_chu,
+                                    ':phuong_thuc_thanh_toan_id' => $phuong_thuc_thanh_toan_id,
+                                    ':tong_tien' => $tong_tien,
+                                    ':ngay_dat_hang' => $ngay_dat_hang,
+                                    ':trang_thai_don_hang_id' => $trang_thai_don_hang_id,
+                                    ':tai_khoan_id' => $tai_khoan_id,
+                                    ':ma_don_hang' => $ma_don_hang,
+
+        ]);
+
+            return $this->conn->lastInsertId();
+        } catch (Exception $e) {
+            echo "Lỗi" . $e->getMessage();
+        }
+    }
 }

@@ -107,15 +107,23 @@ match ($act) {
 
 
     //Quan li san pham
-    'san-phams' => (new SanPhamController())->index(),
-    'form-them-san-pham' => (new SanPhamController())->create(),
-    'them-san-pham' => (new SanPhamController())->store(),
-    'form-sua-san-pham' => (new SanPhamController())->edit(),
-    'sua-san-pham' => (new SanPhamController())->update(),
-    'xoa-san-pham' => (new SanPhamController())->destroy(),
-    'chi-tiet-san-pham' => (new SanPhamController())->DetailSanPham(),
-    'xoa-binh-luan' => (new SanPhamController())->deleteReview(),
-    'xoa-danh-gia' => (new SanPhamController())->deleteDanhgia(),
+
+
+    'san-phams'            => (new SanPhamController())->index(),
+    'tim-kiem-san-pham'   => (new SanPhamController())->search(),
+    'form-them-san-pham'   => (new SanPhamController())->create(),
+    'them-san-pham'        => (new SanPhamController())->store(),
+    'form-sua-san-pham'    => (new SanPhamController())->edit(),
+    'sua-san-pham'         => (new SanPhamController())->update(),
+    'xoa-san-pham'         => (new SanPhamController())->destroy(),
+    'chi-tiet-san-pham'    => (new SanPhamController())->DetailSanPham(),
+    'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
+    'xoa-danh-gia'        => (new SanPhamController())->deleteDanhgia(),
+
+ 
+
+   
+
 
     //Quan li trang thai don hang
     'trang-thai-don-hangs'            => (new TrangThaiDonHangController())->index(),
@@ -150,10 +158,13 @@ match ($act) {
 
 
 
+
+
     // Quản lý tài khoản Quản trị
     // 'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
     // 'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
     // 'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
+
     'form-sua-quan-tri' => (new TaiKhoanController())->formEditQuanTri(),
     'sua-quan-tri' => (new TaiKhoanController())->postEditQuanTri(),
     'reset-password' => (new TaiKhoanController())->resetPassword(),
@@ -161,9 +172,14 @@ match ($act) {
 
 
     //
+
+   
+
+
     // 'login-admin' => (new TaiKhoanController())->formLogin(),
     // 'check-login-admin' => (new TaiKhoanController())->login(),
     // 'logout-admin' => (new TaiKhoanController())->logout(),
+
 
 
     //
