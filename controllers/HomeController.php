@@ -132,8 +132,8 @@ class HomeController
     public function capNhatGioHang()
     {
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {  // Kiểm tra nếu là yêu cầu POSTif (isset($_SESSION['user'])) {
-        $mail = $this->modelTaiKhoan->getAllTaiKhoanformEmail($_SESSION['user']['email']);
-$gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
+        $email = $this->modelTaiKhoan->getAllTaiKhoanformEmail($_SESSION['user']['email']);
+$gioHang = $this->modelGioHang->getGioHangFromUser($email['id']);
         $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
   
         // Kiểm tra nếu có dữ liệu số lượng mới gửi lên
@@ -160,8 +160,8 @@ $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
       // var_dump($_POST);die;
   
       if (isset($_SESSION['user'])) {
-        $mail = $this->modelTaiKhoan->getAllTaiKhoanformEmail($_SESSION['user']['email']);
-        $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
+        $email = $this->modelTaiKhoan->getAllTaiKhoanformEmail($_SESSION['user']['email']);
+        $gioHang = $this->modelGioHang->getGioHangFromUser($email['id']);
   
         if ($gioHang) {
           // Lấy ID sản phẩm từ form POST
@@ -173,7 +173,7 @@ $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
           }
         }
         // Cập nhật lại giỏ hàng sau khi xóa
-        $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
+        $gioHang = $this->modelGioHang->getGioHangFromUser($email['id']);
         $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
   
         header("Location: ?act=gio-hang ");
@@ -228,7 +228,110 @@ $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
       } 
     }
     
-
+    public function lichSuMuaHang()
+    {
+      if (isset($_SESSION['user'])) {
+        // Lay ra id
+        $user = $this->modelTaiKhoan->getAllTaiKhoanformEmail($_SESSION['user']['email']);
+       
+        $nguoi_dung_id = $user['id'];
+  
+        // lay ra trang thai don hang
+        $arrtrangThai = $this->modelDonHang->getTrangThai();
+        $trangThaiDonHang = array_column($arrtrangThai, 'trang_thai', 'id');
+  
+        // Lay ra phuong thai thanh toan
+  
+        $arrPTTT = $this->modelDonHang->getPttt();
+        $pTTT = array_column($arrPTTT, 'ten_phuong_thuc', 'id');
+  
+        // Lay ra danh sach all bill cua user
+  
+        $donHangs = $this->modelDonHang->getDonHangFromUser($nguoi_dung_id);
+  
+      } else {
+        echo "Vui lòng đăng nhập.";
+      }
+  
+      require_once './views/lichSuMuaHang.php';
+    }
+  
+  
+  
+    public function huyDonHang()
+    {
+      // lấy ra thông tin tài khoản đăng nhập
+      $user = $this->modelTaiKhoan->getAllTaiKhoanformEmail($_SESSION['user']['email']);
+       
+      $nguoi_dung_id = $user['id'];
+      //lấy ra id truyền từ url
+      $donHangId = $_GET['id'];
+  
+      // Kiểm tra đơn hàng
+      $donHang = $this->modelDonHang->getDonHangById($donHangId);
+   
+      if (!$donHang) {
+        echo "Đơn hàng không tồn tại.";
+        exit;
+      }
+  
+      if ($donHang['nguoi_dung_id'] != $nguoi_dung_id) {
+        echo "Bạn không có quyền hủy đơn hàng này.";
+        exit;
+      }
+  
+      if ($donHang['trang_thai_don_hang'] != 14) {
+        echo "Chỉ đơn hàng 'Chưa Xác Nhận' mới có thể hủy.";
+        exit;
+      }
+  
+       // Lấy chi tiết đơn hàng để cập nhật lại số lượng sản phẩm trong kho
+       $chiTietDonHang = $this->modelDonHang->getChiTietDonHangByOrderId($donHangId);
+  
+       // Kiểm tra nếu có chi tiết đơn hàng
+       if ($chiTietDonHang) {
+           // Duyệt qua từng sản phẩm trong đơn hàng để cộng lại số lượng trong kho
+           foreach ($chiTietDonHang as $item) {
+               $sanPhamId = $item['san_pham_id'];
+               $soLuong = $item['so_luong'];
+   
+               // Cập nhật lại số lượng sản phẩm trong kho
+               $this->modelSanPham->updateQuantityKhiHuy($sanPhamId, $soLuong);
+           }
+       }
+      // Hủy đơn hàng
+      if ($this->modelDonHang->updateDH($donHangId, 20)) {
+        header("Location:?act=lich-su-mua-hang " );
+        exit();
+      } else {
+        echo "Cập nhật đơn hàng thất bại.";
+       
+      }
+      require_once './views/lichSuMuaHang.php';
+    }
+  
+    public function timDonHang()
+    {
+      // var_dump($_POST);
+      // Lấy các tham số từ POST thay vì GET
+      $search = isset($_POST['search']) ? $_POST['search'] : '';
+      $status = isset($_POST['status']) ? $_POST['status'] : '';
+  
+      // Gọi model để tìm kiếm đơn hàng
+      $donHangs = $this->modelDonHang->searchOrders($search, $status);
+  
+      $arrtrangThai = $this->modelDonHang->getTrangThai();
+      $trangThaiDonHang = array_column($arrtrangThai, 'trang_thai', 'id');
+  
+      // Lay ra phuong thai thanh toan
+  
+      $arrPTTT = $this->modelDonHang->getPttt();
+      $pTTT = array_column($arrPTTT, 'ten_phuong_thuc', 'id');
+  
+      // Hiển thị kết quả tìm kiếm
+      require_once './views/lichSuMuaHang.php';
+    }
+  
 
 
 public function formLogin()

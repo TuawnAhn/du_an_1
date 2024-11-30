@@ -54,7 +54,10 @@ match ($act) {
   'xoa-san-pham-gio-hang'   => (new HomeController())->xoaSanPhamGioHang(),
   'thanh-toan'              => (new HomeController())->ThanhToan(),
   'xu-li-thanh-toan'          => (new HomeController())->postThanhtoan(),
-
+  
+  'lich-su-mua-hang'        => (new HomeController())->lichSuMuaHang(),
+  'huy-don-hang'            => (new HomeController())->huyDonHang(),
+  'tim-kiem-don-hang'       => (new HomeController())->timDonHang(),
 
     'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
 

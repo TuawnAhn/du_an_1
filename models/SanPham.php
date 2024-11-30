@@ -221,5 +221,31 @@ class SanPham
             echo 'Lỗi: ' . $e->getMessage();
         }
     }
+    public function updateQuantityKhiHuy($sanPhamId, $quantityChange)
+{
+    // Lấy số lượng hiện tại trong kho
+    $currentQuantity = $this->getProductQuantity($sanPhamId);
+
+    // Cập nhật số lượng mới (cộng hoặc trừ)
+    $newQuantity = $currentQuantity + $quantityChange;
+
+    // Cập nhật số lượng trong kho
+    $sql = "UPDATE san_phams SET so_luong = :newQuantity WHERE id = :sanPhamId";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':newQuantity', $newQuantity, PDO::PARAM_INT);
+    $stmt->bindParam(':sanPhamId', $sanPhamId, PDO::PARAM_INT);
+
+    return $stmt->execute();
+}
+public function getProductQuantity($sanPhamId)
+{
+    // Truy vấn số lượng sản phẩm hiện tại trong kho
+    $sql = "SELECT so_luong FROM san_phams WHERE id = :sanPhamId";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':sanPhamId', $sanPhamId, PDO::PARAM_INT);
+    $stmt->execute();
     
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result ? $result['so_luong'] : 0; // trả về số lượng, hoặc 0 nếu không tìm thấy
+}
 }

@@ -66,4 +66,120 @@ class DonHang
             echo "Lỗi" . $e->getMessage();
         }
     }
+    public function getTrangThai()
+    {
+      try {
+        $sql = "SELECT * FROM `trang_thai_don_hangs`";
+  
+        $stmt = $this->conn->prepare($sql);
+  
+        $stmt->execute();
+  
+        return $stmt->fetchAll();
+      } catch (PDOException $e) {
+        echo 'Error: ' . $e->getMessage(); // In lỗi
+        die(); // Dừng chương trình để kiểm tra
+      }
+    }
+    public function getPttt()
+  {
+    try {
+      $sql = "SELECT * FROM `phuong_thuc_thanh_toans`";
+
+      $stmt = $this->conn->prepare($sql);
+
+      $stmt->execute();
+
+      return $stmt->fetchAll();
+    } catch (PDOException $e) {
+      echo 'Error: ' . $e->getMessage(); // In lỗi
+      die(); // Dừng chương trình để kiểm tra
+    }
+  }
+  public function getDonHangFromUser($nguoiDungId)
+  {
+    try {
+      $sql = "SELECT * FROM `don_hangs` WHERE  `nguoi_dung_id` = :nguoi_dung_id ORDER BY `id` DESC";
+
+      $stmt = $this->conn->prepare($sql);
+
+      $stmt->execute([
+        ':nguoi_dung_id' => $nguoiDungId
+      ]);
+
+      return $stmt->fetchAll();
+    } catch (PDOException $e) {
+      echo 'Error: ' . $e->getMessage(); // In lỗi
+      die(); // Dừng chương trình để kiểm tra
+    }
+  }
+  public function getDonHangById($donHangId)
+  {
+    try {
+      $sql = "SELECT * FROM don_hangs WHERE id = :id";
+
+      $stmt = $this->conn->prepare($sql);
+
+      $stmt->execute([
+        ':id' => $donHangId
+      ]);
+
+      return $stmt->fetch();
+    } catch (PDOException $e) {
+      echo 'Error: ' . $e->getMessage(); // In lỗi
+      die(); // Dừng chương trình để kiểm tra
+    }
+  }
+  public function getChiTietDonHangByOrderId($orderId)
+  {
+    $sql = "SELECT * FROM chi_tiet_don_hangs WHERE don_hang_id = :orderId";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);  // Trả về tất cả chi tiết đơn hàng
+  }
+  public function updateDH($donHangId, $trang_thai_id)
+  {
+    try {
+      $sql = "UPDATE don_hangs SET trang_thai_don_hang = :trang_thai_don_hang   WHERE id = :id";
+
+      $stmt = $this->conn->prepare($sql);
+
+      $stmt->execute([
+        ':id' => $donHangId,
+        ':trang_thai_don_hang' => $trang_thai_id
+      ]);
+
+      return true;
+    } catch (PDOException $e) {
+      echo 'Error: ' . $e->getMessage(); // In lỗi
+      die(); // Dừng chương trình để kiểm tra
+    }
+  }
+  public function searchOrders($search, $status)
+  {
+
+    $query = "SELECT don_hangs.*, trang_thai_don_hangs.trang_thai FROM don_hangs JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang = trang_thai_don_hangs.id ";
+
+    if ($search) {
+      $query .= " AND ma_don_hang LIKE :search";
+    }
+    if ($status) {
+      $query .= " AND trang_thai = :status";
+    }
+
+    $stmt = $this->conn->prepare($query);
+
+    if ($search) {
+      $stmt->bindValue(':search', "%$search%");
+    }
+    if ($status) {
+      $stmt->bindValue(':status', $status);
+    }
+
+    $stmt->execute();
+
+    return $stmt->fetchAll();  // Trả về kết quả tìm kiếm
+  }
 }
