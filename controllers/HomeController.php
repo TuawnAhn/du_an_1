@@ -274,7 +274,9 @@ class HomeController
 
     // lay ra trang thai don hang
     $arrtrangThai = $this->modelDonHang->getTrangThai();
-    $trangThaiDonHang = array_column($arrtrangThai, 'trang_thai', 'id');
+    $trangThaiDonHang = array_column($arrtrangThai, 'trang_thai_don_hang', 'id');
+    // var_dump($trangThaiDonHang);
+    // die;
 
     // Lay ra phuong thai thanh toan
 
@@ -283,6 +285,7 @@ class HomeController
 
     //Lấy ra thông tin đơn hàng theo ID
     $donHang = $this->modelDonHang->getDonHangById($donHangId);
+
     // var_dump($donHang);
 
     //Lấy thông tin sản phẩm của đơn hàng trong bảng chi_tiet_don_hangs
@@ -337,6 +340,14 @@ class HomeController
         $this->modelSanPham->updateQuantityKhiHuy($sanPhamId, $soLuong);
       }
     }
+    // Hủy đơn hàng
+    if ($this->modelDonHang->updateDH($donHangId, 7)) {
+      header("Location:?act=lich-su-mua-hang ");
+      exit();
+    } else {
+      echo "Cập nhật đơn hàng thất bại.";
+    }
+    require_once './views/lichSuMuaHang.php';
   }
 
   public function timDonHang()

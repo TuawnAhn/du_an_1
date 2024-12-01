@@ -186,9 +186,14 @@
                                                                     <th scope="row">Email: </th>
                                                                     <td><?= $donHang['email_nguoi_nhan'] ?></td>
                                                                 </tr>
+
                                                                 <tr>
                                                                     <th scope="row">Địa chỉ: </th>
                                                                     <td><?= $donHang['dia_chi_nguoi_nhan'] ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Trạng thái đơn hàng: </th>
+                                                                    <td><?= $donHang['trang_thai_don_hang'] ?></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Tổng tiền:</th>

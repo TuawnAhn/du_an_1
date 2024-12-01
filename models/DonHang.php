@@ -118,10 +118,12 @@ class DonHang
   public function getDonHangById($donHangId)
   {
     try {
-      $sql = "SELECT * FROM don_hangs WHERE id = :id";
+      $sql = "SELECT don_hangs.*, trang_thai_don_hangs.trang_thai_don_hang 
+                  FROM don_hangs
+                  JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang_id = trang_thai_don_hangs.id 
+                  WHERE don_hangs.id = :id";
 
       $stmt = $this->conn->prepare($sql);
-
       $stmt->execute([
         ':id' => $donHangId
       ]);
@@ -132,6 +134,7 @@ class DonHang
       die(); // Dừng chương trình để kiểm tra
     }
   }
+
   public function getChiTietDonHangByOrderId($donHangId)
   {
     $sql = "SELECT 
