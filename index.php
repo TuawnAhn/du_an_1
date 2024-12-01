@@ -9,13 +9,8 @@ require_once './controllers/HomeController.php';
 require_once './controllers/BannerController.php';
 require_once './controllers/SanPhamController.php';
 require_once './controllers/ChiTietSanPhamController.php';
-
-
 require_once './controllers/LienHeController.php';
 require_once './controllers/KhuyenMaiController.php';
-
-
-
 require_once './controllers/TinTucController.php';
 require_once './controllers/TaiKhoanController.php';
 require_once './controllers/DangKiController.php';
@@ -26,8 +21,6 @@ require_once './models/SanPham.php';
 require_once './models/Banner.php';
 require_once './models/TaiKhoan.php';
 require_once './models/ChiTietSanPham.php';
-
-
 require_once './models/LienHe.php';
 require_once './models/KhuyenMai.php';
 require_once './models/GioHang.php';
@@ -117,11 +110,5 @@ match ($act) {
   //lọc sản phẩm
   'loc-san-pham-theo-gia' => (new SanPhamController())->filterByPrice(),
 
-
-    // Mặc định
-
-
-
   default => print("Hành động không hợp lệ."),
-  // default                => print("Hành động không hợp lệ."),
 };

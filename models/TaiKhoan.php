@@ -148,14 +148,15 @@ class TaiKhoan
         }
     }
 
-public function updateCaNhanQuanTri($id, $ho_ten,$email,$so_dien_thoai)
+public function updateCaNhanQuanTri($id, $ho_ten,$email,$so_dien_thoai, $dia_chi)
     {
 
         try {
             $sql = 'UPDATE tai_khoans 
             SET ho_ten =:ho_ten,
             email=:email,
-            so_dien_thoai=:so_dien_thoai
+            so_dien_thoai=:so_dien_thoai,
+            dia_chi=:dia_chi
             WHERE id=:id';
 
             $stmt = $this->conn->prepare($sql);
@@ -164,6 +165,7 @@ public function updateCaNhanQuanTri($id, $ho_ten,$email,$so_dien_thoai)
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
+            $stmt->bindParam(':dia_chi', $dia_chi);
 
             $stmt->execute();
             var_dump($id, $ho_ten);
