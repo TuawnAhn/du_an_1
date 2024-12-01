@@ -140,7 +140,7 @@
 
 
                                                 <li>
-                                                    <a href="page-my-account.html"><span class="menu-item-text">Tài
+                                                    <a href="?act=form-sua-thong-tin-ca-nhan"><span class="menu-item-text">Tài
                                                             khoản của tôi</span></a>
                                                 </li>
                                                 <li>

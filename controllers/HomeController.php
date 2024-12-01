@@ -301,22 +301,22 @@ class HomeController
 
     $nguoi_dung_id = $user['id'];
     //lấy ra id truyền từ url
-    $donHangId = $_GET['id'];
+    $donHangId = $_GET['id_don_hang'];
 
     // Kiểm tra đơn hàng
     $donHang = $this->modelDonHang->getDonHangById($donHangId);
-
     if (!$donHang) {
       echo "Đơn hàng không tồn tại.";
       exit;
     }
 
-    if ($donHang['nguoi_dung_id'] != $nguoi_dung_id) {
+
+    if ($donHang['tai_khoan_id'] != $nguoi_dung_id) {
       echo "Bạn không có quyền hủy đơn hàng này.";
       exit;
     }
 
-    if ($donHang['trang_thai_don_hang'] != 7) {
+    if ($donHang['trang_thai_don_hang_id'] != 1) {
       echo "Chỉ đơn hàng 'Chưa Xác Nhận' mới có thể hủy.";
       exit;
     }
@@ -335,14 +335,6 @@ class HomeController
         $this->modelSanPham->updateQuantityKhiHuy($sanPhamId, $soLuong);
       }
     }
-    // Hủy đơn hàng
-    if ($this->modelDonHang->updateDH($donHangId, 7)) {
-      header("Location:?act=lich-su-mua-hang ");
-      exit();
-    } else {
-      echo "Cập nhật đơn hàng thất bại.";
-    }
-    require_once './views/lichSuMuaHang.php';
   }
 
   public function timDonHang()

@@ -89,7 +89,6 @@
                                                             <th scope="col">Ngày đặt hàng</th>
                                                             <th scope="col">Trạng thái đơn hàng</th>
                                                             <th scope="col">Hình thức thanh toán</th>
-                                                            <th scope="col">Trạng thái thanh toán</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
@@ -99,7 +98,7 @@
                                                                 <th scope="row"><?= $key + 1; ?></th>
                                                                 <td><?= $donhang['ma_don_hang']; ?></td>
                                                                 <td><?= $donhang['ngay_dat_hang']; ?></td>
-                                                                
+
                                                                 <td>
                                                                     <?php if ($donhang['trang_thai_don_hang_id'] == 1) { ?>
                                                                         <span>Chờ xác nhận</span>
@@ -113,7 +112,7 @@
                                                                         <span>Đã hoàn thành</span>
                                                                     <?php } else if ($donhang['trang_thai_don_hang_id'] == 6) { ?>
                                                                         <span>Đã thất bại</span>
-                                                                    <?php } else if ($donhang['trang_thai_don_hang_id'] == 7){ ?>
+                                                                    <?php } else if ($donhang['trang_thai_don_hang_id'] == 7) { ?>
                                                                         <span>Đã Hủy</span>
                                                                     <?php } ?>
                                                                 </td>
@@ -124,14 +123,6 @@
                                                                         <span>Thanh toán qua ví Momo, ZaloPay,...(Tiết kiệm 20.000đ)</span>
                                                                     <?php } ?>
                                                                 </td>
-                                                                <td>
-                                                                    <?php if ($donhang['trang_thai'] == 1) { ?>
-                                                                        <span class="badge bg-danger">Chờ thanh toán</span>
-                                                                    <?php } else if ($donhang['trang_thai'] == 2) { ?>
-                                                                        <span class="badge bg-success">Đã thanh toán</span>
-                                                                    <?php } ?>
-                                                                </td>
-
                                                                 <td>
                                                                     <a href="?act=chi-tiet-don-hangs&id_don_hang=<?= $donhang['id'] ?>" class="link-primary fs-15 me-2" title="View">
                                                                         <i class="ri-eye-line"></i>
@@ -189,14 +180,6 @@
     </button>
     <!--end back-to-top-->
 
-    <!--preloader-->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    </div>
 
     <div class="customizer-setting d-none d-md-block">
         <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"

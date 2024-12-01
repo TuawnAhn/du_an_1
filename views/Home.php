@@ -16,7 +16,7 @@ require_once('views/layout/header.php'); ?>
                                         <div class="item slick-slide">
                                             <div class="item-content">
                                                 <div class="content-image">
-                                                    <img width="1920" height="1080" src="<?= $banners['hinh_anh'] ?>" alt="Image Slider">
+                                                    <img width="1920" height="1080" src="<?= $banners['hinh_anh'] ?>">
                                                 </div>
                                                 <div class="item-info horizontal-start vertical-middle">
                                                     <div class="content">
@@ -42,7 +42,7 @@ require_once('views/layout/header.php'); ?>
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="?act=danhsachsanpham">
                                                                     <img width="630" height="457" src="media/banner/banner-1-1.jpg" alt="Banner Image">
                                                                 </a>
                                                             </div>
@@ -50,7 +50,7 @@ require_once('views/layout/header.php'); ?>
                                                                 <div class="info">
                                                                     <div class="content">
                                                                         <h3 class="title-banner">Sản phẩm mới</h3>
-                                                                        <a class="button" href="shop-grid-left.html">Mua ngay</a>
+                                                                        <a class="button" href="?act=danhsachsanpham">Mua ngay</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -63,7 +63,7 @@ require_once('views/layout/header.php'); ?>
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="?act=danhsachsanpham">
                                                                     <img width="450" height="457" src="media/banner/banner-1-2.jpg" alt="Banner Image">
                                                                 </a>
                                                             </div>
@@ -71,7 +71,7 @@ require_once('views/layout/header.php'); ?>
                                                                 <div class="info">
                                                                     <div class="content">
                                                                         <h3 class="title-banner">Bán chạy nhất</h3>
-                                                                        <a class="button center" href="shop-grid-left.html">Mua ngay</a>
+                                                                        <a class="button center" href="?act=danhsachsanpham">Mua ngay</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -84,7 +84,7 @@ require_once('views/layout/header.php'); ?>
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="?act=danhsachsanpham">
                                                                     <img width="630" height="457" src="media/banner/banner-1-3.jpg" alt="Banner Image">
                                                                 </a>
                                                             </div>
@@ -92,7 +92,7 @@ require_once('views/layout/header.php'); ?>
                                                                 <div class="info">
                                                                     <div class="content">
                                                                         <h3 class="title-banner">Xả kho</h3>
-                                                                        <a class="button" href="shop-grid-left.html">Mua ngay</a>
+                                                                        <a class="button" href="?act=danhsachsanpham">Mua ngay</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -107,37 +107,67 @@ require_once('views/layout/header.php'); ?>
                         </section>
 
                         <section class="section section-padding m-b-70">
-                            <div class="section-container">
-                                <!-- Block Product Categories -->
-                                <div class="block block-product-cats slider round-border">
+                            <div class="section-container large">
+                                <!-- Block Products -->
+                                <div class="block block-products slider">
                                     <div class="block-widget-wrap">
                                         <div class="block-title">
-                                            <h2>Top sản phẩm hàng đầu</h2>
+                                            <h2>Sản phẩm thịnh hành</h2>
                                         </div>
-                                        <div class="block block-product-cats">
-                                            <div class="block-title">
-                                                <h2>Danh mục</h2>
-                                            </div>
+                                        <div class="block-content">
+                                            <div class="content-product-list slick-wrap">
+                                                <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">
+                                                    <?php foreach ($listSanPham as $key => $sanPham): ?>
 
-                                            <?php foreach ($listDanhMuc as $key => $danhMuc) : ?>
-                                                <div class="block-content">
-                                                    <div class="product-cats-list">
-                                                        <ul>
-                                                            <li class="current">
-                                                                <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>">
-                                                                    <?= $danhMuc['ten_danh_muc'] ?>
-
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                        <div clas s="item-product slick-slide">
+                                                            <div class="items">
+                                                                <div class="products-entry clearfix product-wapper">
+                                                                    <div class="products-thumb">
+                                                                        <div class="product-lable">
+                                                                            <div class="hot">Hot</div>
+                                                                        </div>
+                                                                        <div class="product-thumb-hover">
+                                                                            <a href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
+                                                                                <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="post-image" alt="">
+                                                                                <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="hover-image back" alt="">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="product-button">
+                                                                            <div class="btn-add-to-cart" data-title="Add to cart">
+                                                                                <a rel="nofollow" href="#" class="product-btn button">Thêm vào giỏ hàng</a>
+                                                                            </div>
+                                                                            <div class="btn-wishlist" data-title="Wishlist">
+                                                                                <button class="product-btn">Thêm vào yêu thích</button>
+                                                                            </div>
+                                                                            <div class="btn-compare" data-title="Compare">
+                                                                                <button class="product-btn">So sánh</button>
+                                                                            </div>
+                                                                            <span class="product-quickview" data-title="Quick View">
+                                                                                <a href="#" class="quickview quickview-button">Xem nhanh<i class="icon-search"></i></a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="products-content">
+                                                                        <div class="contents">
+                                                                            <div class="rating">
+                                                                                <div class="star star-0"></div><span class="count">(0 review)</span>
+                                                                            </div>
+                                                                            <h3 class="product-title"><a href="shop-details.html"><?= $sanPham['ten'] ?></a></h3>
+                                                                            <span class="price"><?= $sanPham['gia_ban'] ?></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php endforeach ?>
                                                 </div>
-                                            <?php endforeach; ?>
-
-
-
+                                            </div>
                                         </div>
                                     </div>
+
+
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </section>
@@ -223,13 +253,15 @@ require_once('views/layout/header.php'); ?>
                                 <!-- Block Products -->
                                 <div class="block block-products slider">
                                     <div class="block-widget-wrap">
+                                        <br>
+                                        <br>
                                         <div class="block-title">
-                                            <h2>Sản phẩm thịnh hành</h2>
+                                            <h2>TIN TỨC</h2>
                                         </div>
                                         <div class="block-content">
                                             <div class="content-product-list slick-wrap">
                                                 <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">
-                                                    <?php foreach ($listSanPham as $key => $sanPham): ?>
+                                                    <?php foreach ($TinTucs as $key => $tintuc): ?>
 
                                                         <div clas s="item-product slick-slide">
                                                             <div class="items">
@@ -239,33 +271,19 @@ require_once('views/layout/header.php'); ?>
                                                                             <div class="hot">Hot</div>
                                                                         </div>
                                                                         <div class="product-thumb-hover">
-                                                                            <a href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
-                                                                                <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="hover-image back" alt="">
+                                                                            <a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>">
+                                                                                <img width="600" height="600" src="<?= 'http://localhost/DA1-Sliver_Ring' . $tintuc['img'] ?>" class="post-image" alt="">
+                                                                                <img width="600" height="600" src="<?= 'http://localhost/DA1-Sliver_Ring' . $tintuc['img'] ?>" class="hover-image back" alt="">
                                                                             </a>
                                                                         </div>
-                                                                        <div class="product-button">
-                                                                            <div class="btn-add-to-cart" data-title="Add to cart">
-                                                                                <a rel="nofollow" href="#" class="product-btn button">Add to cart</a>
-                                                                            </div>
-                                                                            <div class="btn-wishlist" data-title="Wishlist">
-                                                                                <button class="product-btn">Add to wishlist</button>
-                                                                            </div>
-                                                                            <div class="btn-compare" data-title="Compare">
-                                                                                <button class="product-btn">Compare</button>
-                                                                            </div>
-                                                                            <span class="product-quickview" data-title="Quick View">
-                                                                                <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
-                                                                            </span>
-                                                                        </div>
+
                                                                     </div>
                                                                     <div class="products-content">
                                                                         <div class="contents">
-                                                                            <div class="rating">
-                                                                                <div class="star star-0"></div><span class="count">(0 review)</span>
-                                                                            </div>
-                                                                            <h3 class="product-title"><a href="shop-details.html"><?= $sanPham['ten'] ?></a></h3>
-                                                                            <span class="price"><?= $sanPham['gia_ban'] ?></span>
+
+                                                                            <h2 class="product-title"><a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>"><?= $tintuc['title'] ?></a></h2>
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -276,50 +294,7 @@ require_once('views/layout/header.php'); ?>
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <br>
-                                    <br>
-                                    <div class="block-title">
-                                        <h2>TIN TỨC</h2>
-                                    </div>
-                                    <div class="block-content">
-                                        <div class="content-product-list slick-wrap">
-                                            <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">
-                                                <?php foreach ($TinTucs as $key => $tintuc): ?>
-
-                                                    <div clas s="item-product slick-slide">
-                                                        <div class="items">
-                                                            <div class="products-entry clearfix product-wapper">
-                                                                <div class="products-thumb">
-                                                                    <div class="product-lable">
-                                                                        <div class="hot">Hot</div>
-                                                                    </div>
-                                                                    <div class="product-thumb-hover">
-                                                                        <a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>">
-                                                                            <img width="600" height="600" src="<?= 'http://localhost/DA1-Sliver_Ring' . $tintuc['img'] ?>" class="post-image" alt="">
-                                                                            <img width="600" height="600" src="<?= 'http://localhost/DA1-Sliver_Ring' . $tintuc['img'] ?>" class="hover-image back" alt="">
-                                                                        </a>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="products-content">
-                                                                    <div class="contents">
-
-                                                                        <h2 class="product-title"><a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>"><?= $tintuc['title'] ?></a></h2>
-
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                <?php endforeach ?>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
                         </section>
 
                         <section class="section section-padding">
@@ -333,7 +308,7 @@ require_once('views/layout/header.php'); ?>
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="?act=danhsachsanpham">
                                                                     <img width="856" height="496" src="media/banner/banner-1-4.jpg" alt="Banner Image">
                                                                 </a>
                                                             </div>
@@ -357,7 +332,7 @@ require_once('views/layout/header.php'); ?>
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="?act=danhsachsanpham">
                                                                     <img width="856" height="496" src="media/banner/banner-1-5.jpg" alt="Banner Image">
                                                                 </a>
                                                             </div>
@@ -508,59 +483,11 @@ require_once('views/layout/header.php'); ?>
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                  
-                        <section class="section section-padding top-border p-t-10 p-b-10 m-b-0">
-                            <div class="section-container">
-                                <!-- Block Image -->
-                                <div class="block block-image slider">
-                                    <div class="block-widget-wrap">
-                                        <div class="slick-wrap">
-                                            <div class="slick-sliders" data-nav="0" data-columns4="1" data-columns3="2" data-columns2="3" data-columns1="4" data-columns1440="4" data-columns="5">
-                                                <div class="item slick-slide">
-                                                    <div class="item-image animation-horizontal">
-                                                        <a href="#">
-                                                            <img width="450" height="450" src="media/brand/1.jpg" alt="Brand 1">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item slick-slide">
-                                                    <div class="item-image animation-horizontal">
-                                                        <a href="#">
-                                                            <img width="450" height="450" src="media/brand/2.jpg" alt="Brand 2">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item slick-slide">
-                                                    <div class="item-image animation-horizontal">
-                                                        <a href="#">
-                                                            <img width="450" height="450" src="media/brand/3.jpg" alt="Brand 3">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item slick-slide">
-                                                    <div class="item-image animation-horizontal">
-                                                        <a href="#">
-                                                            <img width="450" height="450" src="media/brand/4.jpg" alt="Brand 4">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="item slick-slide">
-                                                    <div class="item-image animation-horizontal">
-                                                        <a href="#">
-                                                            <img width="450" height="450" src="media/brand/5.jpg" alt="Brand 5">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
                     </div><!-- #content -->
                 </div><!-- #primary -->
             </div><!-- #main-content -->
         </div>
+    </div>
+</body>
 
-        <?php require_once('views/layout/footer.php'); ?>
+<?php require_once('views/layout/footer.php'); ?>

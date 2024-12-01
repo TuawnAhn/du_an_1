@@ -48,7 +48,7 @@
                       <a href="?act=chitietdonhang&id=<?= $donHangItem['id'] ?>" class="p-2">
                         <i class="bi bi-eye"></i>
                       </a>
-                      <?php if ($donHangItem['trang_thai_don_hang_id'] == 7) : ?>
+                      <?php if ($donHangItem['trang_thai_don_hang_id'] == 1) : ?>
                         <a href="?act=huy-don-hang&id_don_hang=<?= $donHangItem['id'] ?>"
                           onclick="return confirm('Xác định hủy đơn hàng?')">
                           <i class="bi bi-trash-fill"></i> Hủy
