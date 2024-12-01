@@ -44,11 +44,13 @@ class DonHangController
         require_once './views/donhang/chiTietDonHang.php';
     }
 
-      public function edit()
+    public function edit()
     {
         $id = $_GET['id_don_hang'];
         $donhangs = $this->modelDonHang->getDetailDonHang($id);
         $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
+        // var_dump($donhangs);
+        // die;
         if ($donhangs) {
             require_once "./views/donhang/edit_don_hang.php";
             deleteSessionError();
@@ -69,20 +71,20 @@ class DonHangController
 
             $errors = [];
 
-            
+
 
             if (empty($ma_don_hang)) {
                 $errors['ma_don_hang'] = 'Mã đơn hàng không được để trống';
             }
 
-           
+
 
 
             if (empty($trang_thai_don_hang_id)) {
                 $errors['trang_thai_don_hang_id'] = 'Trạng thái đơn hàng không được để trống';
             }
             if (empty($errors)) {
-                $this->modelDonHang->updateData($id,$ma_don_hang, $trang_thai_don_hang_id);
+                $this->modelDonHang->updateData($id, $ma_don_hang, $trang_thai_don_hang_id);
                 unset($_SESSION['errors']);
                 header("Location: ?act=don-hangs");
             } else {

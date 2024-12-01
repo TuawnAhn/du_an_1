@@ -24,6 +24,8 @@ class TinTucController
 
         // Lấy bài viết chi tiết từ model
         $TinTucs = $this->modelTinTuc->getTinTucById($id);
+        // var_dump($TinTucs);
+        // die;
 
         // Nếu không tìm thấy bài viết, hiển thị lỗi
         if (!$TinTucs) {

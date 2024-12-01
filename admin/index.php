@@ -120,9 +120,9 @@ match ($act) {
     'xoa-binh-luan'        => (new SanPhamController())->deleteReview(),
     'xoa-danh-gia'        => (new SanPhamController())->deleteDanhgia(),
 
- 
 
-   
+
+
 
 
     //Quan li trang thai don hang
@@ -144,14 +144,14 @@ match ($act) {
 
 
 
-// Quản lý tài khaonr Quản trị
-'list-tai-khoan-quan-tri'=> (new TaiKhoanController())->danhSachQuanTri(),
-'form-them-quan-tri'=> (new TaiKhoanController())->formAddQuanTri(),
-'them-quan-tri'=> (new TaiKhoanController())->postAddQuanTri(),
-//
-'login-admin' => (new TaiKhoanController()) ->formLogin(),
-'check-login-admin' => (new TaiKhoanController()) ->login(),
-'logout-admin' => (new TaiKhoanController()) ->logout(),
+    // Quản lý tài khaonr Quản trị
+    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
+    'form-them-quan-tri' => (new TaiKhoanController())->formAddQuanTri(),
+    'them-quan-tri' => (new TaiKhoanController())->postAddQuanTri(),
+    //
+    'login-admin' => (new TaiKhoanController())->formLogin(),
+    'check-login-admin' => (new TaiKhoanController())->login(),
+    'logout-admin' => (new TaiKhoanController())->logout(),
 
 
 
@@ -168,12 +168,12 @@ match ($act) {
     'form-sua-quan-tri' => (new TaiKhoanController())->formEditQuanTri(),
     'sua-quan-tri' => (new TaiKhoanController())->postEditQuanTri(),
     'reset-password' => (new TaiKhoanController())->resetPassword(),
-       
+
 
 
     //
 
-   
+
 
 
     // 'login-admin' => (new TaiKhoanController())->formLogin(),
@@ -192,5 +192,4 @@ match ($act) {
     'form-sua-thong-tin-ca-nhan' => (new TaiKhoanController())->formEditCaNhanQuanTri(),
     'sua-thong-tin-ca-nhan' => (new TaiKhoanController())->postEditCaNhanQuanTri(),
     'sua-mat-khau-ca-nhan' => (new TaiKhoanController())->postEditMatKhauCaNhan(),
-
 };

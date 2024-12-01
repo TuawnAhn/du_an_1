@@ -1,23 +1,16 @@
-<?php
-require_once('views/layout/header.php'); ?>
-<?php
-if (isset($_SESSION['thong_bao'])) {
-    echo '<div class="alert alert-success">' . $_SESSION['thong_bao'] . '</div>';
-    unset($_SESSION['thong_bao']); // Xóa thông báo sau khi hiển thị
-}
-?>
+<?php require_once('views/layout/header.php'); ?>
 
 <style>
     .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-}
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
 
     * {
         margin: 0;
@@ -264,7 +257,7 @@ if (isset($_SESSION['thong_bao'])) {
                     <?php
                     $tongGioHang = 0;
                     foreach ($chiTietGioHang as $sanPham):
-                        ?>
+                    ?>
                         <div class="order-item">
                             <div class="product-info">
                                 <div class="product-image">
@@ -325,14 +318,14 @@ if (isset($_SESSION['thong_bao'])) {
                                         </tr>
                                         <tr>
                                             <th>Tổng thanh toán</th>
-                                            <input type="hidden" name="tong_tien" value="<?=$tongGioHang + $phiship ?>">
+                                            <input type="hidden" name="tong_tien" value="<?= $tongGioHang + $phiship ?>">
                                             <td><?php $phiship = 50000;
-                                            if ($tongGioHang > 0) {
-                                                echo number_format($tongGioHang + $phiship, 0, ',', '.') . ' đ';
-                                            } else {
-                                                echo "0 đ";
-                                            }
-                                            ?> </td>
+                                                if ($tongGioHang > 0) {
+                                                    echo number_format($tongGioHang + $phiship, 0, ',', '.') . ' đ';
+                                                } else {
+                                                    echo "0 đ";
+                                                }
+                                                ?> </td>
                                         </tr>
                                     </tbody>
                                 </table>

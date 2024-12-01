@@ -75,6 +75,7 @@ class HomeController
           if ($detail['san_pham_id'] == $san_pham_id) {
             $newSoLuong = $detail['so_luong'] + $so_luong;
             $this->modelGioHang->updateSoLuong($gioHang['id'], $san_pham_id, $newSoLuong);
+
             // Cập nhật số lượng (nếu cần thiết)
             $checkSanPham = true;
             break;
@@ -183,6 +184,11 @@ class HomeController
       }
       $listDanhMuc = $this->modelSanPham->getAllDanhMuc();;
       // var_dump($chiTietGioHang);
+      // Giả sử sau khi xử lý thanh toán thành công
+      // Sau khi đặt hàng thành công
+      $_SESSION['order_success'] = true;
+
+      // Chuyển hướng về trang thanh toán (hoặc trang khác)
       require_once './views/thanhtoan.php';
     } else {
 

@@ -76,27 +76,20 @@
                                                 <input type="hidden" name="id_don_hang" value="<?= $donhangs['id'] ?>">
                                                 <div class="row">
                                                     <!--end col-->
-                                                    
+
                                                     <!--end col-->
-                                                  
+
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
 
                                                             <label for="ma_don_hang" class="form-label">Mã đơn hàng</label>
-                                                            <input type="text" class="form-control"  name="ma_don_hang" value="<?= $donhangs['ma_don_hang'] ?>">
+                                                            <input type="text" class="form-control" name="ma_don_hang" value="<?= $donhangs['ma_don_hang'] ?>">
                                                             <span class="text-danger">
                                                                 <?= !empty($_SESSION['errors']['ma_don_hang']) ? $_SESSION['errors']['ma_don_hang'] : '' ?>
 
-                                                           
+
                                                         </div>
                                                     </div>
-
-
-                                                    
-                                                  
-
-
-
                                                     <!--end col-->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">

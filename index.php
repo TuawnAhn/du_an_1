@@ -110,5 +110,5 @@ match ($act) {
   //lọc sản phẩm
   'loc-san-pham-theo-gia' => (new SanPhamController())->filterByPrice(),
 
-  default => print("Hành động không hợp lệ."),
+  default => (new HomeController())->home(),
 };

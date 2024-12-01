@@ -11,9 +11,8 @@
                             <div class="site-logo">
                                 <a href="?act=home">
                                     <img
-                                        src="media/logo-s.png"
-                                        alt="Mojuri – Jewelry Store"
-                                        style="width: 350px; height: auto; margin-left: 50px; object-fit:contain;">
+                                        src="media/logo.png"
+                                        alt="Mojuri – Jewelry Store">
                                 </a>
                             </div>
                         </div>

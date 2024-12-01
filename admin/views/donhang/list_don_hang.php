@@ -124,9 +124,7 @@
                                                                     <?php } ?>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="?act=chi-tiet-don-hangs&id_don_hang=<?= $donhang['id'] ?>" class="link-primary fs-15 me-2" title="View">
-                                                                        <i class="ri-eye-line"></i>
-                                                                    </a>
+                                                                    <a href="?act=chi-tiet-don-hangs&id_don_hang=<?= $donhang['id'] ?>" class="link-primary fs-15 me-2" title="View"><i class="ri-eye-line"></i></a>
                                                                     <a href="?act=form-sua-don-hang&id_don_hang=<?= $donhang['id'] ?>" class="link-success fs-15 me-2"><i class="ri-edit-2-line"></i></a>
                                                                 </td>
                                                             </tr>

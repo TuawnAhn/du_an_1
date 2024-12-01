@@ -77,11 +77,12 @@ class DonHang
     {
         try {
             $sql = 'SELECT don_hangs.*, trang_thai_don_hangs.trang_thai_don_hang, tai_khoans.ho_ten, tai_khoans.so_dien_thoai, tai_khoans.email, phuong_thuc_thanh_toans.phuong_thuc_thanh_toan
-            FROM don_hangs
-            INNER JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang_id = trang_thai_don_hangs.id
-            INNER JOIN tai_khoans ON don_hangs.nguoi_dung_id = tai_khoans.id
-            INNER JOIN phuong_thuc_thanh_toans ON don_hangs.phuong_thuc_thanh_toan_id = phuong_thuc_thanh_toans.id
-            WHERE don_hangs.id = :id';
+FROM don_hangs
+LEFT JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang_id = trang_thai_don_hangs.id
+LEFT JOIN tai_khoans ON don_hangs.id = tai_khoans.id
+LEFT JOIN phuong_thuc_thanh_toans ON don_hangs.phuong_thuc_thanh_toan_id = phuong_thuc_thanh_toans.id
+WHERE don_hangs.id = :id
+';
 
             $stmt = $this->conn->prepare($sql);
 
@@ -119,9 +120,9 @@ class DonHang
 
 
 
-  
 
-    public function updateData($id, $ma_don_hang , $trang_thai_don_hang_id)
+
+    public function updateData($id, $ma_don_hang, $trang_thai_don_hang_id)
     {
         try {
             $sql = "UPDATE don_hangs SET   ma_don_hang= :ma_don_hang , trang_thai_don_hang_id = :trang_thai_don_hang_id WHERE id = :id";
@@ -132,7 +133,7 @@ class DonHang
             $stmt->bindParam(':id', $id);
 
             $stmt->bindParam(':ma_don_hang', $ma_don_hang);
-            
+
             $stmt->bindParam(':trang_thai_don_hang_id', $trang_thai_don_hang_id);
 
 
