@@ -112,7 +112,7 @@
                                             <div class="tab-pane fade show active" id="layout-grid" role="tabpanel">
                                                 <div class="products-list grid">
                                                     <div class="row">
-                                                        <?php foreach ($products as $key => $sanPham): ?>
+                                                        <?php foreach ($listSanPham as $key => $sanPham): ?>
                                                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                                                 <div class="products-entry clearfix product-wapper">
                                                                     <div class="products-thumb">
