@@ -10,13 +10,16 @@
                         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 header-left">
                             <div class="site-logo">
                                 <a href="?act=home">
-                                    <img width="1000" height="1140" src="media/logo-sliver1.png"
-                                        alt="Mojuri – Jewelry Store" />
+                                    <img
+                                        src="media/logo-s.png"
+                                        alt="Mojuri – Jewelry Store"
+                                        style="width: 350px; height: auto; margin-left: 50px; object-fit:contain;">
                                 </a>
                             </div>
                         </div>
 
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 text-center header-center">
+
+                        <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 text-center header-center">
                             <div class="site-navigation">
                                 <nav id="main-navigation">
                                     <ul id="menu-main-menu" class="menu">
@@ -166,12 +169,12 @@
 
                         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 header-right">
                             <div class="header-page-link">
-                                <!-- Search -->
+                                <!-- Tìm kiếm -->
                                 <div class="search-box">
                                     <div class="search-toggle"><i class="icon-search"></i></div>
                                 </div>
 
-                                <!-- Login -->
+                                <!-- Đăng nhập -->
                                 <?php if (isset($_SESSION['user'])) { ?>
 
                                     <a href="?act=logout"><?php echo $_SESSION['user']['email'] ?></a>
@@ -182,16 +185,19 @@
                                 <?php } ?>
 
 
-                                <!-- Wishlist -->
-                                <div class="wishlist-box">
-                                    <a href="shop-wishlist.html"><i class="icon-heart"></i></a>
-                                </div>
-
-                                <!-- Cart -->
+                                <!-- giỏ hàng -->
                                 <div class="wishlist-box">
                                     <a href="?act=gio-hang"> <i class="icon-large-paper-bag"></i></a>
                                 </div>
-                                <!-- Wishlist -->
+
+                                <!-- Lịch sử mua hàng -->
+                                <div class="wishlist-box">
+                                    <a href="?act=lich-su-mua-hang">
+                                        <i class="fas fa-history"></i>
+                                    </a>
+                                </div>
+
+                                <!-- Thông tin tài khoản -->
                                 <div class="wishlist-box">
                                     <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
                                 </div>
@@ -205,3 +211,6 @@
     </div>
     </div>
 </header>
+<style>
+
+</style>

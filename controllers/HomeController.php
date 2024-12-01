@@ -243,6 +243,8 @@ class HomeController
       // lay ra trang thai don hang
       $arrtrangThai = $this->modelDonHang->getTrangThai();
       $trangThaiDonHang = array_column($arrtrangThai, 'trang_thai_don_hang', 'id');
+      $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
+
 
       // Lay ra phuong thai thanh toan
 
@@ -349,6 +351,7 @@ class HomeController
 
     $arrtrangThai = $this->modelDonHang->getTrangThai();
     $trangThaiDonHang = array_column($arrtrangThai, 'trang_thai_don_hang', 'id');
+    $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
 
     // Lay ra phuong thai thanh toan
 

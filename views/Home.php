@@ -16,7 +16,7 @@ require_once('views/layout/header.php'); ?>
                                         <div class="item slick-slide">
                                             <div class="item-content">
                                                 <div class="content-image">
-                                                    <img width="1920" height="1080" src="<?= $banners['hinh_anh'] ?>">
+                                                    <img width="1920" height="1080" src="<?= $banners['hinh_anh'] ?>" loading="lazy">
                                                 </div>
                                                 <div class="item-info horizontal-start vertical-middle">
                                                     <div class="content">

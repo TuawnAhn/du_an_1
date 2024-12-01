@@ -25,7 +25,7 @@
           <table class="table table-striped table-nowrap align-middle mb-0">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Mã đơn hàng</th>
                 <th scope="col">Ngày đặt</th>
                 <th scope="col">Tổng tiền</th>
@@ -104,10 +104,7 @@
     /* Đảm bảo độ mờ của placeholder */
   }
 
-  .search-form input[type="search"]:hover {
-    border-color: #0056b3;
-    /* Màu viền khi hover */
-  }
+
 
   .search-form .btn {
     margin-left: 10px;
