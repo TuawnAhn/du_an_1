@@ -137,14 +137,14 @@
                                         <li class="level-0 menu-item menu-item-has-children">
                                             <a href="#"><span class="menu-item-text">Trang</span></a>
                                             <ul class="sub-menu">
-                                              
-                                             
+
+
                                                 <li>
                                                     <a href="page-my-account.html"><span class="menu-item-text">Tài
                                                             khoản của tôi</span></a>
                                                 </li>
                                                 <li>
-                                               <a href="?act=lien-he"><span class="menu-item-text">Liên hệ</span></a>
+                                                    <a href="?act=lien-he"><span class="menu-item-text">Liên hệ</span></a>
 
 
                                                 </li>
@@ -154,7 +154,7 @@
 
 
                                             <a href="?act=khuyen-mai"><span class="menu-item-text">Khuyến mại</span></a>
-                              
+
                                         </li>
                                     </ul>
                                     <ul>
@@ -174,10 +174,10 @@
                                 <!-- Login -->
                                 <?php if (isset($_SESSION['user'])) { ?>
 
-                                    <a href="/du_an_1/?act=logout"><?php echo $_SESSION['user']['email'] ?></a>
+                                    <a href="?act=logout"><?php echo $_SESSION['user']['email'] ?></a>
                                 <?php } else { ?>
                                     <div class="login-header icon">
-                                        <a href="/du_an_1/?act=login"><i class="icon-user"></i></a>
+                                        <a href="?act=login"><i class="icon-user"></i></a>
                                     </div>
                                 <?php } ?>
 
@@ -185,32 +185,18 @@
                                 <!-- Wishlist -->
                                 <div class="wishlist-box">
                                     <a href="shop-wishlist.html"><i class="icon-heart"></i></a>
-                                    <span class="count-wishlist">1</span>
                                 </div>
 
                                 <!-- Cart -->
-                                <div class="mojuri-topcart dropdown light">
-    <div class="dropdown mini-cart top-cart">
-        <div class="remove-cart-shadow"></div>
-        
-        <!-- Thay đổi liên kết để icon giỏ hàng là một đường dẫn -->
-        <a class="cart-icon" href="?act=gio-hang" role="button">
-            <div class="icons-cart">
-                <i class="icon-large-paper-bag"></i>
-            </div>
-        </a>
-    </div>
-</div>
-
-
+                                <div class="wishlist-box">
+                                    <a href="?act=gio-hang"> <i class="icon-large-paper-bag"></i></a>
+                                </div>
                                 <!-- Wishlist -->
                                 <div class="wishlist-box">
                                     <a href="?act=form-sua-thong-tin-ca-nhan"><i class="fas fa-key"></i></a>
                                 </div>
                             </div>
 
-                            <!-- Wishlist -->
-                                
                         </div>
                     </div>
                 </div>

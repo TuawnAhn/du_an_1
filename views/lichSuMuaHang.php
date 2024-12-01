@@ -1,32 +1,22 @@
-<?php
-require_once('views/layout/header.php'); ?>
+<?php require_once('views/layout/header.php'); ?>
+<?php require_once('views/layout/menu.php'); ?>
 
-<body class="home">
-    <div id="page" class="hfeed page-wrapper">
-        <?php require_once('views/layout/menu.php'); ?>
-        <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* CSS cải tiến ở đây */
+  </style>
 </head>
 
-
-
-
-
-
 <div class="p-5 align-items-center d-flex justify-content-center ">
-  <div class="card " style="width: 1200px;">
+  <div class="card" style="width: 1200px;">
     <div class="card-header align-items-center d-flex justify-content-between">
-
-
-
       <!-- Search Form -->
-      <form class="d-flex me-3" action="index.php?act=tim-kiem-don-hang" method="POST" role="search">
-        <input type="search" class="form-control me-2" placeholder="Tìm mã đơn hàng..." aria-label="Search" name="search" />
-      
+      <form class="search-form d-flex me-3" action="index.php?act=tim-kiem-don-hang" method="POST" role="search">
+        <input type="search" class="form-control" placeholder="Tìm mã đơn hàng..." aria-label="Search" name="search" />
         <input class="btn btn-outline-primary" type="submit" value="Tìm kiếm" />
       </form>
-
-
     </div><!-- end card header -->
 
     <div class="card-body">
@@ -49,25 +39,21 @@ require_once('views/layout/header.php'); ?>
                 <?php foreach ($donHangs as $index => $donHangItem): ?>
                   <tr>
                     <td class="fw-medium"><?= $index + 1 ?></td>
-                    <td class=""><?= ($donHangItem['ma_don_hang']) ?></td>
+                    <td><?= ($donHangItem['ma_don_hang']) ?></td>
                     <td><?= htmlspecialchars(date('d/m/Y', strtotime($donHangItem['ngay_dat_hang']))) ?></td>
                     <td><?= number_format($donHangItem['tong_tien'], 0, ',', '.') ?> đ</td>
                     <td><?= $pTTT[$donHangItem['phuong_thuc_thanh_toan_id']] ?></td>
-                    <td><?= $trangThaiDonHang[$donHangItem['trang_thai_don_hang']] ?></td>
-
+                    <td><?= $trangThaiDonHang[$donHangItem['trang_thai_don_hang_id']] ?></td>
                     <td>
-                      <a href="?act=chi-tiet-don-hang&id=<?= $donHangItem['id']  ?>" class="p-2"><i class="bi bi-eye"></i></a>
-
-                      <?php if ($donHangItem['trang_thai_don_hang'] == 14) : ?>
-                        <a href="<?= BASE_URL  ?>?act=huy-don-hang&id=<?= $donHangItem['id'] ?>" 
-                        
-                          onclick="return confirm('Xác định hủy đơn hàng')"><i class="bi bi-trash-fill"></i> <!-- Phiên bản tô đầy của thùng rác -->
-
-
-                          </a>
+                      <a href="?act=chitietdonhang&id=<?= $donHangItem['id'] ?>" class="p-2">
+                        <i class="bi bi-eye"></i>
+                      </a>
+                      <?php if ($donHangItem['trang_thai_don_hang_id'] == 7) : ?>
+                        <a href="?act=huy-don-hang&id_don_hang=<?= $donHangItem['id'] ?>"
+                          onclick="return confirm('Xác định hủy đơn hàng?')">
+                          <i class="bi bi-trash-fill"></i> Hủy
+                        </a>
                       <?php endif; ?>
-
-
                     </td>
                   </tr>
                 <?php endforeach; ?>
@@ -80,60 +66,128 @@ require_once('views/layout/header.php'); ?>
           </table>
         </div>
       </div>
-    </div>
+    </div><!-- end card body -->
+  </div><!-- end card -->
+</div><!-- end .h-100 -->
+<style>
+  .search-form {
+    position: relative;
+    /* Để có thể đặt các thành phần bên trong */
+  }
 
+  .search-form input[type="search"] {
+    font-size: 16px;
+    /* Kích thước chữ lớn hơn */
+    padding: 10px 15px;
+    /* Đệm cho ô tìm kiếm */
+    border: 1px solid #007bff;
+    /* Viền màu xanh */
+    border-radius: 5px;
+    /* Bo tròn các góc */
+    width: 300px;
+    /* Kích thước cố định cho ô tìm kiếm */
+    transition: border-color 0.3s;
+    /* Hiệu ứng chuyển tiếp cho viền */
+  }
 
+  .search-form input[type="search"]:focus {
+    border-color: #0056b3;
+    /* Màu viền khi ô được chọn */
+    outline: none;
+    /* Loại bỏ viền mặc định */
+  }
 
-    <div class="d-none code-view">
-      <pre class="language-markup" style="height: 275px;"><code>&lt;table class=&quot;table table-nowrap&quot;&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th scope=&quot;col&quot;&gt;ID&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Customer&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Date&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Invoice&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;fw-semibold&quot;&gt;#VZ2110&lt;/a&gt;&lt;/th&gt;
-            &lt;td&gt;Bobby Davis&lt;/td&gt;
-            &lt;td&gt;October 15, 2021&lt;/td&gt;
-            &lt;td&gt;$2,300&lt;/td&gt;
-            &lt;td&gt;&lt;a href=&quot;javascript:void(0);&quot; class=&quot;link-success&quot;&gt;View More &lt;i class=&quot;ri-arrow-right-line align-middle&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;fw-semibold&quot;&gt;#VZ2109&lt;/a&gt;&lt;/th&gt;
-            &lt;td&gt;Christopher Neal&lt;/td&gt;
-            &lt;td&gt;October 7, 2021&lt;/td&gt;
-            &lt;td&gt;$5,500&lt;/td&gt;
-            &lt;td&gt;&lt;a href=&quot;javascript:void(0);&quot; class=&quot;link-success&quot;&gt;View More &lt;i class=&quot;ri-arrow-right-line align-middle&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;fw-semibold&quot;&gt;#VZ2108&lt;/a&gt;&lt;/th&gt;
-            &lt;td&gt;Monkey Karry&lt;/td&gt;
-            &lt;td&gt;October 5, 2021&lt;/td&gt;
-            &lt;td&gt;$2,420&lt;/td&gt;
-            &lt;td&gt;&lt;a href=&quot;javascript:void(0);&quot; class=&quot;link-success&quot;&gt;View More &lt;i class=&quot;ri-arrow-right-line align-middle&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;fw-semibold&quot;&gt;#VZ2107&lt;/a&gt;&lt;/th&gt;
-            &lt;td&gt;James White&lt;/td&gt;
-            &lt;td&gt;October 2, 2021&lt;/td&gt;
-            &lt;td&gt;$7,452&lt;/td&gt;
-            &lt;td&gt;&lt;a href=&quot;javascript:void(0);&quot; class=&quot;link-success&quot;&gt;View More &lt;i class=&quot;ri-arrow-right-line align-middle&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;</code></pre>
-    </div>
-  </div><!-- end card-body -->
-</div><!-- end card -->
+  .search-form input[type="search"]::placeholder {
+    color: #6c757d;
+    /* Màu chữ cho placeholder */
+    opacity: 1;
+    /* Đảm bảo độ mờ của placeholder */
+  }
 
+  .search-form input[type="search"]:hover {
+    border-color: #0056b3;
+    /* Màu viền khi hover */
+  }
 
+  .search-form .btn {
+    margin-left: 10px;
+    /* Khoảng cách giữa ô tìm kiếm và nút */
+    padding: 10px 15px;
+    /* Đệm cho nút tìm kiếm */
+  }
 
-</div> <!-- end .h-100-->
+  body {
+    background-color: #f8f9fa;
+    /* Màu nền nhẹ nhàng */
+  }
 
+  .card {
+    border-radius: 10px;
+    /* Bo tròn các góc của thẻ */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Đổ bóng cho thẻ */
+  }
 
+  .card-header {
+    background-color: #007bff;
+    /* Màu nền cho header */
+    color: white;
+    /* Màu chữ */
+    border-top-left-radius: 10px;
+    /* Bo tròn góc trên bên trái */
+    border-top-right-radius: 10px;
+    /* Bo tròn góc trên bên phải */
+  }
 
-<?php require_once './views/layouts/footer.php'; ?>
+  .table {
+    margin: 0;
+    /* Loại bỏ margin cho bảng */
+  }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+    /* Màu nền cho các dòng lẻ */
+  }
+
+  .table th {
+    background-color: #e9ecef;
+    /* Màu nền cho tiêu đề cột */
+    font-weight: bold;
+    /* Đậm chữ tiêu đề */
+  }
+
+  .table td {
+    vertical-align: middle;
+    /* Căn giữa các ô */
+  }
+
+  .table a {
+    color: #007bff;
+    /* Màu liên kết */
+    text-decoration: none;
+    /* Không gạch chân */
+  }
+
+  .table a:hover {
+    text-decoration: underline;
+    /* Gạch chân khi hover */
+  }
+
+  .p-2 {
+    padding: 0.5rem;
+    /* Đệm cho liên kết */
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    /* Thêm thanh cuộn ngang nếu cần */
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+      /* Chiếm toàn bộ chiều rộng trên thiết bị di động */
+    }
+  }
+</style>
+<?php require_once './views/layout/footer.php'; ?>

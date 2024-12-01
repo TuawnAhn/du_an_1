@@ -46,82 +46,82 @@ $id = $_GET['id'] ?? null; // Lấy ID từ URL, nếu không có thì gán giá
 
 // Xử lý match
 match ($act) {
-    // Trang chủ
-    'home'                       => (new HomeController())->home(),
-    'them-gio-hang'           => (new HomeController())->addGioHang(),
+  // Trang chủ
+  'home'                       => (new HomeController())->home(),
+  'them-gio-hang'           => (new HomeController())->addGioHang(),
   'gio-hang'                => (new HomeController())->gioHang(),
   'cap-nhat-gio-hang'       => (new HomeController())->capNhatGioHang(),
   'xoa-san-pham-gio-hang'   => (new HomeController())->xoaSanPhamGioHang(),
   'thanh-toan'              => (new HomeController())->ThanhToan(),
   'xu-li-thanh-toan'          => (new HomeController())->postThanhtoan(),
-  
+
   'lich-su-mua-hang'        => (new HomeController())->lichSuMuaHang(),
   'huy-don-hang'            => (new HomeController())->huyDonHang(),
   'tim-kiem-don-hang'       => (new HomeController())->timDonHang(),
 
-    'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
+  'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
 
 
 
-    'tim-kiem-san-pham'       => (new SanPhamController())->search(),
-    'banner'                     => (new BannerController())->banner(),
-    'tin-tuc'                   => (new TinTucController())->tintuc(),
+  'tim-kiem-san-pham'       => (new SanPhamController())->search(),
+  'banner'                     => (new BannerController())->banner(),
+  'tin-tuc'                   => (new TinTucController())->tintuc(),
 
-    // Danh sách sản phẩm
+  // Danh sách sản phẩm
 
-    'danhsachsanpham' => (new SanPhamController())->sanpham(),
-   
-
-    // Chi tiết sản phẩm
-    'chitietsanpham' => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print ("ID sản phẩm không hợp lệ."),
-
-  
-    // 'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
-
-  
-    // // Chi tiết sản phẩm
-  
-
-    'them-binh-luan'            =>(new ChiTietSanPhamController())->thembinhluan(),
-    
+  'danhsachsanpham' => (new SanPhamController())->sanpham(),
 
 
-    'check-login-admin' => (new TaiKhoanController())->login(),
-    'form-sua-thong-tin-ca-nhan' => (new TaiKhoanController())->formEditCaNhanQuanTri(),
-    'sua-thong-tin-ca-nhan' => (new TaiKhoanController())->postEditCaNhanQuanTri(),
-    'sua-mat-khau-ca-nhan' => (new TaiKhoanController())->postEditMatKhauCaNhan(),
-    'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
+  // Chi tiết sản phẩm
+  'chitietsanpham' => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
+
+
+  // 'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
+
+
+  // // Chi tiết sản phẩm
+
+
+  'them-binh-luan'            => (new ChiTietSanPhamController())->thembinhluan(),
 
 
 
-
-    'chitietdonhang'       => (new HomeController())->chiTietMuahang(),
-
-    // Lien he
-    'lien-he' => (new LienHeController())->view(),
-    'add-lien-he' => (new LienHeController())->store(),
-
-    // Khuyen mai
-    'khuyen-mai' => (new KhuyenMaiController())->view(),
-    //
-    'login' => (new TaiKhoanController())->formLogin(),
-    'check-login' => (new TaiKhoanController())-> login(),
-    'logout' => (new TaiKhoanController())->logout(),
-
-    'dang-ky' => (new DangKiController())->formDangKi(),
-    'check-dang-ky' => (new DangKiController())->dangky(),
-
-    //giỏ hàng
-    // 'them-gio-hang' => (new HomeController())->addGioHang(),
-
-    //lọc sản phẩm
-    'loc-san-pham-theo-gia' => (new SanPhamController())->filterByPrice(),
+  'check-login-admin' => (new TaiKhoanController())->login(),
+  'form-sua-thong-tin-ca-nhan' => (new TaiKhoanController())->formEditCaNhanQuanTri(),
+  'sua-thong-tin-ca-nhan' => (new TaiKhoanController())->postEditCaNhanQuanTri(),
+  'sua-mat-khau-ca-nhan' => (new TaiKhoanController())->postEditMatKhauCaNhan(),
+  'list-tai-khoan-quan-tri' => (new TaiKhoanController())->danhSachQuanTri(),
 
 
-     // Mặc định
 
-   
 
-    default => print ("Hành động không hợp lệ."),
-   // default                => print("Hành động không hợp lệ."),
+  'chitietdonhang'       => (new HomeController())->chiTietMuahang(),
+
+  // Lien he
+  'lien-he' => (new LienHeController())->view(),
+  'add-lien-he' => (new LienHeController())->store(),
+
+  // Khuyen mai
+  'khuyen-mai' => (new KhuyenMaiController())->view(),
+  //
+  'login' => (new TaiKhoanController())->formLogin(),
+  'check-login' => (new TaiKhoanController())->login(),
+  'logout' => (new TaiKhoanController())->logout(),
+
+  'dang-ky' => (new DangKiController())->formDangKi(),
+  'check-dang-ky' => (new DangKiController())->dangky(),
+
+  //giỏ hàng
+  // 'them-gio-hang' => (new HomeController())->addGioHang(),
+
+  //lọc sản phẩm
+  'loc-san-pham-theo-gia' => (new SanPhamController())->filterByPrice(),
+
+
+    // Mặc định
+
+
+
+  default => print("Hành động không hợp lệ."),
+  // default                => print("Hành động không hợp lệ."),
 };
