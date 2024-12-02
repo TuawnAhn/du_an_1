@@ -7,7 +7,15 @@ class SanPham
     {
         $this->conn = connectDB();
     }
-
+    public function getSoLuongSanPham($san_pham_id)
+    {
+        $sql = 'SELECT so_luong FROM san_phams WHERE id = :san_pham_id';
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':san_pham_id' => $san_pham_id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        return $result ? $result['so_luong_ton'] : 0; // Trả về số lượng tồn kho, mặc định là 0 nếu không tìm thấy
+    }
     public function getSanPhamById($id)
     {
         try {
@@ -183,29 +191,7 @@ class SanPham
         }
     }
 
-    // public function getAllSanPham($item_per_page = 16, $current_page = 1)
-    // {
-    //     try {
-    //         // Tính toán offset
-    //         $offset = ($current_page - 1) * $item_per_page;
-
-    //         // Truy vấn sản phẩm với phân trang
-    //         $sql = "SELECT san_phams.*, danh_mucs.ten_danh_muc 
-    //                 FROM san_phams 
-    //                 INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id 
-    //                 ORDER BY san_phams.id ASC 
-    //                 LIMIT :limit OFFSET :offset";
-
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->bindParam(':limit', $item_per_page, PDO::PARAM_INT);
-    //         $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
-    //         $stmt->execute();
-
-    //         return $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về kết quả dưới dạng mảng liên kết
-    //     } catch (Exception $e) {
-    //         echo 'Lỗi: ' . $e->getMessage();
-    //     }
-    // }
+   
     public function countProductsByPriceRange($minPrice, $maxPrice)
     {
         try {

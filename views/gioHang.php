@@ -1,5 +1,6 @@
 <?php
-require_once('views/layout/header.php'); ?>
+require_once('views/layout/header.php'); 
+?>
 
 <body class="home">
   <div id="page" class="hfeed page-wrapper">
@@ -11,21 +12,7 @@ require_once('views/layout/header.php'); ?>
     <main><br><br><br><br>
       <div class="mb-4 pb-4"></div>
       <section class="shop-checkout container">
-        <div class="checkout-steps">
-
-          <!-- <a href="shop_checkout.html" class="checkout-steps__item">
-        <span class="checkout-steps__item-number">02</span>
-        <span class="checkout-steps__item-title">
-          <span>Thanh toán và vận chuyển</span>
-        </span>
-      </a>
-      <a href="shop_order_complete.html" class="checkout-steps__item">
-        <span class="checkout-steps__item-number">03</span>
-        <span class="checkout-steps__item-title">
-          <span>Confirmation</span>
-        </span>
-      </a> -->
-        </div>
+        <div class="checkout-steps"></div>
         <div class="shopping-cart mb-5">
           <div class="cart-table__wrapper">
             <form action="?act=cap-nhat-gio-hang" method="POST" class="position-relative bg-body">
@@ -108,6 +95,13 @@ require_once('views/layout/header.php'); ?>
               </div>
             </form>
 
+            <?php if (isset($_SESSION['error'])): ?>
+              <div class="alert alert-danger">
+                <?= $_SESSION['error'] ?>
+                <?php unset($_SESSION['error']); ?>
+              </div>
+            <?php endif; ?>
+
             <script>
               document.querySelectorAll('.qty-control__reduce').forEach(button => {
                 button.addEventListener('click', function() {
@@ -187,11 +181,8 @@ require_once('views/layout/header.php'); ?>
         /* Đảm bảo hình ảnh nằm trong bảng */
         .cart-table img {
           width: 100px;
-          /* Chiều rộng cố định */
           height: 100px;
-          /* Chiều cao cố định */
           object-fit: cover;
-          /* Cắt hoặc co dãn ảnh để vừa với khung */
         }
 
         /* Định dạng cho các phần tử sản phẩm */
@@ -210,10 +201,8 @@ require_once('views/layout/header.php'); ?>
 
         .qty-control__number {
           width: 50px;
-          /* Độ rộng ô nhập số lượng */
           text-align: center;
           margin: 0 5px;
-          /* Khoảng cách giữa ô nhập và nút */
         }
 
         .qty-control__reduce,
@@ -224,7 +213,6 @@ require_once('views/layout/header.php'); ?>
           border: 1px solid #ccc;
           border-radius: 5px;
           margin: 0 2px;
-          /* Khoảng cách giữa các nút */
         }
 
         .qty-control__reduce:hover,
@@ -234,7 +222,6 @@ require_once('views/layout/header.php'); ?>
 
         .btn-danger {
           background-color: #dc3545;
-          /* Màu cho nút xóa */
           color: white;
           border: none;
           padding: 8px 12px;
@@ -244,7 +231,6 @@ require_once('views/layout/header.php'); ?>
 
         .btn-danger:hover {
           background-color: #c82333;
-          /* Màu cho nút xóa khi hover */
         }
       </style>
     </main>
