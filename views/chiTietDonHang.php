@@ -39,7 +39,7 @@
     <link rel='stylesheet' id='mojuri-style-template-css'
         href='https://mojuri.wpbingosite.com/wp-content/themes/mojuri/css/template.css?ver=6.6.2' type='text/css'
         media='all' />
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 </head>
 
@@ -123,15 +123,24 @@
                                                             <tbody>
                                                                 <?php foreach ($chiTietDonHang as $item) : ?>
                                                                     <!-- Dòng sản phẩm -->
+                                                                    <!-- Giữ nguyên file gốc, chỉ sửa phần hiển thị sản phẩm -->
                                                                     <tr class="woocommerce-table__line-item order_item">
-                                                                        <td class="woocommerce-table__product-name product-name">
-                                                                            <p><strong>Tên sản phẩm: </strong> <?= $item['ten'] ?></p>
-                                                                            <p><strong>Ảnh sản phẩm: </strong><img src="<?= $item['img'] ?>" style="width: 100px"></p>
-                                                                            <p><strong>Số lượng: </strong> <?= $item['so_luong'] ?></p>
-                                                                            <p><strong>Đơn giá: </strong> <?= number_format($item['don_gia'], 0, ',', '.') ?> đ</p>
+                                                                        <td class="woocommerce-table__product-name product-name" style="display: flex; align-items: center; gap: 20px; padding: 15px; border-bottom: 1px solid #e5e5e5;">
+                                                                            <div style="width: 120px; height: 120px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                                                                                <img src="<?= $item['img'] ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                                                                            </div>
+                                                                            <div>
+                                                                                <h3 style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px;">
+                                                                                    <?= $item['ten'] ?>
+                                                                                </h3>
+                                                                                <div style="color: #666; line-height: 1.6;">
+                                                                                    <p><strong>Số lượng:</strong> <?= $item['so_luong'] ?></p>
+                                                                                    <p><strong>Đơn giá:</strong><?= number_format($item['don_gia'], 0, ',', '.') ?> đ</p>
+                                                                                </div>
+                                                                            </div>
                                                                         </td>
-                                                                        <td class="woocommerce-table__product-total product-total">
-                                                                            <p><strong>Thành tiền:</strong> <?= number_format($item['tong_tien'], 0, ',', '.') ?> đ</p>
+                                                                        <td style="font-weight: bold; color:#cb8161 ; text-align: center;">
+                                                                            <?= number_format($item['tong_tien'], 0, ',', '.') ?> đ
                                                                         </td>
                                                                     </tr>
                                                                 <?php endforeach; ?>
@@ -139,11 +148,11 @@
                                                                 <!-- Dòng tổng kết -->
                                                                 <tr>
                                                                     <th scope="row">Vận chuyển:</th>
-                                                                    <td>50.000 đ</td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;">50.000 đ</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Phương thức thanh toán:</th>
-                                                                    <td>Thanh toán khi nhận hàng</td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;">Thanh toán khi nhận hàng</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Ghi chú:</th>
@@ -151,7 +160,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Tổng tiền:</th>
-                                                                    <td><span class="woocommerce-Price-amount amount"><?= number_format($donHang['tong_tien'], 0, ',', '.') ?> đ</span></td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;"><span class="woocommerce-Price-amount amount"><?= number_format($donHang['tong_tien'], 0, ',', '.') ?> đ</span></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -172,35 +181,39 @@
                                                                 <!-- Dòng tổng kết -->
                                                                 <tr>
                                                                     <th scope="row">Mã đơn hàng: </th>
-                                                                    <td><?= $donHang['ma_don_hang'] ?></td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;"><?= $donHang['ma_don_hang'] ?></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Tên người nhận: </th>
-                                                                    <td><?= $donHang['ho_ten_nguoi_nhan'] ?></td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;"><?= $donHang['ho_ten_nguoi_nhan'] ?></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Số điện thoại: </th>
-                                                                    <td><?= $donHang['sdt_nguoi_nhan'] ?></td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;"><?= $donHang['sdt_nguoi_nhan'] ?></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Email: </th>
-                                                                    <td><?= $donHang['email_nguoi_nhan'] ?></td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;"><?= $donHang['email_nguoi_nhan'] ?></td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <th scope="row">Địa chỉ: </th>
-                                                                    <td><?= $donHang['dia_chi_nguoi_nhan'] ?></td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;"><?= $donHang['dia_chi_nguoi_nhan'] ?></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Trạng thái đơn hàng: </th>
-                                                                    <td><?= $donHang['trang_thai_don_hang'] ?></td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;"><?= $donHang['trang_thai_don_hang'] ?></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Tổng tiền:</th>
-                                                                    <td><span class="woocommerce-Price-amount amount"><?= number_format($donHang['tong_tien'], 0, ',', '.') ?> đ</span></td>
+                                                                    <td style="font-weight: bold; color:#cb8161 ; text-align: center;"><span class="woocommerce-Price-amount amount"><?= number_format($donHang['tong_tien'], 0, ',', '.') ?> đ</span></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+                                                        <a href="?act=tin-tuc" class="btn btn-primary">
+                                                            <i class="fas fa-tags"></i>
+                                                            Tiếp tục mua sắm
+                                                        </a>
                                                     </section>
 
                                                 </div>
