@@ -70,8 +70,26 @@
                                         <div class="products-topbar clearfix">
                                             <div class="products-topbar-left">
                                                 <div class="products-count">
-                                                    Hiển thị tất cả <?= count($products) ?> sản phẩm
+                                                    <?php
+                                                    if (isset($_GET['iddm']) && !empty($_GET['iddm'])) {
+                                                        // Lấy danh sách sản phẩm theo danh mục
+                                                        $idDanhMuc = $_GET['iddm'];
+
+                                                        // Gọi hàm lấy sản phẩm theo danh mục
+                                                        // Ví dụ: $listSanPhamById = laySanPhamTheoDanhMuc($idDanhMuc);
+
+                                                        if (!empty($listSanPhamById)) {
+                                                            echo "Hiển thị " . count($listSanPhamById) . " sản phẩm trong danh mục.";
+                                                        } else {
+                                                            echo "Không có sản phẩm nào trong danh mục này.";
+                                                        }
+                                                    } else {
+                                                        // Hiển thị tất cả sản phẩm
+                                                        echo "Hiển thị tất cả " . count($products) . " sản phẩm.";
+                                                    }
+                                                    ?>
                                                 </div>
+
 
                                             </div>
                                             <div class="products-topbar-right">
@@ -112,63 +130,90 @@
                                             <div class="tab-pane fade show active" id="layout-grid" role="tabpanel">
                                                 <div class="products-list grid">
                                                     <div class="row">
-                                                        <?php foreach ($listSanPham as $key => $sanPham): ?>
-                                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                                                <div class="products-entry clearfix product-wapper">
-                                                                    <div class="products-thumb">
-                                                                        <div class="product-lable">
-                                                                            <div class="hot">Hot</div>
+                                                        <?php if (!isset($_GET['iddm'])): ?>
+                                                            <?php foreach ($products as $key => $sanPham): ?>
+                                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                                    <div class="products-entry clearfix product-wapper">
+                                                                        <div class="products-thumb">
+                                                                            <div class="product-lable">
+                                                                                <div class="hot">Hot</div>
+                                                                            </div>
+                                                                            <div class="product-thumb-hover">
+                                                                                <a href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
+                                                                                    <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="post-image" alt="">
+                                                                                    <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="hover-image back" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="product-button">
+                                                                                <div class="btn-add-to-cart" data-title="Add to cart">
+                                                                                    <a rel="nofollow" href="#" class="product-btn">Add to cart</a>
+                                                                                </div>
+                                                                                <div class="btn-wishlist" data-title="Wishlist">
+                                                                                    <button class="product-btn">Add to wishlist</button>
+                                                                                </div>
+                                                                                <div class="btn-compare" data-title="Compare">
+                                                                                    <button class="product-btn">Compare</button>
+                                                                                </div>
+                                                                                <span class="product-quickview" data-title="Quick View">
+                                                                                    <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
+                                                                                </span>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="product-thumb-hover">
-                                                                            <a
-                                                                                href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
-                                                                                <img width="600" height="600"
-                                                                                    src="<?= $sanPham['img'] ?>"
-                                                                                    class="post-image" alt="">
-                                                                                <img width="600" height="600"
-                                                                                    src="<?= $sanPham['img'] ?>"
-                                                                                    class="hover-image back" alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="product-button">
-                                                                            <div class="btn-add-to-cart"
-                                                                                data-title="Add to cart">
-                                                                                <a rel="nofollow" href="#"
-                                                                                    class="product-btn">Add to cart</a>
+                                                                        <div class="products-content">
+                                                                            <div class="contents text-center">
+                                                                                <div class="rating">
+                                                                                    <div class="star star-0"></div><span class="count">(0 review)</span>
+                                                                                </div>
+                                                                                <h3 class="product-title"><a href="shop-details.html"><?= $sanPham['ten'] ?></a></h3>
+                                                                                <span class="price"><?= number_format($sanPham['gia_km'], 0, ',', '.') ?>đ</span>
                                                                             </div>
-                                                                            <div class="btn-wishlist" data-title="Wishlist">
-                                                                                <button class="product-btn">Add to
-                                                                                    wishlist</button>
-                                                                            </div>
-                                                                            <div class="btn-compare" data-title="Compare">
-                                                                                <button class="product-btn">Compare</button>
-                                                                            </div>
-                                                                            <span class="product-quickview"
-                                                                                data-title="Quick View">
-                                                                                <a href="#"
-                                                                                    class="quickview quickview-button">Quick
-                                                                                    View <i class="icon-search"></i></a>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="products-content">
-                                                                        <div class="contents text-center">
-                                                                            <div class="rating">
-                                                                                <div class="star star-0"></div><span
-                                                                                    class="count">(0 review)</span>
-                                                                            </div>
-                                                                            <h3 class="product-title"><a
-                                                                                    href="shop-details.html">
-                                                                                    <?= $sanPham['ten'] ?>
-                                                                                </a></h3>
-                                                                            <span class="price">
-                                                                                <?= number_format($sanPham['gia_ban'], 0, ',', '.') ?>đ
-                                                                            </span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        <?php endforeach ?>
+                                                            <?php endforeach; ?>
+                                                        <?php else: ?>
+                                                            <?php foreach ($listSanPhamById as $key => $sanPham): ?>
+                                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                                    <div class="products-entry clearfix product-wapper">
+                                                                        <div class="products-thumb">
+                                                                            <div class="product-lable">
+                                                                                <div class="hot">Hot</div>
+                                                                            </div>
+                                                                            <div class="product-thumb-hover">
+                                                                                <a href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
+                                                                                    <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="post-image" alt="">
+                                                                                    <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="hover-image back" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="product-button">
+                                                                                <div class="btn-add-to-cart" data-title="Add to cart">
+                                                                                    <a rel="nofollow" href="#" class="product-btn button">Add to cart</a>
+                                                                                </div>
+                                                                                <div class="btn-wishlist" data-title="Wishlist">
+                                                                                    <button class="product-btn">Add to wishlist</button>
+                                                                                </div>
+                                                                                <div class="btn-compare" data-title="Compare">
+                                                                                    <button class="product-btn">Compare</button>
+                                                                                </div>
+                                                                                <span class="product-quickview" data-title="Quick View">
+                                                                                    <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="products-content">
+                                                                            <div class="contents text-center">
+                                                                                <div class="rating">
+                                                                                    <div class="star star-0"></div><span class="count">(0 review)</span>
+                                                                                </div>
+                                                                                <h3 class="product-title"><a href="shop-details.html"><?= $sanPham['ten'] ?></a></h3>
+                                                                                <span class="price"><?= number_format($sanPham['gia_km'], 0, ',', '.'); ?>đ</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
+
                                                     </div>
                                                 </div>
                                             </div>

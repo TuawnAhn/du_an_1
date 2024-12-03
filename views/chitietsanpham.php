@@ -34,37 +34,38 @@
                                         <div class="row">
                                             <div class="product-images col-lg-7 col-md-12 col-12">
                                                 <div class="row">
+                                                    <!-- Ảnh nhỏ -->
                                                     <div class="col-md-2">
                                                         <div class="content-thumbnail-scroll">
-                                                            <div class="image-thumbnail slick-carousel slick-vertical"
-                                                                data-asnavfor=".image-additional" data-centermode="true"
-                                                                data-focusonselect="true" data-columns4="5"
-                                                                data-columns3="4" data-columns2="4" data-columns1="4"
-                                                                data-columns="4" data-nav="true"
-                                                                data-vertical="&quot;true&quot;"
-                                                                data-verticalswiping="&quot;true&quot;">
+                                                            <div class="image-thumbnail">
                                                                 <?php foreach ($albumHinhAnh as $key => $album): ?>
-                                                                    <div class="img-item slick-slide">
+                                                                    <div class="img-item">
                                                                         <span class="img-thumbnail-scroll">
-                                                                            <img width="600" height="600"
+                                                                            <img
+                                                                                width="600"
+                                                                                height="600"
                                                                                 src="<?= $album['album_hinh_anh']; ?>"
-                                                                                alt="">
+                                                                                alt="Thumbnail <?= $key; ?>"
+                                                                                class="thumbnail-image"
+                                                                                onclick="changeMainImage('<?= $album['album_hinh_anh']; ?>')">
                                                                         </span>
                                                                     </div>
                                                                 <?php endforeach; ?>
-
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <!-- Ảnh lớn -->
                                                     <div class="col-md-10">
                                                         <div class="scroll-image main-image">
-                                                            <div class="image-additional slick-carousel"
-                                                                data-asnavfor=".image-thumbnail" data-fade="true"
-                                                                data-columns4="1" data-columns3="1" data-columns2="1"
-                                                                data-columns1="1" data-columns="1" data-nav="true">
-                                                                <div class="img-item slick-slide">
-                                                                    <img width="900" height="900"
-                                                                        src="<?= $chiTietSanPham['img']; ?>" alt=""
+                                                            <div class="image-additional">
+                                                                <div class="img-item">
+                                                                    <img
+                                                                        id="main-image"
+                                                                        width="900"
+                                                                        height="900"
+                                                                        src="<?= $chiTietSanPham['img']; ?>"
+                                                                        alt="Main Image"
                                                                         title="">
                                                                 </div>
                                                             </div>
@@ -73,12 +74,13 @@
                                                 </div>
                                             </div>
 
+
                                             <div class="product-info col-lg-5 col-md-12 col-12">
                                                 <h1 class="title"><?= $chiTietSanPham['ten']; ?></h1>
                                                 <span class="price">
                                                     <del
-                                                        aria-hidden="true"><span><?= number_format($chiTietSanPham['gia_ban'], 0, ',', '.'); ?></span></del>
-                                                    <ins><span><?= number_format($chiTietSanPham['gia_km'], 0, ',', '.'); ?></span></ins>
+                                                        aria-hidden="true"><span><?= number_format($chiTietSanPham['gia_ban'], 0, ',', '.'); ?>đ</span></del>
+                                                    <ins><span><?= number_format($chiTietSanPham['gia_km'], 0, ',', '.'); ?>đ</span></ins>
                                                 </span>
                                                 <div class="rating">
                                                     <div class="star star-5"></div>
@@ -529,7 +531,7 @@
                                                                                     href="shop-details.html"><?= $sanPhamLienQuan['ten'] ?></a>
                                                                             </h3>
                                                                             <span
-                                                                                class="price"><?= $sanPhamLienQuan['gia_ban'] ?></span>
+                                                                                class="price"><?= $sanPhamLienQuan['gia_ban'] ?>đ</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -601,3 +603,9 @@
 <!-- Mirrored from caketheme.com/html/mojuri/shop-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Nov 2024 11:03:01 GMT -->
 
 </html>
+<script>
+    function changeMainImage(imageSrc) {
+        const mainImage = document.getElementById('main-image');
+        mainImage.src = imageSrc;
+    }
+</script>

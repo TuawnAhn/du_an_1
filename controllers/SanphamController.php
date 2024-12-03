@@ -43,7 +43,6 @@ class SanPhamController
             $listSanPhamById = $this->modelSanPham->getSanPhamByDanhMucId($danhMucId);
 
             // Chuyển view sang danh mục sản phẩm
-            $viewFile = './views/sanpham/danh_muc_san_pham.php';
         } elseif (isset($_GET['search'])) {
             // Kiểm tra nếu có tìm kiếm từ form
             $searchTerm = $_GET['search'];
@@ -59,9 +58,7 @@ class SanPhamController
         // var_dump($danhmucs);
 
         require_once './views/danhsachsanpham.php';
-
-
-
+        // require_once './views/sanpham/danh_muc_san_pham.php';
 
         // Gửi thông tin cho view
         require_once $viewFile;

@@ -69,8 +69,6 @@ match ($act) {
   'chitietsanpham' => $id ? (new ChiTietSanPhamController())->chitietsanpham($id) : print("ID sản phẩm không hợp lệ."),
 
 
-  // 'danh-muc-san-pham'      => (new SanPhamController())->sanpham(),
-
 
   // // Chi tiết sản phẩm
 
