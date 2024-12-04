@@ -11,7 +11,7 @@ class DangKiController
     {
         $lisQuanTri = $this->modelDangKi->getAllDangKi(1);
         // var_dump($lisQuanTri);die;
-        require_once './views/dangki//dangki.php';
+        require_once './views/dangki/dangki.php';
     }
     public function formDangKi()
     {

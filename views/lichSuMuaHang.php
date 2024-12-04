@@ -44,15 +44,32 @@
                     <td><?= number_format($donHangItem['tong_tien'], 0, ',', '.') ?> đ</td>
                     <td><?= $pTTT[$donHangItem['phuong_thuc_thanh_toan_id']] ?></td>
                     <td><?= $trangThaiDonHang[$donHangItem['trang_thai_don_hang_id']] ?></td>
+
                     <td>
                       <a href="?act=chitietdonhang&id=<?= $donHangItem['id'] ?>" class="p-2">
                         <i class="bi bi-eye"></i>
                       </a>
-                      
-                      <a href="?act=huy-don-hang&id_don_hang=<?= $donHangItem['id'] ?>"
-                        onclick="return confirm('Xác định hủy đơn hàng?')">
-                        <i class="bi bi-trash-fill"></i> Hủy
-                      </a>
+
+
+                      <?php if ($donHangItem['trang_thai_don_hang_id'] == 7) { ?>
+                        <a href="?act=xoa-don-hang&id_don_hang=<?= $donHangItem['id'] ?>"
+                          onclick="return confirm('Xác định xóa đơn hàng?')">
+                          <i class="bi bi-trash-fill"></i> Xóa
+                        </a>
+                      <?php } ?>
+                      <?php if ($donHangItem['trang_thai_don_hang_id'] != 7 && $donHangItem['trang_thai_don_hang_id'] != 5) { ?>
+                        <a href="?act=huy-don-hang&id_don_hang=<?= $donHangItem['id'] ?>"
+                          onclick="return confirm('Xác định hủy đơn hàng?')">
+                          <i class="bi bi-trash-fill"></i> Hủy
+                        </a>
+                      <?php } ?>
+                      <?php if ($donHangItem['trang_thai_don_hang_id'] == 4) { ?>
+                        <a href="?act=xac-nhan-don-hang&id_don_hang=<?= $donHangItem['id'] ?>"
+                          onclick="return confirm('Xác nhận đơn hàng?')">
+                          <i class="bi bi-check"></i> Xác nhận
+                        </a>
+                      <?php } ?>
+
                     </td>
                   </tr>
                 <?php endforeach; ?>

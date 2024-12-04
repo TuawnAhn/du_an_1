@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
   <script data-cfasync="false" nonce="7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2">
     try {
-      (function(w, d) {
-        ! function(ne, nf, ng, nh) {
+      (function (w, d) {
+        ! function (ne, nf, ng, nh) {
           if (ne.zaraz) console.error("zaraz is loaded twice");
           else {
             ne[ng] = ne[ng] || {};
@@ -24,8 +24,8 @@
             ne.zaraz._v = "5823";
             ne.zaraz._n = "7c3e3094-7a7b-4e93-8a9e-8b6d28fa31d2";
             ne.zaraz.q = [];
-            ne.zaraz._f = function(ni) {
-              return async function() {
+            ne.zaraz._f = function (ni) {
+              return async function () {
                 var nj = Array.prototype.slice.call(arguments);
                 ne.zaraz.q.push({
                   m: ni,
@@ -51,9 +51,9 @@
               ne[ng].o = (new Date).getTimezoneOffset();
               if (ne.dataLayer)
                 for (const no of Object.entries(Object.entries(dataLayer).reduce(((np, nq) => ({
-                    ...np[1],
-                    ...nq[1]
-                  })), {}))) zaraz.set(no[0], no[1], {
+                  ...np[1],
+                  ...nq[1]
+                })), {}))) zaraz.set(no[0], no[1], {
                   scope: "page"
                 });
               ne[ng].q = [];
@@ -291,7 +291,7 @@
     <input type="password" placeholder="Password" id="password" name="password">
     <div class="error-message">
       <?php
-      if ($_SESSION && $_SESSION['flash']) {
+      if (isset($_SESSION['flash'])) {
         echo $_SESSION['flash'];
       }
       ?>

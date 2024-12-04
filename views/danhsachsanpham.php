@@ -140,7 +140,7 @@
                                                                             </div>
                                                                             <div class="product-thumb-hover">
                                                                                 <a href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
-                                                                                    <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="post-image" alt="">
+                                                                                    <img width="600" height="600" src="<?= 'http://localhost/du_an_1/' . $sanPham['img'] ?>" class="post-image" alt="">
                                                                                     <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="hover-image back" alt="">
                                                                                 </a>
                                                                             </div>

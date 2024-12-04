@@ -1,5 +1,5 @@
 <?php
-require_once('views/layout/header.php'); 
+require_once('views/layout/header.php');
 ?>
 
 <body class="home">
@@ -31,8 +31,8 @@ require_once('views/layout/header.php');
                 <tbody>
                   <?php
                   $tongGioHang = 0;
-                  foreach ($chiTietGioHang as $sanPham) :
-                  ?>
+                  foreach ($chiTietGioHang as $sanPham):
+                    ?>
                     <tr>
                       <td>
                         <div class="shopping-cart__product-item">
@@ -60,7 +60,10 @@ require_once('views/layout/header.php');
                       <td>
                         <div class="qty-control position-relative">
                           <div class="qty-control__reduce">-</div>
-                          <input type="number" name="so_luong[<?= $sanPham['san_pham_id'] ?>]" class="qty-control__number text-center" value="<?= $sanPham['so_luong'] ?>" min="1" data-gia="<?= $sanPham['gia_km'] ?? $sanPham['gia_ban'] ?>" data-san-pham-id="<?= $sanPham['san_pham_id'] ?>">
+                          <input type="number" name="so_luong[<?= $sanPham['san_pham_id'] ?>]"
+                            class="qty-control__number text-center" value="<?= $sanPham['so_luong'] ?>" min="1"
+                            data-gia="<?= $sanPham['gia_km'] ?? $sanPham['gia_ban'] ?>"
+                            data-san-pham-id="<?= $sanPham['san_pham_id'] ?>">
                           <div class="qty-control__increase">+</div>
                         </div><!-- .qty-control -->
                       </td>
@@ -79,9 +82,19 @@ require_once('views/layout/header.php');
                         </span>
                       </td>
                       <td>
-                        <form action="<?= '?act=xoa-san-pham-gio-hang' ?>" method="POST">
+                        <div style="display:none">
+                          <form id="<?= $sanPham['san_pham_id'] ?>" action="?act=xoa-san-pham-gio-hang" method="POST">
+                            <input type="hidden" name="san_pham_id" value="<?= $sanPham['san_pham_id'] ?>">
+                            <button type="submit" class="btn btn-danger"
+                              onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')">
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </form>
+                        </div>
+                        <form id="<?= $sanPham['san_pham_id'] ?>" action="?act=xoa-san-pham-gio-hang" method="POST">
                           <input type="hidden" name="san_pham_id" value="<?= $sanPham['san_pham_id'] ?>">
-                          <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')">
+                          <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')">
                             <i class="bi bi-trash"></i>
                           </button>
                         </form>
@@ -104,7 +117,7 @@ require_once('views/layout/header.php');
 
             <script>
               document.querySelectorAll('.qty-control__reduce').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                   const input = this.nextElementSibling;
                   let value = parseInt(input.value);
                   if (value > 1) {
@@ -115,7 +128,7 @@ require_once('views/layout/header.php');
               });
 
               document.querySelectorAll('.qty-control__increase').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                   const input = this.previousElementSibling;
                   let value = parseInt(input.value);
                   value++;
@@ -152,12 +165,12 @@ require_once('views/layout/header.php');
                     <tr>
                       <th>Tổng thanh toán</th>
                       <td><?php $phiship = 50000;
-                          if ($tongGioHang > 0) {
-                            echo number_format($tongGioHang + $phiship, 0, ',', '.') . ' đ';
-                          } else {
-                            echo "0 đ";
-                          }
-                          ?> </td>
+                      if ($tongGioHang > 0) {
+                        echo number_format($tongGioHang + $phiship, 0, ',', '.') . ' đ';
+                      } else {
+                        echo "0 đ";
+                      }
+                      ?> </td>
                     </tr>
                   </tbody>
                 </table>

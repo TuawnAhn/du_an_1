@@ -47,7 +47,7 @@ class TaiKhoanController
             }
         }
     }
-    public function logout()
+    public function logout(): void
     {
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
@@ -117,15 +117,14 @@ class TaiKhoanController
             $new_pass = $_POST['new_pass'];
             $confirm_pass = $_POST['confirm_pass'];
 
-            // var_dump($old_pass);die;
 
             // Lấy thông tin user từ session
-            $user_id = $_SESSION['user']['id'];
+            $user_id = $_SESSION['user']['email'];
             $user = $this->modelTaiKhoan->getAllTaiKhoanformEmail($user_id);
-
             $checkPass = $old_pass == $user['mat_khau'];
-
             $errors = [];
+            $_SESSION['success'] = '';
+            $_SESSION['error'] = '';
 
             if (!$checkPass) {
                 $errors['old_pass'] = 'Mật khẩu người dùng không đúng';
@@ -142,8 +141,6 @@ class TaiKhoanController
             if (empty($confirm_pass)) {
                 $errors['confirm_pass'] = 'Vui lòng điền trường dữ liệu';
             }
-            $_SESSION['error'] = $errors;
-
             if (!$errors) {
                 $hashPass = $new_pass;
                 $status = $this->modelTaiKhoan->resetPassword($user['id'], $hashPass);
@@ -153,6 +150,7 @@ class TaiKhoanController
                     header("Location: ?act=form-sua-thong-tin-ca-nhan");
                 }
             } else {
+                $_SESSION['error'] = $errors;
                 $_SESSION['flash'] = true;
                 header("Location: ?act=form-sua-thong-tin-ca-nhan");
                 exit();

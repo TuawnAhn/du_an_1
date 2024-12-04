@@ -69,7 +69,7 @@
               <label class="col-lg-3 control-label">Họ tên:</label>
               <div class="col-lg-12">
                 <input class="form-control" name="ho_ten" type="text" value="<?= $thongTin['ho_ten']; ?>">
-           
+
                 <span
                   class="text-danger"><?= !empty($_SESSION['errors']['ho_ten']) ? $_SESSION['errors']['ho_ten'] : '' ?></span>
               </div>
@@ -130,16 +130,20 @@
         </div>
         <hr>
         <h3>Đổi mật khẩu</h3>
+        <?php if ($_SESSION['error'] || $_SESSION['success']) { ?>
+          <div class="<?= $_SESSION['error'] ? 'error' : 'success' ?>">
+            <?php if ($_SESSION['error']) { ?>
+              <?php echo $_SESSION['error']['old_pass'] ?? ''; ?>
+              <?php echo $_SESSION['error']['confirm_pass'] ?? ''; ?>
+            <?php } ?>
 
-        <?php if (isset($_SESSION['error']) || isset($_SESSION['success'])) { ?>
-  <div class="<?= isset($_SESSION['error']) ? 'error' : 'success' ?>">
-    <?php if (isset($_SESSION['error'])) { ?>
-      <?php echo $_SESSION['error']['old_pass'] ?? ''; ?>
-      <?php echo $_SESSION['error']['confirm_pass'] ?? ''; ?>
-    <?php } ?>
-    
-  </div>
-<?php } ?>
+            <?php if ($_SESSION['success']) { ?>
+              <?php echo $_SESSION['success'] ?? ''; ?>
+
+            <?php } ?>
+
+          </div>
+        <?php } ?>
 
         <form action="?act=sua-mat-khau-ca-nhan" method="post">
           <div class="form-group">

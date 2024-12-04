@@ -286,7 +286,7 @@
   <form action="?act=check-dang-ky" method="post">
 
     <label for="email">Email</label>
-    <input type="gmail" placeholder="Email or Phone" id="email" name="email">
+    <input type="email" placeholder="Email or Phone" id="email" name="email">
 
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password" name="password">

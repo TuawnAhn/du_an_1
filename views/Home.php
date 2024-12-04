@@ -128,8 +128,8 @@ require_once('views/layout/header.php'); ?>
                                                                         </div>
                                                                         <div class="product-thumb-hover">
                                                                             <a href="?act=chitietsanpham&id=<?= $sanPham['id'] ?>">
-                                                                                <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="<?= $sanPham['img'] ?>" class="hover-image back" alt="">
+                                                                                <img width="600" height="600" src="<?= 'http://localhost/du_an_1/' . $sanPham['img'] ?>" class="post-image" alt="">
+                                                                                <img width="600" height="600" src="<?= 'http://localhost/du_an_1/' . $sanPham['img'] ?>" class="hover-image back" alt="">
                                                                             </a>
                                                                         </div>
                                                                         <div class="product-button">
@@ -272,8 +272,8 @@ require_once('views/layout/header.php'); ?>
                                                                         </div>
                                                                         <div class="product-thumb-hover">
                                                                             <a href="?act=tin-tuc&id=<?= $tintuc['id'] ?>">
-                                                                                <img width="600" height="600" src="<?= 'http://localhost/DA1-Silver_Ring' . $tintuc['img'] ?>" class="post-image" alt="">
-                                                                                <img width="600" height="600" src="<?= 'http://localhost/DA1-Silver_Ring' . $tintuc['img'] ?>" class="hover-image back" alt="">
+                                                                                <img width="600" height="600" src="<?= 'http://localhost/du_an_1/admin/' . $tintuc['img'] ?>" class="post-image" alt="">
+                                                                                <img width="600" height="600" src="<?= 'http://localhost/du_an_1/admin/' . $tintuc['img'] ?>" class="hover-image back" alt="">
                                                                             </a>
                                                                         </div>
 

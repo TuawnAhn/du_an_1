@@ -173,6 +173,28 @@ WHERE don_hangs.id = :id";
       die(); // Dừng chương trình để kiểm tra
     }
   }
+
+
+  public function xoaDH($donHangId)
+  {
+    try {
+      $sql = 'DELETE FROM chi_tiet_don_hangs WHERE don_hang_id = :id';
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute([':id' => $donHangId]);
+
+      $sql = 'DELETE FROM don_hangs WHERE id = :id';
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute([':id' => $donHangId]);
+
+
+      return true;
+
+    } catch (Exception $e) {
+      echo "Lỗi: " . $e->getMessage();
+      return false;
+    }
+  }
+
   public function searchOrders($search, $status)
   {
 
@@ -198,7 +220,7 @@ WHERE don_hangs.id = :id";
 
     return $stmt->fetchAll();  // Trả về kết quả tìm kiếm
   }
-  public function addChiTietDonHang($donHangId, $sanPhamId, $donGia, $soLuong,  $tongTien)
+  public function addChiTietDonHang($donHangId, $sanPhamId, $donGia, $soLuong, $tongTien)
   {
     try {
       $sql = "INSERT INTO chi_tiet_don_hangs (don_hang_id, san_pham_id, so_luong, don_gia, tong_tien) VALUES (:donHangId, :sanPhamId, :soLuong, :donGia, :tongTien)";
