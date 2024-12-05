@@ -58,6 +58,7 @@ class SanPhamController
         // var_dump($danhmucs);
 
         require_once './views/danhsachsanpham.php';
+        require_once './views/Home.php';
         // require_once './views/sanpham/danh_muc_san_pham.php';
 
         // Gửi thông tin cho view

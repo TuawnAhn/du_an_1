@@ -144,4 +144,24 @@ WHERE don_hangs.id = :id
             echo 'Lỗi' . $e->getMessage();
         }
     }
+    public function getTaiKhoanByDonHang($don_hang_id)
+    {
+        try {
+            // Giả sử bảng `don_hang` có cột `id_tai_khoan` là khóa ngoại liên kết đến bảng `tai_khoans`
+            $sql = "
+                SELECT tk.* 
+                FROM tai_khoans tk
+                JOIN don_hangs dh ON tk.id = dh.tai_khoan_id
+                WHERE dh.id = :don_hang_id
+            ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':don_hang_id', $don_hang_id, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC); // Lấy một bản ghi duy nhất
+        } catch (PDOException $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+        }
+    }
+    
+    
 }

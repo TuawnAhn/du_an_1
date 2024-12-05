@@ -116,35 +116,43 @@
                                         <hr>
 
                                         <div class="row" style="margin-bottom: 20px;">
+    <!-- Thông tin người đặt -->
+    <div class="col-md-4">
+        <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin người đặt</u></h5>
+        <?php if ($user): ?>
+            <p>Họ tên: <?= htmlspecialchars($user['ho_ten']) ?></p>
+            <p>Email: <?= htmlspecialchars($user['email']) ?></p>
+            <p>SĐT: <?= htmlspecialchars($user['so_dien_thoai']) ?></p>
+        <?php else: ?>
+            <p>Không tìm thấy thông tin người đặt.</p>
+        <?php endif; ?>
+    </div>
 
-                                            <div class="col-md-4">
-                                                <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin người đặt</u></h5>
-                                                <p>Họ tên: <?= $donhang['ho_ten'] ?></p>
-                                                <p>Email: <?= $donhang['email'] ?></p>
-                                                <p>SĐT: <?= $donhang['so_dien_thoai'] ?></p>
-                                            </div>
+    <!-- Thông tin người nhận -->
+    <div class="col-md-4">
+        <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin người nhận</u></h5>
+        <p>Họ tên: <?= htmlspecialchars($donhang['ho_ten_nguoi_nhan']) ?></p>
+        <p>Email: <?= htmlspecialchars($donhang['email_nguoi_nhan']) ?></p>
+        <p>SĐT: <?= htmlspecialchars($donhang['sdt_nguoi_nhan']) ?></p>
+        <p>Địa chỉ: <?= htmlspecialchars($donhang['dia_chi_nguoi_nhan']) ?></p>
+    </div>
 
-                                            <div class="col-md-4">
-                                                <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin người nhận</u></h5>
-                                                <p>Họ tên: <?= $donhang['ho_ten_nguoi_nhan'] ?></p>
-                                                <p>Email: <?= $donhang['email_nguoi_nhan'] ?></p>
-                                                <p>SĐT: <?= $donhang['sdt_nguoi_nhan'] ?></p>
-                                                <p>Địa chỉ: <?= $donhang['dia_chi_nguoi_nhan'] ?></p>
-                                            </div>
+    <!-- Thông tin đơn hàng -->
+    <div class="col-md-4">
+        <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin đơn hàng</u></h5>
+        <p>Mã đơn hàng: <?= htmlspecialchars($donhang['ma_don_hang']) ?></p>
+        <p>Phương thức thanh toán:
+            <?php if ($donhang['phuong_thuc_thanh_toan_id'] == 1): ?>
+                <span>Thanh toán tiền mặt khi giao hàng</span>
+            <?php elseif ($donhang['phuong_thuc_thanh_toan_id'] == 2): ?>
+                <span>Thanh toán qua ví Momo, ZaloPay,...</span>
+            <?php endif; ?>
+        </p>
+    </div>
+</div>
 
-                                            <div class="col-md-4">
-                                                <h5 class="h3" style="padding-bottom: 10px;"><u>Thông tin đơn hàng</u></h5>
-                                                <p>Mã đơn hàng: <?= $donhang['ma_don_hang'] ?></p>
-                                                <p>Phương thức thanh toán:
-                                                    <?php if ($donhang['phuong_thuc_thanh_toan_id'] == 1) { ?>
-                                                        <span>Thanh toán tiền mặt khi giao hàng</span>
-                                                    <?php } else if ($donhang['phuong_thuc_thanh_toan_id'] == 2) { ?>
-                                                        <span>Thanh toán qua ví Momo, ZaloPay,...</span>
-                                                    <?php } ?>
-                                                </p>
 
-                                            </div>
-                                        </div>
+
                                         <hr>
 
                                         <!-- Bảng sản phẩm -->
@@ -164,12 +172,12 @@
                                                 <?php foreach ($sanPhamDonHang as $key => $SanPham) : ?> <tr>
                                                         <td><?= $key + 1 ?></td>
                                                         <td><?= $SanPham['ten'] ?></td>
-                                                        <td><?= number_format($SanPham['don_gia'], 2) ?></td>
+                                                        <td><?= number_format($SanPham['don_gia']) ?></td>
                                                         <td><?= $SanPham['so_luong'] ?></td>
-                                                        <td><?= number_format($SanPham['thanh_tien'], 2) ?></td>
+                                                        <td><?= number_format($SanPham['tong_tien']) ?></td>
 
                                                     </tr>
-                                                    <?php $tong_tien += $SanPham['thanh_tien'] ?>
+                                                    <?php $tong_tien += $SanPham['tong_tien'] ?>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -182,8 +190,8 @@
                                         <p>Thành tiền:
                                             <?= $tong_tien  ?>
                                         </p>
-                                        <p>Vận chuyển: 200.000 </p>
-                                        <p>Tổng tiền: <?= $tong_tien + 200000 ?></p>
+                                        <p>Vận chuyển: 50.000 </p>
+                                        <p>Tổng tiền: <?= $tong_tien + 50000 ?></p>
 
                                         <!-- Nút điều hướng -->
                                         <div class="d-flex justify-content-between mt-3">

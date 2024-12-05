@@ -28,21 +28,22 @@ class DonHangController
 
     public function detail()
     {
-        $don_hang_id = $_GET['id_don_hang'];
-
-        echo "Don Hang ID: " . $don_hang_id;
-
-
+        $don_hang_id = $_GET['id_don_hang']; // Lấy ID đơn hàng từ query string
+    
+        // Lấy thông tin chi tiết đơn hàng
         $donhang = $this->modelDonHang->getDetailDonHang($don_hang_id);
-
-        //Lay danh sach o bang chi tiet don hang
-
+    
+        // Lấy thông tin tài khoản của người đã đặt đơn hàng
+        $user = $this->modelDonHang->getTaiKhoanByDonHang($don_hang_id);
+    
+        // Lấy danh sách sản phẩm trong đơn hàng
         $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($don_hang_id);
-
-        // $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
-
+    
         require_once './views/donhang/chiTietDonHang.php';
     }
+    
+    
+    
 
     public function edit()
     {

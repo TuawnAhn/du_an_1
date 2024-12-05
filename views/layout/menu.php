@@ -11,7 +11,7 @@
                             <div class="site-logo">
                                 <a href="?act=home">
                                     <img
-                                        src="media/logo.png"
+                                        src="media/logo1.png"
                                         alt="Mojuri – Jewelry Store">
                                 </a>
                             </div>
@@ -28,114 +28,14 @@
                                             <a href="?act=danhsachsanpham"><span class="menu-item-text">Shop</span></a>
                                             <ul class="sub-menu">
                                                 <li class="level-1 menu-item menu-item-has-children">
-                                                    <?php foreach ($listDanhMuc as $key => $header): ?>
-                                                        <a href="shop-grid-left.html"><span
-                                                                class="menu-item-text"><?= $header['ten_danh_muc'] ?></span></a>
+                                                    <?php foreach ($listDanhMuc as $key => $danhMuc) :?>
+                                                        <a href="?act=danh-muc-san-pham&iddm=<?= $danhMuc['id'] ?>"><span
+                                                                class="menu-item-text"><?= $danhMuc['ten_danh_muc'] ?></span></a>
                                                     <?php endforeach ?>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <!-- <li class="level-0 menu-item menu-item-has-children mega-menu mega-menu-fullwidth align-center">
-                                            <a href="blog-grid-left.html"><span class="menu-item-text">Bài viết</span></a>
-                                            <div class="sub-menu">
-                                                <div class="row">
-                                                    <div class="col-md-5">
-                                                        <div class="menu-section">
-                                                            <h2 class="sub-menu-title">Loại blog</h2>
-                                                            <ul class="menu-list">
-                                                                <li>
-                                                                    <a href="blog-grid-left.html"><span class="menu-item-text">Blog Grid - Left Sidebar</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-grid-right.html"><span class="menu-item-text">Blog Grid - Right Sidebar</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-list-left.html"><span class="menu-item-text">Blog List - Left Sidebar</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-list-right.html"><span class="menu-item-text">Blog List - Right Sidebar</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-grid-fullwidth.html"><span class="menu-item-text">Blog Grid - No Sidebar</span></a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-
-                                                        <div class="menu-section">
-                                                            <h2 class="sub-menu-title">Chi tiết blog</h2>
-                                                            <ul class="menu-list">
-                                                                <li>
-                                                                    <a href="blog-details-left.html"><span class="menu-item-text">Blog Details - Left Sidebar</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-details-right.html"><span class="menu-item-text">Blog Details - Right Sidebar</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-details-fullwidth.html"><span class="menu-item-text">Blog Details - No Sidebar</span></a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div class="menu-section">
-                                                            <h2 class="sub-menu-title">Blog gần đây</h2>
-                                                            <div class="block block-posts recent-posts p-t-5">
-                                                                <ul class="posts-list">
-                                                                    <li class="post-item">
-                                                                        <a href="blog-details-right.html" class="post-image">
-                                                                            <img src="media/blog/1.jpg">
-                                                                        </a>
-                                                                        <div class="post-content">
-                                                                            <h2 class="post-title">
-                                                                                <a href="blog-details-right.html">
-                                                                                    Bridial Fair Collections 2023
-                                                                                </a>
-                                                                            </h2>
-                                                                            <div class="post-time">
-                                                                                <span class="post-date">May 30, 2022</span>
-                                                                                <span class="post-comment">4 Comments</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="post-item">
-                                                                        <a href="blog-details-right.html" class="post-image">
-                                                                            <img src="media/blog/2.jpg">
-                                                                        </a>
-                                                                        <div class="post-content">
-                                                                            <h2 class="post-title">
-                                                                                <a href="blog-details-right.html">
-                                                                                    Our Sterling Silver
-                                                                                </a>
-                                                                            </h2>
-                                                                            <div class="post-time">
-                                                                                <span class="post-date">Aug 24, 2022</span>
-                                                                                <span class="post-comment">2 Comments</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="post-item">
-                                                                        <a href="blog-details-right.html" class="post-image">
-                                                                            <img src="media/blog/3.jpg">
-                                                                        </a>
-                                                                        <div class="post-content">
-                                                                            <h2 class="post-title">
-                                                                                <a href="blog-details-right.html">
-                                                                                    Kitchen Inspired On Japanese
-                                                                                </a>
-                                                                            </h2>
-                                                                            <div class="post-time">
-                                                                                <span class="post-date">Dec 06, 2022</span>
-                                                                                <span class="post-comment">1 Comment</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li> -->
+                                    
                                         <li class="level-0 menu-item menu-item-has-children">
                                             <a href="#"><span class="menu-item-text">Trang</span></a>
                                             <ul class="sub-menu">
@@ -211,5 +111,78 @@
     </div>
 </header>
 <style>
+/* Thêm nền trắng cho header */
+#site-header {
+    background-color: white; /* Nền trắng */
+    color: black; /* Đổi màu chữ thành đen để dễ nhìn */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tạo đổ bóng nhẹ */
+}
 
+/* Thay đổi màu sắc của menu */
+#menu-main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around; /* Căn đều các mục menu */
+    align-items: center;
+}
+.site-logo img {
+    width: 100px !important; /* Đặt !important để ghi đè */
+    height: auto !important;
+    max-width: none !important;
+}
+
+
+/* Điều chỉnh vùng chứa ảnh (nếu cần) */
+
+/* Điều chỉnh header để phù hợp với logo to */
+.header-left {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: auto; /* Tự động theo nội dung */
+}
+
+#menu-main-menu > li > a {
+    text-decoration: none;
+    color: black; /* Màu chữ menu */
+
+   
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#menu-main-menu > li > a:hover {
+    background-color: #f5f5f5; /* Nền xám nhạt khi hover */
+    color: #333; /* Màu chữ đậm hơn khi hover */
+    border-radius: 5px; /* Góc bo tròn khi hover */
+}
+
+/* Submenu (dropdown menu) */
+.sub-menu {
+    position: absolute;
+    background-color: white; /* Nền trắng cho submenu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tạo đổ bóng cho submenu */
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: none; /* Ẩn submenu ban đầu */
+}
+
+.menu-item-has-children:hover .sub-menu {
+    display: block; /* Hiển thị submenu khi hover */
+}
+
+.sub-menu > li > a {
+    display: block;
+    padding: ;
+    color: black; /* Màu chữ của submenu */
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sub-menu > li > a:hover {
+    background-color: #f5f5f5; /* Nền xám nhạt khi hover submenu */
+    color: #333; /* Màu chữ đậm hơn khi hover submenu */
+}
 </style>
